@@ -239,3 +239,16 @@ link : <https://github.com/>
 이것은 ~~취소선~~
 이것은 <u>밑줄</u>
 ```
+
+## 8. 이미지 (image)
+
+ - 이미지를 markdown에 삽입할 수 있는데 2가지 방법이 사용됨
+ - 처음 방법은 사이즈 조절이 불가능
+
+```
+![alt 텍스트](/경로/이미지.jpg, "마우스 오버 텍스트")
+<img width="" height=""></img>
+```
+
+![멍](/resource/img/멍.jpg, "멍")
+<img src="/resource/img/멍.jpg" width="30" height="80"></img>
