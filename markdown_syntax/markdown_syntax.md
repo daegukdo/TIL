@@ -245,6 +245,7 @@ link : <https://github.com/>
 
  - 이미지를 markdown에 삽입할 수 있는데 2가지 방법이 사용됨
  - 처음 방법은 사이즈 조절이 불가능
+ - 처음 방법은 local path 테스트 진행 시, 잘되지 않음
 
 ```
 ![alt 텍스트](/경로/이미지.jpg, "마우스 오버 텍스트")
@@ -253,3 +254,10 @@ link : <https://github.com/>
 
 ![mung](./resource/img/멍.jpg, "멍")
 <img src="./resource/img/멍.jpg" width="120" height="400"></img>
+
+
+## 9. 에디터 (editor)
+
+ - 추후에 다른 테스트들을 진행할 예정
+ - 현재 사용하고 있는 방법은 sublime text 3로 편집 후 commit-push 과정을 거쳐 githib에서 확인 중!
+ - 생각보다 많이 불편 ... 바로바로 작성 후 md를 확인할 수 있는 editor가 있으면 좋을 것 같음 
