@@ -240,6 +240,7 @@ link : <https://github.com/>
 이것은 <u>밑줄</u>
 ```
 
+
 ## 8. 이미지 (image)
 
  - 이미지를 markdown에 삽입할 수 있는데 2가지 방법이 사용됨
@@ -250,5 +251,5 @@ link : <https://github.com/>
 <img width="" height=""></img>
 ```
 
-![멍](/resource/img/멍.jpg, "멍")
-<img src="/resource/img/멍.jpg" width="30" height="80"></img>
+![멍](./resource/img/멍.jpg, "멍")
+<img src="./resource/img/멍.jpg" width="30" height="80"></img>
