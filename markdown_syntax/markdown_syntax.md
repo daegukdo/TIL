@@ -251,5 +251,5 @@ link : <https://github.com/>
 <img width="" height=""></img>
 ```
 
-![멍](./resource/img/멍.jpg, "멍")
-<img src="./resource/img/멍.jpg" width="30" height="80"></img>
+![mung](./resource/img/멍.jpg, "멍")
+<img src="./resource/img/멍.jpg" width="120" height="400"></img>
