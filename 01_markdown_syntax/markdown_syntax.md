@@ -99,6 +99,10 @@
  - tab키를 사용하여 수준을 조절할 수 있음
 
 ```
+1. 1번
+	2. 2번
+		3. 3번
+
 * 1번
 	* 2번
 		* 3번
@@ -116,6 +120,10 @@
 		+  c 네요
 			= 동시에 d에요
 ```
+
+1. 1번
+	2. 2번
+		3. 3번
 
 * 1번
 	* 2번
@@ -219,6 +227,7 @@
  ``` 
 
 link : [떠나자! 깃허브의 세계로](https://github.com/, "github")
+
 link : <https://github.com/>
 
 
@@ -261,3 +270,17 @@ link : <https://github.com/>
  - 추후에 다른 테스트들을 진행할 예정
  - 현재 사용하고 있는 방법은 sublime text 3로 편집 후 commit-push 과정을 거쳐 githib에서 확인 중!
  - 생각보다 많이 불편 ... 바로바로 작성 후 md를 확인할 수 있는 editor가 있으면 좋을 것 같음 
+ - 많이 쓰다보면 그냥 편집하는게 가장 편할지도 모르겠음
+
+## 10. 참고자료 (reference)
+
+>> 세상에 너무나 위대하고 성실하고 멋지고 아름다운 분들이 많습니다
+>> 많이 배우겠습니다
+>> 감사합니다
+
+ 1. <https://gist.github.com/ihoneymon/652be052a0727ad59601>
+ 2. <https://eungbean.github.io/2018/06/11/How-to-use-markdown/>
+ 3. <https://heropy.blog/2017/09/30/markdown/>
+ 4. <https://gist.github.com/ninanung/73addc0263b34da5f021d2f02a356b7f>
+ 5. <https://youngmind.tistory.com/entry/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%82%AC%EC%9A%A9%EB%B2%95>
+ 
