@@ -1,0 +1,2052 @@
+[04:49:24.156] Assembly version : 0.1.7164.26257
+[04:49:26.496] Show Waiting
+[04:49:26.588] P9-02302.local
+[04:49:28.978] recv : S 0 0 0 - 12
+[04:49:29.908] laser ctrl test: on
+[04:49:31.908] laser ctrl test: off
+[04:49:38.408] Close Waiting
+[04:49:39.240] Confirm clicked. (PlanInfoWindow)
+[04:49:39.250] send : a 0
+[04:49:39.250] Patient ID : 20190523-Rt
+[04:49:39.250] Patient surgery side : R
+[04:49:39.250] Implant manufacturer : ZimmerBiomet
+[04:49:39.260] recv : y a Z R - 12
+[04:49:39.350] send : L L
+[04:49:39.350] recv : y L 	  - 12
+[04:49:39.860] CONFIRM clicked. (Preparation)
+[04:49:40.180] CONFIRM clicked. (NonSterileDiag)
+[04:49:40.532] CONFIRM clicked. (SterileDiag)
+[04:49:45.724] CONFIRM clicked. (BoneSelection)
+[04:49:47.586] CANCEL clicked. (ResectionStrategy)
+[04:49:48.098] CANCEL clicked. (BoneSelection)
+[04:49:48.620] Tool clicked. (SterileDiag)
+[04:49:49.202] CLEAR POSE clicked. (ToolCalibrationIntro)
+[04:49:49.212] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:49:49.844] Confirm clicked. (AlarmMessage)
+[04:49:49.854] send : K T
+[04:49:49.854] Close Waiting
+[04:49:49.854] Show Waiting
+[04:49:55.624] recv : y K 0 0 - 13
+[04:49:56.404] Close Waiting
+[04:49:56.404] Close Waiting
+[04:49:56.404] Show Waiting
+[04:49:56.454] send : C M
+[04:50:04.944] recv : y C 0 0 - 13
+[04:50:04.954] Close Waiting
+[04:50:17.896] NEXT clicked. (ToolCalibrationIntro)
+[04:50:17.896] WARNING - Do not move base marker after this step! (Pop up)
+[04:50:18.270] Confirm clicked. (AlarmMessage)
+[04:50:18.270] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:50:18.734] Confirm clicked. (AlarmMessage)
+[04:50:18.734] Close Waiting
+[04:50:18.734] Show Waiting
+[04:50:18.754] send : C M
+[04:50:19.494] recv : y C 0 0 - 13
+[04:50:19.504] Close Waiting
+[04:50:19.614] send : F 0
+[04:50:24.346] recv : F   0 - 13
+[04:50:25.586] recv : F   0 - 13
+[04:50:26.946] recv : F   0 - 13
+[04:50:28.306] recv : F   0 - 13
+[04:50:29.666] recv : F   0 - 13
+[04:50:31.026] recv : F   0 - 13
+[04:50:32.386] recv : F   0 - 13
+[04:50:33.746] recv : F   0 - 13
+[04:50:35.106] recv : F 	  0 - 13
+[04:50:36.466] recv : F 
+  0 - 19
+[04:50:37.826] recv : F   0 - 19
+[04:50:39.186] recv : F   0 - 19
+[04:50:40.546] recv : F   0 - 19
+[04:50:42.976] recv : F   0 - 13
+[04:50:44.566] recv : F   0 - 13
+[04:50:46.156] recv : F   0 - 13
+[04:50:47.746] recv : F   0 - 13
+[04:50:49.336] recv : F   0 - 13
+[04:50:50.926] recv : F   0 - 13
+[04:50:51.136] recv : y F 0 0 - 13
+[04:50:51.236] send : T 0
+[04:50:52.966] recv : s 0 0 0 - 13
+[04:50:54.548] BACK clicked. (ToolCalibration)
+[04:50:54.558] WARNING - All operated data will be lost (Pop up)
+[04:50:55.792] Confirm clicked. (AlarmMessage)
+[04:50:55.792] send : X 0
+[04:50:55.802] recv : y X 0 0 - 13
+[04:50:57.634] BACK clicked. (ToolCalibrationIntro)
+[04:50:59.378] CONFIRM clicked. (SterileDiag)
+[04:50:59.378] send : k 0
+[04:50:59.378] Close Waiting
+[04:50:59.378] Show Waiting
+[04:51:02.948] recv : y k 0 0 - 13
+[04:51:09.908] Close Waiting
+[04:51:11.752] CONFIRM clicked. (BoneSelection)
+[04:51:13.856] Measured Resection clicked. ()
+[04:51:15.620] BASE SUPPORT ON clicked. (RobotPositioning)
+[04:51:15.620] send : K T
+[04:51:15.620] Close Waiting
+[04:51:15.620] Show Waiting
+[04:51:21.390] recv : y K 0 0 - 13
+[04:51:22.150] Close Waiting
+[04:51:29.892] LOCKING ON clicked. (RobotPositioning)
+[04:51:29.902] WARNING - Please fix femur & tibia now (Pop up)
+[04:51:31.246] Confirm clicked. (AlarmMessage)
+[04:51:33.048] NEXT clicked. (RobotPositioning)
+[04:51:33.048] Close Waiting
+[04:51:33.048] Show Waiting
+[04:51:37.078] Close Waiting
+[04:51:37.088] Name of point : femur
+[04:51:37.088] Mean of points : 240.246619415283, -30.8356464385986, -1467.83344726562, 0.0738538809541483, 0.0828245217259048, -0.786408398600816
+[04:51:37.088] Threshold : 0.5
+[04:51:37.088] Name of point : tibia
+[04:51:37.088] Mean of points : 313.084169006348, -464.744438171387, -1588.8241027832, 0.0158496503306424, 0.250451631324499, -1.88444740863013
+[04:51:37.088] Threshold : 0.5
+[04:51:37.088] Name of point : base
+[04:51:37.088] Mean of points : 84.949036026001, 371.288424682617, -1687.97134399414, 0.4105883603963, 0.135265685164114, 0.0963702839549495
+[04:51:37.098] Threshold : 0.5
+[04:51:38.572] Femur first clicked. (AlarmMessage)
+[04:53:21.394] START clicked. (ResectionFemur)
+[04:53:21.404] ERROR - Bone movement exceeds threshold.
+Check Restoration point. (Pop up)
+[04:53:22.386] Confirm clicked. (AlarmMessage)
+[04:53:23.078] Skip clicked. (Restoration)
+[04:53:23.078] WARNING - Restoration check will be skipped. (Pop up)
+[04:53:25.550] Confirm clicked. (AlarmMessage)
+[04:53:28.430] START clicked. (ResectionFemur)
+[04:53:28.430] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:53:29.342] Confirm clicked. (AlarmMessage)
+[04:53:29.352] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:53:30.214] Confirm clicked. (AlarmMessage)
+[04:53:30.214] send : U 0
+[04:53:30.444] recv : y A F 1 - 13
+[04:53:30.644] recv : U 0 0 F - 19
+[04:53:33.484] recv : U 0 0 F - 13
+[04:53:38.074] recv : U 0 0 F - 13
+[04:53:41.394] recv : U 0 0 F - 13
+[04:53:43.364] recv : U 0 0 F - 13
+[04:53:47.434] recv : E  0 0 - 13
+[04:53:47.434] Close Waiting
+[04:53:47.434] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:53:47.634] recv : U 0 0 F - 13
+[04:53:52.204] PAUSE clicked. ()
+[04:53:52.204] send : S 0
+[04:53:52.204] Close Waiting
+[04:53:52.214] Show Waiting
+[04:53:52.214] recv : y S 0 0 - 13
+[04:53:56.244] Name of point : femur
+[04:53:56.244] Mean of points : 240.280330657959, -30.9017157554626, -1467.83435058594, 0.0738247615844821, 0.0828336722462407, -0.786363591503765
+[04:53:56.244] Threshold : 0.5
+[04:53:56.254] Name of point : base
+[04:53:56.254] Mean of points : 84.9618061065674, 371.221090698242, -1687.94208984375, 0.410558655235105, 0.135318991158383, 0.0964251432252069
+[04:53:56.254] Threshold : 0.5
+[04:53:56.254] Close Waiting
+[04:53:56.254] ,614.992408952169,-160.844600606883,183.659021824695,-131.930498267414,-8.77704039069875,8.30192560756539
+[04:53:56.254] send : X 0
+[04:53:56.254] send : S 0
+[04:53:56.264] recv : y X 0 0 - 13
+[04:53:56.274] recv : y S 0 0 - 13
+[04:53:57.194] STOP clicked. (ResectionFemur)
+[04:53:57.194] send : X 0
+[04:53:57.204] recv : y X 0 0 - 13
+[04:53:57.954] START clicked. (ResectionFemur)
+[04:53:57.954] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:53:58.606] Confirm clicked. (AlarmMessage)
+[04:53:58.616] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:53:59.228] Confirm clicked. (AlarmMessage)
+[04:53:59.228] send : U 0
+[04:53:59.458] recv : y A F 1 - 13
+[04:53:59.668] recv : U 0 0 F - 13
+[04:54:03.988] recv : U 0 0 F - 13
+[04:54:08.578] recv : U 0 0 F - 19
+[04:54:11.898] recv : U 0 0 F - 19
+[04:54:13.868] recv : U 0 0 F - 19
+[04:54:17.938] recv : E  0 0 - 19
+[04:54:17.938] Close Waiting
+[04:54:17.938] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:54:18.148] recv : U 0 0 F - 19
+[04:54:21.658] PAUSE clicked. ()
+[04:54:21.658] send : S 0
+[04:54:21.658] Close Waiting
+[04:54:21.658] Show Waiting
+[04:54:21.668] recv : y S 0 0 - 19
+[04:54:25.678] Name of point : femur
+[04:54:25.678] Mean of points : 240.277140045166, -30.9065900802612, -1467.83189697266, 0.0738453432285451, 0.0827839193908467, -0.786361882948573
+[04:54:25.678] Threshold : 0.5
+[04:54:25.678] Name of point : base
+[04:54:25.678] Mean of points : 84.9603523254395, 371.218058776855, -1687.95138549805, 0.410532781817342, 0.135320218622123, 0.0964167263437047
+[04:54:25.688] Threshold : 0.5
+[04:54:25.688] Close Waiting
+[04:54:25.688] ,614.991972187263,-160.852279262167,183.65128613437,-131.929496921382,-8.77965976888826,8.30165279674409
+[04:54:25.688] send : X 0
+[04:54:25.688] send : S 0
+[04:54:25.688] recv : y X 0 0 - 19
+[04:54:25.698] recv : y S 0 0 - 19
+[04:54:30.338] STOP clicked. (ResectionFemur)
+[04:54:30.338] send : X 0
+[04:54:30.338] recv : y X 0 0 - 19
+[04:54:31.138] START clicked. (ResectionFemur)
+[04:54:31.148] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:54:31.850] Confirm clicked. (AlarmMessage)
+[04:54:31.860] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:54:32.342] Confirm clicked. (AlarmMessage)
+[04:54:32.342] send : U 0
+[04:54:32.582] recv : y A F 1 - 19
+[04:54:32.792] recv : U 0 0 F - 19
+[04:54:37.112] recv : U 0 0 F - 19
+[04:54:41.702] recv : U 0 0 F - 20
+[04:54:45.022] recv : U 0 0 F - 20
+[04:54:46.992] recv : U 0 0 F - 20
+[04:54:51.072] recv : E  0 0 - 20
+[04:54:51.072] Close Waiting
+[04:54:51.072] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:54:51.282] recv : U 0 0 F - 20
+[04:54:54.502] PAUSE clicked. ()
+[04:54:54.502] send : S 0
+[04:54:54.502] Close Waiting
+[04:54:54.502] Show Waiting
+[04:54:54.512] recv : y S 0 0 - 20
+[04:54:58.512] Name of point : femur
+[04:54:58.512] Mean of points : 240.275004577637, -30.9045013427734, -1467.84279785156, 0.073840568549435, 0.0828334685446449, -0.786372715652615
+[04:54:58.512] Threshold : 0.5
+[04:54:58.512] Name of point : base
+[04:54:58.512] Mean of points : 84.9591991424561, 371.220556640625, -1687.95423583984, 0.410541921636278, 0.135353103499252, 0.0964292463973374
+[04:54:58.512] Threshold : 0.5
+[04:54:58.522] Close Waiting
+[04:54:58.522] ,614.982215200411,-160.850814583638,183.667311262762,-131.930438168374,-8.77966812681343,8.30007772830415
+[04:54:58.522] send : X 0
+[04:54:58.522] send : S 0
+[04:54:58.532] recv : y X 0 0 - 20
+[04:54:58.542] recv : y S 0 0 - 20
+[04:55:01.982] STOP clicked. (ResectionFemur)
+[04:55:01.982] send : X 0
+[04:55:01.982] recv : y X 0 0 - 20
+[04:55:02.872] START clicked. (ResectionFemur)
+[04:55:02.882] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:55:03.414] Confirm clicked. (AlarmMessage)
+[04:55:03.414] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:55:03.896] Confirm clicked. (AlarmMessage)
+[04:55:03.896] send : U 0
+[04:55:04.116] recv : y A F 1 - 20
+[04:55:04.326] recv : U 0 0 F - 20
+[04:55:08.656] recv : U 0 0 F - 20
+[04:55:13.246] recv : U 0 0 F - 20
+[04:55:16.566] recv : U 0 0 F - 21
+[04:55:18.536] recv : U 0 0 F - 21
+[04:55:22.616] recv : E  0 0 - 21
+[04:55:22.616] Close Waiting
+[04:55:22.616] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:55:22.816] recv : U 0 0 F - 21
+[04:55:28.896] PAUSE clicked. ()
+[04:55:28.896] send : S 0
+[04:55:28.896] Close Waiting
+[04:55:28.896] Show Waiting
+[04:55:28.906] recv : y S 0 0 - 21
+[04:55:32.926] Name of point : femur
+[04:55:32.926] Mean of points : 240.2705078125, -30.9033826828003, -1467.83829345703, 0.0737761582066044, 0.0827533579047432, -0.786394667740929
+[04:55:32.926] Threshold : 0.5
+[04:55:32.926] Name of point : base
+[04:55:32.926] Mean of points : 84.9575302124023, 371.221440124512, -1687.95971679688, 0.410547718334014, 0.135324780757246, 0.096421770517948
+[04:55:32.926] Threshold : 0.5
+[04:55:32.926] Close Waiting
+[04:55:32.936] ,615.014899409112,-160.846665785419,183.67132188358,-131.932485514807,-8.77897785682317,8.30644233278614
+[04:55:32.936] send : X 0
+[04:55:32.936] send : S 0
+[04:55:32.946] recv : y X 0 0 - 21
+[04:55:32.956] recv : y S 0 0 - 21
+[04:55:36.346] STOP clicked. (ResectionFemur)
+[04:55:36.346] send : X 0
+[04:55:36.356] recv : y X 0 0 - 21
+[04:55:37.366] START clicked. (ResectionFemur)
+[04:55:37.376] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:55:38.118] Confirm clicked. (AlarmMessage)
+[04:55:38.128] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:55:38.620] Confirm clicked. (AlarmMessage)
+[04:55:38.620] send : U 0
+[04:55:38.860] recv : y A F 1 - 21
+[04:55:39.070] recv : U 0 0 F - 21
+[04:55:43.390] recv : U 0 0 F - 21
+[04:55:47.980] recv : U 0 0 F - 21
+[04:55:51.300] recv : U 0 0 F - 22
+[04:55:53.270] recv : U 0 0 F - 22
+[04:55:57.340] recv : E  0 0 - 22
+[04:55:57.340] Close Waiting
+[04:55:57.340] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:55:57.550] recv : U 0 0 F - 22
+[04:56:01.650] PAUSE clicked. ()
+[04:56:01.650] send : S 0
+[04:56:01.650] Close Waiting
+[04:56:01.650] Show Waiting
+[04:56:01.650] recv : y S 0 0 - 21
+[04:56:05.660] Name of point : femur
+[04:56:05.660] Mean of points : 240.267066192627, -30.9008615493774, -1467.84416503906, 0.0738451205890958, 0.0828258452605012, -0.786365349354397
+[04:56:05.660] Threshold : 0.5
+[04:56:05.660] Name of point : base
+[04:56:05.660] Mean of points : 84.9528999328613, 371.226640319824, -1687.96042480469, 0.410543198724887, 0.135296650682783, 0.0964091408864216
+[04:56:05.660] Threshold : 0.5
+[04:56:05.660] Close Waiting
+[04:56:05.670] ,614.991793274123,-160.849482153188,183.65045578555,-131.92970638371,-8.77666157716355,8.30069812570732
+[04:56:05.670] send : X 0
+[04:56:05.670] send : S 0
+[04:56:05.670] recv : y X 0 0 - 21
+[04:56:05.680] recv : y S 0 0 - 21
+[04:56:08.710] STOP clicked. (ResectionFemur)
+[04:56:08.710] send : X 0
+[04:56:08.720] recv : y X 0 0 - 21
+[04:56:09.540] START clicked. (ResectionFemur)
+[04:56:09.550] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:56:10.262] Confirm clicked. (AlarmMessage)
+[04:56:10.262] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:56:10.744] Confirm clicked. (AlarmMessage)
+[04:56:10.744] send : U 0
+[04:56:10.984] recv : y A F 1 - 21
+[04:56:11.184] recv : U 0 0 F - 21
+[04:56:15.514] recv : U 0 0 F - 21
+[04:56:20.104] recv : U 0 0 F - 23
+[04:56:23.424] recv : U 0 0 F - 23
+[04:56:25.394] recv : U 0 0 F - 23
+[04:56:29.474] recv : E  0 0 - 23
+[04:56:29.474] Close Waiting
+[04:56:29.474] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:56:29.674] recv : U 0 0 F - 23
+[04:56:33.024] PAUSE clicked. ()
+[04:56:33.024] send : S 0
+[04:56:33.024] Close Waiting
+[04:56:33.024] Show Waiting
+[04:56:33.034] recv : y S 0 0 - 23
+[04:56:37.044] Name of point : femur
+[04:56:37.044] Mean of points : 240.266722869873, -30.9021067619324, -1467.8422668457, 0.0737759396987243, 0.0828282155872665, -0.786380413476117
+[04:56:37.044] Threshold : 0.5
+[04:56:37.054] Name of point : base
+[04:56:37.054] Mean of points : 84.9531284332275, 371.224099731445, -1687.95704345703, 0.410556364433316, 0.135234276587385, 0.0963892516729311
+[04:56:37.054] Threshold : 0.5
+[04:56:37.054] Close Waiting
+[04:56:37.054] ,615.013317184298,-160.841155250849,183.644267673676,-131.931381341548,-8.77036911913244,8.30457805105049
+[04:56:37.054] send : X 0
+[04:56:37.054] send : S 0
+[04:56:37.064] recv : y X 0 0 - 23
+[04:56:37.074] recv : y S 0 0 - 23
+[04:56:40.154] STOP clicked. (ResectionFemur)
+[04:56:40.154] send : X 0
+[04:56:40.164] recv : y X 0 0 - 23
+[04:56:41.744] START clicked. (ResectionFemur)
+[04:56:41.754] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:56:42.248] Confirm clicked. (AlarmMessage)
+[04:56:42.258] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:56:42.752] Confirm clicked. (AlarmMessage)
+[04:56:42.752] send : U 0
+[04:56:42.982] recv : y A F 1 - 23
+[04:56:43.192] recv : U 0 0 F - 23
+[04:56:47.512] recv : U 0 0 F - 22
+[04:56:52.102] recv : U 0 0 F - 22
+[04:56:55.422] recv : U 0 0 F - 22
+[04:56:57.392] recv : U 0 0 F - 22
+[04:57:01.472] recv : E  0 0 - 22
+[04:57:01.472] Close Waiting
+[04:57:01.472] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:57:01.682] recv : U 0 0 F - 22
+[04:57:05.082] PAUSE clicked. ()
+[04:57:05.082] send : S 0
+[04:57:05.082] Close Waiting
+[04:57:05.082] Show Waiting
+[04:57:05.082] recv : y S 0 0 - 22
+[04:57:09.112] Name of point : femur
+[04:57:09.112] Mean of points : 240.262467193604, -30.9007501602173, -1467.84077148437, 0.0738070198697521, 0.0827633579173513, -0.78638195989144
+[04:57:09.112] Threshold : 0.5
+[04:57:09.112] Name of point : base
+[04:57:09.112] Mean of points : 84.9526294708252, 371.225506591797, -1687.95961914062, 0.410539504855481, 0.135272793279992, 0.0964006003110469
+[04:57:09.112] Threshold : 0.5
+[04:57:09.122] Close Waiting
+[04:57:09.122] ,615.005419532981,-160.849695462328,183.650900281454,-131.930956035903,-8.77642630540905,8.30471229412107
+[04:57:09.122] send : X 0
+[04:57:09.122] send : S 0
+[04:57:09.122] recv : y X 0 0 - 22
+[04:57:09.132] recv : y S 0 0 - 22
+[04:57:12.512] STOP clicked. (ResectionFemur)
+[04:57:12.512] send : X 0
+[04:57:12.522] recv : y X 0 0 - 22
+[04:57:13.172] START clicked. (ResectionFemur)
+[04:57:13.172] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:57:13.774] Confirm clicked. (AlarmMessage)
+[04:57:13.774] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:57:14.236] Confirm clicked. (AlarmMessage)
+[04:57:14.236] send : U 0
+[04:57:14.466] recv : y A F 1 - 22
+[04:57:14.666] recv : U 0 0 F - 22
+[04:57:18.996] recv : U 0 0 F - 22
+[04:57:23.586] recv : U 0 0 F - 24
+[04:57:26.906] recv : U 0 0 F - 24
+[04:57:28.876] recv : U 0 0 F - 24
+[04:57:32.946] recv : E  0 0 - 24
+[04:57:32.946] Close Waiting
+[04:57:32.946] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:57:33.146] recv : U 0 0 F - 24
+[04:57:36.836] PAUSE clicked. ()
+[04:57:36.836] send : S 0
+[04:57:36.836] Close Waiting
+[04:57:36.836] Show Waiting
+[04:57:36.846] recv : y S 0 0 - 24
+[04:57:40.876] Name of point : femur
+[04:57:40.886] Mean of points : 240.263996887207, -30.9007837295532, -1467.85123291016, 0.0737853577930535, 0.082927199832654, -0.786370340601463
+[04:57:40.886] Threshold : 0.5
+[04:57:40.886] Name of point : base
+[04:57:40.886] Mean of points : 84.9521751403809, 371.227587890625, -1687.9631652832, 0.410564307843022, 0.135259301102877, 0.0963947737867393
+[04:57:40.886] Threshold : 0.5
+[04:57:40.886] Close Waiting
+[04:57:40.886] ,615.002783393552,-160.838423527204,183.655134739199,-131.930759263327,-8.76813924312766,8.30047773097149
+[04:57:40.886] send : X 0
+[04:57:40.886] send : S 0
+[04:57:40.896] recv : y X 0 0 - 24
+[04:57:40.906] recv : y S 0 0 - 24
+[04:57:44.386] STOP clicked. (ResectionFemur)
+[04:57:44.386] send : X 0
+[04:57:44.396] recv : y X 0 0 - 24
+[04:57:45.136] START clicked. (ResectionFemur)
+[04:57:45.146] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:57:45.748] Confirm clicked. (AlarmMessage)
+[04:57:45.748] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:57:46.230] Confirm clicked. (AlarmMessage)
+[04:57:46.230] send : U 0
+[04:57:46.460] recv : y A F 1 - 24
+[04:57:46.670] recv : U 0 0 F - 24
+[04:57:50.990] recv : U 0 0 F - 24
+[04:57:55.580] recv : U 0 0 F - 24
+[04:57:58.900] recv : U 0 0 F - 25
+[04:58:00.870] recv : U 0 0 F - 25
+[04:58:04.950] recv : E  0 0 - 25
+[04:58:04.950] Close Waiting
+[04:58:04.950] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:58:05.160] recv : U 0 0 F - 25
+[04:58:08.450] PAUSE clicked. ()
+[04:58:08.450] send : S 0
+[04:58:08.450] Close Waiting
+[04:58:08.450] Show Waiting
+[04:58:08.450] recv : y S 0 0 - 24
+[04:58:12.460] Name of point : femur
+[04:58:12.460] Mean of points : 240.26266708374, -30.8958644866943, -1467.84822998047, 0.0738701232429295, 0.0827918535589211, -0.786379956382567
+[04:58:12.460] Threshold : 0.5
+[04:58:12.460] Name of point : base
+[04:58:12.460] Mean of points : 84.9529174804688, 371.232403564453, -1687.96498413086, 0.410607621168773, 0.135305591979647, 0.0964170563321637
+[04:58:12.460] Threshold : 0.5
+[04:58:12.460] Close Waiting
+[04:58:12.470] ,615.020134159696,-160.830206345165,183.661350811245,-131.930646027959,-8.78010251973469,8.30463217282551
+[04:58:12.470] send : X 0
+[04:58:12.470] send : S 0
+[04:58:12.470] recv : y X 0 0 - 25
+[04:58:12.480] recv : y S 0 0 - 25
+[04:58:13.260] STOP clicked. (ResectionFemur)
+[04:58:13.260] send : X 0
+[04:58:13.260] recv : y X 0 0 - 24
+[04:58:14.040] START clicked. (ResectionFemur)
+[04:58:14.050] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:58:14.562] Confirm clicked. (AlarmMessage)
+[04:58:14.572] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[04:58:14.824] Confirm clicked. (AlarmMessage)
+[04:58:14.824] send : U 0
+[04:58:15.064] recv : y A F 1 - 24
+[04:58:15.274] recv : U 0 0 F - 24
+[04:58:19.594] recv : U 0 0 F - 24
+[04:58:24.184] recv : U 0 0 F - 24
+[04:58:27.504] recv : U 0 0 F - 24
+[04:58:29.474] recv : U 0 0 F - 22
+[04:58:33.554] recv : E  0 0 - 22
+[04:58:33.554] Close Waiting
+[04:58:33.554] W0104: ADAPTCTRL disable(P:201,S:5)
+[04:58:33.764] recv : U 0 0 F - 22
+[04:58:37.074] PAUSE clicked. ()
+[04:58:37.074] send : S 0
+[04:58:37.074] Close Waiting
+[04:58:37.074] Show Waiting
+[04:58:37.084] recv : y S 0 0 - 24
+[04:58:41.094] Name of point : femur
+[04:58:41.094] Mean of points : 240.259522247314, -30.8959938049316, -1467.84643554688, 0.0738435811036619, 0.0828308226520718, -0.786376586077968
+[04:58:41.094] Threshold : 0.5
+[04:58:41.094] Name of point : base
+[04:58:41.094] Mean of points : 84.9506576538086, 371.232414245605, -1687.96438598633, 0.410590556204499, 0.135243359297851, 0.0964013888874144
+[04:58:41.094] Threshold : 0.5
+[04:58:41.094] Close Waiting
+[04:58:41.104] ,615.017636052563,-160.831800797399,183.651230014319,-131.930882803524,-8.7737151980223,8.30357463551442
+[04:58:41.104] send : X 0
+[04:58:41.104] send : S 0
+[04:58:41.104] recv : y X 0 0 - 24
+[04:58:41.114] recv : y S 0 0 - 24
+[04:58:44.655] STOP clicked. (ResectionFemur)
+[04:58:44.655] send : X 0
+[04:58:44.655] recv : y X 0 0 - 24
+[04:59:23.891] NEXT SURFACE clicked. (ResectionFemur)
+[04:59:24.481] START clicked. (ResectionFemur)
+[04:59:24.481] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[04:59:25.131] Confirm clicked. (AlarmMessage)
+[04:59:25.141] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[04:59:25.641] Confirm clicked. (AlarmMessage)
+[04:59:25.641] send : U 0
+[04:59:25.831] recv : y A F 2 - 24
+[04:59:26.041] recv : U 0 0 F - 22
+[04:59:30.371] recv : U 0 0 F - 24
+[04:59:41.711] recv : U 0 0 F - 24
+[04:59:43.511] recv : U 0 0 F - 23
+[04:59:45.581] recv : U 0 0 F - 23
+[04:59:48.991] recv : E  0 0 - 23
+[04:59:49.001] Close Waiting
+[04:59:49.001] W0104: ADAPTCTRL disable(P:202,S:5)
+[04:59:49.201] recv : U 0 0 F - 23
+[04:59:55.521] PAUSE clicked. ()
+[04:59:55.521] send : S 0
+[04:59:55.521] Close Waiting
+[04:59:55.521] Show Waiting
+[04:59:55.521] recv : y S 0 0 - 24
+[04:59:59.561] Name of point : femur
+[04:59:59.561] Mean of points : 240.29993057251, -31.1783851623535, -1467.89415283203, 0.0737463303155546, 0.082844175007821, -0.786164700651663
+[04:59:59.561] Threshold : 0.5
+[04:59:59.561] Name of point : base
+[04:59:59.561] Mean of points : 84.9037452697754, 370.918910217285, -1687.97478027344, 0.410548991252344, 0.13542321955405, 0.0966761610752938
+[04:59:59.561] Threshold : 0.5
+[04:59:59.561] Close Waiting
+[04:59:59.571] ,614.971785829963,-160.868786582375,183.70535050733,-131.932869859008,-8.77994413751869,8.30338076691561
+[04:59:59.571] send : X 0
+[04:59:59.571] send : S 0
+[04:59:59.571] recv : y X 0 0 - 24
+[04:59:59.581] recv : y S 0 0 - 24
+[05:00:11.581] STOP clicked. (ResectionFemur)
+[05:00:11.581] send : X 0
+[05:00:11.591] recv : y X 0 0 - 24
+[05:00:13.051] START clicked. (ResectionFemur)
+[05:00:13.061] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:00:14.173] Confirm clicked. (AlarmMessage)
+[05:00:14.183] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:00:14.665] Confirm clicked. (AlarmMessage)
+[05:00:14.675] send : U 0
+[05:00:14.875] recv : y A F 2 - 24
+[05:00:15.085] recv : U 0 0 F - 24
+[05:00:24.787] recv : U 0 0 F - 24
+[05:00:36.117] recv : U 0 0 F - 24
+[05:00:37.917] recv : U 0 0 F - 21
+[05:00:39.987] recv : U 0 0 F - 21
+[05:00:43.397] recv : E  0 0 - 21
+[05:00:43.397] Close Waiting
+[05:00:43.397] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:00:43.607] recv : U 0 0 F - 21
+[05:00:46.207] PAUSE clicked. ()
+[05:00:46.207] send : S 0
+[05:00:46.207] Close Waiting
+[05:00:46.207] Show Waiting
+[05:00:46.217] recv : y S 0 0 - 24
+[05:00:50.227] Name of point : femur
+[05:00:50.227] Mean of points : 240.296662139893, -31.184231376648, -1467.89803466797, 0.0738109698690858, 0.0829677851949268, -0.786134024089523
+[05:00:50.227] Threshold : 0.5
+[05:00:50.227] Name of point : base
+[05:00:50.227] Mean of points : 84.8985111236572, 370.91346282959, -1687.98316650391, 0.410659602863873, 0.135381561951183, 0.0966865558911118
+[05:00:50.227] Threshold : 0.5
+[05:00:50.227] Close Waiting
+[05:00:50.237] ,615.008698386757,-160.827465011847,183.707219456663,-131.931989636748,-8.77547385006516,8.30234892830258
+[05:00:50.237] send : X 0
+[05:00:50.237] send : S 0
+[05:00:50.247] recv : y X 0 0 - 24
+[05:00:50.257] recv : y S 0 0 - 24
+[05:00:52.977] STOP clicked. (ResectionFemur)
+[05:00:52.977] send : X 0
+[05:00:52.987] recv : y X 0 0 - 24
+[05:00:54.127] START clicked. (ResectionFemur)
+[05:00:54.127] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:00:54.719] Confirm clicked. (AlarmMessage)
+[05:00:54.719] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:00:55.421] Confirm clicked. (AlarmMessage)
+[05:00:55.421] send : U 0
+[05:00:55.631] recv : y A F 2 - 24
+[05:00:55.841] recv : U 0 0 F - 24
+[05:01:05.541] recv : U 0 0 F - 24
+[05:01:16.881] recv : U 0 0 F - 21
+[05:01:18.681] recv : U 0 0 F - 21
+[05:01:20.751] recv : U 0 0 F - 21
+[05:01:24.171] recv : E  0 0 - 23
+[05:01:24.171] Close Waiting
+[05:01:24.171] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:01:24.371] recv : U 0 0 F - 23
+[05:01:27.661] PAUSE clicked. ()
+[05:01:27.661] send : S 0
+[05:01:27.661] Close Waiting
+[05:01:27.661] Show Waiting
+[05:01:27.671] recv : y S 0 0 - 21
+[05:01:31.711] Name of point : femur
+[05:01:31.711] Mean of points : 240.297376251221, -31.1864891052246, -1467.90142822266, 0.0738330850090735, 0.0828976605871913, -0.786146121229066
+[05:01:31.711] Threshold : 0.5
+[05:01:31.711] Name of point : base
+[05:01:31.721] Mean of points : 84.9015239715576, 370.911784362793, -1687.98743286133, 0.410625236830246, 0.135426870255678, 0.096698358008146
+[05:01:31.721] Threshold : 0.5
+[05:01:31.721] Close Waiting
+[05:01:31.721] ,614.990906844556,-160.842850443549,183.714390638156,-131.932126153854,-8.7818353677798,8.30198058506503
+[05:01:31.721] send : X 0
+[05:01:31.721] send : S 0
+[05:01:31.731] recv : y X 0 0 - 21
+[05:01:31.741] recv : y S 0 0 - 21
+[05:01:45.131] STOP clicked. (ResectionFemur)
+[05:01:45.131] send : X 0
+[05:01:45.151] recv : y X 0 0 - 21
+[05:01:46.451] START clicked. (ResectionFemur)
+[05:01:46.461] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:01:47.443] Confirm clicked. (AlarmMessage)
+[05:01:47.453] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:01:48.825] Confirm clicked. (AlarmMessage)
+[05:01:48.835] send : U 0
+[05:01:49.035] recv : y A F 2 - 21
+[05:01:49.245] recv : U 0 0 F - 21
+[05:01:58.947] recv : U 0 0 F - 23
+[05:02:10.277] recv : U 0 0 F - 23
+[05:02:12.077] recv : U 0 0 F - 22
+[05:02:14.147] recv : U 0 0 F - 22
+[05:02:17.567] recv : E  0 0 - 22
+[05:02:17.567] Close Waiting
+[05:02:17.567] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:02:17.777] recv : U 0 0 F - 22
+[05:02:22.587] PAUSE clicked. ()
+[05:02:22.587] send : S 0
+[05:02:22.587] Close Waiting
+[05:02:22.587] Show Waiting
+[05:02:22.597] recv : y S 0 0 - 23
+[05:02:26.617] Name of point : femur
+[05:02:26.617] Mean of points : 240.294115447998, -31.1863441467285, -1467.89886474609, 0.0738107402825847, 0.0828629322835172, -0.786148679251967
+[05:02:26.617] Threshold : 0.5
+[05:02:26.617] Name of point : base
+[05:02:26.617] Mean of points : 84.8992992401123, 370.912600708008, -1687.98623657227, 0.410655889817449, 0.135396739076727, 0.0966863871027664
+[05:02:26.617] Threshold : 0.5
+[05:02:26.617] Close Waiting
+[05:02:26.627] ,615.017730077951,-160.833360674888,183.70806797672,-131.932437374709,-8.78067952579451,8.30628890225755
+[05:02:26.627] send : X 0
+[05:02:26.627] send : S 0
+[05:02:26.627] recv : y X 0 0 - 23
+[05:02:26.637] recv : y S 0 0 - 23
+[05:02:29.959] STOP clicked. (ResectionFemur)
+[05:02:29.959] send : X 0
+[05:02:29.959] recv : y X 0 0 - 23
+[05:02:30.401] START clicked. (ResectionFemur)
+[05:02:30.401] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:02:30.865] Confirm clicked. (AlarmMessage)
+[05:02:30.865] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:02:31.369] Confirm clicked. (AlarmMessage)
+[05:02:31.369] send : U 0
+[05:02:31.579] recv : y A F 2 - 23
+[05:02:31.789] recv : U 0 0 F - 23
+[05:02:41.489] recv : U 0 0 F - 23
+[05:02:52.819] recv : U 0 0 F - 20
+[05:02:54.619] recv : U 0 0 F - 20
+[05:02:56.689] recv : U 0 0 F - 20
+[05:03:00.099] recv : E  0 0 - 22
+[05:03:00.099] Close Waiting
+[05:03:00.099] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:03:00.309] recv : U 0 0 F - 22
+[05:03:03.809] PAUSE clicked. ()
+[05:03:03.809] send : S 0
+[05:03:03.809] Close Waiting
+[05:03:03.809] Show Waiting
+[05:03:03.819] recv : y S 0 0 - 20
+[05:03:07.829] Name of point : femur
+[05:03:07.829] Mean of points : 240.294232940674, -31.1878186225891, -1467.90446777344, 0.0738016825430282, 0.0828990918027124, -0.786154530653033
+[05:03:07.829] Threshold : 0.5
+[05:03:07.829] Name of point : base
+[05:03:07.829] Mean of points : 84.8987693786621, 370.913389587402, -1687.99296875, 0.410668343254249, 0.13538727099274, 0.0966931037430281
+[05:03:07.829] Threshold : 0.5
+[05:03:07.829] Close Waiting
+[05:03:07.839] ,615.023348582755,-160.829005566198,183.715797195927,-131.933475990285,-8.77857965248465,8.30590877168693
+[05:03:07.839] send : X 0
+[05:03:07.839] send : S 0
+[05:03:07.849] recv : y X 0 0 - 20
+[05:03:07.859] recv : y S 0 0 - 20
+[05:03:11.239] STOP clicked. (ResectionFemur)
+[05:03:11.239] send : X 0
+[05:03:11.239] recv : y X 0 0 - 20
+[05:03:12.039] START clicked. (ResectionFemur)
+[05:03:12.049] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:03:12.601] Confirm clicked. (AlarmMessage)
+[05:03:12.611] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:03:12.961] Confirm clicked. (AlarmMessage)
+[05:03:12.961] send : U 0
+[05:03:13.161] recv : y A F 2 - 20
+[05:03:13.361] recv : U 0 0 F - 20
+[05:03:23.071] recv : U 0 0 F - 20
+[05:03:34.401] recv : U 0 0 F - 20
+[05:03:36.201] recv : U 0 0 F - 20
+[05:03:38.271] recv : U 0 0 F - 20
+[05:03:41.681] recv : E  0 0 - 22
+[05:03:41.681] Close Waiting
+[05:03:41.681] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:03:41.881] recv : U 0 0 F - 22
+[05:03:45.621] PAUSE clicked. ()
+[05:03:45.621] send : S 0
+[05:03:45.631] Close Waiting
+[05:03:45.631] Show Waiting
+[05:03:45.631] recv : y S 0 0 - 20
+[05:03:49.661] Name of point : femur
+[05:03:49.661] Mean of points : 240.296719360352, -31.1753206253052, -1467.90535888672, 0.0737937309398374, 0.0828065288894853, -0.786163390110154
+[05:03:49.661] Threshold : 0.5
+[05:03:49.661] Name of point : base
+[05:03:49.661] Mean of points : 84.9084289550781, 370.928422546387, -1688.00463867188, 0.41055609528487, 0.135404011310722, 0.0966677780420499
+[05:03:49.661] Threshold : 0.5
+[05:03:49.661] Close Waiting
+[05:03:49.671] ,614.988351218563,-160.866489972339,183.702794403249,-131.931950971005,-8.78216604783164,8.30352309639394
+[05:03:49.671] send : X 0
+[05:03:49.671] send : S 0
+[05:03:49.681] recv : y X 0 0 - 20
+[05:03:49.691] recv : y S 0 0 - 20
+[05:03:53.651] STOP clicked. (ResectionFemur)
+[05:03:53.651] send : X 0
+[05:03:53.661] recv : y X 0 0 - 20
+[05:03:54.401] START clicked. (ResectionFemur)
+[05:03:54.401] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:03:55.063] Confirm clicked. (AlarmMessage)
+[05:03:55.073] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:03:55.555] Confirm clicked. (AlarmMessage)
+[05:03:55.555] send : U 0
+[05:03:55.755] recv : y A F 2 - 20
+[05:03:55.965] recv : U 0 0 F - 20
+[05:04:05.665] recv : U 0 0 F - 20
+[05:04:16.995] recv : U 0 0 F - 23
+[05:04:18.795] recv : U 0 0 F - 23
+[05:04:20.865] recv : U 0 0 F - 23
+[05:04:24.275] recv : E  0 0 - 21
+[05:04:24.285] Close Waiting
+[05:04:24.285] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:04:24.485] recv : U 0 0 F - 21
+[05:04:27.695] PAUSE clicked. ()
+[05:04:27.695] send : S 0
+[05:04:27.705] Close Waiting
+[05:04:27.705] Show Waiting
+[05:04:27.705] recv : y S 0 0 - 23
+[05:04:31.745] Name of point : femur
+[05:04:31.745] Mean of points : 240.293850708008, -31.1858163833618, -1467.89790649414, 0.0736978870578443, 0.0828276630865441, -0.786163086030445
+[05:04:31.745] Threshold : 0.5
+[05:04:31.745] Name of point : base
+[05:04:31.755] Mean of points : 84.9005992889404, 370.914176940918, -1687.99370117188, 0.410635365277701, 0.135388706296577, 0.096688971147447
+[05:04:31.755] Threshold : 0.5
+[05:04:31.755] Close Waiting
+[05:04:31.755] ,615.041092242469,-160.839403599952,183.724037220181,-131.93494985458,-8.77731370918009,8.31117421006314
+[05:04:31.755] send : X 0
+[05:04:31.755] send : S 0
+[05:04:31.755] recv : y X 0 0 - 23
+[05:04:31.765] recv : y S 0 0 - 23
+[05:04:37.927] STOP clicked. (ResectionFemur)
+[05:04:37.927] send : X 0
+[05:04:37.927] recv : y X 0 0 - 23
+[05:04:38.319] START clicked. (ResectionFemur)
+[05:04:38.319] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:04:38.643] Confirm clicked. (AlarmMessage)
+[05:04:38.643] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:04:39.087] Confirm clicked. (AlarmMessage)
+[05:04:39.087] send : U 0
+[05:04:39.277] recv : y A F 2 - 23
+[05:04:39.487] recv : U 0 0 F - 23
+[05:04:49.187] recv : U 0 0 F - 23
+[05:05:00.517] recv : U 0 0 F - 23
+[05:05:02.317] recv : U 0 0 F - 23
+[05:05:04.387] recv : U 0 0 F - 23
+[05:05:07.797] recv : E  0 0 - 23
+[05:05:07.797] Close Waiting
+[05:05:07.797] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:05:08.007] recv : U 0 0 F - 23
+[05:05:11.157] PAUSE clicked. ()
+[05:05:11.157] send : S 0
+[05:05:11.157] Close Waiting
+[05:05:11.157] Show Waiting
+[05:05:11.167] recv : y S 0 0 - 23
+[05:05:15.177] Name of point : femur
+[05:05:15.177] Mean of points : 240.293975067139, -31.1886610031128, -1467.90874633789, 0.0738100873371594, 0.0829204152120336, -0.78614754185827
+[05:05:15.187] Threshold : 0.5
+[05:05:15.187] Name of point : base
+[05:05:15.187] Mean of points : 84.8987213134766, 370.911592102051, -1687.98975830078, 0.410629839277453, 0.135355765391107, 0.0966732875169604
+[05:05:15.187] Threshold : 0.5
+[05:05:15.187] Close Waiting
+[05:05:15.187] ,614.996264365703,-160.84092938925,183.696953574806,-131.932249735679,-8.77577937516016,8.30275416133634
+[05:05:15.187] send : X 0
+[05:05:15.187] send : S 0
+[05:05:15.197] recv : y X 0 0 - 23
+[05:05:15.207] recv : y S 0 0 - 23
+[05:05:19.807] STOP clicked. (ResectionFemur)
+[05:05:19.807] send : X 0
+[05:05:19.807] recv : y X 0 0 - 23
+[05:05:20.717] START clicked. (ResectionFemur)
+[05:05:20.727] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:05:21.559] Confirm clicked. (AlarmMessage)
+[05:05:21.569] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:05:22.701] Confirm clicked. (AlarmMessage)
+[05:05:22.701] send : U 0
+[05:05:22.901] recv : y A F 2 - 23
+[05:05:23.111] recv : U 0 0 F - 23
+[05:05:32.811] recv : U 0 0 F - 23
+[05:05:44.141] recv : U 0 0 F - 23
+[05:05:45.941] recv : U 0 0 F - 19
+[05:05:48.011] recv : U 0 0 F - 19
+[05:05:51.431] recv : E  0 0 - 19
+[05:05:51.431] Close Waiting
+[05:05:51.431] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:05:51.641] recv : U 0 0 F - 19
+[05:05:55.431] PAUSE clicked. ()
+[05:05:55.431] send : S 0
+[05:05:55.431] Close Waiting
+[05:05:55.431] Show Waiting
+[05:05:55.441] recv : y S 0 0 - 23
+[05:05:59.461] Name of point : femur
+[05:05:59.461] Mean of points : 240.29423828125, -31.1892632484436, -1467.90333862305, 0.0737896001556839, 0.0829134894068405, -0.786140034467785
+[05:05:59.461] Threshold : 0.5
+[05:05:59.461] Name of point : base
+[05:05:59.461] Mean of points : 84.9005210876465, 370.91217956543, -1687.9958984375, 0.410659890917816, 0.135351683044845, 0.096679438204693
+[05:05:59.461] Threshold : 0.5
+[05:05:59.471] Close Waiting
+[05:05:59.471] ,615.027078916763,-160.829595577709,183.706117557726,-131.932615455287,-8.77513292364516,8.30563734159233
+[05:05:59.471] send : X 0
+[05:05:59.471] send : S 0
+[05:05:59.481] recv : y X 0 0 - 23
+[05:05:59.491] recv : y S 0 0 - 23
+[05:06:02.703] STOP clicked. (ResectionFemur)
+[05:06:02.703] send : X 0
+[05:06:02.713] recv : y X 0 0 - 23
+[05:06:03.025] START clicked. (ResectionFemur)
+[05:06:03.025] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:06:03.309] Confirm clicked. (AlarmMessage)
+[05:06:03.319] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:06:03.593] Confirm clicked. (AlarmMessage)
+[05:06:03.593] send : U 0
+[05:06:03.803] recv : y A F 2 - 23
+[05:06:04.003] recv : U 0 0 F - 23
+[05:06:13.713] recv : U 0 0 F - 23
+[05:06:25.043] recv : U 0 0 F - 25
+[05:06:26.843] recv : U 0 0 F - 25
+[05:06:28.913] recv : U 0 0 F - 25
+[05:06:32.323] recv : E  0 0 - 26
+[05:06:32.323] Close Waiting
+[05:06:32.323] W0104: ADAPTCTRL disable(P:202,S:5)
+[05:06:32.523] recv : U 0 0 F - 26
+[05:06:35.593] PAUSE clicked. ()
+[05:06:35.593] send : S 0
+[05:06:35.593] Close Waiting
+[05:06:35.593] Show Waiting
+[05:06:35.603] recv : y S 0 0 - 25
+[05:06:39.613] Name of point : femur
+[05:06:39.613] Mean of points : 240.292668151855, -31.190532207489, -1467.90589599609, 0.0737995548146116, 0.0828011620456135, -0.786154126781404
+[05:06:39.613] Threshold : 0.5
+[05:06:39.613] Name of point : base
+[05:06:39.613] Mean of points : 84.8991256713867, 370.910290527344, -1687.98811035156, 0.410613751709334, 0.135371585238963, 0.0966750297729329
+[05:06:39.623] Threshold : 0.5
+[05:06:39.623] Close Waiting
+[05:06:39.623] ,615.002234706673,-160.852218244838,183.695253877556,-131.932435145219,-8.78104806190491,8.30701308176397
+[05:06:39.623] send : X 0
+[05:06:39.623] send : S 0
+[05:06:39.633] recv : y X 0 0 - 26
+[05:06:39.643] recv : y S 0 0 - 26
+[05:06:42.485] STOP clicked. (ResectionFemur)
+[05:06:42.485] send : X 0
+[05:06:42.485] recv : y X 0 0 - 25
+[05:06:44.307] NEXT SURFACE clicked. (ResectionFemur)
+[05:06:48.349] SYSTEM PROP. clicked. (ResectionFemur)
+[05:06:49.733] Robot Pose clicked. (SystemProperties)
+[05:06:51.197] Clear clicked. (RobotPose)
+[05:06:51.197] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[05:06:53.411] Cancel clicked. (AlarmMessage)
+[05:06:54.543] Close clicked. (RobotPose)
+[05:06:56.225] Close clicked. (SystemProperties)
+[05:06:57.387] MANUAL GUIDE clicked. (ResectionFemur)
+[05:06:57.387] WARNING - Activate Robot Manual Guide? (Pop up)
+[05:06:58.071] Confirm clicked. (AlarmMessage)
+[05:06:58.071] send : X 0
+[05:06:58.081] recv : y X 0 0 - 25
+[05:06:58.171] send : G 0
+[05:06:58.201] recv : y G 0 0 - 25
+[05:06:58.271] INFORMATION - Click Confirm, when Guide Completed (Pop up)
+[05:07:12.565] Confirm clicked. (AlarmMessage)
+[05:07:12.565] send : X 0
+[05:07:12.575] recv : y X 0 0 - 25
+[05:07:15.707] START clicked. (ResectionFemur)
+[05:07:15.717] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:07:16.831] Confirm clicked. (AlarmMessage)
+[05:07:16.841] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:07:18.465] Confirm clicked. (AlarmMessage)
+[05:07:18.465] send : U 0
+[05:07:18.635] recv : y A F 3 - 25
+[05:07:18.835] recv : U 0 0 F - 25
+[05:07:26.075] recv : U 0 0 F - 25
+[05:07:31.625] recv : U 0 0 F - 25
+[05:07:34.415] recv : U 0 0 F - 21
+[05:07:36.665] recv : U 0 0 F - 21
+[05:07:40.075] recv : E  0 0 - 21
+[05:07:40.075] Close Waiting
+[05:07:40.075] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:07:40.275] recv : U 0 0 F - 21
+[05:07:46.275] PAUSE clicked. ()
+[05:07:46.275] send : S 0
+[05:07:46.275] Close Waiting
+[05:07:46.275] Show Waiting
+[05:07:46.285] recv : y S 0 0 - 25
+[05:07:50.295] Name of point : femur
+[05:07:50.295] Mean of points : 240.247866821289, -31.0009867668152, -1467.89166870117, 0.0738585878504268, 0.0825925469716271, -0.786312125889622
+[05:07:50.295] Threshold : 0.5
+[05:07:50.295] Name of point : base
+[05:07:50.295] Mean of points : 84.9180744171143, 371.118684387207, -1687.99681396484, 0.410584493851807, 0.135329397649772, 0.0965351412756687
+[05:07:50.295] Threshold : 0.5
+[05:07:50.295] Close Waiting
+[05:07:50.305] ,615.013887743199,-160.858414665859,183.684692007666,-131.932920704929,-8.78952031837352,8.31159940592071
+[05:07:50.305] send : X 0
+[05:07:50.305] send : S 0
+[05:07:50.315] recv : y X 0 0 - 25
+[05:07:50.325] recv : y S 0 0 - 25
+[05:08:46.617] STOP clicked. (ResectionFemur)
+[05:08:46.617] send : X 0
+[05:08:46.617] recv : y X 0 0 - 25
+[05:08:51.789] START clicked. (ResectionFemur)
+[05:08:51.799] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:08:53.283] Confirm clicked. (AlarmMessage)
+[05:08:53.293] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:08:54.597] Confirm clicked. (AlarmMessage)
+[05:08:54.597] send : U 0
+[05:08:54.767] recv : y A F 3 - 25
+[05:08:54.977] recv : U 0 0 F - 25
+[05:09:00.287] recv : U 0 0 F - 25
+[05:09:05.827] recv : U 0 0 F - 25
+[05:09:08.627] recv : U 0 0 F - 19
+[05:09:10.867] recv : U 0 0 F - 19
+[05:09:14.287] recv : E  0 0 - 19
+[05:09:14.287] Close Waiting
+[05:09:14.287] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:09:14.487] recv : U 0 0 F - 19
+[05:09:18.687] PAUSE clicked. ()
+[05:09:18.687] send : S 0
+[05:09:18.697] Close Waiting
+[05:09:18.697] Show Waiting
+[05:09:18.697] recv : y S 0 0 - 25
+[05:09:22.697] Name of point : femur
+[05:09:22.697] Mean of points : 240.242376708984, -31.0026944160461, -1467.90330200195, 0.0737542807074196, 0.0825315079476353, -0.786318250707473
+[05:09:22.697] Threshold : 0.5
+[05:09:22.697] Name of point : base
+[05:09:22.697] Mean of points : 84.9136100769043, 371.117778015137, -1688.01334838867, 0.410622811711428, 0.135322417391444, 0.096525265625039
+[05:09:22.697] Threshold : 0.5
+[05:09:22.697] Close Waiting
+[05:09:22.697] ,615.066593351104,-160.847498336075,183.691144367737,-131.934333237573,-8.78755724676593,8.32064220944019
+[05:09:22.697] send : X 0
+[05:09:22.707] send : S 0
+[05:09:22.717] recv : y X 0 0 - 25
+[05:09:22.727] recv : y S 0 0 - 25
+[05:09:35.879] STOP clicked. (ResectionFemur)
+[05:09:35.879] send : X 0
+[05:09:35.879] recv : y X 0 0 - 25
+[05:09:36.251] START clicked. (ResectionFemur)
+[05:09:36.251] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:09:36.613] Confirm clicked. (AlarmMessage)
+[05:09:36.613] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:09:36.907] Confirm clicked. (AlarmMessage)
+[05:09:36.907] send : U 0
+[05:09:37.077] recv : y A F 3 - 25
+[05:09:37.277] recv : U 0 0 F - 25
+[05:09:42.597] recv : U 0 0 F - 25
+[05:09:48.137] recv : U 0 0 F - 25
+[05:09:50.927] recv : U 0 0 F - 25
+[05:09:53.177] recv : U 0 0 F - 23
+[05:09:56.597] recv : E  0 0 - 23
+[05:09:56.597] Close Waiting
+[05:09:56.597] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:09:56.797] recv : U 0 0 F - 23
+[05:10:00.157] PAUSE clicked. ()
+[05:10:00.157] send : S 0
+[05:10:00.167] Close Waiting
+[05:10:00.167] Show Waiting
+[05:10:00.177] recv : y S 0 0 - 25
+[05:10:04.197] Name of point : femur
+[05:10:04.197] Mean of points : 240.243184661865, -31.0019610404968, -1467.90493164062, 0.0738398986799503, 0.0826381525283964, -0.78630247284226
+[05:10:04.197] Threshold : 0.5
+[05:10:04.197] Name of point : base
+[05:10:04.197] Mean of points : 84.9153457641602, 371.11668548584, -1687.9998046875, 0.410557367501398, 0.135260943770202, 0.0964996571484096
+[05:10:04.197] Threshold : 0.5
+[05:10:04.197] Close Waiting
+[05:10:04.197] ,614.995712643533,-160.865164472733,183.658927861273,-131.931679658737,-8.78243124957477,8.3094992832185
+[05:10:04.197] send : X 0
+[05:10:04.207] send : S 0
+[05:10:04.217] recv : y X 0 0 - 25
+[05:10:04.227] recv : y S 0 0 - 25
+[05:10:06.819] STOP clicked. (ResectionFemur)
+[05:10:06.819] send : X 0
+[05:10:06.819] recv : y X 0 0 - 25
+[05:10:07.241] START clicked. (ResectionFemur)
+[05:10:07.251] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:10:07.685] Confirm clicked. (AlarmMessage)
+[05:10:07.685] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:10:08.129] Confirm clicked. (AlarmMessage)
+[05:10:08.129] send : U 0
+[05:10:08.289] recv : y A F 3 - 25
+[05:10:08.499] recv : U 0 0 F - 25
+[05:10:13.809] recv : U 0 0 F - 25
+[05:10:19.349] recv : U 0 0 F - 19
+[05:10:22.139] recv : U 0 0 F - 19
+[05:10:24.389] recv : U 0 0 F - 19
+[05:10:27.809] recv : E  0 0 - 19
+[05:10:27.819] Close Waiting
+[05:10:27.819] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:10:28.019] recv : U 0 0 F - 19
+[05:10:31.740] PAUSE clicked. ()
+[05:10:31.740] send : S 0
+[05:10:31.750] Close Waiting
+[05:10:31.750] Show Waiting
+[05:10:31.750] recv : y S 0 0 - 19
+[05:10:35.780] Name of point : femur
+[05:10:35.780] Mean of points : 240.234296417236, -31.0068645477295, -1467.92854003906, 0.0738905921432381, 0.0826128723011421, -0.786287819660263
+[05:10:35.780] Threshold : 0.5
+[05:10:35.790] Name of point : base
+[05:10:35.790] Mean of points : 84.9106826782227, 371.113897705078, -1688.04672851563, 0.410593949158995, 0.135245062561251, 0.0965059412748896
+[05:10:35.790] Threshold : 0.5
+[05:10:35.790] Close Waiting
+[05:10:35.790] ,615.02802054133,-160.84904221573,183.661981475773,-131.930851238449,-8.78462198699642,8.31067321706846
+[05:10:35.790] send : X 0
+[05:10:35.790] send : S 0
+[05:10:35.790] recv : y X 0 0 - 19
+[05:10:35.800] recv : y S 0 0 - 19
+[05:10:39.032] STOP clicked. (ResectionFemur)
+[05:10:39.032] send : X 0
+[05:10:39.042] recv : y X 0 0 - 19
+[05:10:39.504] START clicked. (ResectionFemur)
+[05:10:39.504] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:10:39.818] Confirm clicked. (AlarmMessage)
+[05:10:39.818] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:10:40.312] Confirm clicked. (AlarmMessage)
+[05:10:40.312] send : U 0
+[05:10:40.472] recv : y A F 3 - 19
+[05:10:40.682] recv : U 0 0 F - 19
+[05:10:45.992] recv : U 0 0 F - 19
+[05:10:51.532] recv : U 0 0 F - 19
+[05:10:54.322] recv : U 0 0 F - 22
+[05:10:56.572] recv : U 0 0 F - 22
+[05:10:59.982] recv : E  0 0 - 22
+[05:10:59.982] Close Waiting
+[05:10:59.982] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:11:00.192] recv : U 0 0 F - 22
+[05:11:03.182] PAUSE clicked. ()
+[05:11:03.182] send : S 0
+[05:11:03.182] Close Waiting
+[05:11:03.182] Show Waiting
+[05:11:03.182] recv : y S 0 0 - 19
+[05:11:07.212] Name of point : femur
+[05:11:07.212] Mean of points : 240.233351898193, -31.0089230537415, -1467.92095947266, 0.0738439832065068, 0.0825545301599884, -0.786308326657045
+[05:11:07.212] Threshold : 0.5
+[05:11:07.222] Name of point : base
+[05:11:07.222] Mean of points : 84.9065818786621, 371.110360717773, -1688.02647705078, 0.410584662167441, 0.135227132030393, 0.0965037362164133
+[05:11:07.222] Threshold : 0.5
+[05:11:07.222] Close Waiting
+[05:11:07.222] ,615.026741644076,-160.856292322391,183.657814198721,-131.932678235999,-8.78432691141245,8.31447522161687
+[05:11:07.222] send : X 0
+[05:11:07.222] send : S 0
+[05:11:07.232] recv : y X 0 0 - 19
+[05:11:07.242] recv : y S 0 0 - 19
+[05:11:09.564] STOP clicked. (ResectionFemur)
+[05:11:09.564] send : X 0
+[05:11:09.564] recv : y X 0 0 - 19
+[05:11:09.896] START clicked. (ResectionFemur)
+[05:11:09.896] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:11:10.170] Confirm clicked. (AlarmMessage)
+[05:11:10.170] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:11:10.694] Confirm clicked. (AlarmMessage)
+[05:11:10.694] send : U 0
+[05:11:10.854] recv : y A F 3 - 19
+[05:11:11.064] recv : U 0 0 F - 19
+[05:11:16.374] recv : U 0 0 F - 19
+[05:11:21.914] recv : U 0 0 F - 27
+[05:11:24.704] recv : U 0 0 F - 27
+[05:11:26.954] recv : U 0 0 F - 27
+[05:11:30.364] recv : E  0 0 - 27
+[05:11:30.364] Close Waiting
+[05:11:30.364] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:11:30.574] recv : U 0 0 F - 27
+[05:11:34.284] PAUSE clicked. ()
+[05:11:34.284] send : S 0
+[05:11:34.284] Close Waiting
+[05:11:34.284] Show Waiting
+[05:11:34.284] recv : y S 0 0 - 27
+[05:11:38.314] Name of point : femur
+[05:11:38.314] Mean of points : 240.239270019531, -30.9973446846008, -1467.90328369141, 0.0739195610076257, 0.0827546427012235, -0.786301454019513
+[05:11:38.314] Threshold : 0.5
+[05:11:38.324] Name of point : base
+[05:11:38.324] Mean of points : 84.9140975952148, 371.124226379395, -1688.00772094727, 0.410571905346092, 0.135270978338158, 0.0965009577737078
+[05:11:38.324] Threshold : 0.5
+[05:11:38.324] Close Waiting
+[05:11:38.324] ,614.98340021686,-160.853506133266,183.66461754421,-131.930612936284,-8.78155465232543,8.30224153121021
+[05:11:38.324] send : X 0
+[05:11:38.324] send : S 0
+[05:11:38.334] recv : y X 0 0 - 27
+[05:11:38.344] recv : y S 0 0 - 27
+[05:11:40.226] STOP clicked. (ResectionFemur)
+[05:11:40.226] send : X 0
+[05:11:40.226] recv : y X 0 0 - 27
+[05:11:40.698] START clicked. (ResectionFemur)
+[05:11:40.698] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:11:41.082] Confirm clicked. (AlarmMessage)
+[05:11:41.082] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:11:41.474] Confirm clicked. (AlarmMessage)
+[05:11:41.474] send : U 0
+[05:11:41.654] recv : y A F 3 - 27
+[05:11:41.864] recv : U 0 0 F - 27
+[05:11:47.174] recv : U 0 0 F - 27
+[05:11:52.714] recv : U 0 0 F - 27
+[05:11:55.504] recv : U 0 0 F - 27
+[05:11:57.754] recv : U 0 0 F - 27
+[05:12:01.164] recv : E  0 0 - 27
+[05:12:01.164] Close Waiting
+[05:12:01.164] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:12:01.374] recv : U 0 0 F - 27
+[05:12:04.404] PAUSE clicked. ()
+[05:12:04.404] send : S 0
+[05:12:04.414] Close Waiting
+[05:12:04.414] Show Waiting
+[05:12:04.414] recv : y S 0 0 - 27
+[05:12:08.414] Name of point : femur
+[05:12:08.414] Mean of points : 240.232614135742, -30.993334197998, -1467.90147705078, 0.0738718098773205, 0.0826204242638396, -0.786303967399687
+[05:12:08.414] Threshold : 0.5
+[05:12:08.414] Name of point : base
+[05:12:08.414] Mean of points : 84.9079696655273, 371.12679901123, -1688.00875244141, 0.410594931715129, 0.135241653786022, 0.0964945149880635
+[05:12:08.424] Threshold : 0.5
+[05:12:08.424] Close Waiting
+[05:12:08.424] ,615.021817938366,-160.849613191969,183.657283179083,-131.931433719464,-8.78345621099995,8.31119602807284
+[05:12:08.424] send : X 0
+[05:12:08.424] send : S 0
+[05:12:08.434] recv : y X 0 0 - 27
+[05:12:08.444] recv : y S 0 0 - 22
+[05:12:10.666] STOP clicked. (ResectionFemur)
+[05:12:10.666] send : X 0
+[05:12:10.676] recv : y X 0 0 - 27
+[05:12:11.108] START clicked. (ResectionFemur)
+[05:12:11.118] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:12:11.502] Confirm clicked. (AlarmMessage)
+[05:12:11.502] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:12:11.876] Confirm clicked. (AlarmMessage)
+[05:12:11.876] send : U 0
+[05:12:12.056] recv : y A F 3 - 27
+[05:12:12.266] recv : U 0 0 F - 27
+[05:12:17.576] recv : U 0 0 F - 27
+[05:12:23.116] recv : U 0 0 F - 27
+[05:12:25.906] recv : U 0 0 F - 27
+[05:12:28.156] recv : U 0 0 F - 19
+[05:12:31.566] recv : E  0 0 - 19
+[05:12:31.566] Close Waiting
+[05:12:31.566] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:12:31.776] recv : U 0 0 F - 19
+[05:12:34.956] PAUSE clicked. ()
+[05:12:34.956] send : S 0
+[05:12:34.956] Close Waiting
+[05:12:34.956] recv : y S 0 0 - 27
+[05:12:34.976] Show Waiting
+[05:12:38.996] Name of point : femur
+[05:12:38.996] Mean of points : 240.233307647705, -30.9968939781189, -1467.90015258789, 0.0739216487363253, 0.0826347466207702, -0.786288295305452
+[05:12:38.996] Threshold : 0.5
+[05:12:38.996] Name of point : base
+[05:12:38.996] Mean of points : 84.9082202911377, 371.123475646973, -1688.003515625, 0.410539930928237, 0.1352481058231, 0.0964905152380806
+[05:12:38.996] Threshold : 0.5
+[05:12:38.996] Close Waiting
+[05:12:39.006] ,614.980245152149,-160.869227370765,183.643999526662,-131.929392604661,-8.78470140441872,8.30543074026415
+[05:12:39.006] send : X 0
+[05:12:39.006] send : S 0
+[05:12:39.006] recv : y X 0 0 - 27
+[05:12:39.016] recv : y S 0 0 - 27
+[05:12:39.666] STOP clicked. (ResectionFemur)
+[05:12:39.666] send : X 0
+[05:12:39.666] recv : y X 0 0 - 27
+[05:12:40.926] START clicked. (ResectionFemur)
+[05:12:40.936] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:12:41.628] Confirm clicked. (AlarmMessage)
+[05:12:41.638] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:12:41.990] Confirm clicked. (AlarmMessage)
+[05:12:41.990] send : U 0
+[05:12:42.160] recv : y A F 3 - 27
+[05:12:42.360] recv : U 0 0 F - 27
+[05:12:47.680] recv : U 0 0 F - 27
+[05:12:53.220] recv : U 0 0 F - 23
+[05:12:56.010] recv : U 0 0 F - 23
+[05:12:58.260] recv : U 0 0 F - 23
+[05:13:01.680] recv : E  0 0 - 23
+[05:13:01.680] Close Waiting
+[05:13:01.680] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:13:01.880] recv : U 0 0 F - 23
+[05:13:04.580] PAUSE clicked. ()
+[05:13:04.580] send : S 0
+[05:13:04.590] Close Waiting
+[05:13:04.590] Show Waiting
+[05:13:04.600] recv : y S 0 0 - 23
+[05:13:08.630] Name of point : femur
+[05:13:08.630] Mean of points : 240.231996154785, -31.0021926879883, -1467.9065612793, 0.0738556210587058, 0.0826641695420429, -0.786292947162318
+[05:13:08.630] Threshold : 0.5
+[05:13:08.630] Name of point : base
+[05:13:08.630] Mean of points : 84.9061794281006, 371.119662475586, -1688.01325683594, 0.410594905578227, 0.135296688354437, 0.0965210386204134
+[05:13:08.630] Threshold : 0.5
+[05:13:08.630] Close Waiting
+[05:13:08.640] ,615.01779492808,-160.853215094765,183.679587993518,-131.931733800027,-8.78431904647538,8.30970243646405
+[05:13:08.640] send : X 0
+[05:13:08.640] send : S 0
+[05:13:08.650] recv : y X 0 0 - 23
+[05:13:08.660] recv : y S 0 0 - 23
+[05:13:10.742] STOP clicked. (ResectionFemur)
+[05:13:10.742] send : X 0
+[05:13:10.742] recv : y X 0 0 - 23
+[05:13:11.404] START clicked. (ResectionFemur)
+[05:13:11.404] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:13:11.698] Confirm clicked. (AlarmMessage)
+[05:13:11.708] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:13:12.370] Confirm clicked. (AlarmMessage)
+[05:13:12.370] send : U 0
+[05:13:12.540] recv : y A F 3 - 23
+[05:13:12.740] recv : U 0 0 F - 23
+[05:13:18.060] recv : U 0 0 F - 23
+[05:13:23.600] recv : U 0 0 F - 23
+[05:13:26.390] recv : U 0 0 F - 21
+[05:13:28.640] recv : U 0 0 F - 21
+[05:13:32.060] recv : E  0 0 - 21
+[05:13:32.060] Close Waiting
+[05:13:32.060] W0104: ADAPTCTRL disable(P:203,S:5)
+[05:13:32.260] recv : U 0 0 F - 21
+[05:13:34.930] PAUSE clicked. ()
+[05:13:34.930] send : S 0
+[05:13:34.930] Close Waiting
+[05:13:34.930] Show Waiting
+[05:13:34.940] recv : y S 0 0 - 23
+[05:13:38.980] Name of point : femur
+[05:13:38.980] Mean of points : 240.23263092041, -30.9973323822021, -1467.90874633789, 0.0738839730186694, 0.0826520735661096, -0.786287074095886
+[05:13:38.980] Threshold : 0.5
+[05:13:38.980] Name of point : base
+[05:13:38.990] Mean of points : 84.9073989868164, 371.125975036621, -1688.01606445312, 0.410592072050375, 0.135245234918783, 0.0964904703002737
+[05:13:38.990] Threshold : 0.5
+[05:13:38.990] Close Waiting
+[05:13:38.990] ,615.01764990693,-160.853036525222,183.652303638289,-131.930084932995,-8.78256964982283,8.30929404658334
+[05:13:38.990] send : X 0
+[05:13:38.990] send : S 0
+[05:13:39.000] recv : y X 0 0 - 23
+[05:13:39.010] recv : y S 0 0 - 23
+[05:13:41.122] STOP clicked. (ResectionFemur)
+[05:13:41.122] send : X 0
+[05:13:41.122] recv : y X 0 0 - 21
+[05:13:42.974] NEXT SURFACE clicked. (ResectionFemur)
+[05:13:45.406] MANUAL GUIDE clicked. (ResectionFemur)
+[05:13:45.406] WARNING - Activate Robot Manual Guide? (Pop up)
+[05:13:45.810] Confirm clicked. (AlarmMessage)
+[05:13:45.810] send : X 0
+[05:13:45.820] recv : y X 0 0 - 23
+[05:13:45.910] send : G 0
+[05:13:45.950] recv : y G 0 0 - 23
+[05:13:46.010] INFORMATION - Click Confirm, when Guide Completed (Pop up)
+[05:14:10.104] Confirm clicked. (AlarmMessage)
+[05:14:10.104] send : X 0
+[05:14:10.104] recv : y X 0 0 - 23
+[05:14:15.796] START clicked. (ResectionFemur)
+[05:14:15.806] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:14:16.790] Confirm clicked. (AlarmMessage)
+[05:14:16.800] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:14:17.794] Confirm clicked. (AlarmMessage)
+[05:14:17.794] send : U 0
+[05:14:17.974] recv : y A F 4 - 23
+[05:14:18.184] recv : U 0 0 F - 23
+[05:14:19.634] recv : U 0 0 F - 23
+[05:14:26.024] recv : U 0 0 F - 23
+[05:14:29.084] recv : U 0 0 F - 21
+[05:14:31.174] recv : U 0 0 F - 21
+[05:14:34.594] recv : E  0 0 - 21
+[05:14:34.594] Close Waiting
+[05:14:34.594] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:14:34.804] recv : U 0 0 F - 21
+[05:14:39.274] PAUSE clicked. ()
+[05:14:39.274] send : S 0
+[05:14:39.274] Close Waiting
+[05:14:39.274] Show Waiting
+[05:14:39.274] recv : y S 0 0 - 23
+[05:14:43.314] Name of point : femur
+[05:14:43.314] Mean of points : 240.242669677734, -30.9464509963989, -1467.88102416992, 0.0739408077225972, 0.0827489448089945, -0.786345317032039
+[05:14:43.314] Threshold : 0.5
+[05:14:43.314] Name of point : base
+[05:14:43.324] Mean of points : 84.9280540466309, 371.180690002441, -1687.98340454102, 0.410658696375247, 0.135284192481917, 0.0964676748229946
+[05:14:43.324] Threshold : 0.5
+[05:14:43.324] Close Waiting
+[05:14:43.324] ,615.021076651427,-160.825711055312,183.666398381615,-131.930990959006,-8.78388587124103,8.3064806626609
+[05:14:43.324] send : X 0
+[05:14:43.324] send : S 0
+[05:14:43.334] recv : y X 0 0 - 23
+[05:14:43.344] recv : y S 0 0 - 23
+[05:14:46.356] STOP clicked. (ResectionFemur)
+[05:14:46.356] send : X 0
+[05:14:46.356] recv : y X 0 0 - 23
+[05:14:47.418] START clicked. (ResectionFemur)
+[05:14:47.418] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:14:48.122] Confirm clicked. (AlarmMessage)
+[05:14:48.122] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:14:49.096] Confirm clicked. (AlarmMessage)
+[05:14:49.096] send : U 0
+[05:14:49.276] recv : y A F 4 - 23
+[05:14:49.486] recv : U 0 0 F - 23
+[05:14:54.926] recv : U 0 0 F - 23
+[05:15:01.316] recv : U 0 0 F - 21
+[05:15:04.376] recv : U 0 0 F - 21
+[05:15:06.476] recv : U 0 0 F - 21
+[05:15:09.886] recv : E  0 0 - 21
+[05:15:09.886] Close Waiting
+[05:15:09.886] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:15:10.096] recv : U 0 0 F - 21
+[05:15:13.816] PAUSE clicked. ()
+[05:15:13.826] send : S 0
+[05:15:13.826] Close Waiting
+[05:15:13.826] Show Waiting
+[05:15:13.826] recv : y S 0 0 - 21
+[05:15:17.846] Name of point : femur
+[05:15:17.846] Mean of points : 240.241062927246, -30.9557006835938, -1467.88673706055, 0.0738992234403515, 0.0826819768656902, -0.786353340960558
+[05:15:17.846] Threshold : 0.5
+[05:15:17.846] Name of point : base
+[05:15:17.856] Mean of points : 84.9265655517578, 371.171278381348, -1687.9975769043, 0.410604482978664, 0.135254565085036, 0.0964545097111299
+[05:15:17.856] Threshold : 0.5
+[05:15:17.856] Close Waiting
+[05:15:17.856] ,615.018256377942,-160.841522943955,183.656669973199,-131.931472892078,-8.78296662952378,8.30799539000575
+[05:15:17.856] send : X 0
+[05:15:17.856] send : S 0
+[05:15:17.866] recv : y X 0 0 - 21
+[05:15:17.876] recv : y S 0 0 - 21
+[05:15:19.568] STOP clicked. (ResectionFemur)
+[05:15:19.568] send : X 0
+[05:15:19.568] recv : y X 0 0 - 21
+[05:15:20.120] START clicked. (ResectionFemur)
+[05:15:20.130] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:15:20.774] Confirm clicked. (AlarmMessage)
+[05:15:20.774] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:15:21.208] Confirm clicked. (AlarmMessage)
+[05:15:21.208] send : U 0
+[05:15:21.398] recv : y A F 4 - 28
+[05:15:21.608] recv : U 0 0 F - 28
+[05:15:27.048] recv : U 0 0 F - 28
+[05:15:33.438] recv : U 0 0 F - 28
+[05:15:36.498] recv : U 0 0 F - 28
+[05:15:38.598] recv : U 0 0 F - 23
+[05:15:42.008] recv : E  0 0 - 23
+[05:15:42.008] Close Waiting
+[05:15:42.008] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:15:42.218] recv : U 0 0 F - 23
+[05:15:45.308] PAUSE clicked. ()
+[05:15:45.308] send : S 0
+[05:15:45.308] Close Waiting
+[05:15:45.308] Show Waiting
+[05:15:45.318] recv : y S 0 0 - 28
+[05:15:49.348] Name of point : femur
+[05:15:49.348] Mean of points : 240.23748626709, -30.9586525917053, -1467.88277587891, 0.0739035590365547, 0.0826341145659976, -0.786347940109923
+[05:15:49.348] Threshold : 0.5
+[05:15:49.348] Name of point : base
+[05:15:49.348] Mean of points : 84.9252002716064, 371.169886779785, -1687.99834594727, 0.410573044843821, 0.135262446343792, 0.0964555626824088
+[05:15:49.348] Threshold : 0.5
+[05:15:49.358] Close Waiting
+[05:15:49.358] ,615.010812328967,-160.854586386985,183.655055825595,-131.930897979731,-8.7852886842104,8.30793428422827
+[05:15:49.358] send : X 0
+[05:15:49.358] send : S 0
+[05:15:49.368] recv : y X 0 0 - 28
+[05:15:49.378] recv : y S 0 0 - 28
+[05:15:50.510] STOP clicked. (ResectionFemur)
+[05:15:50.510] send : X 0
+[05:15:50.520] recv : y X 0 0 - 28
+[05:15:53.352] START clicked. (ResectionFemur)
+[05:15:53.352] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:15:53.834] Confirm clicked. (AlarmMessage)
+[05:15:53.844] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:15:54.328] Confirm clicked. (AlarmMessage)
+[05:15:54.328] send : U 0
+[05:15:54.518] recv : y A F 4 - 28
+[05:15:54.728] recv : U 0 0 F - 28
+[05:16:00.168] recv : U 0 0 F - 28
+[05:16:06.558] recv : U 0 0 F - 19
+[05:16:09.618] recv : U 0 0 F - 19
+[05:16:11.718] recv : U 0 0 F - 19
+[05:16:15.128] recv : E  0 0 - 19
+[05:16:15.128] Close Waiting
+[05:16:15.128] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:16:15.338] recv : U 0 0 F - 19
+[05:16:19.028] PAUSE clicked. ()
+[05:16:19.028] send : S 0
+[05:16:19.028] Close Waiting
+[05:16:19.028] Show Waiting
+[05:16:19.038] recv : y S 0 0 - 19
+[05:16:23.048] Name of point : femur
+[05:16:23.048] Mean of points : 240.239133453369, -30.9567135810852, -1467.89016723633, 0.0738399107595927, 0.0825893621869109, -0.78635402613041
+[05:16:23.048] Threshold : 0.5
+[05:16:23.048] Name of point : base
+[05:16:23.048] Mean of points : 84.9264301300049, 371.171618652344, -1688.00303344727, 0.41060943434237, 0.135228856168802, 0.0964486342049063
+[05:16:23.048] Threshold : 0.5
+[05:16:23.058] Close Waiting
+[05:16:23.058] ,615.045799161505,-160.844722167704,183.653930523755,-131.93231372771,-8.78284813546334,8.31466955306743
+[05:16:23.058] send : X 0
+[05:16:23.058] send : S 0
+[05:16:23.068] recv : y X 0 0 - 19
+[05:16:23.078] recv : y S 0 0 - 19
+[05:16:25.168] STOP clicked. (ResectionFemur)
+[05:16:25.168] send : X 0
+[05:16:25.178] recv : y X 0 0 - 19
+[05:16:25.740] START clicked. (ResectionFemur)
+[05:16:25.740] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:16:26.144] Confirm clicked. (AlarmMessage)
+[05:16:26.144] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:16:26.608] Confirm clicked. (AlarmMessage)
+[05:16:26.608] send : U 0
+[05:16:26.798] recv : y A F 4 - 19
+[05:16:27.008] recv : U 0 0 F - 19
+[05:16:32.448] recv : U 0 0 F - 19
+[05:16:38.838] recv : U 0 0 F - 23
+[05:16:41.898] recv : U 0 0 F - 19
+[05:16:43.998] recv : U 0 0 F - 19
+[05:16:47.418] recv : E  0 0 - 19
+[05:16:47.418] Close Waiting
+[05:16:47.418] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:16:47.628] recv : U 0 0 F - 19
+[05:16:50.618] PAUSE clicked. ()
+[05:16:50.618] send : S 0
+[05:16:50.618] Close Waiting
+[05:16:50.618] recv : y S 0 0 - 19
+[05:16:50.618] Show Waiting
+[05:16:54.648] Name of point : femur
+[05:16:54.648] Mean of points : 240.235276031494, -30.9524712562561, -1467.88814697266, 0.0738740229935045, 0.0826957443125548, -0.786339562433063
+[05:16:54.648] Threshold : 0.5
+[05:16:54.648] Name of point : base
+[05:16:54.648] Mean of points : 84.9226417541504, 371.174731445312, -1687.98955078125, 0.41059761990193, 0.135251033077318, 0.0964581408062611
+[05:16:54.648] Threshold : 0.5
+[05:16:54.658] Close Waiting
+[05:16:54.658] ,615.01067767696,-160.848556918691,183.659131246052,-131.931309303275,-8.7810513425833,8.30813173005475
+[05:16:54.658] send : X 0
+[05:16:54.658] send : S 0
+[05:16:54.668] recv : y X 0 0 - 19
+[05:16:54.678] recv : y S 0 0 - 22
+[05:16:56.600] STOP clicked. (ResectionFemur)
+[05:16:56.600] send : X 0
+[05:16:56.610] recv : y X 0 0 - 19
+[05:16:57.082] START clicked. (ResectionFemur)
+[05:16:57.082] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:16:57.444] Confirm clicked. (AlarmMessage)
+[05:16:57.444] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:16:57.838] Confirm clicked. (AlarmMessage)
+[05:16:57.838] send : U 0
+[05:16:58.018] recv : y A F 4 - 22
+[05:16:58.228] recv : U 0 0 F - 22
+[05:17:03.668] recv : U 0 0 F - 22
+[05:17:10.058] recv : U 0 0 F - 22
+[05:17:13.118] recv : U 0 0 F - 22
+[05:17:15.218] recv : U 0 0 F - 29
+[05:17:18.628] recv : E  0 0 - 29
+[05:17:18.628] Close Waiting
+[05:17:18.628] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:17:18.838] recv : U 0 0 F - 29
+[05:17:22.048] PAUSE clicked. ()
+[05:17:22.048] send : S 0
+[05:17:22.048] Close Waiting
+[05:17:22.048] Show Waiting
+[05:17:22.048] recv : y S 0 0 - 22
+[05:17:26.048] Name of point : femur
+[05:17:26.048] Mean of points : 240.237285614014, -30.9554489135742, -1467.89034423828, 0.0738630808603912, 0.0826326263700511, -0.786351996452934
+[05:17:26.048] Threshold : 0.5
+[05:17:26.048] Name of point : base
+[05:17:26.058] Mean of points : 84.9232276916504, 371.174920654297, -1688.00297241211, 0.410566216011558, 0.135240436884826, 0.096454551193645
+[05:17:26.058] Threshold : 0.5
+[05:17:26.058] Close Waiting
+[05:17:26.058] ,615.01477271495,-160.859109076548,183.654832816847,-131.931931421005,-8.78253859990497,8.30938163995959
+[05:17:26.058] send : X 0
+[05:17:26.058] send : S 0
+[05:17:26.068] recv : y X 0 0 - 29
+[05:17:26.078] recv : y S 0 0 - 29
+[05:17:27.660] STOP clicked. (ResectionFemur)
+[05:17:27.660] send : X 0
+[05:17:27.660] recv : y X 0 0 - 22
+[05:17:28.010] START clicked. (ResectionFemur)
+[05:17:28.020] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:17:28.384] Confirm clicked. (AlarmMessage)
+[05:17:28.384] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:17:28.978] Confirm clicked. (AlarmMessage)
+[05:17:28.978] send : U 0
+[05:17:29.158] recv : y A F 4 - 22
+[05:17:29.368] recv : U 0 0 F - 22
+[05:17:34.808] recv : U 0 0 F - 22
+[05:17:41.198] recv : U 0 0 F - 22
+[05:17:44.258] recv : U 0 0 F - 30
+[05:17:46.358] recv : U 0 0 F - 30
+[05:17:49.768] recv : E  0 0 - 30
+[05:17:49.768] Close Waiting
+[05:17:49.768] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:17:49.978] recv : U 0 0 F - 30
+[05:17:52.378] PAUSE clicked. ()
+[05:17:52.378] send : S 0
+[05:17:52.388] Close Waiting
+[05:17:52.388] Show Waiting
+[05:17:52.388] recv : y S 0 0 - 22
+[05:17:56.398] Name of point : femur
+[05:17:56.398] Mean of points : 240.235653686523, -30.9552764892578, -1467.88870849609, 0.0738895662076029, 0.0826818735371412, -0.786342598311555
+[05:17:56.398] Threshold : 0.5
+[05:17:56.398] Name of point : base
+[05:17:56.398] Mean of points : 84.9233158111572, 371.175065612793, -1688.00556640625, 0.410603007036683, 0.135256971473032, 0.0964613348091994
+[05:17:56.398] Threshold : 0.5
+[05:17:56.398] Close Waiting
+[05:17:56.408] ,615.025880788931,-160.84456208143,183.663402711028,-131.931350590997,-8.78266023282707,8.3083124645433
+[05:17:56.408] send : X 0
+[05:17:56.408] send : S 0
+[05:17:56.408] recv : y X 0 0 - 22
+[05:17:56.418] recv : y S 0 0 - 22
+[05:17:57.640] STOP clicked. (ResectionFemur)
+[05:17:57.640] send : X 0
+[05:17:57.640] recv : y X 0 0 - 22
+[05:17:57.892] START clicked. (ResectionFemur)
+[05:17:57.892] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:17:58.206] Confirm clicked. (AlarmMessage)
+[05:17:58.206] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:17:58.580] Confirm clicked. (AlarmMessage)
+[05:17:58.580] send : U 0
+[05:17:58.780] recv : y A F 4 - 22
+[05:17:58.990] recv : U 0 0 F - 22
+[05:18:04.430] recv : U 0 0 F - 22
+[05:18:10.820] recv : U 0 0 F - 22
+[05:18:13.880] recv : U 0 0 F - 30
+[05:18:15.980] recv : U 0 0 F - 30
+[05:18:19.390] recv : E  0 0 - 30
+[05:18:19.390] Close Waiting
+[05:18:19.390] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:18:19.600] recv : U 0 0 F - 30
+[05:18:22.480] PAUSE clicked. ()
+[05:18:22.480] send : S 0
+[05:18:22.490] Close Waiting
+[05:18:22.490] Show Waiting
+[05:18:22.490] recv : y S 0 0 - 22
+[05:18:26.530] Name of point : femur
+[05:18:26.530] Mean of points : 240.236324310303, -30.9560821533203, -1467.89176025391, 0.0738623488257783, 0.0827130546929541, -0.786340770278107
+[05:18:26.530] Threshold : 0.5
+[05:18:26.530] Name of point : base
+[05:18:26.530] Mean of points : 84.9235103607178, 371.17367401123, -1688.0021484375, 0.410612399609171, 0.135224361860338, 0.0964531426839093
+[05:18:26.530] Threshold : 0.5
+[05:18:26.530] Close Waiting
+[05:18:26.540] ,615.029088583021,-160.841028416749,183.658807117513,-131.931730687423,-8.77843586957524,8.30892123989709
+[05:18:26.540] send : X 0
+[05:18:26.540] send : S 0
+[05:18:26.540] recv : y X 0 0 - 30
+[05:18:26.550] recv : y S 0 0 - 30
+[05:18:28.902] STOP clicked. (ResectionFemur)
+[05:18:28.902] send : X 0
+[05:18:28.912] recv : y X 0 0 - 30
+[05:18:29.394] START clicked. (ResectionFemur)
+[05:18:29.394] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:18:29.928] Confirm clicked. (AlarmMessage)
+[05:18:29.928] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:18:30.430] Confirm clicked. (AlarmMessage)
+[05:18:30.430] send : U 0
+[05:18:30.620] recv : y A F 4 - 30
+[05:18:30.830] recv : U 0 0 F - 30
+[05:18:36.270] recv : U 0 0 F - 30
+[05:18:42.660] recv : U 0 0 F - 30
+[05:18:45.720] recv : U 0 0 F - 31
+[05:18:47.820] recv : U 0 0 F - 30
+[05:18:51.230] recv : E  0 0 - 30
+[05:18:51.230] Close Waiting
+[05:18:51.230] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:18:51.440] recv : U 0 0 F - 30
+[05:18:54.250] PAUSE clicked. ()
+[05:18:54.250] send : S 0
+[05:18:54.260] Close Waiting
+[05:18:54.260] Show Waiting
+[05:18:54.260] recv : y S 0 0 - 30
+[05:18:58.280] Name of point : femur
+[05:18:58.280] Mean of points : 240.23450012207, -30.954480266571, -1467.88717651367, 0.0738538078155811, 0.0826454145600542, -0.786348719066622
+[05:18:58.280] Threshold : 0.5
+[05:18:58.280] Name of point : base
+[05:18:58.290] Mean of points : 84.9212314605713, 371.173376464844, -1688.00219726563, 0.410595255177628, 0.135219488884626, 0.0964496704479423
+[05:18:58.290] Threshold : 0.5
+[05:18:58.290] Close Waiting
+[05:18:58.290] ,615.032482389687,-160.845499810768,183.653883974496,-131.93203756809,-8.7805184683142,8.31106095320507
+[05:18:58.290] send : X 0
+[05:18:58.290] send : S 0
+[05:18:58.300] recv : y X 0 0 - 30
+[05:18:58.320] recv : y S 0 0 - 30
+[05:18:59.392] STOP clicked. (ResectionFemur)
+[05:18:59.392] send : X 0
+[05:18:59.402] recv : y X 0 0 - 31
+[05:18:59.594] START clicked. (ResectionFemur)
+[05:18:59.604] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:19:00.068] Confirm clicked. (AlarmMessage)
+[05:19:00.068] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:19:00.552] Confirm clicked. (AlarmMessage)
+[05:19:00.552] send : U 0
+[05:19:00.742] recv : y A F 4 - 31
+[05:19:00.952] recv : U 0 0 F - 31
+[05:19:06.392] recv : U 0 0 F - 31
+[05:19:12.782] recv : U 0 0 F - 31
+[05:19:15.842] recv : U 0 0 F - 31
+[05:19:17.942] recv : U 0 0 F - 29
+[05:19:21.352] recv : E  0 0 - 29
+[05:19:21.352] Close Waiting
+[05:19:21.352] W0104: ADAPTCTRL disable(P:204,S:5)
+[05:19:21.562] recv : U 0 0 F - 29
+[05:19:25.122] PAUSE clicked. ()
+[05:19:25.122] send : S 0
+[05:19:25.122] Close Waiting
+[05:19:25.122] Show Waiting
+[05:19:25.132] recv : y S 0 0 - 31
+[05:19:29.132] Name of point : femur
+[05:19:29.132] Mean of points : 240.232270812988, -30.9518033027649, -1467.890625, 0.0739038511864052, 0.0827611571209258, -0.786341737656495
+[05:19:29.132] Threshold : 0.5
+[05:19:29.132] Name of point : base
+[05:19:29.132] Mean of points : 84.918635559082, 371.176843261719, -1688.00278320313, 0.410609979914128, 0.13522189018229, 0.0964517101631449
+[05:19:29.132] Threshold : 0.5
+[05:19:29.132] Close Waiting
+[05:19:29.142] ,615.015766350605,-160.837068430005,183.655795198347,-131.931209293858,-8.77800437937167,8.30512547768604
+[05:19:29.142] send : X 0
+[05:19:29.142] send : S 0
+[05:19:29.152] recv : y X 0 0 - 31
+[05:19:29.162] recv : y S 0 0 - 31
+[05:19:32.414] STOP clicked. (ResectionFemur)
+[05:19:32.414] send : X 0
+[05:19:32.424] recv : y X 0 0 - 31
+[05:19:34.016] NEXT SURFACE clicked. (ResectionFemur)
+[05:19:36.408] MANUAL GUIDE clicked. (ResectionFemur)
+[05:19:36.408] WARNING - Activate Robot Manual Guide? (Pop up)
+[05:19:37.382] Confirm clicked. (AlarmMessage)
+[05:19:37.382] send : X 0
+[05:19:37.392] recv : y X 0 0 - 31
+[05:19:37.482] send : G 0
+[05:19:37.512] recv : y G 0 0 - 31
+[05:19:37.582] INFORMATION - Click Confirm, when Guide Completed (Pop up)
+[05:19:56.256] Confirm clicked. (AlarmMessage)
+[05:19:56.256] send : X 0
+[05:19:56.256] recv : y X 0 0 - 31
+[05:19:58.688] START clicked. (ResectionFemur)
+[05:19:58.688] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:19:59.352] Confirm clicked. (AlarmMessage)
+[05:19:59.352] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:19:59.706] Confirm clicked. (AlarmMessage)
+[05:19:59.706] send : U 0
+[05:19:59.986] recv : y A F 5 - 22
+[05:20:00.196] recv : U 0 0 F - 31
+[05:20:01.836] recv : U 0 0 F - 31
+[05:20:07.266] recv : U 0 0 F - 31
+[05:20:09.896] recv : U 0 0 F - 31
+[05:20:11.786] recv : U 0 0 F - 31
+[05:20:15.196] recv : E  0 0 - 31
+[05:20:15.206] Close Waiting
+[05:20:15.206] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:20:15.406] recv : U 0 0 F - 31
+[05:20:19.638] PAUSE clicked. ()
+[05:20:19.638] send : S 0
+[05:20:19.638] Close Waiting
+[05:20:19.638] Show Waiting
+[05:20:19.648] recv : y S 0 0 - 31
+[05:20:23.648] Name of point : femur
+[05:20:23.648] Mean of points : 240.212645721436, -31.0109004974365, -1467.91071777344, 0.0738571153076263, 0.082666550429019, -0.786299054974511
+[05:20:23.648] Threshold : 0.5
+[05:20:23.648] Name of point : base
+[05:20:23.648] Mean of points : 84.8845462799072, 371.111778259277, -1688.02110595703, 0.410558219280645, 0.135201314216762, 0.0964943321649926
+[05:20:23.648] Threshold : 0.5
+[05:20:23.658] Close Waiting
+[05:20:23.658] ,615.007631587783,-160.860078597511,183.652411514471,-131.931884999349,-8.7785670803513,8.30805215771622
+[05:20:23.658] send : X 0
+[05:20:23.658] send : S 0
+[05:20:23.658] recv : y X 0 0 - 31
+[05:20:23.668] recv : y S 0 0 - 31
+[05:20:25.328] STOP clicked. (ResectionFemur)
+[05:20:25.338] send : X 0
+[05:20:25.338] recv : y X 0 0 - 31
+[05:20:33.490] START clicked. (ResectionFemur)
+[05:20:33.490] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:20:34.184] Confirm clicked. (AlarmMessage)
+[05:20:34.184] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:20:35.558] Confirm clicked. (AlarmMessage)
+[05:20:35.558] send : U 0
+[05:20:35.828] recv : y A F 5 - 31
+[05:20:36.038] recv : U 0 0 F - 30
+[05:20:41.698] recv : U 0 0 F - 30
+[05:20:47.138] recv : U 0 0 F - 30
+[05:20:49.768] recv : U 0 0 F - 30
+[05:20:51.658] recv : U 0 0 F - 30
+[05:20:55.058] recv : E  0 0 - 23
+[05:20:55.058] Close Waiting
+[05:20:55.068] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:20:55.268] recv : U 0 0 F - 23
+[05:20:58.308] PAUSE clicked. ()
+[05:20:58.308] send : S 0
+[05:20:58.308] Close Waiting
+[05:20:58.308] Show Waiting
+[05:20:58.308] recv : y S 0 0 - 30
+[05:21:02.348] Name of point : femur
+[05:21:02.348] Mean of points : 240.21236038208, -31.0150499343872, -1467.91416625977, 0.0738888149128724, 0.0826616392477334, -0.786292696288868
+[05:21:02.348] Threshold : 0.5
+[05:21:02.348] Name of point : base
+[05:21:02.348] Mean of points : 84.8833953857422, 371.106074523926, -1688.02183227539, 0.410592115870091, 0.135306209333398, 0.0965288693386848
+[05:21:02.358] Threshold : 0.5
+[05:21:02.358] Close Waiting
+[05:21:02.358] ,615.009870596956,-160.853531290285,183.678102621849,-131.931534871815,-8.78635465867156,8.30819791410866
+[05:21:02.358] send : X 0
+[05:21:02.358] send : S 0
+[05:21:02.358] recv : y X 0 0 - 23
+[05:21:02.368] recv : y S 0 0 - 23
+[05:21:03.310] STOP clicked. (ResectionFemur)
+[05:21:03.310] send : X 0
+[05:21:03.320] recv : y X 0 0 - 23
+[05:21:03.832] START clicked. (ResectionFemur)
+[05:21:03.832] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:21:04.246] Confirm clicked. (AlarmMessage)
+[05:21:04.256] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:21:04.630] Confirm clicked. (AlarmMessage)
+[05:21:04.630] send : U 0
+[05:21:04.910] recv : y A F 5 - 30
+[05:21:05.120] recv : U 0 0 F - 30
+[05:21:10.780] recv : U 0 0 F - 30
+[05:21:16.220] recv : U 0 0 F - 30
+[05:21:18.850] recv : U 0 0 F - 30
+[05:21:20.740] recv : U 0 0 F - 27
+[05:21:24.150] recv : E  0 0 - 27
+[05:21:24.150] Close Waiting
+[05:21:24.150] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:21:24.360] recv : U 0 0 F - 27
+[05:21:27.680] PAUSE clicked. ()
+[05:21:27.680] send : S 0
+[05:21:27.680] Close Waiting
+[05:21:27.680] Show Waiting
+[05:21:27.680] recv : y S 0 0 - 30
+[05:21:31.680] Name of point : femur
+[05:21:31.680] Mean of points : 240.211645507813, -31.0112462043762, -1467.91299438477, 0.0738853060270161, 0.0827077690955555, -0.786300559348508
+[05:21:31.680] Threshold : 0.5
+[05:21:31.680] Name of point : base
+[05:21:31.690] Mean of points : 84.8822731018066, 371.10765838623, -1688.01661987305, 0.410633548668647, 0.135225902551601, 0.0965084630917081
+[05:21:31.690] Threshold : 0.5
+[05:21:31.690] Close Waiting
+[05:21:31.690] ,615.026107324261,-160.833605081699,183.663945903625,-131.932285520735,-8.77994472188697,8.30934597285675
+[05:21:31.690] send : X 0
+[05:21:31.690] send : S 0
+[05:21:31.700] recv : y X 0 0 - 30
+[05:21:31.710] recv : y S 0 0 - 30
+[05:21:32.582] STOP clicked. (ResectionFemur)
+[05:21:32.582] send : X 0
+[05:21:32.582] recv : y X 0 0 - 30
+[05:21:32.944] START clicked. (ResectionFemur)
+[05:21:32.944] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:21:33.308] Confirm clicked. (AlarmMessage)
+[05:21:33.308] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:21:33.662] Confirm clicked. (AlarmMessage)
+[05:21:33.662] send : U 0
+[05:21:33.952] recv : y A F 5 - 30
+[05:21:34.152] recv : U 0 0 F - 30
+[05:21:39.822] recv : U 0 0 F - 30
+[05:21:45.262] recv : U 0 0 F - 26
+[05:21:47.892] recv : U 0 0 F - 26
+[05:21:49.782] recv : U 0 0 F - 26
+[05:21:53.192] recv : E  0 0 - 26
+[05:21:53.192] Close Waiting
+[05:21:53.192] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:21:53.402] recv : U 0 0 F - 26
+[05:21:56.572] PAUSE clicked. ()
+[05:21:56.572] send : S 0
+[05:21:56.572] Close Waiting
+[05:21:56.572] Show Waiting
+[05:21:56.582] recv : y S 0 0 - 26
+[05:22:00.592] Name of point : femur
+[05:22:00.592] Mean of points : 240.213374328613, -31.0040022850037, -1467.91091918945, 0.0738958578990142, 0.0827047893174167, -0.786287276247362
+[05:22:00.592] Threshold : 0.5
+[05:22:00.602] Name of point : base
+[05:22:00.602] Mean of points : 84.8871547698975, 371.115338134766, -1688.00725097656, 0.410612720988327, 0.135247632309861, 0.0965047130671364
+[05:22:00.602] Threshold : 0.5
+[05:22:00.602] Close Waiting
+[05:22:00.602] ,615.007472909477,-160.84503156945,183.660608825604,-131.930804221678,-8.78135586324487,8.30777331174984
+[05:22:00.602] send : X 0
+[05:22:00.602] send : S 0
+[05:22:00.612] recv : y X 0 0 - 26
+[05:22:00.622] recv : y S 0 0 - 26
+[05:22:02.084] STOP clicked. (ResectionFemur)
+[05:22:02.084] send : X 0
+[05:22:02.094] recv : y X 0 0 - 26
+[05:22:02.486] START clicked. (ResectionFemur)
+[05:22:02.486] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:22:02.760] Confirm clicked. (AlarmMessage)
+[05:22:02.760] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:22:03.374] Confirm clicked. (AlarmMessage)
+[05:22:03.374] send : U 0
+[05:22:03.654] recv : y A F 5 - 25
+[05:22:03.854] recv : U 0 0 F - 25
+[05:22:09.524] recv : U 0 0 F - 25
+[05:22:14.965] recv : U 0 0 F - 26
+[05:22:17.595] recv : U 0 0 F - 26
+[05:22:19.485] recv : U 0 0 F - 26
+[05:22:22.885] recv : E  0 0 - 26
+[05:22:22.885] Close Waiting
+[05:22:22.885] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:22:23.085] recv : U 0 0 F - 26
+[05:22:26.185] PAUSE clicked. ()
+[05:22:26.185] send : S 0
+[05:22:26.185] Close Waiting
+[05:22:26.185] Show Waiting
+[05:22:26.195] recv : y S 0 0 - 26
+[05:22:30.215] Name of point : femur
+[05:22:30.215] Mean of points : 240.213585662842, -31.0035670280457, -1467.91884765625, 0.0739384998999968, 0.0827002021335796, -0.786291952232504
+[05:22:30.215] Threshold : 0.5
+[05:22:30.215] Name of point : base
+[05:22:30.215] Mean of points : 84.8854404449463, 371.11774597168, -1688.01920166016, 0.410606433648601, 0.135199951251495, 0.0964923935137009
+[05:22:30.225] Threshold : 0.5
+[05:22:30.225] Close Waiting
+[05:22:30.225] ,615.002746230347,-160.844997939074,183.643208729257,-131.930479213836,-8.78046267826578,8.30614498297341
+[05:22:30.225] send : X 0
+[05:22:30.225] send : S 0
+[05:22:30.235] recv : y X 0 0 - 26
+[05:22:30.245] recv : y S 0 0 - 26
+[05:22:31.587] STOP clicked. (ResectionFemur)
+[05:22:31.587] send : X 0
+[05:22:31.597] recv : y X 0 0 - 26
+[05:22:31.909] START clicked. (ResectionFemur)
+[05:22:31.909] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:22:32.263] Confirm clicked. (AlarmMessage)
+[05:22:32.263] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:22:32.687] Confirm clicked. (AlarmMessage)
+[05:22:32.687] send : U 0
+[05:22:32.977] recv : y A F 5 - 26
+[05:22:33.177] recv : U 0 0 F - 26
+[05:22:38.847] recv : U 0 0 F - 26
+[05:22:44.287] recv : U 0 0 F - 26
+[05:22:46.917] recv : U 0 0 F - 20
+[05:22:48.807] recv : U 0 0 F - 20
+[05:22:52.207] recv : E  0 0 - 20
+[05:22:52.207] Close Waiting
+[05:22:52.207] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:22:52.417] recv : U 0 0 F - 20
+[05:22:54.897] PAUSE clicked. ()
+[05:22:54.897] send : S 0
+[05:22:54.897] Close Waiting
+[05:22:54.907] recv : y S 0 0 - 26
+[05:22:54.907] Show Waiting
+[05:22:58.947] Name of point : femur
+[05:22:58.947] Mean of points : 240.206467437744, -31.0049609184265, -1467.91030883789, 0.0738397410565944, 0.0826645681994014, -0.786293754081565
+[05:22:58.947] Threshold : 0.5
+[05:22:58.957] Name of point : base
+[05:22:58.957] Mean of points : 84.8796573638916, 371.116046142578, -1688.02529907227, 0.410576149120723, 0.135232410608562, 0.0964988793339887
+[05:22:58.957] Threshold : 0.5
+[05:22:58.957] Close Waiting
+[05:22:58.957] ,615.022935511562,-160.852656982581,183.662080065583,-131.931678712897,-8.77974461562381,8.30970482079558
+[05:22:58.957] send : X 0
+[05:22:58.957] send : S 0
+[05:22:58.967] recv : y X 0 0 - 26
+[05:22:58.977] recv : y S 0 0 - 26
+[05:22:59.789] STOP clicked. (ResectionFemur)
+[05:22:59.789] send : X 0
+[05:22:59.799] recv : y X 0 0 - 26
+[05:23:00.191] START clicked. (ResectionFemur)
+[05:23:00.191] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:23:00.545] Confirm clicked. (AlarmMessage)
+[05:23:00.555] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:23:00.909] Confirm clicked. (AlarmMessage)
+[05:23:00.909] send : U 0
+[05:23:01.189] recv : y A F 5 - 26
+[05:23:01.389] recv : U 0 0 F - 26
+[05:23:07.059] recv : U 0 0 F - 26
+[05:23:12.499] recv : U 0 0 F - 26
+[05:23:15.139] recv : U 0 0 F - 24
+[05:23:17.019] recv : U 0 0 F - 24
+[05:23:20.429] recv : E  0 0 - 24
+[05:23:20.439] Close Waiting
+[05:23:20.439] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:23:20.639] recv : U 0 0 F - 24
+[05:23:23.149] PAUSE clicked. ()
+[05:23:23.149] send : S 0
+[05:23:23.149] Close Waiting
+[05:23:23.149] Show Waiting
+[05:23:23.149] recv : y S 0 0 - 26
+[05:23:27.149] Name of point : femur
+[05:23:27.149] Mean of points : 240.20477142334, -31.0070994377136, -1467.91865234375, 0.0738521829869927, 0.0826824987880534, -0.78629295520977
+[05:23:27.149] Threshold : 0.5
+[05:23:27.149] Name of point : base
+[05:23:27.149] Mean of points : 84.8784461975098, 371.112251281738, -1688.01920776367, 0.410604235372534, 0.135241168258926, 0.0965064408669137
+[05:23:27.159] Threshold : 0.5
+[05:23:27.159] Close Waiting
+[05:23:27.159] ,615.01798771423,-160.847204044972,183.665799933962,-131.931861349872,-8.7802225581657,8.31000202607763
+[05:23:27.159] send : X 0
+[05:23:27.159] send : S 0
+[05:23:27.159] recv : y X 0 0 - 26
+[05:23:27.169] recv : y S 0 0 - 26
+[05:23:28.351] STOP clicked. (ResectionFemur)
+[05:23:28.351] send : X 0
+[05:23:28.351] recv : y X 0 0 - 26
+[05:23:28.733] START clicked. (ResectionFemur)
+[05:23:28.733] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:23:29.087] Confirm clicked. (AlarmMessage)
+[05:23:29.087] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:23:29.739] Confirm clicked. (AlarmMessage)
+[05:23:29.739] send : U 0
+[05:23:30.009] recv : y A F 5 - 26
+[05:23:30.209] recv : U 0 0 F - 26
+[05:23:35.879] recv : U 0 0 F - 26
+[05:23:41.329] recv : U 0 0 F - 25
+[05:23:43.949] recv : U 0 0 F - 25
+[05:23:45.839] recv : U 0 0 F - 25
+[05:23:49.249] recv : E  0 0 - 25
+[05:23:49.259] Close Waiting
+[05:23:49.259] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:23:49.459] recv : U 0 0 F - 25
+[05:23:52.519] PAUSE clicked. ()
+[05:23:52.519] send : S 0
+[05:23:52.519] Close Waiting
+[05:23:52.529] Show Waiting
+[05:23:52.529] recv : y S 0 0 - 25
+[05:23:56.549] Name of point : femur
+[05:23:56.549] Mean of points : 240.203857421875, -31.0054578781128, -1467.91516723633, 0.073950353138887, 0.0826169409354303, -0.786285269333919
+[05:23:56.549] Threshold : 0.5
+[05:23:56.549] Name of point : base
+[05:23:56.549] Mean of points : 84.8769973754883, 371.116694641113, -1688.01943969727, 0.410589398757782, 0.135213463604909, 0.0964920478960511
+[05:23:56.559] Threshold : 0.5
+[05:23:56.559] Close Waiting
+[05:23:56.559] ,615.003878100486,-160.854808380978,183.637596058184,-131.929579486592,-8.78483651671755,8.30802727459917
+[05:23:56.559] send : X 0
+[05:23:56.559] send : S 0
+[05:23:56.559] recv : y X 0 0 - 25
+[05:23:56.569] recv : y S 0 0 - 25
+[05:23:57.781] STOP clicked. (ResectionFemur)
+[05:23:57.781] send : X 0
+[05:23:57.791] recv : y X 0 0 - 25
+[05:23:58.173] START clicked. (ResectionFemur)
+[05:23:58.173] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:23:58.447] Confirm clicked. (AlarmMessage)
+[05:23:58.447] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:23:58.721] Confirm clicked. (AlarmMessage)
+[05:23:58.721] send : U 0
+[05:23:58.991] recv : y A F 5 - 25
+[05:23:59.201] recv : U 0 0 F - 27
+[05:24:04.861] recv : U 0 0 F - 25
+[05:24:10.301] recv : U 0 0 F - 25
+[05:24:12.931] recv : U 0 0 F - 25
+[05:24:14.821] recv : U 0 0 F - 25
+[05:24:18.231] recv : E  0 0 - 23
+[05:24:18.241] Close Waiting
+[05:24:18.241] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:24:18.441] recv : U 0 0 F - 23
+[05:24:22.261] PAUSE clicked. ()
+[05:24:22.261] send : S 0
+[05:24:22.261] Close Waiting
+[05:24:22.271] Show Waiting
+[05:24:22.271] recv : y S 0 0 - 25
+[05:24:26.281] Name of point : femur
+[05:24:26.291] Mean of points : 240.199266052246, -31.0036631584167, -1467.91232299805, 0.0738889135580367, 0.0826646665264618, -0.786290184944095
+[05:24:26.291] Threshold : 0.5
+[05:24:26.291] Name of point : base
+[05:24:26.291] Mean of points : 84.8734523773193, 371.117282104492, -1688.01405029297, 0.41061052316479, 0.135273412605092, 0.0965217336642214
+[05:24:26.291] Threshold : 0.5
+[05:24:26.291] Close Waiting
+[05:24:26.291] ,615.014577558137,-160.848738267992,183.67321217858,-131.931559791807,-8.78437418951681,8.30935184330694
+[05:24:26.291] send : X 0
+[05:24:26.291] send : S 0
+[05:24:26.301] recv : y X 0 0 - 23
+[05:24:26.311] recv : y S 0 0 - 23
+[05:24:27.273] STOP clicked. (ResectionFemur)
+[05:24:27.273] send : X 0
+[05:24:27.283] recv : y X 0 0 - 25
+[05:24:27.505] START clicked. (ResectionFemur)
+[05:24:27.515] WARNING - The previous step is not complete.
+Do you want to continue? (Pop up)
+[05:24:27.969] Confirm clicked. (AlarmMessage)
+[05:24:27.969] WARNING - Before cutting, please move the cutter sleeve to a safe location (Pop up)
+[05:24:28.243] Confirm clicked. (AlarmMessage)
+[05:24:28.243] send : U 0
+[05:24:28.513] recv : y A F 5 - 25
+[05:24:28.713] recv : U 0 0 F - 25
+[05:24:34.383] recv : U 0 0 F - 25
+[05:24:39.823] recv : U 0 0 F - 25
+[05:24:42.453] recv : U 0 0 F - 25
+[05:24:44.343] recv : U 0 0 F - 22
+[05:24:47.753] recv : E  0 0 - 25
+[05:24:47.753] Close Waiting
+[05:24:47.753] W0104: ADAPTCTRL disable(P:205,S:5)
+[05:24:47.963] recv : U 0 0 F - 25
+[05:24:52.833] PAUSE clicked. ()
+[05:24:52.833] send : S 0
+[05:24:52.833] Close Waiting
+[05:24:52.833] Show Waiting
+[05:24:52.833] recv : y S 0 0 - 25
+[05:24:56.853] Name of point : femur
+[05:24:56.853] Mean of points : 240.197647094727, -31.0046845436096, -1467.91837158203, 0.0738664341527854, 0.0826447490171165, -0.786302737686778
+[05:24:56.853] Threshold : 0.5
+[05:24:56.853] Name of point : base
+[05:24:56.853] Mean of points : 84.8684841156006, 371.117388916016, -1688.02302856445, 0.410565340305402, 0.135254709071366, 0.0965126625886621
+[05:24:56.853] Threshold : 0.5
+[05:24:56.853] Close Waiting
+[05:24:56.853] ,615.002677901278,-160.862266264209,183.664655527546,-131.932167781743,-8.78309341838633,8.30858427106968
+[05:24:56.863] send : X 0
+[05:24:56.863] send : S 0
+[05:24:56.863] recv : y X 0 0 - 25
+[05:24:56.873] recv : y S 0 0 - 25
+[05:24:59.025] STOP clicked. (ResectionFemur)
+[05:24:59.025] send : X 0
+[05:24:59.035] recv : y X 0 0 - 25
+[05:25:01.107] SYSTEM PROP. clicked. (ResectionFemur)
+[05:25:02.691] Robot Pose clicked. (SystemProperties)
+[05:25:05.125] Clear clicked. (RobotPose)
+[05:25:05.125] WARNING - Robot will move.
+Please beaware of robot arm movement.
+Check the foot brake. (Pop up)
+[05:25:05.399] Confirm clicked. (AlarmMessage)
+[05:25:05.399] Close Waiting
+[05:25:05.399] Show Waiting
+[05:25:05.409] send : C M
+[05:25:09.129] recv : s 0 0 0 - 23
+[05:25:09.129] Close Waiting
+[05:25:09.129] send : X 0
+[05:25:09.139] recv : y X 0 0 - 23
+[05:25:11.341] Close clicked. (RobotPose)
+[05:25:13.533] Close clicked. (SystemProperties)
+[05:25:15.435] BACK clicked. (ResectionFemur)
+[05:25:17.557] BACK clicked. (RobotPositioning)
+[05:25:20.421] POWER OFF clicked. (ResectionStrategy)
+[05:25:20.431] POWER OFF - System will be turn off
+Release bone fixation (Pop up)
+[05:25:22.795] Confirm clicked. (AlarmMessage)
+[05:25:22.835] send : k 0
+[05:25:22.835] Close Waiting
+[05:25:22.835] Show Waiting
+[05:25:26.395] recv : y k 0 0 - 25
+[05:25:27.355] Close Waiting
+[05:25:27.355] send : Q 0
+[05:25:27.415] Close Waiting
