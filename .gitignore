@@ -1,0 +1,12 @@
+# User-specific files
+*.suo
+*.user
+.git/
+
+# Build results
+BoneVoyagerPlus*/obj/
+.vs/
+*.pdb
+BoneVoyagerPlus*.exe
+BoneVoyagerPlus*.dll
+CUVIS-joint*.exe
