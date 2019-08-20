@@ -1,12 +1,14 @@
-# User-specific files
-*.suo
-*.user
 .git/
 
 # Build results
-BoneVoyagerPlus*/obj/
-.vs/
+*.sdf
 *.pdb
-BoneVoyagerPlus*.exe
-BoneVoyagerPlus*.dll
-CUVIS-joint*.exe
+*.suo
+*.vcxproj
+*.vcxproj.filters
+*.lastbuildstate
+*.log
+*.tlog
+*.obj
+*.idb
+*.ilk
