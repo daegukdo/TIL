@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Patient>
+    <PatientID>20190523-Rt</PatientID>
+    <PatientName>20190523-Rt</PatientName>
+    <Age>036Y</Age>
+    <Gender>M</Gender>
+    <Birthdate>89821118</Birthdate>
+    <StudyId>1</StudyId>
+    <StudyDate>9019/05/23</StudyDate>
+    <StudyDesc>Rt Lower Extremity CT</StudyDesc>
+    <StudyTime>14:39:06</StudyTime>
+    <SeriesNumber>2</SeriesNumber>
+    <SeriesDesc>bone  1.0</SeriesDesc>
+    <SeriesDate>2019/05/23</SeriesDate>
+    <SeriesTime>14:42:15</SeriesTime>
+    <HospitalName/>
+  </Patient>
+  <SurgicalPlan>
+    <CaseId/>
+    <ProcedureType>TKA</ProcedureType>
+    <PlannerId/>
+    <PlannerName/>
+    <SurgernName/>
+    <SurgerySide>R</SurgerySide>
+    <SurgeryDate/>
+    <SurgeryHospital/>
+    <ApproverId/>
+    <ApproverName/>
+    <ApprovalDate/>
+    <ApprovalTime/>
+  </SurgicalPlan>
+</root>

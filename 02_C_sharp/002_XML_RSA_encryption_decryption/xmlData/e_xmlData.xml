@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Patient>
+    <PatientID>SZx1cS221hdFQSN/RoFKkYU0vRdLAjOJSZ0BsrvBYQE26zFkkUdhSfJhugHmjoGMRdDKrH+A+f4LrIFH9NSl+w0OkkZLKKBvA06rW0EK+O8ieWovpDFLP1Fa1nu8oQkd28OUSEdno091XfxqOR9EEm2+CrY2YJxtDWLtxcZ7XI0=</PatientID>
+    <PatientName>Qy1pUMcNTjK5b2DENhfp2VH1lGAg8avL0ozK4vg5XghSUFnaZZOExMnNvp0XU3D+VMdoHNIHvkUrpMhq8X/5GTB5G+OdNSUIBoIFzL2oIMPUQFQkEJLXJAEqDY6OUdHzVkWRzxz1jVZo6mQKWVS+l8sYMUXKZwkdGpKszoElriM=</PatientName>
+    <Age>NmqH2l07wXsheW+DLTcTdp0NzU0ir/N4WnPR/BFBHKn0IxdVO1E+ch2+7I2Pl0oQYssyWQlUl/Us26x7io+XeU0pwFKyCq9X+5uNnRhCvbBT22mnqSnNmKwV/rCLX5JS1ScoqRYNZm/WO6b2RBijXLeQqjOi3+KFk6SA+S4bL/U=</Age>
+    <Gender>VjeotOXkOWLvF1hrMjf5eqrTxYgTrGeiv+Tv0iCrouYDk4uegjCElagnMlx8UKpa0qKdE0LbB9LBw6Tw4aMCvSVWH0AAANkrBdFUdOCfA08KCSw1rwqPX+SXAfDuU4IA6iAucvzbmh8ysWJhxxKWjxtHPVkXPBKDYta48X7ArsE=</Gender>
+    <Birthdate>iAsy87iglNdBAUE3Jk53t+spKKXy+NQ1+W70ahgQ1UHBc4G47whni1GXt1ZrzPfZ/DEjZqVqBumIfYpXeu75yxsEY2nCFxUHDoE20OcGGFaDiRmw9wMSAhtZJmCd7IrBDTJEhILstGMme0qrJHPBVs83MIfCoMSS7yYnCfppxWI=</Birthdate>
+    <StudyId>gH+8EkDOpvJGaCp+62ycuQWEwcPx1BT525jMw4VPz4WobrDgl50QK58YefJ5mdSzp05idIA4mvuT2dhLUe/6QVz6ckaVZeFjT5GqLxpIMgG3NhuYxF6FJ2G7c88h9wVCBhCXpzWiFWswcWrVnicOLUkrXONqfRmh2QUhfGnGBfs=</StudyId>
+    <StudyDate>BV6Zj5hpEgk2XYKvFzHRzj6C1O+94uaqco2TC2CyLyk2iXfzJJexP/ncNNNhjy0OQBzqGwYowO4raYJmfow2hAb2iIA8ajOplyxInP/U0enmzHLBV6UXo8f5r0m2RYcVXmD1RE9QDahPWKwPpFJ8tQXyCNR0IXUL2J/oZsD6DMk=</StudyDate>
+    <StudyDesc>S5eJDqnTD4724s3iEc13KuJ8BwLpE3q9khxImhdX6Qhu3jkKDuDzEufk25pmheal9GI+r4W+ZSKNgDT5Jad7T/ksKyOaa0i0gil7o88OMZHNPObPFdpmtIracrLmQ6oj1BxAI0X6gXUGlfWq3VELFYoyYE1r1j1RygS2bjqttiI=</StudyDesc>
+    <StudyTime>L+snbWgqgVp17aOQInM9hm9q/ILOMa0reNwB0fRSMb9u7g4s6Q54d285anXYPZlXYDZgTrhpIZbc+wthkJ9JEcWmivbgIwOybx0q4Feq4xnqSgqchkrOvmDVzXhTPUyEo6Ci0bo76H9F9u5j4Sfkq/pAf8NqwC90UGQo5rNnENE=</StudyTime>
+    <SeriesNumber>FhOFHHFRjfCyZjWXFwkYL79uQVfeMvE6iGqzyrCoGj7A2i1zxE8PYSDnNMB2IrFD3/UODm9eq001JQeLHIXwbaT+RuAC+2WXMOXFGVUtLrRzqqCvyqhiqGS8xlWWxTFkrNhkA1IuY68DnIMYYebxTdfWn0Nh9KMWTQuw2nm18B8=</SeriesNumber>
+    <SeriesDesc>i1WBYUgM6geFoHLUSJFh7O5hFmNTS/8+qRM7yb+U15P3Bi4TigkS9rGThLiHJbLcevUY9GDJbbxqqAOepJia8U7iGZxfqVFW6H8UWqAADxmq1utGv3wWOOEgP1lzfzRHOoyvyXgama7HWEOrSZzyiTG3ASSu513i1jRKssS2428=</SeriesDesc>
+    <SeriesDate>LzI3iY5g3p+nrIm9iST57ulMinMxl5asnBOqIz2T4XLqEnGz13f/SE0M4xHwr5vb0Pvrj3VTOscOSp0bxQtIWqyKty6h4T+ji7R09XCyomQPxaFXS1G0kzdEed9JjeOEz0gUuZsTZB6kWBrRUrXZFNf2XTUy6cNVV8tSDzFg+Rg=</SeriesDate>
+    <SeriesTime>WcDdVMXkl+7z+uUmaixT58B1a4ac+p1ZwIo+hLa4YjNQNsMSRc67IgRJdUcxgZgXuJ9cf9h7R/otaV2n29bzddgw1OWYPbAq48PKP3a8UDVk8YvqAZYSRxRtV7wAfXS9rPx4YzClmp+YkgOhucAyJCrUbzr5DLhUGvel5GoLkEQ=</SeriesTime>
+    <HospitalName/>
+  </Patient>
+  <SurgicalPlan>
+    <CaseId/>
+    <ProcedureType>c3ohZY+us2j18vwrn6LtaKdB+fOQ6YXhsWS2+vGqJc7TO8vEhCKW5j7cLve3GetbQUK6lBOHecxZdGZYxT79Hx9JHqE0llf8sqZ5x8EX1i0ijJInOScIrg7eEGAKYTyW/tGQS5YbmQWQ25EM6LluuWIZM+sFr2hXutX9a30I9NU=</ProcedureType>
+    <PlannerId/>
+    <PlannerName/>
+    <SurgernName/>
+    <SurgerySide>aPW4bNi7EoL86MoOya49SK21at3ZT4Kgh41Z2R2rM1gteeFr4Sb3gKLYDz3sOtr3LI8TSGTpoo38m0xoxWuyhhJufdHqaQ/95VSCziiMYX+dVydgX+VOStjtzI/OSzH0GAqIMCnD8emua21mKlCbG+nxkVimlfcwlXYeVWnaedg=</SurgerySide>
+    <SurgeryDate/>
+    <SurgeryHospital/>
+    <ApproverId/>
+    <ApproverName/>
+    <ApprovalDate/>
+    <ApprovalTime/>
+  </SurgicalPlan>
+</root>
