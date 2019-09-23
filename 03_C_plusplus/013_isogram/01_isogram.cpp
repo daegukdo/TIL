@@ -12,8 +12,13 @@ isIsogram "moose" == false
 isIsogram "aba" == false
 */
 
+using namespace std;
+
 int main()
 {
+	string txt1 = "Dermatoglyphics";
+	string txt2 = "moose";
+	string txt3 = "aba";
 
 	return 0;
 }
