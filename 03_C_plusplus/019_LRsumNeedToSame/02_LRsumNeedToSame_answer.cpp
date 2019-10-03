@@ -37,9 +37,8 @@ Note:
 If you are given an array with multiple answers, return the lowest correct index.
 */
 
-#include<iostream>
 #include <vector>
-
+#include <numeric>
 using namespace std;
 
 int find_even_index (const vector <int> numbers);
@@ -63,33 +62,12 @@ int main()
 
 int find_even_index (const vector <int> numbers) 
 {
-	int lengthOfData = numbers.size();
-	int indicator = 0;
-
-	while(indicator < lengthOfData)
+	for (int index = 0; index < numbers.size(); index++)
 	{
-		int sum1 = 0;
-		int sum2 = 0;
-
-		for(int i = 0; i<indicator; i++)
-		{
-			sum1 += numbers[i];
-		}
-
-		for(int i = indicator+1; i<lengthOfData; i++)
-		{
-			sum2 += numbers[i];
-		}
-
-		if(sum1 == sum2)
-		{
-			return indicator;
-		}
-		else
-		{
-			indicator++;
-		}
+		int left_sum = std::accumulate(numbers.begin(), numbers.begin() + index, 0);
+		int right_sum = std::accumulate(numbers.begin() + index + 1, numbers.end(), 0);
+		if (left_sum == right_sum)
+			return index;
 	}
-
 	return -1;
 }
