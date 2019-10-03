@@ -38,17 +38,74 @@ If you are given an array with multiple answers, return the lowest correct index
 */
 
 #include<iostream>
-
 #include <vector>
+
 using namespace std;
 
-int find_even_index (const vector <int> numbers) 
-{
-	return -1;
-}
+int find_even_index (const vector <int> numbers);
 
 int main()
 {
+	int numbers1[7] = {1,2,3,4,3,2,1};
+	int numbers2[6] = {1,100,50,-51,1,1};
+	int numbers3[7] = {20,10,-80,10,10,15,35};
+
+	std::vector<int> v1(numbers1, numbers1 + sizeof numbers1 / sizeof numbers1[0]);
+	std::vector<int> v2(numbers2, numbers2 + sizeof numbers2 / sizeof numbers2[0]);
+	std::vector<int> v3(numbers3, numbers3 + sizeof numbers3 / sizeof numbers3[0]);
+	
+	int r1 = find_even_index(v1);
+	int r2 = find_even_index(v2);
+	int r3 = find_even_index(v3);
 
 	return 0;
+}
+
+int find_even_index (const vector <int> numbers) 
+{
+	int lengthOfData = numbers.size();
+	bool plusChecker = false;
+	bool minusChecker = false;
+	int indicator = 0;
+
+	while(indicator < lengthOfData)
+	{
+		int sum1 = 0;
+		int sum2 = 0;
+
+		for(int i = 0; i<indicator; i++)
+		{
+			sum1 += numbers[i];
+		}
+
+		for(int i = indicator+1; i<lengthOfData; i++)
+		{
+			sum2 += numbers[i];
+		}
+
+		if(sum1 == sum2)
+		{
+			return indicator;
+		}
+		else
+		{
+			if(sum1 > sum2)
+			{
+				plusChecker = true;
+				indicator--;
+			}
+			else
+			{
+				minusChecker = true;
+				indicator++;
+			}
+		}
+
+		if(minusChecker == plusChecker)
+		{
+			break;
+		}
+	}
+
+	return -1;
 }
