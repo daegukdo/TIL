@@ -39,53 +39,16 @@ int main()
 	return 0;
 }
 
-int maxSequence(const vector<int>& arr)
-{
-	int arrSize = arr.size();
-
-	// check data
-	int checkData = 0;
-
-	for(int i = 0; i<arrSize; i++)
-	{
-		if(arr[i] > 0)
-		{
-			checkData++;
-		}
-	}
-
-	if((arrSize == 0) && (checkData == 0))
-	{
-		return 0;
-	}
-	else if(arrSize == checkData)
-	{
-		return std::accumulate(arr.begin(), arr.end(), 0);
-	}
-
-	// find subarray summation
-	int subArrNum = 0;
-	int maximumOfSubarray = 0;
-	int subSum = 0;
-
-	for(int i = 0; i<arrSize; i++)
-	{
-		subArrNum++;
-		for(int j = 0; j<arrSize; j++)
-		{
-			int temp = 0;
-
-			for(int k = j; (k<j+subArrNum) && (k<arrSize); k++)
-			{
-				temp += arr[k];
-			}
-
-			if(maximumOfSubarray < temp)
-			{
-				maximumOfSubarray = temp;
-			}
-		}
-	}
-
-	return maximumOfSubarray;
+int maxSequence(const vector<int>& arr) {
+  int localmax=0;
+  int globalmax=0;
+  for (int i = 0;i<arr.size();i++)
+  {
+    localmax = localmax + arr[i];
+    if (localmax > globalmax)
+      globalmax = localmax;
+    if (localmax < 0)
+      localmax = 0;
+  }
+  return globalmax;
 }
