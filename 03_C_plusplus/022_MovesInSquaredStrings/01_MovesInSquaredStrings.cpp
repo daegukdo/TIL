@@ -50,9 +50,81 @@ Forthcoming katas will study other tranformations.
 
 using namespace std;
 
+class Opstrings
+{
+public:
+    static std::string vertMirror(const std::string &strng)
+	{
+		char deli = '\n';
+		string s = strng;
+		string r = "";
+
+		string chunk = "";
+
+		for(int i = 0; i < s.length(); i++)
+		{			
+			if(s[i] != deli)
+			{
+				chunk += s[i];
+			}
+			else
+			{
+				string temp = "";
+
+				for(int j = chunk.length()-1; j >= 0; j--)
+				{
+					temp += chunk[j];
+				}
+
+				r += temp;
+				r += deli;
+				chunk = "";
+			}
+		}
+
+		string temp = "";
+
+		for(int j = chunk.length()-1; j >= 0; j--)
+		{
+			temp += chunk[j];
+		}
+
+		r += temp;
+		chunk = "";
+
+		return r;
+	}
+
+	static std::string horMirror(const std::string &strng)
+	{
+		string s = strng;
+		string r = "";
+
+		string temp = "";
+
+		for(int i = s.length()-1; i >= 0; i--)
+		{
+			temp += s[i];
+		}
+
+		r = vertMirror(temp);
+
+		return r;
+	}
+    
+	template<typename Func>
+    static std::string oper(Func func, const std::string &s)
+	{
+		return func(s);
+	}
+};
 
 int main()
 {
+	string s = "abcd\nefgh\nijkl\nmnop";
+
+	string r1 = Opstrings::oper(Opstrings::vertMirror, s);
+	string r2 = Opstrings::oper(Opstrings::horMirror, s);
 
 	return 0;
 }
