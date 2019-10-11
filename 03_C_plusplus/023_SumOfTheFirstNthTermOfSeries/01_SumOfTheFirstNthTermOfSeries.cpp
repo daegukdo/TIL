@@ -24,9 +24,48 @@ NOTE: In PHP the function is called series_sum().
 
 using namespace std;
 
+std::string seriesSum(int n);
 
 int main()
 {
-
+	std::string a = seriesSum(40);
 	return 0;
+}
+
+std::string seriesSum(int n)
+{
+	std::string result = "";
+	double nthData = 0;
+	double seriesNthSum = 0;
+
+	if(n==0)
+	{
+		return "0.00";
+	}
+
+	for(double i = 1; i<=n; i++)
+	{
+		nthData = (double)1/((double)1 + ((double)3*(i-(double)1)));
+		seriesNthSum += nthData;
+	}
+
+	double temp = seriesNthSum * 100;
+
+	string a = std::to_string(temp);
+
+	int aa = (int)a[4] - '0';
+
+	if(((int)a[4] - '0') >= 5)
+	{
+		temp++;
+	}
+
+	seriesNthSum = temp / 100;
+
+	for(int i = 0; i < 4; i++)
+	{
+		result += std::to_string(seriesNthSum)[i];
+	}
+
+    return result;
 }
