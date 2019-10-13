@@ -31,40 +31,24 @@ using namespace std;
 
 class Rotations
 {
-public:
-    static bool containAllRots(const std::string &strng, std::vector<std::string> &arr);
+    public:
+        static bool containAllRots(const std::string &strng, std::vector<std::string> &arr)
+        {
+            if (strng == "")
+                return true;
+
+
+            std::string value = strng;
+            for (size_t i = 0; i < strng.length(); i++)
+            {
+                std::rotate(value.begin(), value.begin() + 1, value.end());
+                if (std::find(arr.begin(), arr.end(), value) == arr.end())
+                    return false;
+            }
+
+            return true;
+        }
 };
-
-bool Rotations::containAllRots(const std::string &strng, std::vector<std::string> &arr)
-{
-	bool isContained = false;
-
-	int strLength = strng.length();
-
-	string str = strng;
-	string temp = "";
-
-	int countRots = 0;
-
-	for(int i = 0; i<strLength; i++)
-	{
-		std::rotate(str.begin(), str.begin() + 1, str.end()); 
-
-		temp = str;
-
-		if(std::find(arr.begin(), arr.end(), temp) != arr.end())
-		{
-			countRots++;
-		}
-	}
-
-	if(countRots >= strLength)
-	{
-		isContained = true;
-	}
-
-	return isContained;
-}
 
 int main()
 {
