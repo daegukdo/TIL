@@ -52,48 +52,11 @@ public:
 
 std::vector<int> Kata::Encode(std::string str, int n)
 {
-	string testans = "";
-
-	string strStr = str;
-	int strLength = strStr.length();
-
-	int *encoded = new int[strLength];
-	
-	string nStr = std::to_string(n);
-	int nStrOrder = nStr.length();
-
-	int nCount = 0;
-
-	char strChar;
-	int strCharRaw = 0;
-
-	for(int i = 0; i<strLength; i++)
-	{
-		strChar = strStr[i];
-		strCharRaw = strChar - 96;
-
-		int a = (int)(nStr[nCount]) - 48;
-
-		if(nCount <= nStrOrder-1)
-		{
-			encoded[i] = strCharRaw + (int)(nStr[nCount]) - 48;
-			nCount++;
-		}
-		else
-		{
-			nCount = 0;
-			encoded[i] = strCharRaw + (int)(nStr[nCount]) - 48;
-			nCount++;
-		}
-
-		testans += std::to_string(encoded[i]);
-	}
-	
-	std::vector<int> encoded_result(encoded, encoded + strLength);
-
-	delete[] encoded;
-
-	return encoded_result;
+  std::vector<int> result(str.size());
+  std::string key = std::to_string(n);
+  for (; key.size() < str.size(); key += key);
+  std::transform(str.begin(), str.end(), key.begin(), result.begin(), [](char c1, char c2) { return ((int)c1 - (int)'a' + 1) + ((int)c2 - (int)'0'); });
+  return result;
 }
 
 int main()
