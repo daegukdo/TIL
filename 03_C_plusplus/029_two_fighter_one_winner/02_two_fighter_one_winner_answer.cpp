@@ -108,49 +108,11 @@ int main()
 
 std::string declareWinner(Fighter* fighter1, Fighter* fighter2, std::string firstAttacker)
 {
-    std::string winnerName = "";
-
-    Fighter* first;
-    Fighter* second;
-
-    if(firstAttacker == fighter1->getName())
-    {
-        first = fighter1;
-        second = fighter2;
-    }
-    else
-    {
-        first = fighter2;
-        second = fighter1;
-    }
-
-    int dmg = 0;
-    int hp = 0;
-
-    while(true)
-    {
-        dmg = first->getDamagePerAttack();
-        hp = second->getHealth();
-
-        second->setHealth(hp-dmg);
-
-        if(second->getHealth() <= 0)
-        {
-            winnerName = first->getName();
-            break;
-        }
-
-        dmg = second->getDamagePerAttack();
-        hp = first->getHealth();
-
-        first->setHealth(hp-dmg);
-
-        if(first->getHealth() <= 0)
-        {
-            winnerName = second->getName();
-            break;
-        }
-    }
-
-    return winnerName;
+ // Number of blows each fighter can survive:
+ int n1 = (fighter1->getHealth() - 1) / fighter2->getDamagePerAttack();
+ int n2 = (fighter2->getHealth() - 1) / fighter1->getDamagePerAttack();
+ 
+ return n1 > n2 ? fighter1->getName()
+      : n1 < n2 ? fighter2->getName()
+      :           firstAttacker;
 }
