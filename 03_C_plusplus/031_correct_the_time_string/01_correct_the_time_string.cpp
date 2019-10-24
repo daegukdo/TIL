@@ -23,7 +23,8 @@ I have created other katas. Have a look if you like coding and challenges.
 
 #include <iostream>
 #include <string>
-#include <time.h>       /* time_t, struct tm, time, localtime, strftime */
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ std::string correct(std::string timeString);
 
 int main()
 {
-
+	string a = correct("19:99:99");
 	return 0;
 }
 
@@ -40,25 +41,85 @@ std::string correct(std::string timeString)
 	std::string correctedTimeStr = "";
 
 	std::string timeStringData = timeString;
+	int timeStringDataLength = timeStringData.length();
+
+	std::string delimiter = ":";
+
+	int formatchecker = 0;
+
+	for(int i = 0; i<timeStringDataLength; i++)
+	{
+		if(timeStringData[i] == delimiter[0])
+		{
+			formatchecker++;
+		}
+
+		int temp = timeStringData[i] - 48;
+
+		if(!(temp >= 0 && temp <= 9))
+		{
+			if(temp != 10)
+			{
+				return "";
+			}
+		}
+	}
+
+	if(formatchecker != 2 || timeStringDataLength != 8)
+	{
+		return "";
+	}
 
 	int hourMinScd = 3;
-	size_t pos = 0;
-	std::string* timeChunk = new string[hourMinScd];
-	std::string delimiter = ":";
+	int* timeChunk = new int[hourMinScd];
+	size_t pos = timeStringData.find(delimiter);
 
 	int count = 0;
 
-	while ((pos = timeStringData.find(delimiter)) != std::string::npos) 
+	while (count < hourMinScd) 
 	{
-		timeChunk[count] = timeStringData.substr(0, pos);
+		timeChunk[count] = std::stoi(timeStringData.substr(0, pos));
 		count++;
 		timeStringData.erase(0, pos + delimiter.length());
 	}
 
-	for(int i = (hourMinScd-1); i>-0; i--)
+	for(int i = (hourMinScd-1); i>=0; i--)
 	{
-		int temp = std::stoi(timeChunk[i]);
+		if(i - 1 >= 0)
+		{
+			if(timeChunk[i] >= 60)
+			{
+				timeChunk[i-1] = (timeChunk[i-1] + 1);
+				timeChunk[i] = (timeChunk[i] - 60);
+			}
+		}
+		else
+		{
+			if(timeChunk[i] >= 24)
+			{
+				while(timeChunk[i] >= 24)
+				{
+					timeChunk[i] = timeChunk[i] - 24;
+				}
+			}
+		}
 	}
 
-    return "?";
+	for(int i = 0; i<hourMinScd; i++)
+	{
+		std::stringstream strStream;
+
+		strStream << "";
+
+		strStream << std::setw(2) << std::setfill('0') << timeChunk[i];
+
+		correctedTimeStr += strStream.str();
+
+		if(i < hourMinScd-1)
+		{
+			correctedTimeStr += delimiter;
+		}
+	}
+
+    return correctedTimeStr;
 }
