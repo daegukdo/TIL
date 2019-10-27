@@ -47,34 +47,6 @@ int main()
 	return 0;
 }
 
-int layers(int n)
-{
-	int numOfLayer = 0;
-
-	if(n > 1)
-	{
-		int startLayer = 1;
-		int endLayer = 0;
-
-		while(true)
-		{
-			startLayer = 4 + ((1+2*(numOfLayer-1))*4) + startLayer;
-			endLayer = 4 + ((1+2*(numOfLayer))*4) + startLayer;
-
-			if((n > startLayer) && (n <= endLayer))
-			{
-				break;
-			}
-			else
-			{
-				numOfLayer++;
-			}
-		}
-
-		return numOfLayer+2;
-	}
-	else
-	{
-		return 1;
-	}
+int layers(int n) {
+  return std::ceil((std::sqrt(n) + 1) / 2);
 }

@@ -49,32 +49,14 @@ int main()
 
 int layers(int n)
 {
-	int numOfLayer = 0;
-
-	if(n > 1)
-	{
-		int startLayer = 1;
-		int endLayer = 0;
-
-		while(true)
-		{
-			startLayer = 4 + ((1+2*(numOfLayer-1))*4) + startLayer;
-			endLayer = 4 + ((1+2*(numOfLayer))*4) + startLayer;
-
-			if((n > startLayer) && (n <= endLayer))
-			{
-				break;
-			}
-			else
-			{
-				numOfLayer++;
-			}
-		}
-
-		return numOfLayer+2;
-	}
-	else
-	{
-		return 1;
-	}
+  int layer = 1;
+  int i = 1;
+  int square = i*i;
+  while (square < n)
+  {
+    i = i + 2;
+    layer = layer + 1;
+    square = i*i;
+  }
+  return layer;
 }
