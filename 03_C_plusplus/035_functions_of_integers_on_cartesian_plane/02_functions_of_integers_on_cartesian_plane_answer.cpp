@@ -55,39 +55,26 @@ using namespace std;
 
 class Funij
 {
-public:
-	static unsigned long long sumin(unsigned long long n);
-	static unsigned long long sumax(unsigned long long n);
-	static unsigned long long sumsum(unsigned long long n);
+
+  public:
+  static unsigned long long sumin(unsigned long long n);
+  static unsigned long long sumax(unsigned long long n);
+  static unsigned long long sumsum(unsigned long long n);
 };
 
 unsigned long long Funij::sumin(unsigned long long n)
 {
-	unsigned long long sum = 0;
-
-	for(int i = 1; i<=n; i++)
-	{
-		sum += i * ((n - (i - 1)) + (n - i));
-	}
-
-	return sum;
+  return static_cast<unsigned long long>(n * (n + 1) * (2 * n + 1) / 6);
 }
 
 unsigned long long Funij::sumax(unsigned long long n)
 {
-	unsigned long long sum = 0;
-
-	for(int i = 1; i<=n; i++)
-	{
-		sum += i * ((i - 1) + i);
-	}
-
-	return sum;
+  return static_cast<unsigned long long>(n * (n + 1) * (4 * n - 1) / 6);
 }
 
 unsigned long long Funij::sumsum(unsigned long long n)
 {
-	return (Funij::sumin(n) + Funij::sumax(n));
+  return static_cast<unsigned long long>(n * n * (n + 1));
 }
 
 int main()
