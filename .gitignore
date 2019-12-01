@@ -12,3 +12,6 @@
 *.obj
 *.idb
 *.ilk
+
+# Python Data files
+*.npy
