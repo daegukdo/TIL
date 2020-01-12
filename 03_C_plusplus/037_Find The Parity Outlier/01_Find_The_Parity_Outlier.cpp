@@ -21,6 +21,7 @@ Should return: 160 (the only even number)
 #include <vector>
 
 int FindOutlier(std::vector<int> arr);
+bool IsOdd(int num);
 
 int main()
 {
@@ -29,6 +30,45 @@ int main()
 
 int FindOutlier(std::vector<int> arr)
 {
-    int result;
-    return result;
+	int lengthOfArr = arr.capacity();
+	int numOfOdd = 0;
+	int numOfEven = 0;
+	int checkOddOrder = 0;
+	int checkEvenOrder = 0;
+
+	for(int i = 0; i<lengthOfArr; i++)
+	{
+		if(IsOdd(arr[i]))
+		{
+			numOfOdd++;
+			checkOddOrder = i;
+		}
+		else
+		{
+			numOfEven++;
+			checkEvenOrder = i;
+		}
+
+		if(numOfOdd == 1 && numOfEven > 1)
+		{
+			return arr[checkOddOrder];
+		}
+
+		if(numOfOdd > 1 && numOfEven == 1)
+		{
+			return arr[checkEvenOrder];
+		}
+	}
+}
+
+bool IsOdd(int num)
+{
+	if(abs(num % 2) == 1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
