@@ -50,5 +50,45 @@ int main()
 
 int digital_root(int n)
 {
-    // ...
+	// 0. 변수 선언
+	int resultOfSum = 0;
+	float digitCheckCount = 1;
+	int lengthOfDigits = 0;
+	float tmpCheckDigit = 1;
+
+    // 1. 자릿수 파악 및 메모리 할당
+	while(tmpCheckDigit >= 1)
+	{
+		digitCheckCount = digitCheckCount * 10;
+		tmpCheckDigit = n / digitCheckCount;
+		lengthOfDigits++;
+	}
+
+	int *arrayDigits = new int[lengthOfDigits];
+
+	// 2. 각 자리수 값 저장
+	int digitCount = 1;
+	for(int i = 0; i < lengthOfDigits; i++)
+	{
+		digitCount = digitCount * 10;
+		arrayDigits[i] = n - (n / digitCount);
+	}
+
+	// 3. 각 자리수 값을 더하기 및 메모리 정리
+	for(int i = 0; i < lengthOfDigits; i++)
+	{
+		resultOfSum += arrayDigits[i];
+	}
+
+	delete[] arrayDigits;
+
+	// 4. 더한 결과값이 10의 자리이상의 값인지 확인하여 결과값을 바탕으로 반복 
+	if(resultOfSum >= 10)
+	{
+		digital_root(resultOfSum);
+	}
+	else
+	{
+		return resultOfSum;
+	}
 }
