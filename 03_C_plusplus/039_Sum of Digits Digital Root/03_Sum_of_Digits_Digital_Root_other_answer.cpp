@@ -51,23 +51,21 @@ int main()
 	return 0;
 }
 
+int digital_sum(int n)
+{
+  int sum = 0;
+  while (n > 0)
+  {
+    sum += n % 10;
+    n /= 10;
+  }
+  
+  return sum;
+}
+
 int digital_root(int n)
 {
-	int resultOfSum = 0;
-	std::string data = std::to_string(n);
-	int lengthOfDigits = data.length();
-
-	for(int i = 0; i < lengthOfDigits; i++)
-	{
-		resultOfSum += (data[i] - '0');
-	}
-
-	if(resultOfSum >= 10)
-	{
-		return digital_root(resultOfSum);
-	}
-	else
-	{
-		return resultOfSum;
-	}
+  while (n >= 10)
+    n = digital_sum(n);  
+  return n;
 }
