@@ -42,10 +42,16 @@ a or b are empty or not empty lists.
 
 using namespace std;
 
-class Same {
-    public :static bool comp(vector<int>, vector<int>);
+class Same 
+{
+    public:
+		static bool comp(vector<int>, vector<int>);
 };
 
+bool Same::comp(vector<int> target1, vector<int> target2)
+{
+	return true;
+}
 
 int main()
 {
