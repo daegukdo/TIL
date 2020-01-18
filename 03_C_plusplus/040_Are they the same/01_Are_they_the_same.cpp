@@ -29,7 +29,9 @@ b = [121, 14641, 20736, 36100, 25921, 361, 20736, 361]
 comp(a,b) returns false because in b 36100 is not the square of any number of a.
 
 Remarks
-a or b might be [] (all languages except R, Shell). a or b might be nil or null or None or nothing (except in Haskell, Elixir, C++, Rust, R, Shell, PureScript).
+a or b might be [] (all languages except R, Shell). 
+
+a or b might be nil or null or None or nothing (except in Haskell, Elixir, C++, Rust, R, Shell, PureScript).
 
 If a or b are nil (or null or None), the problem doesn't make sense so return false.
 
@@ -38,7 +40,9 @@ If a or b are empty then the result is self-evident.
 a or b are empty or not empty lists.
 */
 
+#include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -48,12 +52,43 @@ class Same
 		static bool comp(vector<int>, vector<int>);
 };
 
-bool Same::comp(vector<int> target1, vector<int> target2)
+bool Same::comp(vector<int> target, vector<int> square)
 {
-	return true;
+	// 1. ascending
+	// 2. compare with square
+	// 3. check num of same
+	sort(target.begin(), target.end());
+	sort(square.begin(), square.end());
+
+	int capacity = target.capacity();
+	int countChecker = 0;
+
+	for(int i = 0; i < capacity; i++)
+	{
+		if((target[i] * target[i]) == square[i])
+		{
+			countChecker++;
+		}
+	}
+
+	if((countChecker == capacity) && (capacity != 0))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 int main()
 {
+	static const int arr1[] = {121, 144, 19, 161, 19, 144, 19, 11};
+    vector<int> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
+
+	static const int arr2[] = {121, 14641, 20736, 361, 25921, 362, 20736, 361};
+    vector<int> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
+
+	bool r = Same::comp(vec1, vec2);
 	return 0;
 }
