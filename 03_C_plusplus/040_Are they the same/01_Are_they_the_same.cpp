@@ -54,9 +54,6 @@ class Same
 
 bool Same::comp(vector<int> target, vector<int> square)
 {
-	// 1. ascending
-	// 2. compare with square
-	// 3. check num of same
 	sort(target.begin(), target.end());
 	sort(square.begin(), square.end());
 
@@ -65,13 +62,18 @@ bool Same::comp(vector<int> target, vector<int> square)
 
 	for(int i = 0; i < capacity; i++)
 	{
+		if((target[i] == NULL) || (square[i] == NULL))
+		{
+			return false;
+		}
+
 		if((target[i] * target[i]) == square[i])
 		{
 			countChecker++;
 		}
 	}
 
-	if((countChecker == capacity) && (capacity != 0))
+	if((countChecker == capacity) && (capacity != 0) && (!target.empty()))
 	{
 		return true;
 	}
@@ -83,10 +85,13 @@ bool Same::comp(vector<int> target, vector<int> square)
 
 int main()
 {
-	static const int arr1[] = {121, 144, 19, 161, 19, 144, 19, 11};
+	// a = [121, 144, 19, 161, 19, 144, 19, 11]  
+    // b = [132, 14641, 20736, 361, 25921, 361, 20736, 361]
+
+	static const int arr1[] = {NULL};
     vector<int> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
 
-	static const int arr2[] = {121, 14641, 20736, 361, 25921, 362, 20736, 361};
+	static const int arr2[] = {NULL};
     vector<int> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
 
 	bool r = Same::comp(vec1, vec2);
