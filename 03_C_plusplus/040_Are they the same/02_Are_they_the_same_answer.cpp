@@ -40,67 +40,18 @@ If a or b are empty then the result is self-evident.
 a or b are empty or not empty lists.
 */
 
-#include <iostream>
-#include <vector>
+#include <algorithm>
 
-using namespace std;
-
-class Same 
-{
-    public:
-		static bool comp(vector<int>, vector<int>);
+class Same {
+public:
+  static bool comp(std::vector<int>, std::vector<int>);
 };
 
-bool Same::comp(vector<int> target, vector<int> square)
-{
-	int capacity = target.capacity();
-
-	if(target.empty() || square.empty())
-	{
-		return false;
-	}
-
-	if(capacity == 0)
-	{
-		return false;
-	}
-
-	vector<int> targetSquare;
-
-	for(int i = 0; i < capacity; i++)
-	{
-		if(target[i] == 0 || square[i] == 0)
-		{
-			return false;
-		}
-
-		targetSquare.push_back(target[i] * target[i]);
-	}
-
-	for(int i = 0; i < capacity; i++)
-	{
-		if(!count(square.begin(),square.end(), targetSquare[i]))
-		{
-			return false;
-		}
-
-		if(!count(targetSquare.begin(),targetSquare.end(), square[i]))
-		{
-			return false;
-		}
-	}
-
-	return true;
-}
-
-int main()
-{
-	static const int arr1[] = {121, 144, 19, 161, 19, 144, 19, 11};
-    vector<int> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
-
-	static const int arr2[] = {121, 14641, 20736, 361, 25921, 361, 20736, 361};
-    vector<int> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
-
-	bool r = Same::comp(vec1, vec2);
-	return 0;
+bool Same::comp(std::vector<int> a, std::vector<int> b) {
+  for (auto& v : a) {
+    v = v * v;
+  }
+  std::sort(a.begin(), a.end());
+  std::sort(b.begin(), b.end());
+  return a == b;
 }
