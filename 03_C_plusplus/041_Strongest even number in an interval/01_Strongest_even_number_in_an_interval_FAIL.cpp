@@ -36,13 +36,21 @@ Examples :
 [48, 56]  -->  48
 */
 
+#include<iostream>
+
 using namespace std;
 
 int strongest_even(int n, int m);
 
 int main()
 {
-	int a = strongest_even(128, 193);
+	int a1 = strongest_even(1, 2);      // Equals(2)          // 1        2
+	int a2 = strongest_even(1, 3);      // Equals(2)          // 2        2
+	int a3 = strongest_even(5, 10);     // Equals(8)          // 5        4
+	int a4 = strongest_even(48, 56);    // Equals(48)         // 8        8
+	int a5 = strongest_even(129, 193);  // Equals(192)        // 64       64
+	int a6 = strongest_even(256, 512);  // Equals(512)        // 256      256
+	int a7 = strongest_even(2, 1025);   // Equals(1024)       // 1023     512
 
 	return 0;
 }
@@ -57,25 +65,19 @@ int strongest_even(int n, int m)
 	}
 	while((m - n) > evenChecker);
 
-	int temp = 1;
-	int result = 0;
+	// bigger than diff. and most closest even
+	cout << evenChecker << endl;
+	
+	int portion = m / evenChecker;
+	int rest = m % evenChecker;
 
-	while(true)
+	if((n % 2 == 0) && (n % evenChecker == 0))
 	{
-		result = evenChecker * temp;
-
-		if(result >= n)
+		if(n % (evenChecker + evenChecker) == 0)
 		{
-			if(result > m)
-			{
-				return result - evenChecker;
-			}
-			else
-			{
-				return result;
-			}
+			return n;
 		}
-
-		temp++;
 	}
+
+	return portion * evenChecker;
 }
