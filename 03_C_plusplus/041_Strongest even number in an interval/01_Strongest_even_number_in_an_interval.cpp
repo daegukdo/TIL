@@ -42,51 +42,40 @@ int strongest_even(int n, int m);
 
 int main()
 {
-	int a = strongest_even(129, 193);
+	int a = strongest_even(128, 193);
 
 	return 0;
 }
 
 int strongest_even(int n, int m) 
 {
-	int evenChecker = 2;
+	int evenChecker = 1;
 
 	do
 	{
-		if(evenChecker >= m)
-		{
-			break;
-		}
-		
 		evenChecker = evenChecker * 2;
-
-	} while (!(evenChecker >= n) || !(evenChecker <= m));
-
-	if((evenChecker >= n) && (evenChecker <= m))
-	{
-		return evenChecker;
 	}
-	else
+	while((m - n) > evenChecker);
+
+	int temp = 1;
+	int result = 0;
+
+	while(true)
 	{
-		// bigger than m
-		evenChecker = evenChecker / 4;
+		result = evenChecker * temp;
 
-		while(true)
+		if(result >= n)
 		{
-			if(!(m % 2 == 0))
+			if(result > m)
 			{
-				m = m - 1;
+				return result - evenChecker;
 			}
-
-			for(int i = m; i >= n; i = i - 2)
+			else
 			{
-				if((i % evenChecker) == 0)
-				{
-					return i;
-				}
+				return result;
 			}
-
-			evenChecker = evenChecker / 2;
 		}
+
+		temp++;
 	}
 }
