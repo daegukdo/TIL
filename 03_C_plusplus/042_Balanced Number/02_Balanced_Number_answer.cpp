@@ -55,87 +55,14 @@ Note : The middle digit(s) are 02 .
 
 */
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-string balancedNum (unsigned long long int number);
-
-int main()
+const char* balancedNum(unsigned long long int n)
 {
-	string a0 = balancedNum(7);
-	string a1 = balancedNum(959);
-	string a2 = balancedNum(13);
-	string a3 = balancedNum(432);
-	string a4 = balancedNum(424);
-	string a5 = balancedNum(1024);
-	string a6 = balancedNum(66545);
-	string a7 = balancedNum(295591);
-	string a8 = balancedNum(1230987);
-	string a9 = balancedNum(56239814);
-
-	return 0;
-}
-
-string balancedNum (unsigned long long int number)
-{
-	// long int to string
-	string numStr = to_string(number);
-
-	// length of string
-	int lengthOfNumStr = numStr.length();
-
-	// define variable
-	int leftSum = 0;
-	int rightSum = 0;
-
-	if((lengthOfNumStr % 2 == 1))
-	{
-		// if string length is odd
-
-		// length / 2 = middle index ... start at 0
-		int middleIndex = lengthOfNumStr / 2;
-
-		// sum of 0 to middle-1 vs. sum of middle+1 to end
-		for(int i = 0; i < middleIndex; i++)
-		{
-			leftSum = leftSum + ((int)numStr[i] - '0');
-		}
-
-		for(int i = lengthOfNumStr-1; i > middleIndex; i--)
-		{
-			rightSum = rightSum + ((int)numStr[i] - '0');
-		}
-	}
-	else
-	{
-		// if string length is even
-
-		// length / 2 = right middle index ... start at 0
-		int rightMiddleIndex = lengthOfNumStr / 2;
-
-		// length / 2 - 1 = left middle index ... start at 0
-		int leftMiddleIndex = lengthOfNumStr / 2 - 1;
-
-		// sum of 0 to left  middle-1 vs. sum of right middle+1 to end
-		for(int i = 0; i < leftMiddleIndex; i++)
-		{
-			leftSum = leftSum + ((int)numStr[i] - '0');
-		}
-
-		for(int i = lengthOfNumStr-1; i > rightMiddleIndex; i--)
-		{
-			rightSum = rightSum + ((int)numStr[i] - '0');
-		}
-	}
-
-	if(leftSum == rightSum)
-	{
-		return "Balanced";
-	}
-	else
-	{
-		return "Not Balanced";
-	}
+    auto str = std::to_string(n);
+    int balance = 0;
+    for (size_t i = 0, j = str.size() / 2 + 1; j < str.size(); ++i, ++j)
+    {
+        balance += str[i];
+        balance -= str[j];
+    }
+    return (balance == 0)? "Balanced" : "Not Balanced";
 }
