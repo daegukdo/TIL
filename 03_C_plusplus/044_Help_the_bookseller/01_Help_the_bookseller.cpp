@@ -51,6 +51,7 @@ public:
 std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vector<std::string> &categories)
 {
 	// 변수 정의
+	string result = "";
 	int numOfBooks = lstOfArt.capacity();
 	int numOfCtgr = categories.capacity();
 	string *bookCptlArr = new string[numOfBooks];  
@@ -87,10 +88,11 @@ std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vec
 		bookCodeArr[i] = stoi(tmpStr2);
 	}
 
-	// 카테고리의 글자를 추출
+	// 카테고리의 글자를 추출 및 초기화
 	for(int i = 0; i < numOfCtgr; i++)
 	{
 		ctgrArr[i] = categories[i];
+		ctgrCodeSumArr[i] = 0;
 	}
 
 	// 카테고리의 글자와 책의 첫번째 글자가 같은 것들을 모두 저장
@@ -106,20 +108,35 @@ std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vec
 	}
 
 	// 이후 특정한 포맷으로 string 값을 리턴
+	// ex ... (A : 20) - (B : 114) - (C : 50) - (W : 0)
+	for(int i = 0; i < numOfCtgr; i++)
+	{
+		result += "(" + ctgrArr[i] + " : " + to_string(ctgrCodeSumArr[i]) + ")";
 
+		if(i < numOfCtgr - 1)
+		{
+			result += " - ";
+		}
+	}
+
+	// 마무리
 	delete[] bookCptlArr;  
 	delete[] bookCodeArr;
 	delete[] ctgrArr;
 	delete[] ctgrCodeSumArr;
+
+	return result;
 }
 
 int main()
 {
-	static const int arr1[] = {1, 2, 3, 3};
-    vector<int> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
+	string arr1[] = {"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"};
+    vector<string> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
 
-	static const int arr2[] = {1, 4, 9, 4};
-    vector<int> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
+	string arr2[] = {"A", "B", "C", "W"};
+    vector<string> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
+
+	string a = StockList::stockSummary(vec1, vec2);
 
 	return 0;
 }
