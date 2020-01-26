@@ -36,6 +36,7 @@ In the result codes and their values are in the same order as in M.
 */
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 
@@ -46,6 +47,71 @@ class StockList
 public:
 	static std::string stockSummary(std::vector<std::string> &lstOfArt, std::vector<std::string> &categories);
 };
+
+std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vector<std::string> &categories)
+{
+	// 변수 정의
+	int numOfBooks = lstOfArt.capacity();
+	int numOfCtgr = categories.capacity();
+	string *bookCptlArr = new string[numOfBooks];  
+	int *bookCodeArr = new int[numOfBooks];
+	string *ctgrArr = new string[numOfCtgr];
+	int *ctgrCodeSumArr = new int[numOfCtgr];
+	
+	// 책의 첫번째 글자와 그 숫자를 나누는 작업
+	string tmpStr1 = "";
+	string tmpStr2 = "";
+	int tmpInt1 = 0;
+	int tmpInt2 = 0;
+
+	for(int i = 0; i < numOfBooks; i++)
+	{
+		tmpStr1 = lstOfArt[i];
+		bookCptlArr[i] = tmpStr1[0];
+
+		tmpInt2 = tmpStr1.length();
+
+		for(int j = tmpInt2 - 1; j > 0; j--)
+		{
+			if(tmpStr1[j] == ' ')
+			{
+				tmpInt1 = j;
+			}
+		}
+
+		for(int k = tmpInt1; k < tmpStr1.length(); k++)
+		{
+			tmpStr2 += tmpStr1[k];
+		}
+
+		bookCodeArr[i] = stoi(tmpStr2);
+	}
+
+	// 카테고리의 글자를 추출
+	for(int i = 0; i < numOfCtgr; i++)
+	{
+		ctgrArr[i] = categories[i];
+	}
+
+	// 카테고리의 글자와 책의 첫번째 글자가 같은 것들을 모두 저장
+	for(int i = 0; i < numOfCtgr; i++)
+	{
+		for(int j = 0; j < numOfBooks; j++)
+		{
+			if(ctgrArr[i] == bookCptlArr[j])
+			{
+				ctgrCodeSumArr[i] += bookCodeArr[j];
+			}
+		}
+	}
+
+	// 이후 특정한 포맷으로 string 값을 리턴
+
+	delete[] bookCptlArr;  
+	delete[] bookCodeArr;
+	delete[] ctgrArr;
+	delete[] ctgrCodeSumArr;
+}
 
 int main()
 {
