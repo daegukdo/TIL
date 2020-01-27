@@ -80,6 +80,8 @@ std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vec
 			}
 		}
 
+		tmpStr2 = "";
+
 		for(int k = tmpInt1; k < tmpStr1.length(); k++)
 		{
 			tmpStr2 += tmpStr1[k];
@@ -130,10 +132,10 @@ std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vec
 
 int main()
 {
-	string arr1[] = {"ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"};
+	string arr1[] = {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"};
     vector<string> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
 
-	string arr2[] = {"A", "B", "C", "W"};
+	string arr2[] = {"A", "B"};
     vector<string> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
 
 	string a = StockList::stockSummary(vec1, vec2);
