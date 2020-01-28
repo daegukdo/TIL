@@ -54,6 +54,12 @@ std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vec
 	string result = "";
 	int numOfBooks = lstOfArt.capacity();
 	int numOfCtgr = categories.capacity();
+
+	if(numOfBooks == 0 || numOfCtgr == 0)
+	{
+		return "";
+	}
+
 	string *bookCptlArr = new string[numOfBooks];  
 	int *bookCodeArr = new int[numOfBooks];
 	string *ctgrArr = new string[numOfCtgr];
@@ -113,11 +119,17 @@ std::string StockList::stockSummary(std::vector<std::string> &lstOfArt, std::vec
 	// ex ... (A : 20) - (B : 114) - (C : 50) - (W : 0)
 	for(int i = 0; i < numOfCtgr; i++)
 	{
-		result += "(" + ctgrArr[i] + " : " + to_string(ctgrCodeSumArr[i]) + ")";
-
-		if(i < numOfCtgr - 1)
+		if(ctgrArr[i].size() != 0)
 		{
-			result += " - ";
+			result += "(" + ctgrArr[i] + " : " + to_string(ctgrCodeSumArr[i]) + ")";
+
+			if(i < numOfCtgr - 1)
+			{
+				if(ctgrArr[i+1].size() != 0)
+				{
+					result += " - ";
+				}
+			}
 		}
 	}
 
@@ -135,7 +147,7 @@ int main()
 	string arr1[] = {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"};
     vector<string> vec1 (arr1, arr1 + sizeof(arr1) / sizeof(arr1[0]) );
 
-	string arr2[] = {"A", "B"};
+	string arr2[] = {"A", "B", ""};
     vector<string> vec2 (arr2, arr2 + sizeof(arr2) / sizeof(arr2[0]) );
 
 	string a = StockList::stockSummary(vec1, vec2);
