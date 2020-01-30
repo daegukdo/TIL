@@ -29,12 +29,7 @@ int main()
 
 int square_sum(const std::vector<int>& numbers)
 {
-	int result = 0;
-
-	for(int i = 0; i < numbers.capacity(); i++)
-	{
-		result += numbers[i] * numbers[i];
-	}
-
-    return result;
+    int ret=0;
+    for (auto x:numbers) ret+=(x*x);
+    return ret;
 }
