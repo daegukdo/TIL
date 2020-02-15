@@ -27,6 +27,7 @@ twoSum [2, 2, 3] 4 === (0, 1)
 
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -43,33 +44,12 @@ int main()
 	return 0;
 }
 
-std::pair<std::size_t, std::size_t> two_sum(const std::vector<int>& numbers, int target)
+std::pair<std::size_t, std::size_t> two_sum(const std::vector<int>& n, int t) 
 {
-	// 두 숫자의 합
-	// 첫번째 숫자와 다른 숫자들 중 하나의 합을 비교
-	// 두번째 숫자와 다른 숫자들 중 하나의 합을 비교 (이때 첫번째 숫자는 빠진다)
-	// 세번째 숫자와 다른 숫자들 중 하나의 합을 비교 (이때 첫번째, 두번째 숫자는 빠진다)
-
-	int twoSumData[] = {0, 0};
-	int vecCapa = numbers.capacity();
-
-	for(int i = 0; i < vecCapa; i++)
-	{
-		for(int j = 0; j < vecCapa; j++)
-		{
-			if(j > i)
-			{
-				if(target == (numbers[i] + numbers[j]))
-				{
-					twoSumData[0] = i;
-					twoSumData[1] = j;
-					break;
-				}
-			}
-		}
-	}
-
-	std::pair<std::size_t, std::size_t> result = make_pair(twoSumData[0], twoSumData[1]);
-
-    return result;
+    std::pair<int, int> results;
+    for (int i = 0; i < n.size(); ++i) 
+      for (int j = 0; j < n.size(); ++j) 
+        if (n[i] + n[j] == t && i != j) 
+			results = std::make_pair(j, i);
+    return results;
 }
