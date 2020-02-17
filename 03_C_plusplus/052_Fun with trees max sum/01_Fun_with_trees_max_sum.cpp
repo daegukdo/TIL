@@ -44,6 +44,36 @@ public:
 	TreeNode* left;
 	TreeNode* right;
 	int value;
+
+	static TreeNode* leaf(int vl)
+	{
+		TreeNode leafData;
+
+		TreeNode* _leaf = &leafData;
+		_leaf->value = vl;
+		return _leaf;
+	}
+
+	static TreeNode* withLeaves(int lf, int rt)
+	{
+		TreeNode leafData;
+
+		TreeNode* _leaf = &leafData;
+		_leaf->left->value = lf;
+		_leaf->right->value = rt;
+		return _leaf;
+	}
+
+	static TreeNode* join(int vl, TreeNode* lf, TreeNode* rt)
+	{
+		TreeNode leafData;
+
+		TreeNode* _leaf = &leafData;
+		_leaf->value = vl;
+		_leaf->left = lf;
+		_leaf->right = rt;
+		return _leaf;
+	}
 };
 
 class Solution
@@ -51,20 +81,46 @@ class Solution
 public:
 	static int maxSum(TreeNode* root)
 	{
-		// TODO: implementation
-		return -1;
+		int _right = 0;
+
+		if(root->right != NULL)
+		{
+			_right = root->value + maxSum(root->right);
+		}
+
+		int _left = 0;
+
+		if(root->left != NULL)
+		{
+			_left = root->value + maxSum(root->left);
+		}
+
+		if(_right > _left)
+		{
+			return _right;
+		}
+		else if(_right > _left)
+		{
+			return _left;
+		}
+		else
+		{
+			return -1;
+		}
     }
 };
 
 int main()
 {
+	// leaf에서 root까지 최대 합을 구하는 것 : 라인을 찾아서 summing
 	// 변수를 셋업하는 함수들이 필요?
 	// 포인터 변수에 값을 정적 함수로 셋업?
-	/*
+	
 	TreeNode* left = TreeNode::leaf(-22)->withLeaves(9, 50);
     TreeNode* right = TreeNode::leaf(11)->withLeaves(9, 2);
     TreeNode* root = TreeNode::join(5, left, right);
-	*/
+	
+	int r1 = Solution::maxSum(root);
 
 	return 0;
 }
