@@ -45,34 +45,39 @@ public:
 	TreeNode* right;
 	int value;
 
+	TreeNode(int vl = 0)
+	{
+		value = vl;
+		left = NULL;
+		right = NULL;
+	}
+
 	static TreeNode* leaf(int vl)
 	{
-		TreeNode leafData;
+		TreeNode* _leaf = new TreeNode();
 
-		TreeNode* _leaf = &leafData;
 		_leaf->value = vl;
 		return _leaf;
 	}
 
-	static TreeNode* withLeaves(int lf, int rt)
+	TreeNode* withLeaves(int lf, int rt)
 	{
-		TreeNode leafData;
+		left = new  TreeNode();
+		right = new  TreeNode();
 
-		TreeNode* _leaf = &leafData;
-		_leaf->left->value = lf;
-		_leaf->right->value = rt;
-		return _leaf;
+		left->value = lf;
+		right->value = rt;
+		return this;
 	}
 
 	static TreeNode* join(int vl, TreeNode* lf, TreeNode* rt)
 	{
-		TreeNode leafData;
+		TreeNode* _join = new TreeNode();
 
-		TreeNode* _leaf = &leafData;
-		_leaf->value = vl;
-		_leaf->left = lf;
-		_leaf->right = rt;
-		return _leaf;
+		_join->value = vl;
+		_join->left = lf;
+		_join->right = rt;
+		return _join;
 	}
 };
 
@@ -99,13 +104,13 @@ public:
 		{
 			return _right;
 		}
-		else if(_right > _left)
+		else if(_right < _left)
 		{
 			return _left;
 		}
 		else
 		{
-			return -1;
+			return root->value;
 		}
     }
 };
