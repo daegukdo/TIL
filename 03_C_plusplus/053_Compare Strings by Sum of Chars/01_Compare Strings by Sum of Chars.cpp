@@ -40,5 +40,30 @@ bool compare(std::string s1, std::string s2)
 	// s1과 s2 비교
 	// bool 값 return
 
+	int charSumS1 = 0;
+	int charSumS2 = 0;
+
+	int capaS1 = s1.capacity();
+	int capaS2 = s2.capacity();
+
+	string upperS1 = toupper(s1);
+	string upperS1 = toupper(s2);
+
+	if(capaS1 != 0)
+	{
+		for(int i = 0; i < capaS1; i++)
+		{
+			charSumS1 += toupper();
+		}
+	}
+
+	if(capaS2 != 0)
+	{
+		for(int i = 0; i < capaS2; i++)
+		{
+
+		}
+	}
+
     return;
 }
