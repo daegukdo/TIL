@@ -29,6 +29,7 @@ bool compare(std::string s1, std::string s2);
 
 int main()
 {
+	bool a = compare("", "");
 
 	return 0;
 }
@@ -40,20 +41,28 @@ bool compare(std::string s1, std::string s2)
 	// s1과 s2 비교
 	// bool 값 return
 
+	if(s1.empty() || s2.empty())
+	{
+		return true;
+	}
+
 	int charSumS1 = 0;
 	int charSumS2 = 0;
 
-	int capaS1 = s1.capacity();
-	int capaS2 = s2.capacity();
-
-	string upperS1 = toupper(s1);
-	string upperS1 = toupper(s2);
-
+	int capaS1 = s1.length();
+	int capaS2 = s2.length();
+	
 	if(capaS1 != 0)
 	{
 		for(int i = 0; i < capaS1; i++)
 		{
-			charSumS1 += toupper();
+			charSumS1 += toupper(s1[i]);
+
+			if(!isalpha(s1[i]))
+			{
+				charSumS1 = 0;
+				break;
+			}
 		}
 	}
 
@@ -61,9 +70,22 @@ bool compare(std::string s1, std::string s2)
 	{
 		for(int i = 0; i < capaS2; i++)
 		{
+			charSumS2 += toupper(s2[i]);
 
+			if(!isalpha(s2[i]))
+			{
+				charSumS2 = 0;
+				break;
+			}
 		}
 	}
 
-    return;
+	if(charSumS1 == charSumS2)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
