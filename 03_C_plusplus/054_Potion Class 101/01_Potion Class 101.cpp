@@ -33,7 +33,7 @@ Note: Use ceiling when calculating the resulting potion's color.
 */
 
 #include <array>
-#include <cmath>
+#include <cmath> 
 
 using namespace std;
 
@@ -53,10 +53,6 @@ Potion::Potion(const std::array<unsigned char, 3>& color, unsigned int volume)
 	Potion::color = color;
 	Potion::volume = volume;
 
-	unsigned int R = color[0] - 0;
-	unsigned int G = color[1] - 0;
-	unsigned int B = color[2] - 0;
-
 	return;
 }
 
@@ -64,21 +60,16 @@ Potion Potion::mix(const Potion& other)
 {
 	unsigned int volumeSum = Potion::volume + other.volume;
 
-	float ratio1 = Potion::volume / volumeSum;
-	float ratio2 = other.volume / volumeSum;
+	float ratio1 = (float)Potion::volume / (float)volumeSum;
+	float ratio2 = (float)other.volume / (float)volumeSum;
 
-	unsigned int R = (Potion::color[0] - 0) * ratio1 + (other.color[0] - 0) * ratio2;
-	unsigned int G = (Potion::color[1] - 0) * ratio1 + (other.color[1] - 0) * ratio2;
-	unsigned int B = (Potion::color[2] - 0) * ratio1 + (other.color[2] - 0) * ratio2;
+	unsigned char R = ceil(Potion::color[0] * ratio1 + other.color[0] * ratio2);
+	unsigned char G = ceil(Potion::color[1] * ratio1 + other.color[1] * ratio2);
+	unsigned char B = ceil(Potion::color[2] * ratio1 + other.color[2] * ratio2);
 
-	std::array<unsigned char, 3> r = {0, 0, 0};
+	std::array<unsigned char, 3> r = {R, G, B};
 
-	Potion result = Potion(r, 0);
-
-	result.color[0] = R;
-	result.color[1] = G;
-	result.color[2] = B;
-	result.volume = volumeSum;
+	Potion result = Potion(r, volumeSum);
 
 	return result;
 }
@@ -88,7 +79,7 @@ int main()
 	std::array<unsigned char, 3> d1 = {255, 255, 255};
 	Potion felix_felicis            =  Potion(d1,  7);
 	
-	std::array<unsigned char, 3> d2 = {255, 255, 255};
+	std::array<unsigned char, 3> d2 = { 51, 102,  51};
 	Potion shrinking_solution       =  Potion(d2, 12);
 
 	Potion new_potion               =  felix_felicis.mix(shrinking_solution);
