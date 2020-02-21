@@ -50,19 +50,48 @@ public:
 
 Potion::Potion(const std::array<unsigned char, 3>& color, unsigned int volume)
 {
-	// 생성자 정의
+	Potion::color = color;
+	Potion::volume = volume;
+
+	unsigned int R = color[0] - 0;
+	unsigned int G = color[1] - 0;
+	unsigned int B = color[2] - 0;
+
 	return;
 }
 
 Potion Potion::mix(const Potion& other)
 {
-	// mix 함수 정의
-	// 이때 volume의 비를 이용해야 함
-	return;
+	unsigned int volumeSum = Potion::volume + other.volume;
+
+	float ratio1 = Potion::volume / volumeSum;
+	float ratio2 = other.volume / volumeSum;
+
+	unsigned int R = (Potion::color[0] - 0) * ratio1 + (other.color[0] - 0) * ratio2;
+	unsigned int G = (Potion::color[1] - 0) * ratio1 + (other.color[1] - 0) * ratio2;
+	unsigned int B = (Potion::color[2] - 0) * ratio1 + (other.color[2] - 0) * ratio2;
+
+	std::array<unsigned char, 3> r = {0, 0, 0};
+
+	Potion result = Potion(r, 0);
+
+	result.color[0] = R;
+	result.color[1] = G;
+	result.color[2] = B;
+	result.volume = volumeSum;
+
+	return result;
 }
 
 int main()
 {
+	std::array<unsigned char, 3> d1 = {255, 255, 255};
+	Potion felix_felicis            =  Potion(d1,  7);
+	
+	std::array<unsigned char, 3> d2 = {255, 255, 255};
+	Potion shrinking_solution       =  Potion(d2, 12);
+
+	Potion new_potion               =  felix_felicis.mix(shrinking_solution);
 
 	return 0;
 }
