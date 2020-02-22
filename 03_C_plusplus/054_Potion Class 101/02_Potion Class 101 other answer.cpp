@@ -33,60 +33,31 @@ Note: Use ceiling when calculating the resulting potion's color.
 */
 
 #include <array>
-#include <cmath> 
+#include <cmath>
 
-using namespace std;
-
-class Potion 
-{
-public:
-	std::array<unsigned char, 3> color;
+class Potion {
+  public:
+    std::array<unsigned char, 3> color;
     unsigned int volume;
   
     Potion(const std::array<unsigned char, 3>& color, unsigned int volume);
     
     Potion mix(const Potion& other);
 };
-
-Potion::Potion(const std::array<unsigned char, 3>& color, unsigned int volume)
+Potion::Potion(const std::array<unsigned char, 3>& color, unsigned int volume): color(color),volume(volume)
 {
-	Potion::color = color;
-	Potion::volume = volume;
-
-	return;
 }
 
 Potion Potion::mix(const Potion& other)
 {
-	double volumeSum = (double)Potion::volume + (double)other.volume;
-
-	double ratio1 = (double)Potion::volume / volumeSum;
-	double ratio2 = (double)other.volume / volumeSum;
-
-	double dR = ((double)Potion::color[0] * (double)Potion::volume + (double)other.color[0] * (double)other.volume) / volumeSum;
-	double dG = ((double)Potion::color[1] * (double)Potion::volume + (double)other.color[1] * (double)other.volume) / volumeSum;
-	double dB = ((double)Potion::color[2] * (double)Potion::volume + (double)other.color[2] * (double)other.volume) / volumeSum;
-
-	unsigned char R = ceil(dR);
-	unsigned char G = ceil(dG);
-	unsigned char B = ceil(dB);
-
-	std::array<unsigned char, 3> r = {R, G, B};
-
-	Potion result = Potion(r, volumeSum);
-
-	return result;
-}
-
-int main()
-{
-	std::array<unsigned char, 3> d1 = {220, 255, 255};
-	Potion felix_felicis            =  Potion(d1,  6);
-	
-	std::array<unsigned char, 3> d2 = {  0, 102,  51};
-	Potion shrinking_solution       =  Potion(d2,  6);
-
-	Potion new_potion               =  felix_felicis.mix(shrinking_solution);
-
-	return 0;
+  long sum {this->volume + other.volume};
+  std::array<unsigned char, 3> temp;
+  float vol1, vol2;
+  for(int i = 0; i < 3; ++i)
+  {
+    vol1 = (this->color.at(i))*(this->volume);
+    vol2 = (other.color.at(i))*(other.volume);
+    temp.at(i) = ceil((vol1 + vol2)/sum);
+  }
+  return Potion(temp,sum);
 }
