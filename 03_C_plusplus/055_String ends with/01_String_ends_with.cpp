@@ -21,12 +21,37 @@ bool solution(std::string const &str, std::string const &ending);
 
 int main()
 {
+	bool r1 = solution("abc ", "c ");
 
 	return 0;
 }
 
 bool solution(std::string const &str, std::string const &ending)
 {
+	int numOfStr = str.length() - 1;
+	int numOfEnding = ending.length() - 1;
+
+	if(numOfEnding == -1)
+	{
+		return true;
+	}
+
+	char tmp;
+	int checker = 0;
+
+	for(int i = numOfEnding; i >= 0; i--)
+	{
+		tmp = ending[i];
+		
+		if(str[numOfStr - checker] == tmp)
+		{
+			checker++;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
     return true;
 }
