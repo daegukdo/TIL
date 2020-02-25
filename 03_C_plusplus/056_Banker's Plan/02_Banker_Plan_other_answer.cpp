@@ -49,40 +49,23 @@ Note: Don't forget to convert the percent parameters as percentages in the body 
 
 using namespace std;
 
-static double trunc_(double d){ return (d>0) ? floor(d) : ceil(d) ; }
-
 class BankerPlan
 {
 public:
     static bool fortune(int f0, double p, int c0, int n, double i);
 };
 
-bool BankerPlan::fortune(int f0, double p, int c0, int n, double i)
+bool BankerPlan::fortune( int f0, double p, int c0, int n, double i )
 {
-	int yearChecker = 0;
-	double fn = (double)f0;
-	double cn = (double)c0;
-
-	while(yearChecker < n)
-	{
-		fn = trunc_(fn + fn * (0.01 * p) - cn);
-		cn = trunc_(cn + cn * (0.01 * i));
-
-		if(fn < 0)
-		{
-			return false;
-		}
-
-		yearChecker++;
-	}
-
-	return true;
+  for( int j = 0; j < n - 1; ++j, c0 *= 1 + i/100 )
+    f0 = f0 * ( 1 + p/100) - c0;
+  return f0 >= 0;
 }
 
 int main()
 {
 	bool r1 = BankerPlan::fortune(100000, 1, 2000, 15, 1);
-	bool r2 = BankerPlan::fortune(100000, 1, 9185, 12, 1);
+	bool r2 = BankerPlan::fortune(1000, 0, 2000, 2, 0);
 
 	return 0;
 }
