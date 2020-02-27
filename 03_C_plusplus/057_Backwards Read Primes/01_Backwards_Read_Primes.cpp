@@ -28,7 +28,8 @@ backwardsPrime(9900, 10000) => "9923 9931 9941 9967"
 */
 
 #include <iostream>
-#include <cmath>
+#include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -36,11 +37,39 @@ class BackWardsPrime
 {
 public:
 	static std::string backwardsPrime(long long start, long long end);
+private:
+	static long long reverseNum(long long number);
 };
 
 std::string BackWardsPrime::backwardsPrime(long long start, long long end)
 {
+	// 에라토스테네스의 접근 sqrt(n) > x ... all x devieded after x++
+
+	long long toRightNum = 0;
+	long long toLeftNum = 0;
+
+	for(long long i = start; i < end; i++)
+	{
+		toRightNum = i;
+		toLeftNum = BackWardsPrime::reverseNum(i);
+	}
+
 	return;
+}
+
+long long BackWardsPrime::reverseNum(long long number)
+{
+	string reverseStr = "";
+
+	string numStr = to_string(number);
+	int numLength = numStr.length();
+
+	for(int i = numLength-1; i>-1; i--)
+	{
+		reverseStr = reverseStr + numStr[i];
+	}
+
+	return stoll(reverseStr);
 }
 
 int main()
