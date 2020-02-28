@@ -39,7 +39,7 @@ public:
 	static std::string backwardsPrime(long long start, long long end);
 private:
 	static long long reverseNum(long long number);
-	static bool isPrimeNums(long long number1, long long number2);
+	static bool isPrimeNum(long long number);
 };
 
 std::string BackWardsPrime::backwardsPrime(long long start, long long end)
@@ -54,13 +54,13 @@ std::string BackWardsPrime::backwardsPrime(long long start, long long end)
 		toRightNum = i;
 		toLeftNum = BackWardsPrime::reverseNum(i);
 
-		if(toRightNum <= 10)
+		if(toRightNum <= 11)
 		{
 			// pass
 		}
 		else
 		{
-			if(isPrimeNums(toRightNum, toLeftNum))
+			if(isPrimeNum(toRightNum) && isPrimeNum(toLeftNum))
 			{
 				if(result == "")
 				{
@@ -93,27 +93,13 @@ long long BackWardsPrime::reverseNum(long long number)
 	return stoll(reverseStr);
 }
 
-bool BackWardsPrime::isPrimeNums(long long number1, long long number2)
+bool BackWardsPrime::isPrimeNum(long long number)
 {
 	// 에라토스테네스의 접근 sqrt(n) > x ... all x devieded after x++
 
-	long long num1Checker = ceil(sqrtl(number1));
-	long long num2Checker = ceil(sqrtl(number2));
-
-	long long count = 0;
-
-	if(num1Checker > num2Checker)
+	for(long long i = 2; i <= sqrtl(number); i++)
 	{
-		count = num1Checker;
-	}
-	else
-	{
-		count = num2Checker;
-	}
-
-	for(long long i = 2; i < count; i++)
-	{
-		if((num1Checker % i == 0) || (num2Checker % i == 0))
+		if(number % i == 0)
 		{
 			return false;
 		}
