@@ -49,7 +49,7 @@ std::string BackWardsPrime::backwardsPrime(long long start, long long end)
 	long long toRightNum = 0;
 	long long toLeftNum = 0;
 
-	for(long long i = start; i < end; i++)
+	for(long long i = start; i <= end; i++)
 	{
 		toRightNum = i;
 		toLeftNum = BackWardsPrime::reverseNum(i);
@@ -114,7 +114,7 @@ bool BackWardsPrime::isPrimeNum(long long number)
 
 int main()
 {
-	string r1 = BackWardsPrime::backwardsPrime(70000, 70245);
+	string r1 = BackWardsPrime::backwardsPrime(1095402, 1095404);
 
 	return 0;
 }
