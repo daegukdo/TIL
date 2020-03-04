@@ -41,30 +41,29 @@ std::string removeDuplicateWords(const string& str)
 
 	string inputStr = str;
 
-	istringstream iss(inputStr);
+	string tmpStr = "";
+	int trgIdx = 0;
+	int spaceIdx = 0;
 
-	vector<string> vctStr;
 
-	for(std::string s; iss >> s; )
+	
+	spaceIdx = inputStr.find(" ");
+
+	if(spaceIdx != -1)
 	{
-		if(find(vctStr.begin(), vctStr.end(), s) != vctStr.end())
+		for(int i = 0; i < spaceIdx; i++)
 		{
-			// do nothing
-		}
-		else
-		{
-			vctStr.push_back(s);
-		}
-	}
-
-	for(int i = 0; i < vctStr.capacity(); i++)
-	{
-		if(i != 0)
-		{
-			result += " ";
+			tmpStr += inputStr[i];
 		}
 
-		result += vctStr[i];
+		trgIdx = inputStr.find(tmpStr);
+
+		while(trgIdx != -1)
+		{
+			inputStr.erase(trgIdx, tmpStr.length());
+
+			trgIdx = inputStr.find(tmpStr);
+		}
 	}
 
     return result;
