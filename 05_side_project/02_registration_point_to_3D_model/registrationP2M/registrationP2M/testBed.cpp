@@ -12,11 +12,28 @@ double* loadPointDataFromCSmatTxt(string filePath);
 
 int main()
 {
-	string filePath = "data\\_CollectedPointsFemur.txt";
-	double* m_pData_ = new double();
-    m_pData_ = loadPointDataFromCSmatTxt(filePath);
+	double* MSEArrs = new double();
 
-	registrationP2M::CPointSet points = registrationP2M::CPointSet(3, m_pData_);
+	string filePath1 = "data\\_CollectedPointsFemur1.txt";
+	double* m_pData_1 = new double();
+    m_pData_1 = loadPointDataFromCSmatTxt(filePath1);
+
+	registrationP2M::CPointSet points1 = registrationP2M::CPointSet(3, m_pData_1);
+
+	string filePath2 = "data\\_CollectedPointsFemur2.txt";
+	double* m_pData_2 = new double();
+    m_pData_2 = loadPointDataFromCSmatTxt(filePath2);
+
+	registrationP2M::CPointSet points2 = registrationP2M::CPointSet(3, m_pData_2);
+
+	double getMSEreulst = points1.GetMSE(points2, MSEArrs);
+
+	for(int i = 0; i < 3; i++)
+	{
+		cout << MSEArrs[i] << endl;
+	}
+
+	cout << getMSEreulst << endl;
 
 	// fin.
 	return 0;
@@ -58,10 +75,10 @@ double* loadPointDataFromCSmatTxt(string filePath)
 	}
 
 	// set.
-	int numOfPoints = pointData.capacity();
-	double* m_pData_ = new double[numOfPoints];
+	int numOfDatas = pointData.capacity();
+	double* m_pData_ = new double[numOfDatas];
 
-	for(int i = 0; i < numOfPoints; i++)
+	for(int i = 0; i < numOfDatas; i++)
 	{
 		m_pData_[i] = pointData[i];
 	}
