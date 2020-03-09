@@ -1,12 +1,3 @@
-// for test
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <sstream>
-
-using namespace std;
-
-// for registration
 #include "registrationP2M.h"
 // #pragma comment(lib, "ANN.lib")
 
@@ -101,54 +92,52 @@ namespace registrationP2M
 
 		return ret;
 	}
-}
 
-int main()
-{
-	// read raw point data .txt
-	vector<double> pointData;
-
-	string filePath = "data\\_CollectedPointsFemur.txt";
-
-	ifstream openFile(filePath);
-
-	if( openFile.is_open() )
+	void CPointSet::GetDistArr(double* pPoint, double* pDistArr) const
 	{
-		string line;
+		int i, j;
+		memset(pDistArr, 0, m_iNumPoints*sizeof(double));
 
-		while(getline(openFile, line))
+		for(i = 0; i < m_iNumPoints; i++)
+			for(j = 0; j < DIM; j++)
+				pDistArr[i] += (m_pData[DIM*i+j] - pPoint[j]) * (m_pData[DIM*i+j] - pPoint[j]);
+	}
+
+	double CPointSet::GetMSE(const CPointSet& other, double* pSquareErrorArr) const
+	{
+		if(other.GetNumPoints() == m_iNumPoints && m_iNumPoints > 0)
 		{
-			stringstream ss(line);
-			int count = 0;
+			memset(pSquareErrorArr, 0, m_iNumPoints*sizeof(double));
+			double mse = 0.0;
 
-			while(ss.good())
+			for(int i = 0; i < m_iNumPoints; i++)
 			{
-				string substr;
-                getline( ss, substr, ',' );
-
-				if(count == 14 || count == 13 || count ==12)
-				{
-					pointData.push_back(stod(substr));
+				for(int j = 0; j < DIM; j++)
+				{	
+					pSquareErrorArr[i] += (m_pData[DIM*i+j]-other.m_pData[DIM*i+j])*(m_pData[DIM*i+j]-other.m_pData[DIM*i+j]);		
 				}
-
-				count++;
+				mse += pSquareErrorArr[i];
 			}
+
+			return mse/(double)m_iNumPoints;
 		}
-
-		openFile.close();
+		else
+			return 0.0;
 	}
 
-	// cal.
-	double* m_pData_ = new double[pointData.capacity()];
-
-	for(int i = 0; i < pointData.capacity(); i++)
+	double* CPointSet::GetPointSetRaw(int iIndex) const
 	{
-		m_pData_[i] = pointData[i];
+		return m_pData + DIM * iIndex;
 	}
 
-	delete[] m_pData_;
+	CPointSet& CPointSet::operator=(const CPointSet& other)
+	{
+		if(m_pData != NULL)
+			delete [] m_pData;
+		m_iNumPoints = other.m_iNumPoints;
+		m_pData = new double[m_iNumPoints*DIM];
+		memcpy(m_pData, other.m_pData, DIM * m_iNumPoints * sizeof(double));
 
-
-	// fin.
-	return 0;
+		return *this;
+	}
 }
