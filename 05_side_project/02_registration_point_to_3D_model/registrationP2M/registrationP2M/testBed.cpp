@@ -35,6 +35,20 @@ int main()
 
 	cout << getMSEreulst << endl;
 
+	//char* stlFilePath = "data\\Femur.stl";
+	//registrationP2M::CReferenceModel boneSTL = registrationP2M::CReferenceModel();
+	//if(boneSTL.LoadData(stlFilePath))
+	//{
+	//	cout << "load" << endl;
+	//}
+	
+	char* objFilePath = "data\\Femur.obj";
+	registrationP2M::CReferenceModel boneOBJ = registrationP2M::CReferenceModel();
+	if(boneOBJ.LoadDataOBJ(objFilePath))
+	{
+		cout << "load" << endl;
+	}
+
 	// fin.
 	return 0;
 }
