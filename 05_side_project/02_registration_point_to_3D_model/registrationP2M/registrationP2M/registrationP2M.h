@@ -8,6 +8,7 @@
 #include <ANN.h>
 #include <Eigen/Eigen>
 #include <deque>
+#include <fstream>
 
 using namespace std;
 
@@ -112,6 +113,7 @@ namespace registrationP2M
 		~CReferenceModel();
 
 		bool LoadData(char* pFileName);
+		bool LoadDataSTL(char* pFileName);
 		bool LoadDataOBJ(char* pFileName);
 		bool LoadData(int iNumPoints, double* pRefPts, int iNumMeshes, int* pMeshInform);
 		bool GetNearestPoint(double* inPoint, double& dist, double* outPoint);

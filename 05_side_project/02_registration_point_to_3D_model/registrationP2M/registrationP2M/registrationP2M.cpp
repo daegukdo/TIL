@@ -523,6 +523,92 @@ namespace registrationP2M
 		return true;
 	}
 
+	bool CReferenceModel::LoadDataSTL(char* pFileName)
+	{
+		std::ifstream stl_file(pFileName, std::ios::in | std::ios::binary);
+
+		char header_info[80] = "";
+		char n_triangles[4];
+		stl_file.read(header_info, 80);
+		stl_file.read(n_triangles, 4);
+
+		unsigned int* r = (unsigned int*) n_triangles;
+		unsigned int num_triangles = *r;
+
+		m_iNumMeshes = (int) num_triangles;
+
+		// read contents of vertices
+		double* pPoints = new double[CPointSet::DIM * m_iNumMeshes]; // Still I don't know exactly, but m_iNumMeshes < m_iNumMeshes
+		int* pMeshInform = new int[CMesh::DIM_MESH * m_iNumMeshes];
+
+		int nPointCount = 0;
+		int nMeshCount = 0;
+
+		for (unsigned int i = 0; i < m_iNumMeshes; i++) 
+		{
+			// Normal
+			for (int xyz = 0; i < 3; xyz++)
+			{
+				char f_buf[sizeof(double)];
+				stl_file.read(f_buf, 4);
+				double* fptr = (double*) f_buf;
+				memcpy(pPoints+CPointSet::DIM*nPointCount + xyz, fptr, sizeof(double)+1);
+			}
+			nPointCount++;
+
+			// v1
+			for (int xyz = 0; i < 3; xyz++)
+			{
+				char f_buf[sizeof(float)];
+				stl_file.read(f_buf, 4);
+				float* fptr = (float*) f_buf;
+				memcpy(pMeshInform+CMesh::DIM_MESH*nMeshCount + xyz, fptr, sizeof(double));
+			}
+			nMeshCount++;
+
+			// v2
+			for (int xyz = 0; i < 3; xyz++)
+			{
+				char f_buf[sizeof(float)];
+				stl_file.read(f_buf, 4);
+				float* fptr = (float*) f_buf;
+				memcpy(pMeshInform+CMesh::DIM_MESH*nMeshCount + xyz, fptr, sizeof(double));
+			}
+			nMeshCount++;
+
+			// v3
+			for (int xyz = 0; i < 3; xyz++)
+			{
+				char f_buf[sizeof(float)];
+				stl_file.read(f_buf, 4);
+				float* fptr = (float*) f_buf;
+				memcpy(pMeshInform+CMesh::DIM_MESH*nMeshCount + xyz, fptr, sizeof(double));
+			}
+			nMeshCount++;
+
+			// Footer
+			char dummy[2];
+			stl_file.read(dummy, 2);
+		}
+
+		m_iNumPoints = nPointCount;
+		/*m_pRefPts = new CPointSet(m_iNumPoints, pPoints);
+		m_kdTree.SetDataPoints(*m_pRefPts);
+
+		m_pMapPointToMesh = new CMapPointToMesh(m_iNumMeshes, pMeshInform, *m_pRefPts);*/
+
+		LoadData(m_iNumPoints, pPoints, m_iNumMeshes, pMeshInform);
+
+		delete [] pMeshInform;
+		pMeshInform = NULL;
+		delete [] pPoints;
+		pPoints = NULL;
+		
+		stl_file.close();
+
+		return true;
+	}
+
 	bool CReferenceModel::LoadDataOBJ(char* pFileName)
 	{
 		// load from "*.*TL"
