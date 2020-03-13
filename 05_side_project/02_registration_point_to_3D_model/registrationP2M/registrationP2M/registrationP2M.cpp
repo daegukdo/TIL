@@ -544,47 +544,47 @@ namespace registrationP2M
 		int nPointCount = 0;
 		int nMeshCount = 0;
 
-		for (unsigned int i = 0; i < m_iNumMeshes; i++) 
+		for (int i = 0; i < m_iNumMeshes; i++) 
 		{
 			// Normal
-			for (int xyz = 0; i < 3; xyz++)
+			for (int ijk = 0; ijk < 3; ijk++)
 			{
-				char f_buf[sizeof(double)];
+				char f_buf[sizeof(float)];
+				stl_file.read(f_buf, 4);
+				int* fptr = (int*) f_buf;
+				memset(pMeshInform+CMesh::DIM_MESH*nPointCount + ijk, *fptr, sizeof(int));
+			}
+			nMeshCount++;
+
+			// v1
+			for (int xyz = 0; xyz < 3; xyz++)
+			{
+				char f_buf[sizeof(float)];
 				stl_file.read(f_buf, 4);
 				double* fptr = (double*) f_buf;
-				memcpy(pPoints+CPointSet::DIM*nPointCount + xyz, fptr, sizeof(double)+1);
+				memset(pPoints+CPointSet::DIM*nPointCount + xyz, *fptr, sizeof(double));
 			}
 			nPointCount++;
 
-			// v1
-			for (int xyz = 0; i < 3; xyz++)
-			{
-				char f_buf[sizeof(float)];
-				stl_file.read(f_buf, 4);
-				float* fptr = (float*) f_buf;
-				memcpy(pMeshInform+CMesh::DIM_MESH*nMeshCount + xyz, fptr, sizeof(double));
-			}
-			nMeshCount++;
-
 			// v2
-			for (int xyz = 0; i < 3; xyz++)
+			for (int xyz = 0; xyz < 3; xyz++)
 			{
 				char f_buf[sizeof(float)];
 				stl_file.read(f_buf, 4);
-				float* fptr = (float*) f_buf;
-				memcpy(pMeshInform+CMesh::DIM_MESH*nMeshCount + xyz, fptr, sizeof(double));
+				double* fptr = (double*) f_buf;
+				memset(pPoints+CPointSet::DIM*nPointCount + xyz, *fptr, sizeof(double));
 			}
-			nMeshCount++;
+			nPointCount++;
 
 			// v3
-			for (int xyz = 0; i < 3; xyz++)
+			for (int xyz = 0; xyz < 3; xyz++)
 			{
 				char f_buf[sizeof(float)];
 				stl_file.read(f_buf, 4);
-				float* fptr = (float*) f_buf;
-				memcpy(pMeshInform+CMesh::DIM_MESH*nMeshCount + xyz, fptr, sizeof(double));
+				double* fptr = (double*) f_buf;
+				memset(pPoints+CPointSet::DIM*nPointCount + xyz, *fptr, sizeof(double));
 			}
-			nMeshCount++;
+			nPointCount++;
 
 			// Footer
 			char dummy[2];
