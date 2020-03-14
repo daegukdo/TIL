@@ -35,9 +35,9 @@ int main()
 
 	cout << getMSEreulst << endl;
 
-	char* stlFilePath = "data\\Femur.stl";
+	char* stlFilePath = "data\\Femur_.stl";
 	registrationP2M::CReferenceModel boneSTL = registrationP2M::CReferenceModel();
-	if(boneSTL.LoadDataSTL(stlFilePath))
+	if(boneSTL.LoadData(stlFilePath))
 	{
 		cout << "load" << endl;
 	}
