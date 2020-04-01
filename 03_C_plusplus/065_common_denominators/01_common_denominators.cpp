@@ -62,9 +62,45 @@ using namespace std;
 
 class Fracts
 {
+private:
+	static unsigned long long gcd(unsigned long long num1, unsigned long long num2);
+	static unsigned long long lcm(unsigned long long num1, unsigned long long num2);
+
 public:
     static std::string convertFrac(std::vector<std::vector<unsigned long long>> &lst);
 };
+
+unsigned long long Fracts::gcd(unsigned long long num1, unsigned long long num2)
+{
+	unsigned long long nb1 = 0;
+	unsigned long long nb2 = 0;
+
+	if(num1 > num2)
+	{
+		nb1 = num1;
+		nb2 = num2;
+	}
+	else
+	{
+		nb2 = num1;
+		nb1 = num2;
+	}
+
+	unsigned long long numdiv = 0;
+
+	while (nb2 != 0)
+	{
+		numdiv = nb1 % nb2;
+		nb1 = nb2;
+		nb2 = numdiv;
+	}
+	return nb1;
+}
+
+unsigned long long Fracts::lcm(unsigned long long num1, unsigned long long num2)
+{
+	return num1 * num2 / gcd(num1, num2);
+}
 
 std::string Fracts::convertFrac(std::vector<std::vector<unsigned long long>> &lst)
 {
@@ -79,7 +115,7 @@ std::string Fracts::convertFrac(std::vector<std::vector<unsigned long long>> &ls
 	{
 		lstCapaIn = lst[i].capacity();
 
-		for(int j = 0; i < lstCapaIn; i++)
+		for(int j = 0; j < lstCapaIn; j++)
 		{
 			if(j % 2 == 0)
 			{
@@ -92,7 +128,39 @@ std::string Fracts::convertFrac(std::vector<std::vector<unsigned long long>> &ls
 		}
 	}
 
-	return "";
+	unsigned long long num1 = 0;
+	unsigned long long num2 = 0;
+
+	for(int i = 0; i < motherVect.size(); i++)
+	{
+		num2 = motherVect[i];
+
+		if(num1 == 0)
+		{
+			num1 = num2;
+		}
+		else
+		{
+			num1 = lcm(num1, num2);
+		}
+	}
+
+	unsigned long long lcmOfbabyVect = num1;
+
+	unsigned long long mulNum = 0;
+
+	for(int i = 0; i < motherVect.size(); i++)
+	{
+		mulNum = lcmOfbabyVect / motherVect[i];
+
+		output += "(";
+		output += std::to_string(babyVect[i] * mulNum);
+		output += ",";
+		output += std::to_string(lcmOfbabyVect);
+		output += ")";
+	}
+
+	return output;
 }
 
 
