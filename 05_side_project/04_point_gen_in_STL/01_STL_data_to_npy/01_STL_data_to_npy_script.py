@@ -30,7 +30,7 @@ def get_equation_plane_from_3points(points3list):
 # set STL file path
 # C:/Users/eornr/Desktop/source_crx/200325_registration_valid_test_cadaver_data
 dir_path = "C:/Users/eornr/Desktop/source_crx/200325_registration_valid_test_cadaver_data/"
-file_name = "Tibia_bone_c1L.stl"
+file_name = "Tibia_bone_c2R.stl"
 file_path = dir_path + file_name
 
 # store each point 
