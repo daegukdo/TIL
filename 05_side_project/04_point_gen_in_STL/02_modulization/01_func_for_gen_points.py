@@ -84,10 +84,12 @@ def find_projection_point_in_plane_3D(point, plane, norm_vect):
     
     on_the_plane_value = plane[3] + plane[0] * projected_point[0] + plane[1] * projected_point[1] + plane[2] * projected_point[2]
     
-    if 0.00001 > on_the_plane_value:
-        return projected_point
+    if 0.0001 > on_the_plane_value:
+        pass
     else:
-        return on_the_plane_value
+        print(on_the_plane_value)
+     
+    return projected_point   
     
 def cal_points40_with_error_on_plane(point40_on_STL, plane_selected, vector_selected):
     """
@@ -109,10 +111,12 @@ def cal_points40_with_error_on_plane(point40_on_STL, plane_selected, vector_sele
         _point_on_plane = find_projection_point_in_plane_3D(_point_added_error, 
                                                             plane_selected[i],
                                                             vector_selected[i])
-        if(type(_point_on_plane) == type(np.array([0]))):
-            points40_with_error_on_plane.append(_point_on_plane)
-        else:
+        
+        if np.isnan(np.sum(_point_on_plane)):
             print(_point_on_plane)
+            points40_with_error_on_plane.append(data_point_40_slt[i])
+        else:
+            points40_with_error_on_plane.append(_point_on_plane)
             
     return points40_with_error_on_plane
 
