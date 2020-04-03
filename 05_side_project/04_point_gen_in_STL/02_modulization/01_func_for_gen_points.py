@@ -48,7 +48,7 @@ def random_vector(length = 1):
 
     return vector
 
-def add_mm_error_to_point(point, error = 20):
+def add_mm_error_to_point(point, max_error = 20):
     """
     input data structure
     point = [x, y, z] # x, y, z unit = mm
@@ -58,6 +58,8 @@ def add_mm_error_to_point(point, error = 20):
     """
     
     point_added_error      = point.copy()
+    
+    error                  = random.uniform(0, max_error)
     
     xyz_error              = random_vector(error)
 
