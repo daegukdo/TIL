@@ -51,66 +51,20 @@ You can see examples for your language in "Sample Tests".
 */
 
 #include <vector>
-
-using namespace std;
-
 typedef unsigned long long ull;
-
 class ProdFib
 {
-private:
-	static ull fib(ull num);
-
 public:
-	static std::vector<ull> productFib(ull prod);
+  static std::vector<ull> productFib(ull prod)
+  {
+      ull a = 0, b = 1;
+      while (a * b < prod) {
+          std::swap(a, b);
+          b += a;
+      }
+      return {a, b, ((a*b == prod) ? true : false)};
+  }
 };
-
-ull ProdFib::fib(ull num)
-{
-   if(num == 1)
-      return 1;
-   else if(num == 2)
-      return 1;
-   else
-      return fib(num - 1) + fib(num - 2);
-}
-
-std::vector<ull> ProdFib::productFib(ull prod)
-{
-	ull fb1 = 0;
-	ull fb2 = 0;
-
-	ull count = 1;
-
-	bool is2Fb = false;
-
-	while(true)
-	{
-		fb1 = ProdFib::fib(count);
-		fb2 = ProdFib::fib(count + 1);
-
-		if(fb1 * fb2 == prod)
-		{
-			is2Fb = true;
-			break;
-		}
-
-		if(fb1 * fb2 > prod)
-		{
-			break;
-		}
-
-		count++;
-	}
-
-	vector<ull> prodFibVect;
-
-	prodFibVect.push_back(fb1);
-	prodFibVect.push_back(fb2);
-	prodFibVect.push_back(is2Fb);
-
-	return prodFibVect;
-}
 
 int main()
 {
