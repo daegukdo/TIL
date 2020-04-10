@@ -58,9 +58,48 @@ typedef unsigned long long ull;
 
 class ProdFib
 {
+private:
+	static ull Fi(ull num);
+
 public:
-  static std::vector<ull> productFib(ull prod);
+	static std::vector<ull> productFib(ull prod);
 };
+
+ull ProdFib::Fi(ull num)
+{
+   if(num == 1)
+      return 1;
+   else if(num == 2)
+      return 1;
+   else
+      return Fi(num - 1) + Fi(num - 2);
+}
+
+std::vector<ull> ProdFib::productFib(ull prod)
+{
+	ull fb1 = 0;
+	ull fb2 = 0;
+
+	ull count = 0;
+
+	bool is2Fb = false;
+
+	while(true)
+	{
+		fb1 = ProdFib::Fi(count);
+		fb2 = ProdFib::Fi(count + 1);
+
+		if(fb1 + fb2 == prod)
+		{
+			is2Fb = true;
+			break;
+		}
+	}
+
+	if()
+
+	return;
+}
 
 int main()
 {
