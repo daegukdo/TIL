@@ -26,7 +26,7 @@ string rot13(string msg);
 
 int main()
 {
-	string r = rot13("A");
+	string r = rot13("test");
 
 	return 0;
 }
@@ -36,12 +36,45 @@ string rot13(string msg)
 	// a = 97, z = 122
 	// A = 65, Z = 90
 
-	char t = msg[0];
+	int msgLength = msg.length();
 
-	char t1 = t + 13;
-	char t2 = t1 + 12;
+	char* charArray = new char[msgLength];
 
-	int t_int = t - 0;
+	for(int i = 0; i < msgLength; i++)
+	{
+		charArray[i] = msg[i];
+	}
 
-	return "";
+	for(int i = 0; i < msgLength; i++)
+	{
+		// upper case
+		if((charArray[i] - 0 <= 90) & (charArray[i] - 0 >= 65))
+		{
+			charArray[i] = charArray[i] + 13;
+			if(charArray[i] - 0 > 90)
+			{
+				charArray[i] = 'A' + (charArray[i] - 0 - 90);
+			}
+		}
+		// lower case
+		else if((charArray[i] - 0 <= 122) & (charArray[i] - 0 >= 97))
+		{
+			charArray[i] = charArray[i] + 13;
+			if(charArray[i] - 0 > 122)
+			{
+				charArray[i] = 'a' + (charArray[i] - 0 - 122);
+			}
+		}
+	}
+
+	string result = "";
+
+	for(int i = 0; i < msgLength; i++)
+	{
+		result = result + charArray[i];
+	}	
+
+	delete[] charArray;
+
+	return result;
 }
