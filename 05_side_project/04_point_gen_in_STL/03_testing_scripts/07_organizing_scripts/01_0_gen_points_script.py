@@ -343,9 +343,9 @@ def eulerDegree2mtx(data):
 
 def point2mtx(point):
     mtx                                    = np.array([[1, 0, 0, point[0]],
-                                                      [0, 1, 0, point[1]],
-                                                      [0, 0, 1, point[2]],
-                                                      [0, 0, 0, 1       ]])
+                                                       [0, 1, 0, point[1]],
+                                                       [0, 0, 1, point[2]],
+                                                       [0, 0, 0, 1       ]])
     
     return mtx
 
@@ -366,7 +366,9 @@ point40_data_path                          = 'C:/Users/eornr/Desktop/source_crx/
 point_processed_data_path                  = 'C:/Users/eornr/Desktop/source_crx/200331_point_gen/01_point_gen_in_STL/07_gen_point_data_proto_v2/data'
 
 # !!! // 0, 1, 2, 3, 4, 5, 6, 7
-test_nof                                   = 1
+# left   : 0 1 4 5
+# right  : 2 3 6 7
+test_nof                                   = 7
 
 # check file name
 file_name                                  = point_processed_data_path + info_data_prefix[test_nof] + '_' + str(0) + '_points_processed'
@@ -382,27 +384,33 @@ vector_data                                = np.load(STL_info_data_path + info_d
 
 # load sim data
 sim_file_path                              = "C:/Users/eornr/Desktop/source_crx/200331_point_gen/01_point_gen_in_STL/06_gen_point_data_proto/sim_pose/"
-sim_file_names                             = ["left_femur_sim", "left_tibia_sim"]
+sim_file_names                             = ["left_femur_sim", "left_tibia_sim", "right_femur_sim", "right_tibia_sim"]
 
 left_femur_position_pose_data_list         = np.load(sim_file_path + sim_file_names[0] + '.npy')
 left_tibia_position_pose_data_list         = np.load(sim_file_path + sim_file_names[1] + '.npy')
+right_femur_position_pose_data_list        = np.load(sim_file_path + sim_file_names[2] + '.npy')
+right_tibia_position_pose_data_list        = np.load(sim_file_path + sim_file_names[3] + '.npy')
 
 ## gen positioning mtx
 # FL, TL, FR, TR
 trns_mtx_list                              = [left_femur_position_pose_data_list,
                                               left_tibia_position_pose_data_list,
-                                              [625, -195, 225, 220, 0, 0],
-                                              [625, -195, 225, 200, 0, 180]]
+                                              right_femur_position_pose_data_list,
+                                              right_tibia_position_pose_data_list]
 
 transform_data_euler_degree_rot            = []
 
-if("F" in file_name and "L" in file_name):
+if("F" in file_name and "L_" in file_name):
+    print("FL")
     transform_data_euler_degree_rot        = trns_mtx_list[0]
-elif("T" in file_name and "L" in file_name):
+elif("T" in file_name and "L_" in file_name):
+    print("TL")
     transform_data_euler_degree_rot        = trns_mtx_list[1]
-elif("F" in file_name and "R" in file_name):
+elif("F" in file_name and "R_" in file_name):
+    print("FR")
     transform_data_euler_degree_rot        = trns_mtx_list[2]
-elif("T" in file_name and "R" in file_name):
+elif("T" in file_name and "R_" in file_name):
+    print("TR")
     transform_data_euler_degree_rot        = trns_mtx_list[3]
 
 transform_data_mtx                         = []
@@ -410,6 +418,7 @@ transform_data_mtx                         = []
 for i in range(len(transform_data_euler_degree_rot)):
     transform_data_mtx.append(eulerDegree2mtx(transform_data_euler_degree_rot[i]))
 
+## run iter.
 for iter_mtx in range(len(transform_data_mtx)):
     ## gen point init PLAN probing
 
@@ -420,8 +429,8 @@ for iter_mtx in range(len(transform_data_mtx)):
     select_vertex_index_raw_init, _        = select_random_vertex_index(point_init_plan_on_bone, vertex_data)
 
     point_init_with_error_on_plane         = cal_points40_with_error_on_plane(point_init_plan_on_bone, 
-                                                                      get_data_with_index(select_vertex_index_raw_init, plane_data), 
-                                                                      get_data_with_index(select_vertex_index_raw_init, vector_data)) 
+                                                                              get_data_with_index(select_vertex_index_raw_init, plane_data), 
+                                                                              get_data_with_index(select_vertex_index_raw_init, vector_data)) 
 
     nearest_point_init_with_error_on_plane = get_closet_points(point_init_with_error_on_plane, each_point_data)
 
@@ -461,8 +470,8 @@ for iter_mtx in range(len(transform_data_mtx)):
     for i in range(len(nearest_points40_with_error_on_plane)):
         error_value                        = error_value_list[i]
         tmp_point                          = add_error_to_point_following_to_vector_dirct(nearest_points40_with_error_on_plane[i],
-                                                                                       error_value,
-                                                                                       nearest_points40_vector[i])
+                                                                                          error_value,
+                                                                                          nearest_points40_vector[i])
 
         points40_with_uncertainty_error.append(tmp_point)
 
