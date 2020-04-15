@@ -45,24 +45,36 @@ string rot13(string msg)
 		charArray[i] = msg[i];
 	}
 
+	int charIntTmp = 0;
+
 	for(int i = 0; i < msgLength; i++)
 	{
+		charIntTmp = charArray[i] - 0;
+
 		// upper case
-		if((charArray[i] - 0 <= 90) & (charArray[i] - 0 >= 65))
+		if((charIntTmp <= 90) && (charIntTmp >= 65))
 		{
-			charArray[i] = charArray[i] + 13;
-			if(charArray[i] - 0 > 90)
+			charIntTmp = charIntTmp + 13;
+			if(charIntTmp > 90)
 			{
-				charArray[i] = 'A' + (charArray[i] - 0 - 90);
+				charArray[i] = char(65 + charIntTmp - 90 - 1);
+			}
+			else
+			{
+				charArray[i] = char(charIntTmp);
 			}
 		}
 		// lower case
-		else if((charArray[i] - 0 <= 122) & (charArray[i] - 0 >= 97))
+		else if((charIntTmp <= 122) && (charIntTmp >= 97))
 		{
-			charArray[i] = charArray[i] + 13;
-			if(charArray[i] - 0 > 122)
+			charIntTmp = charIntTmp + 13;
+			if(charIntTmp > 122)
 			{
-				charArray[i] = 'a' + (charArray[i] - 0 - 122);
+				charArray[i] = char(97 + charIntTmp - 122 - 1);
+			}
+			else
+			{
+				charArray[i] = char(charIntTmp);
 			}
 		}
 	}
