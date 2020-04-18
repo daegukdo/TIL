@@ -50,6 +50,7 @@ std::string format_duration(int seconds);
 
 int main()
 {
+	string r1 = format_duration(3662);
 
 	return 0;
 }
@@ -62,10 +63,47 @@ std::string format_duration(int seconds)
 	int yearUnitBySecond = dayUnitBySecond * 365;
 
 	int second = 0;
+	int minutes = 0;
 	int hour = 0;
 	int day = 0;
 	int year = 0;
 
+	int temp_portion = 0;
+	int temp_rest = 0;
+
+	temp_portion = seconds / yearUnitBySecond;
+	temp_rest = seconds % yearUnitBySecond;
+
+	if(temp_portion > 0)
+	{
+		year = temp_portion;
+	}
+
+	temp_portion = temp_rest / dayUnitBySecond;
+	temp_rest = temp_rest % dayUnitBySecond;
+
+	if(temp_portion > 0)
+	{
+		day = temp_portion;
+	}
+
+	temp_portion = temp_rest / hourUnitBySecond;
+	temp_rest = temp_rest % hourUnitBySecond;
+
+	if(temp_portion > 0)
+	{
+		hour = temp_portion;
+	}
+
+	temp_portion = temp_rest / minutesUnitBySecond;
+	temp_rest = temp_rest % minutesUnitBySecond;
+
+	if(temp_portion > 0)
+	{
+		minutes = temp_portion;
+	}
+
+	second = temp_rest;
 
 
 	// your code here
