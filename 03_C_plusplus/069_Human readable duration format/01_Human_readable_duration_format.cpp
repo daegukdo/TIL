@@ -50,20 +50,33 @@ std::string format_duration(int seconds);
 
 int main()
 {
-	string r1 = format_duration(3662);
+	/*
+    Assert::That(format_duration(0), Equals("now"));
+    Assert::That(format_duration(1), Equals("1 second"));       
+    Assert::That(format_duration(62), Equals("1 minute and 2 seconds"));
+    Assert::That(format_duration(120), Equals("2 minutes"));
+    Assert::That(format_duration(3662), Equals("1 hour, 1 minute and 2 seconds"));
+	*/
+	
+	string r0 = format_duration(0);
+	string r1 = format_duration(1);
+	string r2 = format_duration(62);
+	string r3 = format_duration(120);
+	string r4 = format_duration(3662);
 
 	return 0;
 }
 
 std::string format_duration(int seconds)
 {
+	//// define and setup variable
 	int minutesUnitBySecond = 60;
 	int hourUnitBySecond = minutesUnitBySecond * 60;
 	int dayUnitBySecond = hourUnitBySecond *24;
 	int yearUnitBySecond = dayUnitBySecond * 365;
 
 	int second = 0;
-	int minutes = 0;
+	int minute = 0;
 	int hour = 0;
 	int day = 0;
 	int year = 0;
@@ -71,6 +84,8 @@ std::string format_duration(int seconds)
 	int temp_portion = 0;
 	int temp_rest = 0;
 
+	//// cal. each time value to variable
+	// set year value
 	temp_portion = seconds / yearUnitBySecond;
 	temp_rest = seconds % yearUnitBySecond;
 
@@ -79,6 +94,7 @@ std::string format_duration(int seconds)
 		year = temp_portion;
 	}
 
+	// set day value
 	temp_portion = temp_rest / dayUnitBySecond;
 	temp_rest = temp_rest % dayUnitBySecond;
 
@@ -87,6 +103,7 @@ std::string format_duration(int seconds)
 		day = temp_portion;
 	}
 
+	// set hour value
 	temp_portion = temp_rest / hourUnitBySecond;
 	temp_rest = temp_rest % hourUnitBySecond;
 
@@ -95,17 +112,151 @@ std::string format_duration(int seconds)
 		hour = temp_portion;
 	}
 
+	// set minute value
 	temp_portion = temp_rest / minutesUnitBySecond;
 	temp_rest = temp_rest % minutesUnitBySecond;
 
 	if(temp_portion > 0)
 	{
-		minutes = temp_portion;
+		minute = temp_portion;
 	}
 
+	// set second value
 	second = temp_rest;
 
+	//// set data that export to string	
+	string timeDataStr[] = {"year", "day", "hour", "minute", "second"};
+	int timeData[] = {year, day, hour, minute, second};
+	int isHaveValueCount = 0;
 
-	// your code here
-	return "";
+	for(int i = 0; i < 5; i++)
+	{
+		if(timeData[i] > 0)
+		{
+			isHaveValueCount++;
+		}
+	}
+	
+	int tempCount = 0;
+	std::string resultStr = "";
+	
+	switch(isHaveValueCount)
+	{
+		case 0:
+			return "now";
+			break;
+		case 1:
+			for(int i = 0; i < 5; i++)
+			{
+				int tempInt = timeData[i];
+				if(timeData[i] > 0)
+				{
+					resultStr =  to_string(timeData[i]) + " " + timeDataStr[i];
+					if(timeData[i] == 1)
+					{
+						return (resultStr);
+					}
+					else
+					{
+						return (resultStr + "s");
+					}
+				}
+			}
+			break;
+		case 2:
+			for(int i = 0; i < 5; i++)
+			{
+				int tempInt = timeData[i];
+				if(timeData[i] > 0)
+				{
+					resultStr = resultStr + to_string(timeData[i]) + " " + timeDataStr[i];
+					if(timeData[i] > 1)
+					{
+						resultStr = resultStr + "s";
+					}
+					if(tempCount == 0)
+					{
+						resultStr = resultStr + " and ";
+					}
+					tempCount++;
+				}
+			}
+			return resultStr;
+			break;
+		case 3:
+			for(int i = 0; i < 5; i++)
+			{
+				int tempInt = timeData[i];
+				if(timeData[i] > 0)
+				{
+					resultStr = resultStr + to_string(timeData[i]) + " " + timeDataStr[i];
+					if(timeData[i] > 1)
+					{
+						resultStr = resultStr + "s";
+					}
+					if(tempCount == 1)
+					{
+						resultStr = resultStr + " and ";
+					}
+					else
+					{
+						resultStr = resultStr + ", ";
+					}
+					tempCount++;
+				}
+			}
+			return resultStr;
+			break;
+		case 4:
+			for(int i = 0; i < 5; i++)
+			{
+				int tempInt = timeData[i];
+				if(timeData[i] > 0)
+				{
+					resultStr = resultStr + to_string(timeData[i]) + " " + timeDataStr[i];
+					if(timeData[i] > 1)
+					{
+						resultStr = resultStr + "s";
+					}
+					if(tempCount == 2)
+					{
+						resultStr = resultStr + " and ";
+					}
+					else
+					{
+						resultStr = resultStr + ", ";
+					}
+					tempCount++;
+				}
+			}
+			return resultStr;
+			break;
+		case 5:
+			for(int i = 0; i < 5; i++)
+			{
+				int tempInt = timeData[i];
+				if(timeData[i] > 0)
+				{
+					resultStr = resultStr + to_string(timeData[i]) + " " + timeDataStr[i];
+					if(timeData[i] > 1)
+					{
+						resultStr = resultStr + "s";
+					}
+					if(tempCount == 3)
+					{
+						resultStr = resultStr + " and ";
+					}
+					else
+					{
+						resultStr = resultStr + ", ";
+					}
+					tempCount++;
+				}
+			}
+			return resultStr;
+			break;
+		default:
+			// nothing
+			break;
+	}
 }
