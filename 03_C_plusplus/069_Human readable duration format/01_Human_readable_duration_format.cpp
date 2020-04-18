@@ -174,11 +174,11 @@ std::string format_duration(int seconds)
 					{
 						resultStr = resultStr + "s";
 					}
-					if(tempCount == 0)
+					tempCount++;
+					if(tempCount == 1)
 					{
 						resultStr = resultStr + " and ";
 					}
-					tempCount++;
 				}
 			}
 			return resultStr;
@@ -194,15 +194,15 @@ std::string format_duration(int seconds)
 					{
 						resultStr = resultStr + "s";
 					}
-					if(tempCount == 1)
+					tempCount++;
+					if(tempCount == 2)
 					{
 						resultStr = resultStr + " and ";
 					}
-					else
+					else if(tempCount < 2)
 					{
 						resultStr = resultStr + ", ";
 					}
-					tempCount++;
 				}
 			}
 			return resultStr;
@@ -218,15 +218,15 @@ std::string format_duration(int seconds)
 					{
 						resultStr = resultStr + "s";
 					}
-					if(tempCount == 2)
+					tempCount++;
+					if(tempCount == 3)
 					{
 						resultStr = resultStr + " and ";
 					}
-					else
+					else if(tempCount < 3)
 					{
 						resultStr = resultStr + ", ";
 					}
-					tempCount++;
 				}
 			}
 			return resultStr;
@@ -242,15 +242,15 @@ std::string format_duration(int seconds)
 					{
 						resultStr = resultStr + "s";
 					}
-					if(tempCount == 3)
+					tempCount++;
+					if(tempCount == 4)
 					{
 						resultStr = resultStr + " and ";
 					}
-					else
+					else if(tempCount < 4)
 					{
 						resultStr = resultStr + ", ";
 					}
-					tempCount++;
 				}
 			}
 			return resultStr;
