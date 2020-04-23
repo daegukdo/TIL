@@ -24,63 +24,23 @@ rgb(0,0,0) # returns 000000
 rgb(148, 0, 211) # returns 9400D3
 */
 
-#include <string>
-using namespace std;
+#include <sstream>
+#include <iomanip>
 
 class RGBToHex
 {
-private:
-	static std::string dec2hexOneDigit(int dec);
-	static std::string dec2hexOneColor(int dec);
-
-public:
-	static std::string rgb(int r, int g, int b);
+  public:
+  static std::string rgb(int r, int g, int b);
 };
-
-std::string RGBToHex::dec2hexOneDigit(int dec)
-{
-	if(dec < 10)
-	{
-		return to_string(dec);
-	}
-	else
-	{
-		int tmpInt = dec - 10;
-
-		string tmpStr(1, char(65 + tmpInt));
-
-		return tmpStr;
-	}
-}
-
-std::string RGBToHex::dec2hexOneColor(int dec)
-{
-	int hex = 16;
-
-	int inputInt = dec;
-
-	if(dec > 255)
-	{
-		inputInt = 255;
-	}
-	else if(dec < 0)
-	{
-		inputInt = 0;
-	}
-
-	return dec2hexOneDigit(inputInt / hex) + dec2hexOneDigit(inputInt % hex);
-}
 
 std::string RGBToHex::rgb(int r, int g, int b)
 {
-	// decimal to hex
-	int hex = 16;
-
-	string rHex = dec2hexOneColor(r);
-	string gHex = dec2hexOneColor(g);
-	string bHex = dec2hexOneColor(b);
-
-	return rHex + gHex + bHex;
+  std::ostringstream oss;
+  oss << std::uppercase << std::setfill('0') << std::hex
+      << std::setw(2) << (r < 0 ? 0 : r > 255 ? 255 : r)
+      << std::setw(2) << (g < 0 ? 0 : g > 255 ? 255 : g)
+      << std::setw(2) << (b < 0 ? 0 : b > 255 ? 255 : b);
+  return oss.str();
 }
 
 int main()

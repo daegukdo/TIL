@@ -29,59 +29,25 @@ using namespace std;
 
 class RGBToHex
 {
-private:
-	static std::string dec2hexOneDigit(int dec);
-	static std::string dec2hexOneColor(int dec);
+  public:
+  static std::string decToHex(int input) {
+    std::string output = "00";
+    std::string chars_for_hex = "0123456789ABCDEF";
 
-public:
-	static std::string rgb(int r, int g, int b);
+    if(input < 0) input=0;
+    if(input > 255) input = 255;
+
+    output[1] = chars_for_hex[(input % 16)];
+    input >>= 4; 
+    output[0] = chars_for_hex[(input % 16)];
+
+  return output;
+}
+
+  static std::string rgb(int r, int g, int b) {
+    return decToHex(r) + decToHex(g) + decToHex(b);
+  }
 };
-
-std::string RGBToHex::dec2hexOneDigit(int dec)
-{
-	if(dec < 10)
-	{
-		return to_string(dec);
-	}
-	else
-	{
-		int tmpInt = dec - 10;
-
-		string tmpStr(1, char(65 + tmpInt));
-
-		return tmpStr;
-	}
-}
-
-std::string RGBToHex::dec2hexOneColor(int dec)
-{
-	int hex = 16;
-
-	int inputInt = dec;
-
-	if(dec > 255)
-	{
-		inputInt = 255;
-	}
-	else if(dec < 0)
-	{
-		inputInt = 0;
-	}
-
-	return dec2hexOneDigit(inputInt / hex) + dec2hexOneDigit(inputInt % hex);
-}
-
-std::string RGBToHex::rgb(int r, int g, int b)
-{
-	// decimal to hex
-	int hex = 16;
-
-	string rHex = dec2hexOneColor(r);
-	string gHex = dec2hexOneColor(g);
-	string bHex = dec2hexOneColor(b);
-
-	return rHex + gHex + bHex;
-}
 
 int main()
 {
