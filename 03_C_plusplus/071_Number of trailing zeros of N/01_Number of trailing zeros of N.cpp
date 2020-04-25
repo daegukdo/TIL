@@ -20,6 +20,7 @@ zeros(6) = 1
 
 zeros(12) = 2
 # 12! = 479001600 --> 2 trailing zeros
+1 2 3 4 5 6 7 8 9 10 11 12 ... 2 * 5 // 10
 Hint: You're not meant to calculate the factorial. Find another way to find the number of zeros.
 */
 
@@ -30,11 +31,30 @@ long zeros(long n);
 
 int main()
 {
+	long r1 = zeros(6);
+	long r2 = zeros(12);
+	long r3 = zeros(30);
+	long r4 = zeros(100);
 
 	return 0;
 }
 
 long zeros(long n)
 {
-	return 0;
+	// cal. num. of 10 ... find num. of 5
+	long numOfFive = 0;
+	
+	long tmpLong = 0;
+
+	for(int i = 0; i <= n; i = i + 5)
+	{
+		// case 25, 125 ...
+		tmpLong = i / 5;
+
+		if(i % 5 == 0)
+		{
+			numOfFive++;
+		}
+	}
+	return numOfFive;
 }
