@@ -40,20 +40,9 @@ int main()
 	return 0;
 }
 
-long zeros(long n)
-{
-	long numOfFive = 0;
-	
-	long mulFive = 5;
-	long tmp = 0;
-
-	do
-	{
-		tmp = n / mulFive;
-		numOfFive = numOfFive + tmp;
-		mulFive = mulFive * 5;
-	}
-	while(n > mulFive);
-
-	return numOfFive;
+long zeros(long n) {
+    long result = 0;
+    while(n)
+        result += n/=5;
+    return result;
 }
