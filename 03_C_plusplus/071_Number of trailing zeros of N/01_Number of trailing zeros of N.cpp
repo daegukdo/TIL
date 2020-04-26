@@ -44,17 +44,23 @@ long zeros(long n)
 	// cal. num. of 10 ... find num. of 5
 	long numOfFive = 0;
 	
-	long tmpLong = 0;
+	long tmpLongRs = 0;
+	long tmpLongRm = 0;
 
 	for(int i = 0; i <= n; i = i + 5)
 	{
-		// case 25, 125 ...
-		tmpLong = i / 5;
-
-		if(i % 5 == 0)
+		tmpLongRs = i;
+		do
 		{
-			numOfFive++;
+			tmpLongRm = tmpLongRs % 5;
+			tmpLongRs = tmpLongRs / 5;
+
+			if(tmpLongRm == 0 && tmpLongRs != 0)
+			{
+				numOfFive++;
+			}
 		}
+		while(tmpLongRs % 5 == 0 && tmpLongRs != 0);
 	}
 	return numOfFive;
 }
