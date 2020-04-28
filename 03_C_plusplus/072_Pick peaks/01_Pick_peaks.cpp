@@ -51,6 +51,12 @@ PeakData pick_peaks(vector<int> v);
 
 int main()
 {
+	int arr1[] = { 1, 2, 2, 2, 3 }; 
+    int n1 = sizeof(arr1) / sizeof(arr1[0]); 
+  
+    vector<int> v1(arr1, arr1 + n1); 
+
+	PeakData r1 = pick_peaks(v1);
 
 	return 0;
 }
@@ -58,6 +64,29 @@ int main()
 PeakData pick_peaks(vector<int> v)
 {
 	PeakData result;
-	// Your code here
+
+	int countPeaks = 0;
+
+	for(int i = 1; i < v.capacity() - 1; i++)
+	{
+		if((v[i] >= v[i-1]) && (v[i] >= v[i+1]))
+		{
+			result.pos.push_back(i);
+			result.peaks.push_back(v[i]);
+
+			if(result.pos.capacity() > 1)
+			{
+				if(result.peaks.at(countPeaks-1) == v[i])
+				{
+					result.pos.pop_back();
+					result.peaks.pop_back();
+					countPeaks--;
+				}
+			}
+
+			countPeaks++;
+		}
+	}
+
 	return result;
 }
