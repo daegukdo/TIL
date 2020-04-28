@@ -51,7 +51,7 @@ PeakData pick_peaks(vector<int> v);
 
 int main()
 {
-	int arr1[] = { 1, 2, 2, 2, 3 }; 
+	int arr1[] = { 1, 2, 1, 7, 6, 13, 13, 12, 14, 14, 19, 19, 18, 20, 20, 10 }; 
     int n1 = sizeof(arr1) / sizeof(arr1[0]); 
   
     vector<int> v1(arr1, arr1 + n1); 
@@ -63,28 +63,36 @@ int main()
 
 PeakData pick_peaks(vector<int> v)
 {
+	// index vs. value
+	vector<int> vAdj;
+
+	for(int i = 0; i < v.size(); i++)
+	{
+		if(i > 0)
+		{
+			if(vAdj[vAdj.size() - 1] == v[i])
+			{
+				
+			}
+			else
+			{
+				vAdj.push_back(v[i]);
+			}
+		}
+		else
+		{
+			vAdj.push_back(v[i]);
+		}
+	}
+
 	PeakData result;
 
-	int countPeaks = 0;
-
-	for(int i = 1; i < v.capacity() - 1; i++)
+	for(int i = 1; i < vAdj.size() - 1; i++)
 	{
-		if((v[i] >= v[i-1]) && (v[i] >= v[i+1]))
+		if((vAdj[i] > vAdj[i-1]) && (vAdj[i] > vAdj[i+1]))
 		{
 			result.pos.push_back(i);
-			result.peaks.push_back(v[i]);
-
-			if(result.pos.capacity() > 1)
-			{
-				if(result.peaks.at(countPeaks-1) == v[i])
-				{
-					result.pos.pop_back();
-					result.peaks.pop_back();
-					countPeaks--;
-				}
-			}
-
-			countPeaks++;
+			result.peaks.push_back(vAdj[i]);
 		}
 	}
 
