@@ -51,7 +51,7 @@ PeakData pick_peaks(vector<int> v);
 
 int main()
 {
-	int arr1[] = { 1, 2, 1, 7, 6, 13, 13, 12, 14, 14, 19, 19, 18, 20, 20, 10 }; 
+	int arr1[] = { 3, 7, 10, 2, 1, 3, 1, 2, 2, 2, 2, 2, 3, 3, 3 }; 
     int n1 = sizeof(arr1) / sizeof(arr1[0]); 
   
     vector<int> v1(arr1, arr1 + n1); 
@@ -64,15 +64,17 @@ int main()
 PeakData pick_peaks(vector<int> v)
 {
 	vector<int> vDiff;
+	int vSizeInt = v.size();
 
-	for(int i = 0; i < v.size() - 1; i++)
+	for(int i = 0; i < vSizeInt - 1; i++)
 	{
 		vDiff.push_back(v[i + 1] - v[i]);
 	}
 
 	PeakData result;
+	int vDiffSizeInt = vDiff.size();
 
-	for(int i = 0; i < vDiff.size() - 1; i++)
+	for(int i = 0; i < vDiffSizeInt - 1; i++)
 	{
 		if(vDiff[i] > 0 && vDiff[i + 1] < 0)
 		{
@@ -83,19 +85,25 @@ PeakData pick_peaks(vector<int> v)
 		if(vDiff[i] > 0 && vDiff[i + 1] == 0)
 		{
 			int j = 2;
+			bool isRefind = true;
 
-			while(true)
+			while(isRefind)
 			{
-				if(vDiff[i] > 0 && vDiff[i + j] > 0)
+				if(i + j == vDiffSizeInt - 1)
 				{
-					break;
+					isRefind = false;
 				}
 
-				if(vDiff[i] > 0 && vDiff[i + j] < 0 && vDiff[i + j - 1] == 0)
+				if(vDiff[i + j] > 0)
+				{
+					isRefind = false;
+				}
+
+				if(vDiff[i + j] < 0 && vDiff[i + j - 1] == 0)
 				{
 					result.pos.push_back(i + 1);
 					result.peaks.push_back(v[i + 1]); 
-					break;
+					isRefind = false;
 				}
 
 				j++;
