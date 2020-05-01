@@ -63,36 +63,43 @@ int main()
 
 PeakData pick_peaks(vector<int> v)
 {
-	// index vs. value
-	vector<int> vAdj;
+	vector<int> vDiff;
 
-	for(int i = 0; i < v.size(); i++)
+	for(int i = 0; i < v.size() - 1; i++)
 	{
-		if(i > 0)
-		{
-			if(vAdj[vAdj.size() - 1] == v[i])
-			{
-				
-			}
-			else
-			{
-				vAdj.push_back(v[i]);
-			}
-		}
-		else
-		{
-			vAdj.push_back(v[i]);
-		}
+		vDiff.push_back(v[i + 1] - v[i]);
 	}
 
 	PeakData result;
 
-	for(int i = 1; i < vAdj.size() - 1; i++)
+	for(int i = 0; i < vDiff.size() - 1; i++)
 	{
-		if((vAdj[i] > vAdj[i-1]) && (vAdj[i] > vAdj[i+1]))
+		if(vDiff[i] > 0 && vDiff[i + 1] < 0)
 		{
-			result.pos.push_back(i);
-			result.peaks.push_back(vAdj[i]);
+			result.pos.push_back(i + 1);
+			result.peaks.push_back(v[i + 1]);
+		}
+
+		if(vDiff[i] > 0 && vDiff[i + 1] == 0)
+		{
+			int j = 2;
+
+			while(true)
+			{
+				if(vDiff[i] > 0 && vDiff[i + j] > 0)
+				{
+					break;
+				}
+
+				if(vDiff[i] > 0 && vDiff[i + j] < 0 && vDiff[i + j - 1] == 0)
+				{
+					result.pos.push_back(i + 1);
+					result.peaks.push_back(v[i + 1]); 
+					break;
+				}
+
+				j++;
+			}
 		}
 	}
 
