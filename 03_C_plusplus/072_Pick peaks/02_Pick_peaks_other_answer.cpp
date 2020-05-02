@@ -61,53 +61,24 @@ int main()
 	return 0;
 }
 
-PeakData pick_peaks(vector<int> v)
+PeakData pick_peaks(std::vector<int> v)
 {
-	vector<int> vDiff;
-	int vSizeInt = v.size();
+  PeakData result;
+  int currentHigh = INT_MIN;
+  int currentHighPos = 0;
 
-	for(int i = 0; i < vSizeInt - 1; i++)
-	{
-		vDiff.push_back(v[i + 1] - v[i]);
-	}
+  for (size_t pos = 0; pos < v.size(); ++pos)
+  {
+    if (v[pos] > currentHigh)
+      currentHighPos = pos;
+    else if (v[pos] < currentHigh && currentHighPos > 0)
+    {
+      result.peaks.push_back(currentHigh);
+      result.pos.push_back(currentHighPos);
+      currentHighPos = 0;
+    }
+    currentHigh = v[pos];
+  }
 
-	PeakData result;
-	int vDiffSizeInt = vDiff.size();
-
-	for(int i = 0; i < vDiffSizeInt - 1; i++)
-	{
-		if(vDiff[i] > 0 && vDiff[i + 1] < 0)
-		{
-			result.pos.push_back(i + 1);
-			result.peaks.push_back(v[i + 1]);
-		}
-
-		if(vDiff[i] > 0 && vDiff[i + 1] == 0)
-		{
-			int j = 1;
-			bool isRefind = true;
-
-			while(isRefind)
-			{
-				if(vDiff[i + j] > 0)
-				{
-					isRefind = false;
-				}
-				else if(vDiff[i + j] < 0 && vDiff[i + j - 1] == 0)
-				{
-					result.pos.push_back(i + 1);
-					result.peaks.push_back(v[i + 1]); 
-					isRefind = false;
-				}
-				else if(i + j == vDiffSizeInt - 1)
-				{
-					isRefind = false;
-				}
-
-				j++;
-			}
-		}
-	}
-
-	return result;
+  return result;
 }
