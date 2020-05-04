@@ -33,6 +33,7 @@ For C: The result is freed.
 
 #include <string>
 #include <vector>
+#include <tuple>
 #include <algorithm>
 
 using namespace std;
@@ -45,60 +46,81 @@ public:
 
 std::string WeightSort::orderWeight(const std::string &strng)
 {
+	string strngTrimedLeft = "";
+
+	for(int i = 0; i < strng.length(); i++)
+	{
+		if(strng[i] == ' ')
+		{
+			// pass
+		}
+		else
+		{
+			for(int j = i; j < strng.length(); j++)
+			{
+				strngTrimedLeft += strng[j];
+			}
+			break;
+		}
+	}
+
+	string strngTrimedRight = "";
+
+	for(int i = strngTrimedLeft.length() - 1; i > -1; i--)
+	{
+		if(strngTrimedLeft[i] == ' ')
+		{
+			// pass
+		}
+		else
+		{
+			for(int j = 0; j <= i; j++)
+			{
+				strngTrimedRight += strngTrimedLeft[j];
+			}
+			break;
+		}
+	}
+
+	string strngTrimedAll = strngTrimedRight;
+
 	char spliter = ' ';
 	std::string sortedWeightStr = "";
 
-	// split by " "
-	// vector int list for origin int value
-
-	vector<int> weightVect;
+	vector<tuple<int, int, int>> weightVect;
     weightVect.clear();
 	
     size_t initialPos = 0;
-	size_t pos = strng.find( spliter );
+	size_t pos = strngTrimedAll.find( spliter );
+	int tmpWeight = 0;
+	int tmpWeightDigitsSum = 0;
 
     while( pos != std::string::npos )
 	{
-		// except case : "111 12 132 "
-		pos = strng.find( spliter, initialPos );
+		tmpWeightDigitsSum = 0;
+		pos = strngTrimedAll.find( spliter, initialPos );
 
-        weightVect.push_back( stoi(strng.substr( initialPos, pos - initialPos )) );
+		tmpWeight = stoi(strngTrimedAll.substr( initialPos, pos - initialPos ));
+		while (tmpWeight != 0) 
+		{ 
+			tmpWeightDigitsSum += tmpWeight % 10;
+			tmpWeight = tmpWeight / 10; 
+		}
+
+		weightVect.push_back( make_tuple(tmpWeightDigitsSum, (strngTrimedAll.substr( initialPos, pos - initialPos )[0] - '0'), stoi(strngTrimedAll.substr( initialPos, pos - initialPos ))) );
         initialPos = pos + 1;
     }
 
-	// vector int list for each digits summation
-
-	vector<int> weightOrdering;
-	vector<int> weightOrderingSorted;
-	weightOrdering.clear();
-	weightOrderingSorted.clear();
+	sort(weightVect.begin(), weightVect.end());
 
 	int weightVectSize = weightVect.size();
-	int sumOfDigits = 0;
-	int tmpNum = 0;
 
 	for(int i = 0; i < weightVectSize; i++)
 	{
-		sumOfDigits = 0;
-		tmpNum = weightVect[i];
-		while (tmpNum != 0) 
-		{ 
-			sumOfDigits += tmpNum % 10;
-			tmpNum = tmpNum / 10; 
-		}
-		weightOrdering.push_back(sumOfDigits);
-		weightOrderingSorted.push_back(sumOfDigits);
-	}
-
-	sort(weightOrderingSorted.begin(), weightOrderingSorted.end());
-
-	// sorting with index
-
-	for(int i = 0; i < weightVectSize; i++)
-	{
-		for(int j = 0; j < weightVectSize; j++)
+		sortedWeightStr += to_string(get<2>(weightVect[i]));
+		if(i < weightVectSize - 1)
 		{
-			if(weightOrderingSorted[i] == )
+			sortedWeightStr += " ";
 		}
 	}
 
@@ -107,6 +129,6 @@ std::string WeightSort::orderWeight(const std::string &strng)
 
 int main()
 {
-	std::string r1 = WeightSort::orderWeight("111 12 132");
+	std::string r1 = WeightSort::orderWeight("2000 103 123 4444 99");
 	return 0;
 }
