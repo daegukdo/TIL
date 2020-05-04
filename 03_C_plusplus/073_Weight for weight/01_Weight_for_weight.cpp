@@ -46,69 +46,62 @@ public:
 
 std::string WeightSort::orderWeight(const std::string &strng)
 {
-	string strngTrimedLeft = "";
-
-	for(int i = 0; i < strng.length(); i++)
-	{
-		if(strng[i] == ' ')
-		{
-			// pass
-		}
-		else
-		{
-			for(int j = i; j < strng.length(); j++)
-			{
-				strngTrimedLeft += strng[j];
-			}
-			break;
-		}
-	}
-
-	string strngTrimedRight = "";
-
-	for(int i = strngTrimedLeft.length() - 1; i > -1; i--)
-	{
-		if(strngTrimedLeft[i] == ' ')
-		{
-			// pass
-		}
-		else
-		{
-			for(int j = 0; j <= i; j++)
-			{
-				strngTrimedRight += strngTrimedLeft[j];
-			}
-			break;
-		}
-	}
-
-	string strngTrimedAll = strngTrimedRight;
-
-	char spliter = ' ';
 	std::string sortedWeightStr = "";
 
 	vector<tuple<int, int, int>> weightVect;
     weightVect.clear();
-	
-    size_t initialPos = 0;
-	size_t pos = strngTrimedAll.find( spliter );
+
+	string tmpWeightStr = "";
+	bool isMakeData = false;
+	int pos = 0;
+	int strngLength = strng.length();
 	int tmpWeight = 0;
 	int tmpWeightDigitsSum = 0;
 
-    while( pos != std::string::npos )
+	if(strngLength == 0)
 	{
-		tmpWeightDigitsSum = 0;
-		pos = strngTrimedAll.find( spliter, initialPos );
+		return sortedWeightStr;
+	}
 
-		tmpWeight = stoi(strngTrimedAll.substr( initialPos, pos - initialPos ));
-		while (tmpWeight != 0) 
-		{ 
-			tmpWeightDigitsSum += tmpWeight % 10;
-			tmpWeight = tmpWeight / 10; 
+    while( pos != strngLength )
+	{
+		isMakeData = true;
+		tmpWeightStr = "";
+
+		while(isMakeData)
+		{
+			if(pos == strngLength)
+			{
+				break;
+			}
+
+			if(strng[pos] == ' ')
+			{
+				if(tmpWeightStr != "")
+				{
+					isMakeData = false;
+				}
+			}
+			else
+			{
+				tmpWeightStr += strng[pos];
+			}
+			pos++;
 		}
 
-		weightVect.push_back( make_tuple(tmpWeightDigitsSum, (strngTrimedAll.substr( initialPos, pos - initialPos )[0] - '0'), stoi(strngTrimedAll.substr( initialPos, pos - initialPos ))) );
-        initialPos = pos + 1;
+		if(tmpWeightStr != "")
+		{
+			tmpWeightDigitsSum = 0;
+
+			tmpWeight = stoi(tmpWeightStr);
+			while (tmpWeight != 0) 
+			{ 
+				tmpWeightDigitsSum += tmpWeight % 10;
+				tmpWeight = tmpWeight / 10; 
+			}
+
+			weightVect.push_back( make_tuple(tmpWeightDigitsSum, (tmpWeightStr[0] - '0'), stoi(tmpWeightStr)));
+		}
     }
 
 	sort(weightVect.begin(), weightVect.end());
@@ -129,6 +122,6 @@ std::string WeightSort::orderWeight(const std::string &strng)
 
 int main()
 {
-	std::string r1 = WeightSort::orderWeight("2000 103 123 4444 99");
+	std::string r1 = WeightSort::orderWeight("1111111111112 11");
 	return 0;
 }
