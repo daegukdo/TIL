@@ -33,6 +33,7 @@ For C: The result is freed.
 
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -65,10 +66,41 @@ std::string WeightSort::orderWeight(const std::string &strng)
         initialPos = pos + 1;
     }
 
-	// vector int list for ordering
-	// ...
+	// vector int list for each digits summation
 
+	vector<int> weightOrdering;
+	vector<int> weightOrderingSorted;
+	weightOrdering.clear();
+	weightOrderingSorted.clear();
 
+	int weightVectSize = weightVect.size();
+	int sumOfDigits = 0;
+	int tmpNum = 0;
+
+	for(int i = 0; i < weightVectSize; i++)
+	{
+		sumOfDigits = 0;
+		tmpNum = weightVect[i];
+		while (tmpNum != 0) 
+		{ 
+			sumOfDigits += tmpNum % 10;
+			tmpNum = tmpNum / 10; 
+		}
+		weightOrdering.push_back(sumOfDigits);
+		weightOrderingSorted.push_back(sumOfDigits);
+	}
+
+	sort(weightOrderingSorted.begin(), weightOrderingSorted.end());
+
+	// sorting with index
+
+	for(int i = 0; i < weightVectSize; i++)
+	{
+		for(int j = 0; j < weightVectSize; j++)
+		{
+			if(weightOrderingSorted[i] == )
+		}
+	}
 
 	return sortedWeightStr;
 }
