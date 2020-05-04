@@ -33,7 +33,7 @@ For C: The result is freed.
 
 #include <string>
 #include <vector>
-#include <tuple>
+#include <utility>
 #include <algorithm>
 
 using namespace std;
@@ -48,15 +48,15 @@ std::string WeightSort::orderWeight(const std::string &strng)
 {
 	std::string sortedWeightStr = "";
 
-	vector<tuple<int, int, int>> weightVect;
+	vector<pair<long long, string>> weightVect;
     weightVect.clear();
 
 	string tmpWeightStr = "";
 	bool isMakeData = false;
-	int pos = 0;
-	int strngLength = strng.length();
-	int tmpWeight = 0;
-	int tmpWeightDigitsSum = 0;
+	long long pos = 0;
+	long long strngLength = strng.length();
+	long long tmpWeight = 0;
+	long long tmpWeightDigitsSum = 0;
 
 	if(strngLength == 0)
 	{
@@ -93,24 +93,24 @@ std::string WeightSort::orderWeight(const std::string &strng)
 		{
 			tmpWeightDigitsSum = 0;
 
-			tmpWeight = stoi(tmpWeightStr);
+			tmpWeight = stoll(tmpWeightStr);
 			while (tmpWeight != 0) 
 			{ 
 				tmpWeightDigitsSum += tmpWeight % 10;
 				tmpWeight = tmpWeight / 10; 
 			}
 
-			weightVect.push_back( make_tuple(tmpWeightDigitsSum, (tmpWeightStr[0] - '0'), stoi(tmpWeightStr)));
+			weightVect.push_back( make_pair(tmpWeightDigitsSum, tmpWeightStr));
 		}
     }
 
 	sort(weightVect.begin(), weightVect.end());
 
-	int weightVectSize = weightVect.size();
+	long long weightVectSize = weightVect.size();
 
-	for(int i = 0; i < weightVectSize; i++)
+	for(long long i = 0; i < weightVectSize; i++)
 	{
-		sortedWeightStr += to_string(get<2>(weightVect[i]));
+		sortedWeightStr += weightVect[i].second;
 		if(i < weightVectSize - 1)
 		{
 			sortedWeightStr += " ";
