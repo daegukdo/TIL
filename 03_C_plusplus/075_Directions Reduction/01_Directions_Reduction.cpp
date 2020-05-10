@@ -83,11 +83,70 @@ public:
 
 std::vector<std::string> DirReduction::dirReduc(std::vector<std::string> &arr)
 {
-	// Right Left data, Up Down data
+	// direction str list
+	string dirArr[] = {"WEST", "EAST", "NORTH", "SOUTH"};
 
-	// 
+	// WestEast +/- & NorthSouth +/-
+	int WestEast = 0;
+	int NorthSouth = 0;
 
-	return;
+	// cal. dir. from ref.
+	int refDirArrSize = arr.size();
+
+	for(int i = 0; i < refDirArrSize; i++)
+	{
+		if(arr[i] == dirArr[0])
+		{
+			WestEast++;
+		}
+		else if(arr[i] == dirArr[1])
+		{
+			WestEast--;
+		}
+		else if(arr[i] == dirArr[2])
+		{
+			NorthSouth++;
+		}
+		else if(arr[i] == dirArr[3])
+		{
+			NorthSouth--;
+		}
+	}
+
+	// cal. modi. dir. (result)
+	vector<string> modiDirArr;
+
+	if(WestEast > 0)
+	{
+		for(int i = 0; i < WestEast; i++)
+		{
+			modiDirArr.push_back(dirArr[0]);
+		}
+	}
+	else
+	{
+		for(int i = 0; i < -WestEast; i++)
+		{
+			modiDirArr.push_back(dirArr[1]);
+		}
+	}
+
+	if(NorthSouth > 0)
+	{
+		for(int i = 0; i < NorthSouth; i++)
+		{
+			modiDirArr.push_back(dirArr[2]);
+		}
+	}
+	else
+	{
+		for(int i = 0; i < -NorthSouth; i++)
+		{
+			modiDirArr.push_back(dirArr[3]);
+		}
+	}
+
+	return modiDirArr;
 }
 
 int main()
@@ -95,7 +154,9 @@ int main()
 	string arr1[] = { "NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST" }; 
     int n1 = sizeof(arr1) / sizeof(arr1[0]); 
   
-    vector<int> v1(arr1, arr1 + n1); 
+    vector<string> v1(arr1, arr1 + n1); 
+
+	vector<string> r1 = DirReduction::dirReduc(v1);
 
 	return 0;
 }
