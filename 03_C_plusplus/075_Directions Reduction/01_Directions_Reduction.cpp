@@ -72,6 +72,7 @@ if you want to translate, please ask before translating.
 
 #include <vector>
 #include <string>
+#include <utility>
 
 using namespace std;
 
@@ -83,70 +84,33 @@ public:
 
 std::vector<std::string> DirReduction::dirReduc(std::vector<std::string> &arr)
 {
-	// direction str list
 	string dirArr[] = {"WEST", "EAST", "NORTH", "SOUTH"};
 
-	// WestEast +/- & NorthSouth +/-
-	int WestEast = 0;
-	int NorthSouth = 0;
+	std::vector<pair<std::string, int>> dirAlign;
 
-	// cal. dir. from ref.
-	int refDirArrSize = arr.size();
-
-	for(int i = 0; i < refDirArrSize; i++)
+	for(int i = 0; i < arr.size(); i++)
 	{
-		if(arr[i] == dirArr[0])
+		for(int j = 0; j < dirAlign.size(); j++)
 		{
-			WestEast++;
+			if(arr[i] == dirAlign[j].first)
+			{
+				dirAlign[j].second += 1;
+			}
+			else
+			{
+				dirAlign.push_back(make_pair(arr[i], 1));
+			}
 		}
-		else if(arr[i] == dirArr[1])
+
+		if(dirAlign.size() == 0)
 		{
-			WestEast--;
-		}
-		else if(arr[i] == dirArr[2])
-		{
-			NorthSouth++;
-		}
-		else if(arr[i] == dirArr[3])
-		{
-			NorthSouth--;
+			dirAlign.push_back(make_pair(arr[i], 1));
 		}
 	}
+	
+	std::vector<std::string> modi;
 
-	// cal. modi. dir. (result)
-	vector<string> modiDirArr;
-
-	if(WestEast > 0)
-	{
-		for(int i = 0; i < WestEast; i++)
-		{
-			modiDirArr.push_back(dirArr[0]);
-		}
-	}
-	else
-	{
-		for(int i = 0; i < -WestEast; i++)
-		{
-			modiDirArr.push_back(dirArr[1]);
-		}
-	}
-
-	if(NorthSouth > 0)
-	{
-		for(int i = 0; i < NorthSouth; i++)
-		{
-			modiDirArr.push_back(dirArr[2]);
-		}
-	}
-	else
-	{
-		for(int i = 0; i < -NorthSouth; i++)
-		{
-			modiDirArr.push_back(dirArr[3]);
-		}
-	}
-
-	return modiDirArr;
+	return modi;
 }
 
 int main()
