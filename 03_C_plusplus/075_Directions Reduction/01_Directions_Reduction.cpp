@@ -90,15 +90,21 @@ std::vector<std::string> DirReduction::dirReduc(std::vector<std::string> &arr)
 
 	for(int i = 0; i < arr.size(); i++)
 	{
-		for(int j = 0; j < dirAlign.size(); j++)
+		int tmpVctSize = dirAlign.size();
+
+		for(int j = 0; j < tmpVctSize; j++)
 		{
 			if(arr[i] == dirAlign[j].first)
 			{
 				dirAlign[j].second += 1;
+				break;
 			}
 			else
 			{
-				dirAlign.push_back(make_pair(arr[i], 1));
+				if(j == tmpVctSize - 1)
+				{
+					dirAlign.push_back(make_pair(arr[i], 1));
+				}
 			}
 		}
 
@@ -107,10 +113,75 @@ std::vector<std::string> DirReduction::dirReduc(std::vector<std::string> &arr)
 			dirAlign.push_back(make_pair(arr[i], 1));
 		}
 	}
+
+	for(int i = 0; i < dirAlign.size(); i++)
+	{
+		if(dirAlign[i].first == "WEST")
+		{
+			for(int j = 0; j < dirAlign.size(); j++)
+			{
+				if(dirAlign[j].first == "EAST")
+				{
+					if(dirAlign[i].second > dirAlign[j].second)
+					{
+						dirAlign[i].second = dirAlign[i].second - dirAlign[j].second;
+						dirAlign[j].second = 0;
+					}
+					else if(dirAlign[i].second > dirAlign[j].second)
+					{
+						dirAlign[j].second = dirAlign[j].second - dirAlign[i].second;
+						dirAlign[i].second = 0;
+					}
+					else
+					{
+						dirAlign[i].second = dirAlign[j].second = 0;
+					}
+				}
+			}
+		}
+		else if(dirAlign[i].first == "NORTH")
+		{
+			for(int j = 0; j < dirAlign.size(); j++)
+			{
+				if(dirAlign[j].first == "SOUTH")
+				{
+					if(dirAlign[i].second > dirAlign[j].second)
+					{
+						dirAlign[i].second = dirAlign[i].second - dirAlign[j].second;
+						dirAlign[j].second = 0;
+					}
+					else if(dirAlign[i].second > dirAlign[j].second)
+					{
+						dirAlign[j].second = dirAlign[j].second - dirAlign[i].second;
+						dirAlign[i].second = 0;
+					}
+					else
+					{
+						dirAlign[i].second = dirAlign[j].second = 0;
+					}
+				}
+			}
+		}
+	}
 	
 	std::vector<std::string> modi;
 
-	return modi;
+	for(int i = 0; i < dirAlign.size(); i++)
+	{
+		for(int j = 0; j < dirAlign[i].second; j++)
+		{
+			modi.push_back(dirAlign[i].first);
+		}
+	}
+
+	if(modi.size() == 0)
+	{
+		return arr;
+	}
+	else
+	{
+		return modi;
+	}
 }
 
 int main()
