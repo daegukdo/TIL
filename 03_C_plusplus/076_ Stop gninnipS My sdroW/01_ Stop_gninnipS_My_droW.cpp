@@ -14,19 +14,62 @@ spinWords( "This is another test" )=> returns "This is rehtona test"
 */
 
 #include <iostream>
-#include <string
+#include <string>
 
 using namespace std;
 
 std::string spinWords(const std::string &str);
+std::string spinWord(std::string input, int reverseInt);
 
 int main() 
 {
-	std::cout << "Hello World!\n";
+  string r1 = spinWords("Hey fellow warriors");
+	std::cout << r1 + "\n";
 }
 
 std::string spinWords(const std::string &str)
 {
+  string results = "";
+  string tmpStr = "";
   
-  return "pizza";
+  for(int i = 0; i < str.length(); i++)
+  {
+    if(str[i] == ' ')
+    {
+      results += spinWord(tmpStr, 5);
+      results += ' ';
+      
+      tmpStr = "";
+    }
+    else
+    {
+      tmpStr += str[i];
+    }
+    
+    if(i == str.length() - 1)
+    {
+      results += spinWord(tmpStr, 5);
+    }
+  }
+  
+  return results;
+}
+
+std::string spinWord(std::string input, int reverseInt)
+{
+  std::string resultWord = "";
+  
+  if(input.length() >= reverseInt)
+  {
+    for(int j = input.length() - 1; j > -1; j--)
+    {
+      resultWord += input[j];
+    }
+  }
+  else
+  {
+    resultWord += input;
+  }
+  
+  return resultWord;
 }
