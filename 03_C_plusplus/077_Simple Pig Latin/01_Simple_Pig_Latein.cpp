@@ -35,7 +35,7 @@ string pig_it(string str)
 {
 	string outputSentence = "";
 
-	string punctuationMarksStrs = "!?.,\"\';:-+<>()*";
+	string punctuationMarksStrs = "!?.,\"\';:-+<>()* ";
 	string surffixStr = "ay";
 	char splitChar = ' ';
 
@@ -63,7 +63,22 @@ string pig_it(string str)
 
 	for(int i = 0; i < wordsVect.size(); i++)
 	{
-		reverse(wordsVect[i].begin(), wordsVect[i].end());
+		tmpWordStr = "";
+		for(int j = 0; j < wordsVect[i].length(); j++)
+		{
+			if(j != 0)
+			{
+			    tmpWordStr += wordsVect[i][j];
+			}
+			
+			if(j == wordsVect[i].length() - 1)
+			{
+				tmpWordStr += wordsVect[i][0];
+			}
+		}
+
+		wordsVect[i] = tmpWordStr;
+
 		if(wordsVect[i].length() == 1)
 		{
 			if (punctuationMarksStrs.find(wordsVect[i]) != std::string::npos)
