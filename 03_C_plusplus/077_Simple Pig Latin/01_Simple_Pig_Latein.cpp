@@ -15,18 +15,80 @@ pigIt('Hello world !');     // elloHay orldway !
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-std::string pig_it(std::string str);
+string pig_it(string str);
 
 int main() 
 {
-  
-	std::cout << "j" + "\n";
+	string r1 = pig_it("Hello world !");
+
+	std::cout << "j" + '\n';
+
+	return 0;
 }
 
-std::string pig_it(std::string str)
+string pig_it(string str)
 {
-    // Code here
+	string outputSentence = "";
+
+	string punctuationMarksStrs = "!?.,\"\';:-+<>()*";
+	string surffixStr = "ay";
+	char splitChar = ' ';
+
+	vector<string> wordsVect;
+	string tmpWordStr = "";
+
+	for(int i = 0; i < str.length(); i++)
+	{
+		if(str[i] == splitChar)
+		{
+			wordsVect.push_back(tmpWordStr);
+			tmpWordStr = "";
+		}
+		else if(i == str.length() - 1)
+		{
+			tmpWordStr += str[i];
+			wordsVect.push_back(tmpWordStr);
+			tmpWordStr = "";
+		}
+		else
+		{
+			tmpWordStr += str[i];
+		}
+	}
+
+	for(int i = 0; i < wordsVect.size(); i++)
+	{
+		reverse(wordsVect[i].begin(), wordsVect[i].end());
+		if(wordsVect[i].length() == 1)
+		{
+			if (punctuationMarksStrs.find(wordsVect[i]) != std::string::npos)
+			{
+				// find
+			}
+			else
+			{
+				wordsVect[i] = wordsVect[i] + surffixStr;
+			}
+		}
+		else
+		{
+			wordsVect[i] = wordsVect[i] + surffixStr;
+		}
+	}
+
+	for(int i = 0; i < wordsVect.size(); i++)
+	{
+		outputSentence += wordsVect[i];
+		if(i != wordsVect.size() - 1)
+		{
+			outputSentence += ' ';
+		}
+	}
+
+    return outputSentence;
 }
