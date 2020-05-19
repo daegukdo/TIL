@@ -16,9 +16,11 @@ namespace test
             Calculator Calc = new Calculator();
             MyDelegate CallBack;
 
+            // use delegate (function has same form like defined delegate)
             CallBack = new MyDelegate(Calc.Plus);
             Console.WriteLine(CallBack(3, 4));
 
+            // use delegate (function has same form like defined delegate)
             CallBack = new MyDelegate(Calc.Minus);
             Console.WriteLine(CallBack(4, 3));
 
