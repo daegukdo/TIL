@@ -16,6 +16,7 @@
                 <TextBlock Text="sync. with UI" />
             </Button>
             <ToggleButton Style="{StaticResource MaterialDesignActionToggleButton}"
+                          x:Name="smileToggle"
                           ToolTip="MaterialDesignActionLightToggleButton" Margin="0, 10, 0, 0">
                 <ToggleButton.Content>
                     <materialDesign:PackIcon Kind="EmoticonHappy" />
@@ -25,6 +26,7 @@
                 </materialDesign:ToggleButtonAssist.OnContent>
             </ToggleButton>
             <ToggleButton Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}" 
+                          x:Name="heartToggle"
                       ToolTip="MaterialDesignFlatPrimaryToggleButton" IsChecked="True" Margin="0, 10, 0, 0">
                 <materialDesign:PackIcon Kind="Heart" Height="21" Width="21" />
             </ToggleButton>
