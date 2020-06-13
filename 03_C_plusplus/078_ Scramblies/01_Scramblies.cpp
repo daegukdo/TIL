@@ -31,6 +31,17 @@ bool scramble(const std::string& s1, const std::string& s2);
 int main() 
 {
   bool t1 = scramble("rkqodlw", "world");
+  bool t2 = scramble("cedewaraaossoqqyt", "codewars");
+  
+  if(t2 == true)
+  {
+    cout << "true" << endl;
+  }
+  else
+  {
+    cout << "false" << endl;
+  }
+  
 	// std::cout << "j";
 }
 
@@ -68,8 +79,23 @@ bool scramble(const std::string& s1, const std::string& s2)
   
   for(int i = 0; i < dataContainer.size(); i++)
   {
-    cout << dataContainer[i].first;
-    cout << dataContainer[i].second;
+    char tmpTrgChar = dataContainer[i].first;
+    int tmpTrgInt = dataContainer[i].second;
+    
+    int checkerInt = 0;
+    
+    for(int j = 0; j < s1.length(); j++)
+    {
+      if(s1[j] == tmpTrgChar)
+      {
+        checkerInt++;
+      }
+    }
+    
+    if(checkerInt < tmpTrgInt)
+    {
+      return false;
+    }
   }
   
   return true;
