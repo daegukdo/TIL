@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4df8af8e3d994d498f08af1c2657fcb7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_4df8af8e3d994d498f08af1c2657fcb7" ></div>
+        
+</body>
+<script>    
+    
+            var map_4df8af8e3d994d498f08af1c2657fcb7 = L.map(
+                "map_4df8af8e3d994d498f08af1c2657fcb7",
+                {
+                    center: [36.55, 126.983333],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    titles: "loation of 10s patient in South Korea after starting school",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_df09abdf4a2842edbcd45ad79b5ce0cf = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+            var circle_marker_63e8b5ac345741d5b5d86eb37e693b25 = L.circleMarker(
+                [35.2212166, 129.0929721],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_75e8879f38aa4b338e48376af9ee1a06 = L.popup({"maxWidth": 250});
+
+        
+            var html_7cb7463a8ca048a7b76d5fc59498b09f = $(`<div id="html_7cb7463a8ca048a7b76d5fc59498b09f" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Geumjeong-gu<br><b>Visit: </b>school<br></div>`)[0];
+            popup_75e8879f38aa4b338e48376af9ee1a06.setContent(html_7cb7463a8ca048a7b76d5fc59498b09f);
+        
+
+        circle_marker_63e8b5ac345741d5b5d86eb37e693b25.bindPopup(popup_75e8879f38aa4b338e48376af9ee1a06)
+        ;
+
+        
+    
+    
+            var circle_marker_acaf9245b4eb46d296e0e3cca8cc0f94 = L.circleMarker(
+                [35.2047859, 129.0822162],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_9ab7ad539c8b41a0b93d57a2b739f522 = L.popup({"maxWidth": 250});
+
+        
+            var html_b57a62a2814f48179af06de286569c14 = $(`<div id="html_b57a62a2814f48179af06de286569c14" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Dongnae-gu<br><b>Visit: </b>pc_cafe<br></div>`)[0];
+            popup_9ab7ad539c8b41a0b93d57a2b739f522.setContent(html_b57a62a2814f48179af06de286569c14);
+        
+
+        circle_marker_acaf9245b4eb46d296e0e3cca8cc0f94.bindPopup(popup_9ab7ad539c8b41a0b93d57a2b739f522)
+        ;
+
+        
+    
+    
+            var circle_marker_dd762b914ed84168acb86100446510bf = L.circleMarker(
+                [35.2212166, 129.0929721],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_6beecdb2ba9f4a169889ac3a24f1bebd = L.popup({"maxWidth": 250});
+
+        
+            var html_1cb23ba369ef4c3b929064274c611068 = $(`<div id="html_1cb23ba369ef4c3b929064274c611068" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Geumjeong-gu<br><b>Visit: </b>school<br></div>`)[0];
+            popup_6beecdb2ba9f4a169889ac3a24f1bebd.setContent(html_1cb23ba369ef4c3b929064274c611068);
+        
+
+        circle_marker_dd762b914ed84168acb86100446510bf.bindPopup(popup_6beecdb2ba9f4a169889ac3a24f1bebd)
+        ;
+
+        
+    
+    
+            var circle_marker_563623d2f9624f4cba05b6fb37a53d7c = L.circleMarker(
+                [35.2047859, 129.0822162],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_e55e350ac6f54998a5085c6ecbfc37ed = L.popup({"maxWidth": 250});
+
+        
+            var html_563285bbdb8642578e4fce153bf8dd9e = $(`<div id="html_563285bbdb8642578e4fce153bf8dd9e" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Dongnae-gu<br><b>Visit: </b>pc_cafe<br></div>`)[0];
+            popup_e55e350ac6f54998a5085c6ecbfc37ed.setContent(html_563285bbdb8642578e4fce153bf8dd9e);
+        
+
+        circle_marker_563623d2f9624f4cba05b6fb37a53d7c.bindPopup(popup_e55e350ac6f54998a5085c6ecbfc37ed)
+        ;
+
+        
+    
+    
+            var circle_marker_a438db7de83e4e799858901d16fccfd0 = L.circleMarker(
+                [35.2304495, 129.0876894],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_740f11002c584103ad23bbc7e7551904 = L.popup({"maxWidth": 250});
+
+        
+            var html_f2e88db2bbb14647a72fd995514ff2ee = $(`<div id="html_f2e88db2bbb14647a72fd995514ff2ee" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Geumjeong-gu<br><b>Visit: </b>etc<br></div>`)[0];
+            popup_740f11002c584103ad23bbc7e7551904.setContent(html_f2e88db2bbb14647a72fd995514ff2ee);
+        
+
+        circle_marker_a438db7de83e4e799858901d16fccfd0.bindPopup(popup_740f11002c584103ad23bbc7e7551904)
+        ;
+
+        
+    
+    
+            var circle_marker_111352fc3d9844e1baac6d9945abb21a = L.circleMarker(
+                [35.1491516, 129.1140527],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_92fb0d2d021b404bb3a573e5deba0e05 = L.popup({"maxWidth": 250});
+
+        
+            var html_196fecc8e3314a7297533d479ae3f8f6 = $(`<div id="html_196fecc8e3314a7297533d479ae3f8f6" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Suyeong-gu<br><b>Visit: </b>store<br></div>`)[0];
+            popup_92fb0d2d021b404bb3a573e5deba0e05.setContent(html_196fecc8e3314a7297533d479ae3f8f6);
+        
+
+        circle_marker_111352fc3d9844e1baac6d9945abb21a.bindPopup(popup_92fb0d2d021b404bb3a573e5deba0e05)
+        ;
+
+        
+    
+    
+            var circle_marker_40490360eeac4103b5870d447f080c8f = L.circleMarker(
+                [35.2113842, 129.0798625],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_c9ea419cdd6342e48893dd6727d1ad5a = L.popup({"maxWidth": 250});
+
+        
+            var html_247a62b22aed471b99833c214b8547fd = $(`<div id="html_247a62b22aed471b99833c214b8547fd" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Dongnae-gu<br><b>Visit: </b>hospital<br></div>`)[0];
+            popup_c9ea419cdd6342e48893dd6727d1ad5a.setContent(html_247a62b22aed471b99833c214b8547fd);
+        
+
+        circle_marker_40490360eeac4103b5870d447f080c8f.bindPopup(popup_c9ea419cdd6342e48893dd6727d1ad5a)
+        ;
+
+        
+    
+    
+            var circle_marker_569dd5c055cd454999734249f0eed17f = L.circleMarker(
+                [35.2047859, 129.0822162],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_4df8af8e3d994d498f08af1c2657fcb7);
+        
+    
+        var popup_815ec4a42d644c8d9b1588e8eb5a8fc2 = L.popup({"maxWidth": 250});
+
+        
+            var html_bd2563bd4cb84a0dbe4d9a1a15d7f92b = $(`<div id="html_bd2563bd4cb84a0dbe4d9a1a15d7f92b" style="width: 100.0%; height: 100.0%;"><b>Province: </b>Busan<br><b>City: </b>Dongnae-gu<br><b>Visit: </b>pc_cafe<br></div>`)[0];
+            popup_815ec4a42d644c8d9b1588e8eb5a8fc2.setContent(html_bd2563bd4cb84a0dbe4d9a1a15d7f92b);
+        
+
+        circle_marker_569dd5c055cd454999734249f0eed17f.bindPopup(popup_815ec4a42d644c8d9b1588e8eb5a8fc2)
+        ;
+
+        
+    
+</script>
