@@ -21,8 +21,7 @@ scramble('katas', 'steak') ==> False
 
 #include <iostream>
 #include <string>
-#include <vector>
-#include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -41,62 +40,60 @@ int main()
   {
     cout << "false" << endl;
   }
-  
-	// std::cout << "j";
+
+  return 0;
 }
 
 bool scramble(const std::string& s1, const std::string& s2)
 {
-  vector<pair<char, int>> dataContainer; 
-  
-  for(int i = 0; i < s2.length(); i++)
-  {
-    int dataCtnSize = dataContainer.size();
-    if(dataCtnSize == 0)
-    {
-      pair<char, int> tmpPair = make_pair(s2[i], 1);
-      dataContainer.push_back(tmpPair);
-    }
-    else
-    {
-      for(int j = 0; j < dataCtnSize; j++)
-      {
-        if(dataContainer[j].first == s2[i])
-        {
-          dataContainer[j].second++;
-        }
-        else
-        {
-          if(j == dataCtnSize - 1)
-          {
-            pair<char, int> tmpPair = make_pair(s2[i], 1);
-            dataContainer.push_back(tmpPair);
-          }
-        }
-      }
-    }
-  }
-  
-  for(int i = 0; i < dataContainer.size(); i++)
-  {
-    char tmpTrgChar = dataContainer[i].first;
-    int tmpTrgInt = dataContainer[i].second;
-    
-    int checkerInt = 0;
-    
-    for(int j = 0; j < s1.length(); j++)
-    {
-      if(s1[j] == tmpTrgChar)
-      {
-        checkerInt++;
-      }
-    }
-    
-    if(checkerInt < tmpTrgInt)
-    {
-      return false;
-    }
-  }
-  
-  return true;
+	int ansCount = s2.length();
+	int tstCount = 0;
+
+	string refStr = s2;
+	string trgStr = s1;
+
+	sort (refStr.begin(), refStr.end());
+	sort (trgStr.begin(), trgStr.end());
+
+	int enumRefChar = 0;
+	int enumTrgChar = 0;
+
+	while(enumRefChar < refStr.length())
+	{
+		char refChar = refStr[enumRefChar];
+		int refNumOfChar = 0;
+
+		for(int i = enumRefChar; i < refStr.length(); i++)
+		{
+			if(refChar == refStr[i])
+			{
+				refNumOfChar++;
+			}
+		}
+
+		enumRefChar = enumRefChar + refNumOfChar;
+
+		int trgNumOfChar = 0;
+
+		for(int i = enumTrgChar; i < trgStr.length(); i++)
+		{
+			if(refChar == trgStr[i])
+			{
+				trgNumOfChar++;
+			}
+
+			if(trgNumOfChar >= refNumOfChar)
+			{
+				enumTrgChar = i;
+				break;
+			}
+			
+			if((trgNumOfChar < refNumOfChar) && ((trgStr[i] - '0') > (refChar - '0')))
+			{
+				return false;
+			}
+		}
+	}
+
+	return true;
 }
