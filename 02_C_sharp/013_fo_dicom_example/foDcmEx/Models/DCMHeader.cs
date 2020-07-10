@@ -11,35 +11,45 @@ namespace foDcmEx.Models
 {
     class DCMHeader
     {
-        public void ShowDcmHeader(string pathToDicomTestFile)
+        private DicomFile _dcmFile = null;
+        private DicomDataset _dcmDataset = null;
+        private DicomImage _dcmImg = null;
+
+        public DCMHeader(string pathToDicomTestFile)
         {
             try
             {
                 var tmpStr = "";
                 tmpStr = string.Format("Attempting to extract information from DICOM file:{0}...", pathToDicomTestFile);
 
-                LogToDebugConsole(tmpStr);
+                _logToDebugConsole(tmpStr);
 
-                var dcmFile = DicomFile.Open(pathToDicomTestFile);
-                var dicomDataset = dcmFile.Dataset;
-
-                var dcmImage = new DicomImage(dicomDataset);
-
-                foreach (var tag in dicomDataset)
-                {
-                    tmpStr = string.Format(" {0} : {1}", tag, dicomDataset.GetValueOrDefault(tag.Tag, 0, ""));
-                    LogToDebugConsole(tmpStr);
-                }
-
-                LogToDebugConsole("Extract operation from DICOM file successful");
+                _dcmFile = DicomFile.Open(pathToDicomTestFile);
+                _dcmDataset = _dcmFile.Dataset;
+                _dcmImg = new DicomImage(_dcmDataset);
             }
             catch (Exception e)
             {
-                LogToDebugConsole("Error occured during DICOM file dump operation -> {e.StackTrace}");
+                _logToDebugConsole("Error occured during DICOM file dump operation -> {e.StackTrace}");
             }
         }
 
-        public void LogToDebugConsole(string informationToLog)
+        public void ShowDcmHeaderToConsole()
+        {
+            if (_dcmFile == null || _dcmDataset == null || _dcmImg == null) { _logToDebugConsole("please load your dcm data"); return; }
+
+            var tmpStr = "";
+
+            foreach (var tag in _dcmDataset)
+            {
+                tmpStr = string.Format(" {0} : {1}", tag, _dcmDataset.GetValueOrDefault(tag.Tag, 0, ""));
+                _logToDebugConsole(tmpStr);
+            }
+
+            _logToDebugConsole("Extract operation from DICOM file successful");
+        }
+
+        private void _logToDebugConsole(string informationToLog)
         {
             Console.WriteLine(informationToLog);
         }

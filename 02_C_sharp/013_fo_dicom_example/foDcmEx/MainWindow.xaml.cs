@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
-using Models;
+using foDcmEx.Models;
 
 namespace foDcmEx
 {
@@ -30,9 +30,14 @@ namespace foDcmEx
         {
             InitializeComponent();
 
-            // DCMHeader 
+            _checkDCMHeader();
+        }
 
-            // showDcmHeader("data/0002.dcm");
+        private void _checkDCMHeader()
+        {
+            DCMHeader dcmHeader = new DCMHeader("data/data.dcm");
+
+            dcmHeader.ShowDcmHeaderToConsole();
         }
     }
 }
