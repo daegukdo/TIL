@@ -14,8 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
-using Dicom;
-using Dicom.Imaging;
+using Models;
 
 namespace foDcmEx
 {
@@ -30,40 +29,10 @@ namespace foDcmEx
         public MainWindow()
         {
             InitializeComponent();
-            showDcmHeader("data/0002.dcm");
-        }
 
-        private void showDcmHeader(string pathToDicomTestFile)
-        {
-            try
-            {
-                var tmpStr = "";
-                tmpStr = string.Format("Attempting to extract information from DICOM file:{0}...", pathToDicomTestFile);
+            // DCMHeader 
 
-                LogToDebugConsole(tmpStr);
-
-                var dcmFile = DicomFile.Open(pathToDicomTestFile);
-                var dicomDataset = dcmFile.Dataset;
-
-                var dcmImage = new DicomImage(dicomDataset);
-                    
-                foreach (var tag in dicomDataset)
-                {
-                    tmpStr = string.Format(" {0} : {1}", tag, dicomDataset.GetValueOrDefault(tag.Tag, 0, "") );
-                    LogToDebugConsole(tmpStr);
-                }
-
-                LogToDebugConsole("Extract operation from DICOM file successful");
-            }
-            catch (Exception e)
-            {
-                LogToDebugConsole("Error occured during DICOM file dump operation -> {e.StackTrace}");
-            }
-        }
-
-        private void LogToDebugConsole(string informationToLog)
-        {
-            Console.WriteLine(informationToLog);
+            // showDcmHeader("data/0002.dcm");
         }
     }
 }
