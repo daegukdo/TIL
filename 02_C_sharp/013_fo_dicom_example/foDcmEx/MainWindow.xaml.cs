@@ -35,7 +35,7 @@ namespace foDcmEx
 
         private void _checkDCMHeader()
         {
-            DCMData dcmHeader = new DCMData("data/data.dcm");
+            DCMData dcmHeader = new DCMData("data/0002.dcm");
 
             dcmHeader.ShowDcmHeaderToConsole();
 
