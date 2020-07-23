@@ -40,10 +40,16 @@ class Solution
 public:
     int dominantIndex(vector<int>& nums) 
 	{
-		// 1) °¡Àå Å« ¼ö Ã£±â
-		// 2) µÎ¹øÂ°·Î Å« ¼ö Ã£±â
-		// 3) 1Àº 2ÀÇ 2¹è ÀÌ»óÀÎ°¡?
-		// 4) ¸Â´Ù¸é ÀÎµ¦½º Æ²¸®¸é -1
+		// 1) ì˜ˆì™¸ ì²˜ë¦¬? ... ìš”ì†Œê°€ 1ê°œì¸ ê²½ìš°
+		// 2) ê°€ì¥ í° ìˆ˜ ì°¾ê¸°
+		// 3) ë‘ë²ˆì§¸ë¡œ í° ìˆ˜ ì°¾ê¸°
+		// 4) 1ì€ 2ì˜ 2ë°° ì´ìƒì¸ê°€?
+		// 5) ë§ë‹¤ë©´ ì¸ë±ìŠ¤ í‹€ë¦¬ë©´ -1
+
+		if(nums.size() == 1)
+		{
+			return 0;
+		}
 
 		vector<int> tmpVct(nums.size() ,0);
 		tmpVct.assign(nums.begin(), nums.end());
@@ -67,7 +73,7 @@ public:
 
 int main() 
 {
-	int a[6] = {3, 6, 1, 0};
+	int a[1] = {1};
     vector<int> v(a, *(&a + 1));
 
 	Solution s;
