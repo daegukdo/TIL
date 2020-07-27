@@ -26,7 +26,10 @@ ref : https://leetcode.com/explore/learn/card/array-and-string/202/introduction-
 
 using namespace std;
 
+// use template for 2D array
 template <size_t n, size_t m>
+
+// print 2D array data
 void printArray(int (&a)[n][m]) 
 {
     for (int i = 0; i < n; ++i) 
@@ -42,19 +45,25 @@ void printArray(int (&a)[n][m])
 int main() 
 {
 	cout << "Example I:" << endl;
+	// 2 rows 5 columns
     int a[2][5];
     printArray(a);
 
     cout << "Example II:" << endl;
+	// 2 rows 5 columns
     int b[2][5] = {{1, 2, 3}};
     printArray(b);
 
     cout << "Example III:"<< endl;
+	// n rows 5 columns
     int c[][5] = {1, 2, 3, 4, 5, 6, 7};
+	// show 2 rows 5 columns
     printArray(c);
 
     cout << "Example IV:" << endl;
+	// n rows 5 columns
     int d[][5] = {{1, 2, 3, 4}, {5, 6}, {7}};
+	// show 3 rows 5 columns
     printArray(d);
 
 	return 0;
