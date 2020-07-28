@@ -29,7 +29,7 @@ using namespace std;
 // use template for 2D array
 template <size_t n, size_t m>
 
-// print 2D array data
+// print 2D array 
 void printArray(int (&a)[n][m]) 
 {
     for (int i = 0; i < n; ++i) 
