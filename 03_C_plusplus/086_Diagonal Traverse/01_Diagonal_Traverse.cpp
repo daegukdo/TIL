@@ -24,6 +24,7 @@ ref : https://leetcode.com/explore/learn/card/array-and-string/202/introduction-
 */
 
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -35,51 +36,67 @@ public:
         vector<int> diagonalTraverseResult;
 		
 		bool iter = true;
-
-		int checker = 0;
 		bool isUp = true;
 		bool isReduce = false;
+
+		int checker = 0;
 
 		int tracerM = 0;
 		int tracerN = 0;
 		
 		while(iter)
 		{
+			// cal. each diagonal line   //////////
 			vector<int> tmpVct;
 
-			int m = 0;
-			int n = checker;
-
-			for(int i = 0; i <= checker; i++)
-			{
-				tmpVct.push_back(matrix[m][n]);
-
-				if(!isReduce)
-				{
-				    m++;
-				    n--;
-				}
-				else
-				{
-				    m--;
-				    n++;
-				}
-			}
-
-			if((checker == matrix[0].size() - 1) && !isReduce)
-			{
-				isReduce = true;
-			}
-			
-			if(!isReduce)
-			{
-			    checker++;
-			}
-			else
+			if(isReduce)
 			{
 				checker--;
 			}
+			else
+			{
+				checker++;
+			}
 
+			if(checker % 2 == 1)
+			{
+				isUp = true;
+			}
+			else
+			{
+				isUp = false;
+			}
+
+			int m = tracerM;
+			int n = tracerN;
+
+			for(int i = 0; i < checker; i++)
+			{
+				tmpVct.push_back(matrix[m][n]);
+
+				m++;
+				n--;
+			}
+
+			if(tracerN != matrix.size() - 1)
+			{
+			    tracerN++;
+			}
+			else
+			{
+				tracerM++;
+
+				if(!isReduce)
+				{
+				    isReduce = true;
+				}
+			}
+			// end cal. each diagonal line //////////
+
+			if(isUp)
+			{
+				reverse(tmpVct.begin(), tmpVct.end());
+			}
 
 			diagonalTraverseResult.insert(diagonalTraverseResult.end(), tmpVct.begin(), tmpVct.end());
 
