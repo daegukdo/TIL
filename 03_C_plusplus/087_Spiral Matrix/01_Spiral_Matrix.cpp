@@ -40,18 +40,63 @@ class Solution
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) 
 	{
-		// xUp, xDown, yUp, yDown
-		vector<bool> direction;
-		direction.push_back(false);
-		direction.push_back(false);
-		direction.push_back(false);
-		direction.push_back(false);
+		vector<int> spiralOrderVct;
 
-		// axis max
-		int mMax = 0;
-		int nMax = 0;
+		// xUp = 0, yDown = 1, xDown = 2, yUp = 3
+		int directionInt = 0;
 
-        return;
+		// axis max : y, x
+		int mMax = matrix.size() - 1;
+		int nMax = matrix[0].size() - 1;
+		int mMin = 0;
+		int nMin = 0;
+
+		bool isIter = true;
+
+		int numOfIter = 0;
+
+		int m = 0;
+		int n = 0;
+
+		// working step
+		while(isIter)
+		{
+			int maxValue = 0;
+
+			switch (directionInt)
+			{
+			case 0:
+				if(nMax == n) { directionInt++; mMin++; }
+				else { spiralOrderVct.push_back(matrix[m][n]); n++; }
+				break;
+			case 1:
+				if(mMax == m) { directionInt++; nMax--; }
+				else { spiralOrderVct.push_back(matrix[m][n]); m++; }
+				break;
+			case 2:
+				if(nMin == n) { directionInt++; mMax--; }
+				else { spiralOrderVct.push_back(matrix[m][n]); n--; }
+				break;
+			case 3:
+				if(nMin == m) { directionInt++; nMin++; }
+				else { spiralOrderVct.push_back(matrix[m][n]); m--; }
+				break;
+			}
+
+			if(directionInt == 4)
+			{
+				directionInt = 0;
+				m = mMin;
+				n = nMin;
+			}
+
+			if(spiralOrderVct.size() == matrix.size() * matrix[0].size())
+			{
+				isIter = false;
+			}
+		}
+
+        return spiralOrderVct;
     }
 };
 
