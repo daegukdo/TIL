@@ -40,14 +40,22 @@ class Solution
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) 
 	{
+		int mMtx = static_cast<int>(matrix.size());
+		int nMtx = static_cast<int>(matrix[0].size());
+
 		vector<int> spiralOrderVct;
+
+		if(mMtx == 0 || nMtx == 0)
+		{
+			return spiralOrderVct;
+		}
 
 		// xUp = 0, yDown = 1, xDown = 2, yUp = 3
 		int directionInt = 0;
 
 		// axis max : y, x
-		int mMax = matrix.size() - 1;
-		int nMax = matrix[0].size() - 1;
+		int mMax = mMtx - 1;
+		int nMax = nMtx - 1;
 		int mMin = 0;
 		int nMin = 0;
 
@@ -57,6 +65,8 @@ public:
 
 		int m = 0;
 		int n = 0;
+
+		int count = 0;
 
 		// working step
 		while(isIter)
@@ -83,6 +93,8 @@ public:
 				break;
 			}
 
+			count++;
+
 			if(directionInt == 4)
 			{
 				directionInt = 0;
@@ -95,7 +107,7 @@ public:
 				n++;
 			}
 
-			if(spiralOrderVct.size() == matrix.size() * matrix[0].size())
+			if(count == mMtx * nMtx)
 			{
 				isIter = false;
 			}
