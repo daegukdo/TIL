@@ -66,28 +66,33 @@ public:
 			switch (directionInt)
 			{
 			case 0:
-				if(nMax == n) { directionInt++; mMin++; }
-				else { spiralOrderVct.push_back(matrix[m][n]); n++; }
+				spiralOrderVct.push_back(matrix[m][n]); n++;
+				if(nMax == n) { directionInt++; }
 				break;
 			case 1:
-				if(mMax == m) { directionInt++; nMax--; }
-				else { spiralOrderVct.push_back(matrix[m][n]); m++; }
+				spiralOrderVct.push_back(matrix[m][n]); m++;
+				if(mMax == m) { directionInt++; }
 				break;
 			case 2:
-				if(nMin == n) { directionInt++; mMax--; }
-				else { spiralOrderVct.push_back(matrix[m][n]); n--; }
+				spiralOrderVct.push_back(matrix[m][n]); n--;
+				if(nMin == n) { directionInt++; }
 				break;
 			case 3:
-				if(nMin == m) { directionInt++; nMin++; }
-				else { spiralOrderVct.push_back(matrix[m][n]); m--; }
+				spiralOrderVct.push_back(matrix[m][n]); m--;
+				if(nMin == m) { directionInt++; }
 				break;
 			}
 
 			if(directionInt == 4)
 			{
 				directionInt = 0;
-				m = mMin;
-				n = nMin;
+				mMax--;
+				mMin++;
+				nMax--;
+				nMin++;
+
+				m++;
+				n++;
 			}
 
 			if(spiralOrderVct.size() == matrix.size() * matrix[0].size())
@@ -126,9 +131,9 @@ vector<vector<int>> mtx2VctArray(int (&mtx)[m][n])
 int main() 
 {
 	const size_t rowsM = 3;
-	const size_t columnsN = 3;
+	const size_t columnsN = 4;
 
-	int mtx[rowsM][columnsN] = {1,2,3,4,5,6,7,8,9};
+	int mtx[rowsM][columnsN] = {1,2,3,4,5,6,7,8,9,10,11,12};
 
 	Solution s;
 
