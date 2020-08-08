@@ -38,6 +38,14 @@ class Solution
 public:
     string addBinary(string a, string b) 
 	{
+		// string to longlong
+		// string to longlong
+		// add 2 data
+		// iter. check is 2 over?
+
+		int aInt = atoi(a.c_str());
+		int bInt = atoi(b.c_str());
+
         return "";
     }
 };
