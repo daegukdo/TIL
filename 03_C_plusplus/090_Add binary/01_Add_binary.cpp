@@ -46,6 +46,24 @@ public:
 		int aInt = atoi(a.c_str());
 		int bInt = atoi(b.c_str());
 
+		int addDataInt = aInt + bInt;
+
+		int divInt = 10;
+		int tmpIntSomeOrder = 0;
+
+		while((addDataInt / divInt) >= 1)
+		{
+			tmpIntSomeOrder = addDataInt - (addDataInt / divInt);
+
+			if(tmpIntSomeOrder >= 2)
+			{
+				addDataInt = addDataInt - (tmpIntSomeOrder * divInt / 10);
+				addDataInt = addDataInt + divInt;
+			}
+
+			divInt = divInt * 10;
+		}
+
         return "";
     }
 };
