@@ -43,35 +43,35 @@ public:
 		// add 2 data
 		// iter. check is 2 over?
 
-		int aInt = atoi(a.c_str());
-		int bInt = atoi(b.c_str());
+		long long aInt = stoll(a.c_str());
+		long long bInt = stoll(b.c_str());
 
-		int addDataInt = aInt + bInt;
+		long long addDataInt = aInt + bInt;
 
-		int divInt = 10;
-		int tmpIntSomeOrder = 0;
+		long long divInt = 1;
+		long long tmpIntSomeOrder = 0;
 
 		while((addDataInt / divInt) >= 1)
 		{
-			tmpIntSomeOrder = addDataInt - (addDataInt / divInt);
+			tmpIntSomeOrder = ((addDataInt % (divInt * 10)) - (addDataInt % divInt)) / divInt;
 
 			if(tmpIntSomeOrder >= 2)
 			{
-				addDataInt = addDataInt - (tmpIntSomeOrder * divInt / 10);
-				addDataInt = addDataInt + divInt;
+				addDataInt = addDataInt - 2 * divInt;
+				addDataInt = addDataInt + (divInt * 10);
 			}
 
 			divInt = divInt * 10;
 		}
 
-        return "";
+        return to_string(addDataInt);
     }
 };
 
 int main() 
 {
-	string a = "11";
-	string b = "1";
+	string a = "111";
+	string b = "11";
 
 	Solution s;
 
