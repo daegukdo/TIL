@@ -30,6 +30,7 @@ ref : https://leetcode.com/explore/learn/card/array-and-string/203/introduction-
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,34 +39,99 @@ class Solution
 public:
     string addBinary(string a, string b) 
 	{
-		// string to longlong
-		// string to longlong
-		// add 2 data
-		// iter. check is 2 over?
+		// use only string type?
+		// make binary adder 
+		// loop string length 
 
-		long long aInt = stoll(a.c_str());
-		long long bInt = stoll(b.c_str());
+		string binResultInverse = "";
 
-		long long addDataInt = aInt + bInt;
+		reverse(a.begin(), a.end());
+		reverse(b.begin(), b.end());
 
-		long long divInt = 1;
-		long long tmpIntSomeOrder = 0;
+		int aStrMaxIndex = a.length();
+		int bStrMaxIndex = b.length();
 
-		while((addDataInt / divInt) >= 1)
+		string smallStr = "";
+		string largeStr = "";
+		int smallIndex = 0;
+		int largeIndex = 0;
+
+		if(aStrMaxIndex >= bStrMaxIndex)
 		{
-			tmpIntSomeOrder = ((addDataInt % (divInt * 10)) - (addDataInt % divInt)) / divInt;
-
-			if(tmpIntSomeOrder >= 2)
-			{
-				addDataInt = addDataInt - 2 * divInt;
-				addDataInt = addDataInt + (divInt * 10);
-			}
-
-			divInt = divInt * 10;
+			smallIndex = bStrMaxIndex;
+			largeIndex = aStrMaxIndex;
+			smallStr = b;
+			largeStr = a;
+		}
+		else
+		{
+			smallIndex = aStrMaxIndex;
+			largeIndex = bStrMaxIndex;
+			smallStr = a;
+			largeStr = b;
 		}
 
-        return to_string(addDataInt);
+		for(int i = 0; i < smallIndex; i++)
+		{
+			binResultInverse = binResultInverse + _calBinDigit(smallStr[i], largeStr[i]);
+		}
+
+		for(int i = smallIndex; i < largeIndex; i++)
+		{
+			binResultInverse = binResultInverse + largeStr[i];
+		}
+
+		for(int i = 0; i <= smallIndex; i++)
+		{
+			if(_isOrderUp(binResultInverse[i]))
+			{
+
+			}
+
+			if(binResultInverse[i] == '2')
+			{
+				binResultInverse[i] = '0';
+				binResultInverse[i + 1] = _calBinDigit(binResultInverse[i + 1], '1');
+			}
+			else if(binResultInverse[i] == '3')
+			{
+				binResultInverse[i] = '1';
+				binResultInverse[i + 1] = _calBinDigit(binResultInverse[i + 1], '1');
+			}
+		}
+
+		reverse(binResultInverse.begin(), binResultInverse.end());
+
+        return binResultInverse;
     }
+
+private:
+	char _calBinDigit(char a, char b)
+	{
+		if(a == '1' && b == '1')
+		{
+			return '2';
+		}
+
+		if(a == '0' && b == '0')
+		{
+			return '0';
+		}
+
+		return '1';
+	}
+
+	bool _isOrderUp(char ch)
+	{
+		if(ch == '2')
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 };
 
 int main() 
