@@ -81,22 +81,11 @@ public:
 			binResultInverse = binResultInverse + largeStr[i];
 		}
 
-		for(int i = 0; i <= smallIndex; i++)
+		for(int i = 0; i <= largeIndex; i++)
 		{
 			if(_isOrderUp(binResultInverse[i]))
 			{
-
-			}
-
-			if(binResultInverse[i] == '2')
-			{
-				binResultInverse[i] = '0';
-				binResultInverse[i + 1] = _calBinDigit(binResultInverse[i + 1], '1');
-			}
-			else if(binResultInverse[i] == '3')
-			{
-				binResultInverse[i] = '1';
-				binResultInverse[i + 1] = _calBinDigit(binResultInverse[i + 1], '1');
+				binResultInverse = _addUpBit(binResultInverse, i);
 			}
 		}
 
@@ -118,12 +107,17 @@ private:
 			return '0';
 		}
 
+		if(a == '2' || b == '2')
+		{
+			return '3';
+		}
+
 		return '1';
 	}
 
 	bool _isOrderUp(char ch)
 	{
-		if(ch == '2')
+		if(ch >= '2')
 		{
 			return true;
 		}
@@ -132,12 +126,47 @@ private:
 			return false;
 		}
 	}
+
+	string _addUpBit(string reverseOrderBitStr, int order)
+	{
+		string tmpStr = reverseOrderBitStr;
+		int tmpStrLength = tmpStr.length() - 1;
+
+		if(tmpStr[order] == '2')
+		{
+			tmpStr[order] = '0';
+
+			if(order == tmpStrLength)
+			{
+				tmpStr = tmpStr + '1';
+			}
+			else
+			{
+				tmpStr[order + 1] = _calBinDigit(tmpStr[order + 1] , '1');
+			}
+		}
+		else if(tmpStr[order] == '3')
+		{
+			tmpStr[order] = '1';
+
+			if(order == tmpStrLength)
+			{
+				tmpStr = tmpStr + '1';
+			}
+			else
+			{
+				tmpStr[order + 1] = _calBinDigit(tmpStr[order + 1] , '1');
+			}
+		}
+
+		return tmpStr;
+	}
 };
 
 int main() 
 {
-	string a = "111";
-	string b = "11";
+	string a = "1";
+	string b = "111";
 
 	Solution s;
 
