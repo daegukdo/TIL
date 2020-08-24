@@ -22,6 +22,7 @@ namespace EventBasedMVVMwithControl
     /// </summary>
     public partial class MainWindow : Window
     {
+        private StringDataControl _strCtrl = new StringDataControl();
         private EventHandler _callStrData = null;
         private string _strData = "";
 
@@ -43,9 +44,8 @@ namespace EventBasedMVVMwithControl
 
         private void _init()
         {
-            StringDataControl strCtrl = new StringDataControl();
-            _callStrData += strCtrl.DoActionStrData;
-            strCtrl.SendStrData += _rcvStrData;
+            _callStrData += _strCtrl.DoActionStrData;
+            _strCtrl.SendStrData += _rcvStrData;
         }
 
         private void _callActA()
