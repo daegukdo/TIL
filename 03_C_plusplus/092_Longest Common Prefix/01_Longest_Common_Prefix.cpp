@@ -38,13 +38,37 @@ public:
 		int a = strStr("flower", "fl"); // result == 0: true
 
 		// strs[0]의 char를 하나 선택
-		// for로 [1][2]...에 대하여 strStr이 0인지 확인 ... 이때 needle은 legnth가 0이 아니어야 함
+		// for로 [1][2]...에 대하여 strStr이 0인지 확인 ... 이때 needle은 length가 0이 아니어야 함
 		// 만약 하나라도 0이 아니면 ""
 		// 만약 모두 0이면 char를 2개로 늘려서 반복
 		// 모두 통과하고 다음 char 넘어갈 떄 fail이면 이 char들을 출력 "xxxx"
 
+		string compareStr = strs[0];
+		string tmpComparer = "";
+
+		for(int i = 0; i < compareStr.length(); i++)
+		{
+			tmpComparer += compareStr[i];
+			for(int j = 1; j < strs.size(); j++)
+			{
+				int tmpInt = strStr(strs[j], tmpComparer);
+				if(tmpInt != 0)
+				{
+					if(tmpComparer.length() == 1)
+					{
+						return "";
+					}
+					else
+					{
+						return tmpComparer.substr(0, tmpComparer.length() - 1);
+					}
+				}
+			}
+		}
+
         return "";
     }
+
 private:
 	int strStr(string haystack, string needle) {
 		// needle = "" -> 0
