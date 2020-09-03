@@ -21,13 +21,25 @@ ref : https://leetcode.com/explore/learn/card/array-and-string/205/array-two-poi
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 class Solution {
 public:
     int arrayPairSum(vector<int>& nums) {
-        return 0;
+		// 오름차순 정렬
+		// 이후 2개의 값 중 최소값을 구하게 ~
+
+		int result = 0;
+		sort(nums.begin(), nums.end());
+
+		for(int i = 0; i < nums.size(); i = i + 2)
+		{
+			result += nums[i];
+		}
+
+        return result;
     }
 };
 
