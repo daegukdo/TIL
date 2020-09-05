@@ -53,14 +53,36 @@ public:
         // 그리고 target - numbers[i+1]을 tmp로 두고 반복~ 
         vector<int> result;
         
-        int tmp = 0;
+        int idx1 = 0;
+        int idx2 = -1;
         
-        for(int i = 0; i < numbers.size(); i++){
-          tmp = target - numbers[i];
+        int tmp = 0;
+        int count = 0;
+        
+        while(idx2 == -1){
+          tmp = target - numbers[count];
           
+          idx1 = count;
+          idx2 = compareLoop(numbers, count, tmp);
         }
         
+        result.push_back(idx1 + 1);
+        result.push_back(idx2 + 1);
+        
         return result;
+    }
+private:
+    int compareLoop(vector<int> v, int idx, int t){
+      for(int i = idx; v.size(); i++){
+        if(t == v[i]){
+          return i;
+        }
+        else if(t < v[i]){
+          return -1;
+        }
+      }
+      
+      return -1;
     }
 };
 
@@ -73,6 +95,10 @@ int main() {
 	Solution s;
 
 	vector<int> r = s.twoSum(v, i);
+
+  for(int i = 0; i < r.size(); i++){
+    cout << r[i] << endl;
+  }
 
 	return 0;
 }
