@@ -60,10 +60,11 @@ public:
         int count = 0;
         
         while(idx2 == -1){
-          tmp = target - numbers[count];
+            tmp = target - numbers[count];
           
-          idx1 = count;
-          idx2 = compareLoop(numbers, count, tmp);
+            idx1 = count;
+            idx2 = compareLoop(numbers, count, tmp);
+			count++;
         }
         
         result.push_back(idx1 + 1);
@@ -73,13 +74,15 @@ public:
     }
 private:
     int compareLoop(vector<int> v, int idx, int t){
-      for(int i = idx; v.size(); i++){
-        if(t == v[i]){
-          return i;
-        }
-        else if(t < v[i]){
-          return -1;
-        }
+      for(int i = idx + 1; i < v.size(); i++){
+		  if(i < v.size()){
+              if(t == v[i]){
+                  return i;
+              }
+              else if(t < v[i]){
+                  return -1;
+              }
+		  }
       }
       
       return -1;
@@ -87,18 +90,18 @@ private:
 };
 
 int main() {
-  int a[5] = {2, 7, 11, 15};
-  vector<int> v(a, *(&a + 1));
+    int a[3] = {5, 25, 75};
+    vector<int> v(a, *(&a + 1));
 
-  int i = 9;
+    int i = 100;
 
 	Solution s;
 
 	vector<int> r = s.twoSum(v, i);
 
-  for(int i = 0; i < r.size(); i++){
-    cout << r[i] << endl;
-  }
+    for(int i = 0; i < r.size(); i++){
+        cout << r[i] << endl;
+    }
 
 	return 0;
 }
