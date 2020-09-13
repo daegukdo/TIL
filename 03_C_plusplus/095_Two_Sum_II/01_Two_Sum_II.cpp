@@ -37,6 +37,9 @@ nums is sorted in increasing order.
 -1000 <= target <= 1000
 
 https://leetcode.com/explore/learn/card/array-and-string/205/array-two-pointer-technique/1183/
+
+solution of other people 
+ref : https://velog.io/@madpotato1713/Leet-Code-167.-Two-Sum-II-Input-array-is-sortedC
 */
 
 #include <iostream>
@@ -46,62 +49,40 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        // target - numbers[i]는 tmp이다
-        // 이 tmp가 numbers[i]를 제외한 다른 값과 같은게 있다면 그 index를 반환
-        // 비교하다가 tmp보다 큰 값이 나오면 멈춤
-        // 그리고 target - numbers[i+1]을 tmp로 두고 반복~ 
-        vector<int> result;
-        
-        int idx1 = 0;
-        int idx2 = -1;
-        
-        int tmp = 0;
-        int count = 0;
-        
-        while(idx2 == -1){
-            tmp = target - numbers[count];
-          
-            idx1 = count;
-            idx2 = compareLoop(numbers, count, tmp);
-			count++;
-        }
-        
-        result.push_back(idx1 + 1);
-        result.push_back(idx2 + 1);
-        
-        return result;
-    }
-private:
-    int compareLoop(vector<int> v, int idx, int t){
-      for(int i = idx + 1; i < v.size(); i++){
-		  if(i < v.size()){
-              if(t == v[i]){
-                  return i;
-              }
-              else if(t < v[i]){
-                  return -1;
-              }
-		  }
+  vector<int> twoSum(vector<int>& numbers, int target) {
+    vector<int> result;
+		
+    int leftIndex = 0;
+    int rightIndex = numbers.size() - 1;
+
+    while(true){
+      int tmpInt = numbers[leftIndex] + numbers[rightIndex];
+      if(tmpInt == target){
+        result.push_back(leftIndex  + 1);
+        result.push_back(rightIndex + 1);
+        break;
       }
-      
-      return -1;
+      else if(tmpInt > target){ rightIndex--; }
+      else if(tmpInt < target){  leftIndex++; }
     }
+
+    return result;
+  }
 };
 
 int main() {
-    int a[3] = {5, 25, 75};
-    vector<int> v(a, *(&a + 1));
+  int a[4] = {2, 7, 11, 15};
+  vector<int> v(a, *(&a + 1));
 
-    int i = 100;
+  int i = 9;
 
-	Solution s;
+  Solution s;
 
-	vector<int> r = s.twoSum(v, i);
+  vector<int> r = s.twoSum(v, i);
 
-    for(int i = 0; i < r.size(); i++){
-        cout << r[i] << endl;
-    }
-
-	return 0;
+  for(int i = 0; i < r.size(); i++){
+    cout << r[i] << endl;
+  }
+	
+  return 0;
 }
