@@ -1,32 +1,23 @@
 /* 
 @ LeetCode
-
  - Spiral Matrix
-
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
-
  - Example 1:
-
 Input:
 [
  [ 1, 2, 3 ],
  [ 4, 5, 6 ],
  [ 7, 8, 9 ]
 ]
-
 Output: [1,2,3,6,9,8,7,4,5]
-
  - Example 2:
-
 Input:
 [
   [1, 2, 3, 4],
   [5, 6, 7, 8],
   [9,10,11,12]
 ]
-
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
-
 ref : https://leetcode.com/explore/learn/card/array-and-string/202/introduction-to-2d-array/1168/
 */
 
@@ -40,15 +31,12 @@ class Solution
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) 
 	{
-		int mMtx = static_cast<int>(matrix.size());
-		int nMtx = static_cast<int>(matrix[0].size());
-
 		vector<int> spiralOrderVct;
 
-		if(mMtx == 0 || nMtx == 0)
-		{
-			return spiralOrderVct;
-		}
+		if(matrix.size() == 0) { return spiralOrderVct; }
+
+		int mMtx = matrix.size();
+		int nMtx = matrix[0].size();
 
 		// xUp = 0, yDown = 1, xDown = 2, yUp = 3
 		int directionInt = 0;
@@ -72,30 +60,31 @@ public:
 		while(isIter)
 		{
 			int maxValue = 0;
+			spiralOrderVct.push_back(matrix[m][n]);
 
 			switch (directionInt)
 			{
 			case 0:
-				spiralOrderVct.push_back(matrix[m][n]); n++;
-				if(nMax == n) { directionInt++; }
+				if(nMax == n) { directionInt++; m++; }
+				else if(nMax > n) { n++; }
 				break;
 			case 1:
-				spiralOrderVct.push_back(matrix[m][n]); m++;
-				if(mMax == m) { directionInt++; }
+				if(mMax == m) { directionInt++; n--; }
+				else if(mMax > m) { m++; }
 				break;
 			case 2:
-				spiralOrderVct.push_back(matrix[m][n]); n--;
-				if(nMin == n) { directionInt++; }
+				if(nMin == n) { directionInt++; m--; }
+				else if(nMin < n) { n--; }
 				break;
 			case 3:
-				spiralOrderVct.push_back(matrix[m][n]); m--;
-				if(nMin == m) { directionInt++; }
+				if(mMin == m) { directionInt++; n++; }
+				else if(mMin < m) { m--; }
 				break;
 			}
 
 			count++;
 
-			if(directionInt == 4)
+			if(mMin == m && nMin == n)
 			{
 				directionInt = 0;
 				mMax--;
@@ -143,9 +132,9 @@ vector<vector<int>> mtx2VctArray(int (&mtx)[m][n])
 int main() 
 {
 	const size_t rowsM = 3;
-	const size_t columnsN = 4;
+	const size_t columnsN = 3;
 
-	int mtx[rowsM][columnsN] = {1,2,3,4,5,6,7,8,9,10,11,12};
+	int mtx[rowsM][columnsN] = {1,2,3,4,5,6,7,8,9};
 
 	Solution s;
 
