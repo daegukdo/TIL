@@ -1,24 +1,17 @@
 /* 
 @ LeetCode
-
 Longest Common Prefix
-
 Write a function to find the longest common prefix string amongst an array of strings.
-
 If there is no common prefix, return an empty string "".
-
 Example 1:
 Input: ["flower","flow","flight"]
 Output: "fl"
-
 Example 2:
 Input: ["dog","racecar","car"]
 Output: ""
 ... Explanation: There is no common prefix among the input strings.
-
 Note:
 All given inputs are in lowercase letters a-z.
-
 ref : https://leetcode.com/explore/learn/card/array-and-string/203/introduction-to-string/1162/
 */
 
@@ -31,17 +24,16 @@ using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-		// °øÅëµÈ ºÎºĞÀ» ¾î¶»°Ô Ã£Áö
-		// prefix¶ó´Â ºÎºĞ¿¡ ÁıÁß?
+		// ê³µí†µëœ ë¶€ë¶„ì„ ì–´ë–»ê²Œ ì°¾ì§€
+		// prefixë¼ëŠ” ë¶€ë¶„ì— ì§‘ì¤‘?
 
-		// test
-		int a = strStr("flower", "fl"); // result == 0: true
+		// strs[0]ì˜ charë¥¼ í•˜ë‚˜ ì„ íƒ
+		// forë¡œ [1][2]...ì— ëŒ€í•˜ì—¬ strStrì´ 0ì¸ì§€ í™•ì¸ ... ì´ë•Œ needleì€ lengthê°€ 0ì´ ì•„ë‹ˆì–´ì•¼ í•¨
+		// ë§Œì•½ í•˜ë‚˜ë¼ë„ 0ì´ ì•„ë‹ˆë©´ ""
+		// ë§Œì•½ ëª¨ë‘ 0ì´ë©´ charë¥¼ 2ê°œë¡œ ëŠ˜ë ¤ì„œ ë°˜ë³µ
+		// ëª¨ë‘ í†µê³¼í•˜ê³  ë‹¤ìŒ char ë„˜ì–´ê°ˆ Â‹Âš failì´ë©´ ì´ charë“¤ì„ ì¶œë ¥ "xxxx"
 
-		// strs[0]ÀÇ char¸¦ ÇÏ³ª ¼±ÅÃ
-		// for·Î [1][2]...¿¡ ´ëÇÏ¿© strStrÀÌ 0ÀÎÁö È®ÀÎ ... ÀÌ¶§ needleÀº length°¡ 0ÀÌ ¾Æ´Ï¾î¾ß ÇÔ
-		// ¸¸¾à ÇÏ³ª¶óµµ 0ÀÌ ¾Æ´Ï¸é ""
-		// ¸¸¾à ¸ğµÎ 0ÀÌ¸é char¸¦ 2°³·Î ´Ã·Á¼­ ¹İº¹
-		// ¸ğµÎ Åë°úÇÏ°í ´ÙÀ½ char ³Ñ¾î°¥ ‹š failÀÌ¸é ÀÌ charµéÀ» Ãâ·Â "xxxx"
+		if(strs.size() == 0) { return ""; }
 
 		string compareStr = strs[0];
 		string tmpComparer = "";
@@ -66,7 +58,7 @@ public:
 			}
 		}
 
-        return "";
+        return compareStr;
     }
 
 private:
@@ -81,7 +73,7 @@ private:
 };
 
 int main() {
-	string a[3] = {"flower","flow","flight"}; // ex : ["dog","racecar","car"]
+	string a[1] = {"a"}; // ex : ["dog","racecar","car"]
     vector<string> v(a, *(&a + 1));
 
 	Solution s;
