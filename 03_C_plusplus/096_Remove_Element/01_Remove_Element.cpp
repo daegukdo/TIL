@@ -73,7 +73,7 @@ public:
 			}
 		}
 
-		for(int i = 0; i < removeIndexVct.size(); i++){
+		for(int i = removeIndexVct.size() - 1; i > -1; i--){
 		    nums.erase(nums.begin() + removeIndexVct[i]);
 		}
 
@@ -82,10 +82,10 @@ public:
 };
 
 int main() {
-	int numsArr[8] = {0,1,2,2,3,0,4,2};
+	int numsArr[4] = {3,2,2,3};
 	vector<int> nums(numsArr, *(&numsArr + 1));
 
-	int val = 2;
+	int val = 3;
 
 	Solution s;
 
