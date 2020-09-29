@@ -22,7 +22,8 @@ ref : https://leetcode.com/explore/learn/card/array-and-string/205/array-two-poi
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -33,7 +34,25 @@ public:
         // 스트링으로바꾸고
         // 0으로 스플릿
         // 이후 스플릿 된 1들의 합 중 가장 큰 것을 반환?
-        return 0;
+
+		int result = 0;
+
+		string numsStr = "";
+
+		for(int i = 0; i < nums.size(); i++){
+			numsStr += to_string(nums[i]);
+		}
+
+		stringstream ss(numsStr);
+		string tmpStr;
+
+		while (getline(ss, tmpStr, '0')) {
+			if(result < tmpStr.size()){
+				result = tmpStr.size();
+			}
+		}
+
+        return result;
     }
 };
 
