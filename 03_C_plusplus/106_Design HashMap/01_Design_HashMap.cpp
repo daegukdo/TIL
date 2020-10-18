@@ -49,7 +49,9 @@ public:
     
     /** value will always be non-negative. */
     void put(int key, int value) {
-        _hashMap.insert(pair<int, int>(key, value));
+		auto _iter = _hashMap.find(key);
+		if(_iter != _hashMap.end()) { _hashMap.erase(key); }
+		_hashMap.insert(pair<int, int>(key, value));
     }
     
     /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
