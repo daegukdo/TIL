@@ -36,6 +36,7 @@ using namespace std;
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
+		int rst = 0;
         vector<int> vctKey;
         vector<int> vctNumOfKey;
 		int count = 0;
@@ -47,20 +48,22 @@ public:
 				vctNumOfKey.push_back(1);
 			}
 			else{
-				vctNumOfKey[*it] += 1;
+				vctNumOfKey[distance(vctKey.begin(), it)] += 1;
 			}
 		}
 
 		for(int i = 0; i < vctNumOfKey.size(); i++){
 			if(vctNumOfKey[i] == 1){
-				return vctKey[i];
+				rst = vctKey[i];
 			}
 		}
+
+		return rst;
     }
 };
 
 int main() {
-	int numsArr[5] = {4,1,2,1,2};
+	int numsArr[3] = {2,2,1};
     vector<int> nums(begin(numsArr), end(numsArr));
 	
 	Solution sol;
