@@ -48,19 +48,35 @@ ref : https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-oth
 using namespace std;
 
 class Solution {
+
 public:
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
-		vector<string> restList;
+		vector<string> rstList;
+		unordered_map<string, int> rstMap;
+		int minIdx = INT_MAX;
 
+		for(int i = 0; i < list1.size(); i++){
+			for(int j = 0; j < list2.size(); j++){
+				if(list1[i] == list2[j]){
+					rstMap.insert(make_pair(list1[i], i+j));
+					if(minIdx > i+j){ minIdx = i+j; }
+				}
+			}
+		}
 
+		for(auto pair : rstMap){
+			if(pair.second == minIdx){
+				rstList.push_back(pair.first);
+			}
+		}
 
-        return;
+        return rstList;
     }
 };
 
 int main() {
 	string list1[4] = {"Shogun","Tapioca Express","Burger King","KFC"};
-	string list2[4] = {"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"};
+	string list2[3] = {"KFC","Shogun","Burger King"};
 
 	vector<string> vctList1(begin(list1), end(list1));
 	vector<string> vctList2(begin(list2), end(list2));
