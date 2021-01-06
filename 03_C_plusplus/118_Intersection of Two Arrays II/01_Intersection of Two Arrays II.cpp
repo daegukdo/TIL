@@ -1,6 +1,5 @@
 /* 
 @ LeetCode
-
 Intersection of Two Arrays II
 
 Given two arrays, write a function to compute their intersection.
@@ -26,7 +25,6 @@ ref : https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-oth
 */
 
 #include <iostream>
-#include <string>
 #include <vector>
 #include <unordered_map>
 
@@ -35,23 +33,80 @@ using namespace std;
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-		// °¢°¢ º¤ÅÍÀÇ ±æÀÌ¸¦ È®ÀÎÇÏ¿© ÀÛÀº º¤ÅÍ¿¡¼­ ÇÏ³ª¾¿ È®ÀÎÇÏµµ·Ï
-		// unordered_mapÀ» °¢°¢ »ı¼º
-		// ÀÛÀº ¸ÊÀÇ ¿ø¼Ò¸¦ ÇÏ³ª¾¿ °ñ¶ó¼­ Å« ¸Ê¿¡¼­ Ã£°í value°ªµéÀ» ºñ±³
-		// ÀÖ´Ù¸é ÀÛÀº value °ª¸¸Å­ °á°ú º¤ÅÍ¿¡ Ãß°¡
+		// ê°ê° ë²¡í„°ì˜ ê¸¸ì´ë¥¼ í™•ì¸í•˜ì—¬ ì‘ì€ ë²¡í„°ì—ì„œ í•˜ë‚˜ì”© í™•ì¸í•˜ë„ë¡
+		// unordered_mapì„ ê°ê° ìƒì„±
+		// ì‘ì€ ë§µì˜ ì›ì†Œë¥¼ í•˜ë‚˜ì”© ê³¨ë¼ì„œ í° ë§µì—ì„œ ì°¾ê³  valueê°’ë“¤ì„ ë¹„êµ
+		// ìˆë‹¤ë©´ ì‘ì€ value ê°’ë§Œí¼ ê²°ê³¼ ë²¡í„°ì— ì¶”ê°€
+		// í•¨ìˆ˜í™”!
 
         vector<int> rst;
+
+		unordered_map<int, int> nums1UoMap;
+		unordered_map<int, int> nums2UoMap;
 		
 		int nums1Size = nums1.size();
 		int nums2Size = nums2.size();
+
+		bool is1shorter = false;
+		if(nums1Size<nums2Size){ is1shorter = true; }
+
+		// add elements to map1
+		for(int i = 0; i < nums1Size; i++){
+			auto elm = nums1UoMap.find(nums1[i]);
+			if(elm == nums1UoMap.end()){
+				nums1UoMap.insert(make_pair(nums1[i], 1));
+			}
+			else{
+				elm->second++;
+			}
+		}
+
+		// add elements to map2
+		for(int i = 0; i < nums2Size; i++){
+			auto elm = nums2UoMap.find(nums2[i]);
+			if(elm == nums2UoMap.end()){
+				nums2UoMap.insert(make_pair(nums2[i], 1));
+			}
+			else{
+				elm->second++;
+			}
+		}
+
+		// find intersect
+		if(is1shorter){
+			for(auto iter = nums1UoMap.begin(); iter != nums1UoMap.end(); iter++){
+				auto elm = nums2UoMap.find(iter->first);
+				int numOfintersect = 0;
+				if(iter->second > elm->second){ numOfintersect = elm->second; }
+				else{ numOfintersect = iter->second; }
+				if(elm != nums2UoMap.end()){
+					for(int i = 0; i < numOfintersect; i++){
+						rst.push_back(elm->first);
+					}
+				}
+			}
+		}
+		else{
+			for(auto iter = nums2UoMap.begin(); iter != nums2UoMap.end(); iter++){
+				auto elm = nums1UoMap.find(iter->first);
+				int numOfintersect = 0;
+				if(iter->second > elm->second){ numOfintersect = elm->second; }
+				else{ numOfintersect = iter->second; }
+				if(elm != nums1UoMap.end()){
+					for(int i = 0; i < numOfintersect; i++){
+						rst.push_back(elm->first);
+					}
+				}
+			}
+		}
 
 		return rst;
     }
 };
 
 int main() {
-	int list1[4] = {1,2,2,1};
-	int list2[3] = {2,2};
+	int list1[3] = {4,9,5};
+	int list2[5] = {9,4,9,8,4};
 
 	vector<int> vctList1(begin(list1), end(list1));
 	vector<int> vctList2(begin(list2), end(list2));
