@@ -33,12 +33,6 @@ using namespace std;
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-		// 각각 벡터의 길이를 확인하여 작은 벡터에서 하나씩 확인하도록
-		// unordered_map을 각각 생성
-		// 작은 맵의 원소를 하나씩 골라서 큰 맵에서 찾고 value값들을 비교
-		// 있다면 작은 value 값만큼 결과 벡터에 추가
-		// 함수화!
-
         vector<int> rst;
 
 		unordered_map<int, int> nums1UoMap;
@@ -51,57 +45,54 @@ public:
 		if(nums1Size<nums2Size){ is1shorter = true; }
 
 		// add elements to map1
-		for(int i = 0; i < nums1Size; i++){
-			auto elm = nums1UoMap.find(nums1[i]);
-			if(elm == nums1UoMap.end()){
-				nums1UoMap.insert(make_pair(nums1[i], 1));
-			}
-			else{
-				elm->second++;
-			}
-		}
+		nums1UoMap = _vct2UnordMapWithOverlap(nums1);
 
 		// add elements to map2
-		for(int i = 0; i < nums2Size; i++){
-			auto elm = nums2UoMap.find(nums2[i]);
-			if(elm == nums2UoMap.end()){
-				nums2UoMap.insert(make_pair(nums2[i], 1));
-			}
-			else{
-				elm->second++;
-			}
-		}
+		nums2UoMap = _vct2UnordMapWithOverlap(nums2);
 
 		// find intersect
 		if(is1shorter){
-			for(auto iter = nums1UoMap.begin(); iter != nums1UoMap.end(); iter++){
-				auto elm = nums2UoMap.find(iter->first);
-				int numOfintersect = 0;
-				if(iter->second > elm->second){ numOfintersect = elm->second; }
-				else{ numOfintersect = iter->second; }
-				if(elm != nums2UoMap.end()){
-					for(int i = 0; i < numOfintersect; i++){
-						rst.push_back(elm->first);
-					}
-				}
-			}
+			rst = _findMinValueBtwMap1NMap2(nums1UoMap, nums2UoMap);
 		}
 		else{
-			for(auto iter = nums2UoMap.begin(); iter != nums2UoMap.end(); iter++){
-				auto elm = nums1UoMap.find(iter->first);
-				int numOfintersect = 0;
-				if(iter->second > elm->second){ numOfintersect = elm->second; }
-				else{ numOfintersect = iter->second; }
-				if(elm != nums1UoMap.end()){
-					for(int i = 0; i < numOfintersect; i++){
-						rst.push_back(elm->first);
-					}
-				}
-			}
+			rst = _findMinValueBtwMap1NMap2(nums2UoMap, nums1UoMap);
 		}
 
 		return rst;
     }
+private:
+	unordered_map<int, int> _vct2UnordMapWithOverlap(vector<int>& vct){
+		unordered_map<int, int> rst;
+
+		for(int i = 0; i < vct.size(); i++){
+			auto elm = rst.find(vct[i]);
+			if(elm == rst.end()){
+				rst.insert(make_pair(vct[i], 1));
+			}
+			else{
+				elm->second++;
+			}
+		}
+
+		return rst;
+	}
+	vector<int> _findMinValueBtwMap1NMap2(unordered_map<int, int>& map1, unordered_map<int, int>& map2){
+		vector<int> rst;
+
+		for(auto iter = map1.begin(); iter != map1.end(); iter++){
+				auto elm = map2.find(iter->first);
+				if(elm != map2.end()){
+					int numOfintersect = 0;
+					if(iter->second > elm->second){ numOfintersect = elm->second; }
+					else{ numOfintersect = iter->second; }
+					for(int i = 0; i < numOfintersect; i++){
+						rst.push_back(elm->first);
+					}
+				}
+			}
+
+		return rst;
+	}
 };
 
 int main() {
