@@ -62,16 +62,55 @@ public:
     bool isValidSudoku(vector<vector<char>>& board) {
 		// vct[행][열]
 
-		// 행 검사를 위한 unordered_map을 생성하고 1~9까지 키를 가질 수 있게 함
-		// 열 검사를 위한 unordered_map을 생성하고 1~9까지 키를 가질 수 있게 함
-		// 네모 검사를 위한 unordered_map을 생성하고 1~9까지 키를 가질 수 있게 함
+		vector<vector<char>> rowVct(9, vector<char>(9, ' '));
+		vector<vector<char>> colVct(9, vector<char>(9, ' '));
+		vector<vector<char>> boxVct(9, vector<char>());
 
-		// 행 검사
-		// 열 검사
-		// 네모 검사
+		for(int i = 0; i < board.size(); i++){
+			for(int j = 0; j < board[0].size(); j++){
+				rowVct[i][j] = board[i][j];
+				colVct[j][i] = board[i][j];
+				
+				if(j >= 0 && j < 3 && i >= 0 && i < 3){
+					boxVct[0].push_back(board[i][j]);
+				}
+				else if(j >= 3 && j < 6 && i >= 0 && i < 3){
+					boxVct[1].push_back(board[i][j]);
+				}
+				else if(j >= 6 && j < 9 && i >= 0 && i < 3){
+					boxVct[2].push_back(board[i][j]);
+				}
+				else if(j >= 0 && j < 3 && i >= 3 && i < 6){
+					boxVct[3].push_back(board[i][j]);
+				}
+				else if(j >= 3 && j < 6 && i >= 3 && i < 6){
+					boxVct[4].push_back(board[i][j]);
+				}
+				else if(j >= 6 && j < 9 && i >= 3 && i < 6){
+					boxVct[5].push_back(board[i][j]);
+				}
+				else if(j >= 0 && j < 3 && i >= 6 && i < 9){
+					boxVct[6].push_back(board[i][j]);
+				}
+				else if(j >= 3 && j < 6 && i >= 6 && i < 9){
+					boxVct[7].push_back(board[i][j]);
+				}
+				else if(j >= 6 && j < 9 && i >= 6 && i < 9){
+					boxVct[8].push_back(board[i][j]);
+				}
+			}
+		}
 
         return true;
     }
+
+private:
+	bool isValidVct(vector<char>& vct){
+		unordered_map<int, char> map;
+
+		
+		return true;
+	}
 };
 
 int main() {
