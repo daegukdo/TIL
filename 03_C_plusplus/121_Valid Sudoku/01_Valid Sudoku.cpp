@@ -101,14 +101,31 @@ public:
 			}
 		}
 
+		for(int i = 0; i < board.size(); i++){
+			if(!(isValidVct(rowVct[i]) && isValidVct(colVct[i]) && isValidVct(boxVct[i]))){
+				return false;
+			}
+		}
+
         return true;
     }
 
 private:
 	bool isValidVct(vector<char>& vct){
-		unordered_map<int, char> map;
+		unordered_map<char, int> map;
 
-		
+		for(auto iter = vct.begin(); iter != vct.end(); iter++){
+			auto elm = map.find(*iter);
+			if(elm == map.end()){
+				map.insert(make_pair(*iter, 1));
+			}
+			else{
+				if(*iter != '.'){
+					return false;
+				}
+			}
+		}
+
 		return true;
 	}
 };
