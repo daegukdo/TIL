@@ -27,12 +27,12 @@ namespace UcExample
 
         private void btn1_click(object sender, RoutedEventArgs e)
         {
-            txtBtn1.BtnTextStr = "btn1, font size 20";
+            txtBtn1.BtnTextStr = "btn1";
         }
 
         private void btn2_click(object sender, RoutedEventArgs e)
         {
-            txtBtn2.BtnTextStr = "btn2, font size 30";
+            txtBtn2.BtnTextStr = "btn2";
         }
     }
 }
