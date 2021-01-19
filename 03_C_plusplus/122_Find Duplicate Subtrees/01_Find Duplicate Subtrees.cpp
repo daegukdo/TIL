@@ -49,33 +49,68 @@ public:
 		return rst;
     }
 
-	TreeNode* arr2TreeNodePtr(int* nums){
+	TreeNode arr2TreeNodePtr(int* nums){
+		// 조건 : The number of the nodes in the tree will be in the range [1, 10^4]
+
 		TreeNode tn;
-		int aa = nums[8];
-		for(int i = 0; i < sizeof(nums); i++){
-			auto a = nums[i];
-			int b = a;
+		int idx = 0;
+		int num = 0;
+		bool isIter = true;
+
+		while (isIter)
+		{
+			num = nums[idx];
+
+			if(num > 0 && num < 10000){
+				tn = _setTreeNode(tn, num);
+				idx++;
+			}
+			else
+			{
+				isIter = false;
+			}
 		}
 
-		return &tn;
+		return tn;
+	}
+
+private:
+	TreeNode _setTreeNode(TreeNode tn, int num){
+		if(tn.val == NULL)
+		{
+			tn.val = num;
+			return tn;
+		}
+
+		if(tn.left == NULL){
+			tn.left = new TreeNode(num);
+		}
+		else if(tn.right == NULL){
+			tn.right = new TreeNode(num);
+		}
+		else{
+			// TO DO 새로 right, left를 생성
+			tn = _setTreeNode(tn, num);
+		}
+
+		return tn;
 	}
 };
 
 int main() {
 	int nums[10] = {1,2,3,4,NULL,2,4,NULL,NULL,4};
+	
+	// test
+	TreeNode tn;
 
-	//TreeNode root(1);
-	//root.left = new TreeNode(2);
-	//root.right = new TreeNode(3);
-	//root.left->left = new TreeNode(4);
-	//if(root.left->right == NULL)
-	//{
-	//	string a = "d";
-	//}
+	if(tn.left == NULL){
+		cout << "a" << endl;
+	}
+	// end test
 
 	Solution sol;
 
-	TreeNode* root = sol.arr2TreeNodePtr(nums);
+	TreeNode* root = &(sol.arr2TreeNodePtr(nums));
 	vector<TreeNode*> rst = sol.findDuplicateSubtrees(root);
 
 	return 0;
