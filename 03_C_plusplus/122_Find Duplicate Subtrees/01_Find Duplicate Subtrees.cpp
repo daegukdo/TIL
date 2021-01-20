@@ -23,6 +23,7 @@ The number of the nodes in the tree will be in the range [1, 10^4]
 -200 <= Node.val <= 200
 
 ref : https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1127/
+ref : https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
 */
 
 #include <iostream>
@@ -49,68 +50,32 @@ public:
 		return rst;
     }
 
-	TreeNode arr2TreeNodePtr(int* nums){
-		// 조건 : The number of the nodes in the tree will be in the range [1, 10^4]
-
-		TreeNode tn;
-		int idx = 0;
-		int num = 0;
-		bool isIter = true;
-
-		while (isIter)
-		{
-			num = nums[idx];
-
-			if(num > 0 && num < 10000){
-				tn = _setTreeNode(tn, num);
-				idx++;
-			}
-			else
-			{
-				isIter = false;
-			}
-		}
-
-		return tn;
-	}
-
-private:
-	TreeNode _setTreeNode(TreeNode tn, int num){
-		if(tn.val == NULL)
-		{
-			tn.val = num;
-			return tn;
-		}
-
-		if(tn.left == NULL){
-			tn.left = new TreeNode(num);
-		}
-		else if(tn.right == NULL){
-			tn.right = new TreeNode(num);
-		}
-		else{
-			// TO DO 새로 right, left를 생성
-			tn = _setTreeNode(tn, num);
-		}
-
-		return tn;
-	}
+	// Function to insert nodes in level order 
+	TreeNode* Arr2TreeNodePtr(int arr[], TreeNode* root, int i, int n) { 
+		// Base case for recursion 
+		if (i < n) { 
+			TreeNode* temp = new TreeNode(arr[i]); 
+			root = temp; 
+  
+			// insert left child 
+			root->left = Arr2TreeNodePtr(arr, root->left, 2 * i + 1, n); 
+  
+			// insert right child 
+			root->right = Arr2TreeNodePtr(arr, root->right, 2 * i + 2, n); 
+		} 
+		return root; 
+	} 
 };
 
 int main() {
-	int nums[10] = {1,2,3,4,NULL,2,4,NULL,NULL,4};
+	const int arrLength = 10;
+	int nums[arrLength] = {1,2,3,4,NULL,2,4,NULL,NULL,4};
 	
-	// test
-	TreeNode tn;
-
-	if(tn.left == NULL){
-		cout << "a" << endl;
-	}
-	// end test
+	TreeNode *tn = new TreeNode();
 
 	Solution sol;
 
-	TreeNode* root = &(sol.arr2TreeNodePtr(nums));
+	TreeNode* root = sol.Arr2TreeNodePtr(nums, tn, 0, arrLength);
 	vector<TreeNode*> rst = sol.findDuplicateSubtrees(root);
 
 	return 0;
