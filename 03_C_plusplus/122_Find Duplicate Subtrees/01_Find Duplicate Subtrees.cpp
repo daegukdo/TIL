@@ -24,6 +24,7 @@ The number of the nodes in the tree will be in the range [1, 10^4]
 
 ref : https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1127/
 ref : https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array/
+ref : https://www.geeksforgeeks.org/serialize-deserialize-binary-tree/
 */
 
 #include <iostream>
@@ -44,7 +45,10 @@ struct TreeNode {
 class Solution {
 public:
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-		// 1, 2,3, 4,null, 2,4, null,null, 4
+		// 1,
+		// 2,3, 
+		// 4,null,2,4, 
+		// null,null, 4
 		vector<TreeNode*> rst;
 
 		return rst;
