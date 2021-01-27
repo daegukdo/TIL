@@ -24,6 +24,7 @@ The two tuples are:
 2. (1, 1, 0, 0) -> A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
 
 ref : https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1134/
+ref : https://stackoverflow.com/questions/40716694/how-to-improve-the-performance-of-leetcode-4sum-ii-challenge
 */
 
 #include <iostream>
@@ -35,21 +36,52 @@ using namespace std;
 class Solution {
 public:
     int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
-        int rst = 0;
+		// A[i] + B[j] + C[k] + D[l] = 0 -> A[i] + B[j] = -( C[k] + D[l] )
+		// A와 B를 더해서 mapSumAB에 저장
+		// C와 D를 더해서 mapSumCD에 저장
+		// 각각의 map에서 하나씩 꺼내어 비교
+		// map1의 값은 map2의 값의 마이너스랑 같다를 이용
+				
+		// prepare data
+		unordered_map<int, int> mapSumAB;
+		unordered_map<int, int> mapSumCD;
+
+		for(auto iterA = A.begin(); iterA != A.end(); iterA++){
+			for(auto iterB = B.begin(); iterB != B.end(); iterB++){
+				int tmpInt = *iterA + *iterB;
+				auto elm = mapSumAB.find(tmpInt);
+				if(elm != mapSumAB.end()){
+					elm->second += 1;
+				}
+				else{
+					mapSumAB.insert(make_pair(tmpInt, 1));
+				}
+			}
+		}
 		
-		unordered_map<int, int> mapA;
-		unordered_map<int, int> mapB;
-		unordered_map<int, int> mapC;
-		unordered_map<int, int> mapD;
+		for(auto iterC = C.begin(); iterC != C.end(); iterC++){
+			for(auto iterD = D.begin(); iterD != D.end(); iterD++){
+				int tmpInt = *iterC + *iterD;
+				auto elm = mapSumCD.find(tmpInt);
+				if(elm != mapSumCD.end()){
+					elm->second += 1;
+				}
+				else{
+					mapSumCD.insert(make_pair(tmpInt, 1));
+				}
+			}
+		}
 
-		int tmpSum = 0;
+		// cal. result
+        int rst = 0;
 
-		int sizeVctA = A.size();
-		int sizeVctB = B.size();
-		int sizeVctC = C.size();
-		int sizeVctD = D.size();
-
-
+		for(auto iterAB = mapSumAB.begin(); iterAB != mapSumAB.end(); iterAB++){
+			for(auto iterCD = mapSumCD.begin(); iterCD != mapSumCD.end(); iterCD++){
+				if((iterAB->first) == -(iterCD->first)){
+					rst++;
+				}
+			}
+		}
 
 		return rst;
     }
