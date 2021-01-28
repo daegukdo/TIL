@@ -36,55 +36,59 @@ using namespace std;
 class Solution {
 public:
     int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
-		// A[i] + B[j] + C[k] + D[l] = 0 -> A[i] + B[j] = -( C[k] + D[l] )
-		// A와 B를 더해서 mapSumAB에 저장
-		// C와 D를 더해서 mapSumCD에 저장
-		// 각각의 map에서 하나씩 꺼내어 비교
-		// map1의 값은 map2의 값의 마이너스랑 같다를 이용
+		// A[i] + B[j] + C[k] + D[l] = 0 -> A[i] + B[j] = -( C[k] + D[l] )를 여러번 응용
+		// 중복 제거???
 				
 		// prepare data
-		unordered_map<int, int> mapSumAB;
-		unordered_map<int, int> mapSumCD;
+		unordered_map<int, int> mapSumAB = mapSumFromTwoVct(A, B);
+		unordered_map<int, int> mapSumCD = mapSumFromTwoVct(C, D);
 
-		for(auto iterA = A.begin(); iterA != A.end(); iterA++){
-			for(auto iterB = B.begin(); iterB != B.end(); iterB++){
-				int tmpInt = *iterA + *iterB;
-				auto elm = mapSumAB.find(tmpInt);
-				if(elm != mapSumAB.end()){
-					elm->second += 1;
-				}
-				else{
-					mapSumAB.insert(make_pair(tmpInt, 1));
-				}
-			}
-		}
-		
-		for(auto iterC = C.begin(); iterC != C.end(); iterC++){
-			for(auto iterD = D.begin(); iterD != D.end(); iterD++){
-				int tmpInt = *iterC + *iterD;
-				auto elm = mapSumCD.find(tmpInt);
-				if(elm != mapSumCD.end()){
-					elm->second += 1;
-				}
-				else{
-					mapSumCD.insert(make_pair(tmpInt, 1));
-				}
-			}
-		}
+		unordered_map<int, int> mapSumAC = mapSumFromTwoVct(A, C);
+		unordered_map<int, int> mapSumBD = mapSumFromTwoVct(B, D);
+
+		unordered_map<int, int> mapSumAD = mapSumFromTwoVct(A, D);
+		unordered_map<int, int> mapSumBC = mapSumFromTwoVct(B, C);
 
 		// cal. result
-        int rst = 0;
+        int rst = numOfZeroFromSumInTwoMap(mapSumAB, mapSumCD)
+			    + numOfZeroFromSumInTwoMap(mapSumAC, mapSumBD)
+				+ numOfZeroFromSumInTwoMap(mapSumAD, mapSumBC);
 
-		for(auto iterAB = mapSumAB.begin(); iterAB != mapSumAB.end(); iterAB++){
-			for(auto iterCD = mapSumCD.begin(); iterCD != mapSumCD.end(); iterCD++){
-				if((iterAB->first) == -(iterCD->first)){
+		return rst;
+    }
+private:
+	unordered_map<int, int> mapSumFromTwoVct(vector<int>& first, vector<int>& second){
+		unordered_map<int, int> mapSum;
+
+		for(auto iter1 = first.begin(); iter1 != first.end(); iter1++){
+			for(auto iter2 = second.begin(); iter2 != second.end(); iter2++){
+				int tmpInt = *iter1 + *iter2;
+				auto elm = mapSum.find(tmpInt);
+				if(elm != mapSum.end()){
+					elm->second += 1;
+				}
+				else{
+					mapSum.insert(make_pair(tmpInt, 1));
+				}
+			}
+		}
+
+		return mapSum;
+	}
+
+	int numOfZeroFromSumInTwoMap(unordered_map<int, int> first, unordered_map<int, int> second){
+		int rst = 0;
+
+		for(auto iter1 = first.begin(); iter1 != first.end(); iter1++){
+			for(auto iter2 = second.begin(); iter2 != second.end(); iter2++){
+				if((iter1->first) == -(iter2->first)){
 					rst++;
 				}
 			}
 		}
 
 		return rst;
-    }
+	}
 };
 
 int main() {
