@@ -20,10 +20,11 @@ It's guaranteed that the answer is unique, in other words the set of the top k f
 You can return the answer in any order.
 
 ref : https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1133/
+ref : https://stackoverflow.com/questions/31323135/sort-an-unordered-map-using-sort
+ref : https://www.educative.io/edpresso/how-to-sort-a-map-by-value-in-cpp
 */
 
 #include <iostream>
-#include <string>
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
@@ -35,7 +36,8 @@ public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         // map 정의
         // find를 사용하여 map에 하나씩 넣기, 중복처리
-        // ??
+        // unordered map을 value 기준으로 sort? vct로 바꾸어서 sort!
+		// 이후 k의 수만큼 반복해서 저장을 해둠
         unordered_map<int, int> map;
         
         for(auto iter = nums.begin(); iter != nums.end(); iter++){
@@ -48,13 +50,23 @@ public:
                 map.insert(make_pair(tmpInt, 1));
             }
         }
+
+		vector<pair<int, int>> map2Vct(map.begin(), map.end());
+		sort(map2Vct.begin(), map2Vct.end(), compPairIntIntValue);
         
         vector<int> rst;
         
-        
+        for(int i = 0; i < k; i++){
+			rst.push_back(map2Vct[i].first);
+		}
         
         return rst;
     }
+
+private:
+	static bool compPairIntIntValue(pair<int,int> a, pair<int,int> b) {
+		return (a.second > b.second);
+	}
 };
 
 int main() {
