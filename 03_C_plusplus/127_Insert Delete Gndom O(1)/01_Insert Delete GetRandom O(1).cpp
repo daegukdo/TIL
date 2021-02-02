@@ -34,15 +34,15 @@ There will be at least one element in the data structure when getRandom is calle
 
 ref : https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1141/
 ref : https://www.cplusplus.com/reference/unordered_map/unordered_map/erase/
-ref : https://www.cplusplus.com/reference/cstdlib/rand/
+ref : https://www.bitdegree.org/learn/random-number-generator-cpp
+ref : https://zzzinho.tistory.com/59
 */
 
 #include <iostream>
 #include <unordered_map>
 #include <vector>
 #include <algorithm>
-#include <stdlib.h>       /* srand, rand */
-#include <time.h>         /* time */
+#include <cstdlib>
 
 using namespace std;
 
@@ -50,19 +50,15 @@ class RandomizedSet {
 public:
     /** Initialize your data structure here. */
 	unordered_map<int, int> map;
-	vector<int> vct;
 
     RandomizedSet() {
         map.clear();
-		vct.clear();
     }
     
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
-        auto elm = map.find(val);
-		if(elm == map.end()){
+		if(map.find(val) == map.end()){
 			map.insert(make_pair(val, 1));
-			vct.push_back(val);
 			return true;
 		}
 		else{
@@ -72,22 +68,19 @@ public:
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     bool remove(int val) {
-        auto elm = map.find(val);
-		if(elm == map.end()){
+		if(map.find(val) == map.end()){
 			return false;
 		}
 		else{
 			map.erase(val);
-			vct.erase(find(vct.begin(), vct.end(), val));
 			return true;
 		}
     }
     
     /** Get a random element from the set. */
     int getRandom() {
-        srand (time(NULL));
-        int ranNumInVct = rand() % vct.size();
-		return vct[ranNumInVct];
+		unordered_map<int, int>::iterator randValue = next(begin(map), rand() % map.size()); 
+		return randValue->first;
     }
 };
 
