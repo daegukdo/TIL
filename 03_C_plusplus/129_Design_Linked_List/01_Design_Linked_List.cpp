@@ -48,6 +48,14 @@ using namespace std;
 
 class MyLinkedList {
 public:
+    struct SinglyListNode {
+        int val;
+        SinglyListNode *next;
+        SinglyListNode(int x) : val(x), next(NULL) {}
+    };
+
+    SinglyListNode sln = {1};
+
     /** Initialize your data structure here. */
     MyLinkedList() {
         
@@ -55,12 +63,15 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        
+        while(index != -1){
+            return _returnValOnIndex(sln, index);
+        }
+        return -1;
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-        
+        sln.val = val;
     }
     
     /** Append a node of value val to the last element of the linked list. */
@@ -77,6 +88,15 @@ public:
     void deleteAtIndex(int index) {
         
     }
+private:
+    int _returnValOnIndex(SinglyListNode _sln, int _index){
+        if(_index > 0){
+            return _returnValOnIndex(*_sln.next, _index-1);
+        }
+        else{
+            return _sln.val;
+        }
+    }
 };
 
 /**
@@ -90,7 +110,10 @@ public:
  */
 
 int main() {
+    MyLinkedList mll = MyLinkedList();
+    int a = mll.get(0);
     
+    cout << a << endl;
 
 	return 0;
 }
