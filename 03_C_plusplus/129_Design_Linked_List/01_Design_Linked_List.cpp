@@ -54,7 +54,8 @@ public:
         SinglyListNode(int x) : val(x), next(NULL) {}
     };
 
-    SinglyListNode sln = {1};
+    SinglyListNode *sln;
+    int length = 0;
 
     /** Initialize your data structure here. */
     MyLinkedList() {
@@ -63,38 +64,43 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        while(index != -1){
-            return _returnValOnIndex(sln, index);
+        if((index > -1) & (index < length-1)){
+            while(index != -1){
+                return _returnValOnIndex(sln, index);
+            }
         }
         return -1;
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-        sln.val = val;
+        SinglyListNode *headSln = new SinglyListNode(val);
+        headSln->next = sln;
+        sln = headSln;
+        length++;
     }
     
     /** Append a node of value val to the last element of the linked list. */
     void addAtTail(int val) {
-        
+        length++;
     }
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
-        
+        length++;
     }
     
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
-        
+        length--;
     }
 private:
-    int _returnValOnIndex(SinglyListNode _sln, int _index){
+    int _returnValOnIndex(SinglyListNode* _sln, int _index){
         if(_index > 0){
-            return _returnValOnIndex(*_sln.next, _index-1);
+            return _returnValOnIndex(_sln->next, _index-1);
         }
         else{
-            return _sln.val;
+            return _sln->val;
         }
     }
 };
@@ -110,10 +116,15 @@ private:
  */
 
 int main() {
-    MyLinkedList mll = MyLinkedList();
-    int a = mll.get(0);
+    MyLinkedList *mll = new MyLinkedList();
+    mll->addAtHead(1);
+    mll->addAtHead(2);
+    
+    int a = mll->get(0);
+    int b = mll->get(2);
     
     cout << a << endl;
+    cout << b << endl;
 
 	return 0;
 }
