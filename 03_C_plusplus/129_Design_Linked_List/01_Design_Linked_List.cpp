@@ -54,27 +54,25 @@ public:
         SinglyListNode(int x) : val(x), next(NULL) {}
     };
 
-    SinglyListNode *sln;
-    int length = 0;
+    SinglyListNode* sln;
+    int length;
 
     /** Initialize your data structure here. */
     MyLinkedList() {
-        
+        length = 0;
     }
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        if((index > -1) & (index < length-1)){
-            while(index != -1){
-                return _returnValOnIndex(sln, index);
-            }
+        if((index > -1) & (index < length)){
+			return _returnSlnOnIndex(sln, index)->val;
         }
         return -1;
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-        SinglyListNode *headSln = new SinglyListNode(val);
+        SinglyListNode* headSln = new SinglyListNode(val);
         headSln->next = sln;
         sln = headSln;
         length++;
@@ -82,25 +80,64 @@ public:
     
     /** Append a node of value val to the last element of the linked list. */
     void addAtTail(int val) {
+		SinglyListNode* tailSln = new SinglyListNode(val);
+		_returnSlnOnIndex(sln, length-1)->next = tailSln;
         length++;
     }
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
-        length++;
+		if(index > length){
+			return;
+		}
+		else if((index > 0) & (index < length)){
+			SinglyListNode* preSln = _returnSlnOnIndex(sln, index-1);
+			SinglyListNode* postSln = _returnSlnOnIndex(sln, index);
+			SinglyListNode* midSln = new SinglyListNode(val);
+
+			preSln->next = midSln;
+			midSln->next = postSln;
+
+			sln = preSln;
+
+			length++;
+        }
+		else if(index == 0){
+			addAtHead(val);
+		}
+		else if(index == length){
+			addAtTail(val);
+		}
     }
     
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
+		if(index >= length){
+			return;
+		}
+		else if((index > 0) & (index < length-1)){
+			SinglyListNode* preSln = _returnSlnOnIndex(sln, index-1);
+			SinglyListNode* postSln = _returnSlnOnIndex(sln, index+1);
+
+			preSln->next = postSln;
+			
+			sln = preSln;
+		}
+		else if(index == 0){
+			sln = _returnSlnOnIndex(sln, 1);
+		}
+		else if(index == length-1){
+			_returnSlnOnIndex(sln, length-1)->next = NULL;
+		}
         length--;
     }
 private:
-    int _returnValOnIndex(SinglyListNode* _sln, int _index){
+    SinglyListNode* _returnSlnOnIndex(SinglyListNode* _sln, int _index){
         if(_index > 0){
-            return _returnValOnIndex(_sln->next, _index-1);
+            return _returnSlnOnIndex(_sln->next, _index-1);
         }
         else{
-            return _sln->val;
+            return _sln;
         }
     }
 };
@@ -117,14 +154,37 @@ private:
 
 int main() {
     MyLinkedList *mll = new MyLinkedList();
+
+	// test 1
     mll->addAtHead(1);
-    mll->addAtHead(2);
+    mll->addAtTail(3);
     
     int a = mll->get(0);
-    int b = mll->get(2);
+    int b = mll->get(1);
+
+	cout << a << endl;
+    cout << b << endl;
+		
+	// test 2	
+    mll->addAtIndex(1, 2);
+
+    a = mll->get(0);
+    b = mll->get(1);
+    int c = mll->get(2);
     
     cout << a << endl;
     cout << b << endl;
+    cout << c << endl;
+	
+	// test 3
+	mll->deleteAtIndex(1);
+	
+    a = mll->get(0);
+    b = mll->get(1);
+    
+    cout << a << endl;
+    cout << b << endl;
+
 
 	return 0;
 }
