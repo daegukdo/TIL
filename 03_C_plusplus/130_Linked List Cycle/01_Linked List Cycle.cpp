@@ -48,11 +48,59 @@ struct ListNode {
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        // pointer 특성을 이용한 주소의 중복으로 검출?
+        // ListNode 2개를 만들기
+		// 하나는 next를 1번씩 움직이며 이동
+		// 또 다른 하나는 next를 2번씩 움직이며 이동
+		// 하나라도 null이 나타나면 false를 반환
+		ListNode* ln1;
+		ListNode* ln2;
+
+		int ln1IndexMover = 0;
+		int ln2IndexMover = 0;
+
+		while (true)
+		{
+			ln1IndexMover += 1;
+			ln2IndexMover += 2;
+
+			ln1 = _returnLnOnIndex(head, ln1IndexMover);
+			ln2 = _returnLnOnIndex(head, ln2IndexMover);
+
+			if(ln1 == NULL || ln2 == NULL){
+				return false;
+			}
+			
+			if(ln1->val == ln2->val){
+				return true;
+			}
+		}
+    }
+private:
+	ListNode* _returnLnOnIndex(ListNode* _ln, int _index) {
+        if (_index > 0) {
+			if(_ln == NULL){ return NULL; }
+            return _returnLnOnIndex(_ln->next, _index-1);
+        }
+        else {
+            return _ln;
+        }
     }
 };
 
 int main() {
+	ListNode* head = new ListNode(3);
+	head->next = new ListNode(2);
+	head->next->next = new ListNode(0);
+	head->next->next->next = new ListNode(-4);
+	head->next->next->next->next = head->next;
+
+	ListNode* _head = new ListNode(1);
+
+	// TO DO : 1 1 1의 상황?
+
+	Solution sol;
+
+	bool rst = sol.hasCycle(_head);
 
 	return 0;
 }
