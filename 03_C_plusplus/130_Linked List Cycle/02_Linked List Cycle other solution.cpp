@@ -48,44 +48,28 @@ struct ListNode {
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        // ListNode 2개를 만들기
-		// 하나는 next를 1번씩 움직이며 이동
-		// 또 다른 하나는 next를 2번씩 움직이며 이동
-		// 하나라도 null이 나타나면 false를 반환
-		if(head == NULL){
+		// head가 NULL이면 cycle이 없으므로 false
+        if(head == NULL){
 			return false;
 		}
 
-		ListNode* ln1 = head;
-		ListNode* ln2 = head->next;
+		// define slow and fast
+		ListNode *slow = head;
+		ListNode *fast = head->next;
 
-		int ln1IndexMover = 0;
-		int ln2IndexMover = 0;
-
-		while (ln1 != ln2)
-		{
-			ln1IndexMover += 1;
-			ln2IndexMover += 2;
-
-			ln1 = _returnLnOnIndex(head, ln1IndexMover);
-			ln2 = _returnLnOnIndex(head, ln2IndexMover);
-
-			if(ln1 == NULL || ln2 == NULL){
+		// slow와 fast는 다르므로
+		while(slow != fast){
+			// NULL이 있다면 cycle이 없으므로 false
+			if(fast == NULL || fast->next == NULL){
 				return false;
 			}
+
+			// slow는 다음의 링크로 이동(move 1 step), fast는 다음의 다음 링크로 이동(move 2 step)
+			slow = slow->next;
+			fast = fast->next->next;
 		}
 
 		return true;
-    }
-private:
-	ListNode* _returnLnOnIndex(ListNode* _ln, int _index) {
-        if (_index > 0) {
-			if(_ln == NULL){ return NULL; }
-            return _returnLnOnIndex(_ln->next, _index-1);
-        }
-        else {
-            return _ln;
-        }
     }
 };
 
