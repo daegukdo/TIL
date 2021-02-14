@@ -40,6 +40,7 @@ ref : https://leetcode.com/explore/learn/card/linked-list/214/two-pointer-techni
 */
 
 #include <iostream>
+#include <unordered_map>
 
 using namespace std;
 
@@ -55,8 +56,60 @@ public:
         // head가 null인지 확인
 		// first와 second를 생성
 		// while로 반복해 가며 비교
-		// 0 1 2 3 1 2 3 1 2 3 ?
+		// cycle을 가지는지 확인
+		// 가진다면 지금 위치에서 하나씩 map에 넣음
+		// head의 처음부터 반복하며 map에 있는지 확인
+		// 처음 있는 것이 나오면 그 LiastNode를 반환
+		if(head == NULL){
+			return NULL;
+		}
 
+		ListNode *fst = head;
+		ListNode *snd = head->next;
+
+		if(fst == snd){
+			return head;
+		}
+
+		while(fst != snd){
+			if(fst->next != NULL){
+			    fst = fst->next;
+			}
+			else{
+			    return NULL;
+			}
+			if(snd->next != NULL && snd->next->next != NULL){
+			    snd = snd->next->next;
+			}
+			else{
+			    return NULL;
+			}
+
+			if(fst == snd){
+				break;
+			}
+		}
+
+		unordered_map<ListNode*, int> map;
+		while(true){
+			auto elm = map.find(fst);
+			if(elm != map.end()){
+				break;
+			}
+			else{
+				map.insert(make_pair(fst, 1));
+			}
+			fst = fst->next;
+		}
+
+		ListNode* iterNext = head;
+		while(true){
+			auto elm = map.find(iterNext);
+			if(elm != map.end()){
+				return iterNext;
+			}
+			iterNext = iterNext->next;
+		}
     }
 };
 
@@ -66,12 +119,10 @@ int main() {
 	head->next->next = new ListNode(0);
 	head->next->next->next = new ListNode(-4);
 	head->next->next->next->next = head->next;
-
-	ListNode* _head = new ListNode(1);
 	
 	Solution sol;
 
-	bool rst = sol.detectCycle(_head);
+	ListNode* rst = sol.detectCycle(head);
 
 	return 0;
 }
