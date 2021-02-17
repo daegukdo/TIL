@@ -59,11 +59,17 @@ public:
 			tmpLN = tmpLN->next;
 		}
 		int vctCount = vctLN.size();
-		if(vctCount > n){
+
+		if(vctCount > 2){
 			ListNode* preLN = vctLN[vctCount-n-1];
 			ListNode* postLN = vctLN[vctCount-n+1];
 			preLN->next = postLN;
 			return head;
+		}
+		else if(vctCount == 2){
+			ListNode* lN = vctLN[vctCount-n];
+			lN->next = NULL;
+			return lN;
 		}
 		else{
 			return NULL;
@@ -72,6 +78,12 @@ public:
 };
 
 int main() {
+	ListNode* ln = new ListNode(1);
+	ln->next = new ListNode(2);
+
+	Solution sol;
+
+	ListNode* rst = sol.removeNthFromEnd(ln, 1);
 
 	return 0;
 }
