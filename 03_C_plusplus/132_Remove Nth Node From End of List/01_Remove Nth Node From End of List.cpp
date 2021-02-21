@@ -50,8 +50,8 @@ public:
         // ListNode* vector 정의 
 		// NULL이 나올 때까지 vector에 넣어가며 next를 찾기
 		// NULL이 나타나면 멈춤
-		// vector 개수 - n을 통해 from start로 변경 ... s
-		// s-1의 next는 s+1
+		// vector 개수와 n의 개수에 따룬 조건을 설정하여 반환
+
 		vector<ListNode*> vctLN;
 		ListNode* tmpLN = head;
 		while(tmpLN != NULL){
@@ -59,17 +59,24 @@ public:
 			tmpLN = tmpLN->next;
 		}
 		int vctCount = vctLN.size();
-
-		if(vctCount > 2){
-			ListNode* preLN = vctLN[vctCount-n-1];
-			ListNode* postLN = vctLN[vctCount-n+1];
-			preLN->next = postLN;
-			return head;
-		}
-		else if(vctCount == 2){
-			ListNode* lN = vctLN[vctCount-n];
-			lN->next = NULL;
-			return lN;
+		
+		if(vctCount != 1)
+		{
+			if(n == 1){
+				ListNode* lN = vctLN[vctCount - 2];
+				lN->next = NULL;
+				return head;
+			}
+			else if(n == vctCount){
+				ListNode* lN = vctLN[1];
+				return lN;
+			}
+			else{ // n > 1
+				ListNode* preLN = vctLN[vctCount-n-1]; 
+				ListNode* postLN = vctLN[vctCount-n+1]; 
+				preLN->next = postLN;
+				return head;
+			}
 		}
 		else{
 			return NULL;
