@@ -26,7 +26,6 @@ ref : https://leetcode.com/explore/learn/card/linked-list/219/classic-problems/1
 */
 
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -42,6 +41,20 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
+		while(true){
+			if(head != NULL){
+				ListNode* tmpLN = head->next;
+				head->next = head->next->next->next;
+			}
+			else{
+				break;
+			}
+
+			if(head->next != NULL){
+			    head = head->next;
+			}
+		}
+
         return head;
     }
 };
