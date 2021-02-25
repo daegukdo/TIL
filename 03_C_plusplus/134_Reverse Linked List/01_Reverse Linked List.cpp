@@ -41,25 +41,45 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
+		ListNode* tmpLN = head;
+		ListNode* tmpLNstart = NULL;
+		ListNode* tmpLNpre = NULL;
+		ListNode* tmpLNpost = NULL;
 		while(true){
-			if(head != NULL){
-				ListNode* tmpLN = head->next;
-				head->next = head->next->next->next;
+			if(tmpLN != NULL){
+				if(tmpLN->next != NULL){ tmpLNpre = tmpLN->next; }
+				else{ break; }
+				if(tmpLN->next->next != NULL){ tmpLNpost = tmpLN->next->next; }
+				else{ tmpLNpost = NULL; }
+				if(tmpLNstart != NULL){ tmpLNpre->next = tmpLNstart; }
+				else{ tmpLNpre->next = tmpLN; }
+				if(tmpLN->next != NULL){ tmpLN->next = tmpLNpost; }
+				tmpLNstart = tmpLNpre;
+				if(tmpLNpost == NULL){ break; }
 			}
 			else{
 				break;
 			}
-
-			if(head->next != NULL){
-			    head = head->next;
-			}
 		}
 
-        return head;
+        return tmpLNstart;
     }
 };
 
 int main() {
+	// 1  2  3 4 5
+	// 2 1  3  4 5
+	// 3 2 1  4  5
+	// 4 3 2 1  5
+	ListNode* ln = new ListNode(1);
+	ln->next = new ListNode(2);
+	ln->next->next = new ListNode(3);
+	ln->next->next->next = new ListNode(4);
+	ln->next->next->next->next = new ListNode(5);
+
+	Solution sol;
+
+	ListNode* lnRst = sol.reverseList(ln);
 
 	return 0;
 }
