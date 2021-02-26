@@ -41,28 +41,16 @@ struct ListNode {
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-		ListNode* tmpLN = head;
-		ListNode* tmpLNstart = NULL;
-		ListNode* tmpLNpre = NULL;
-		ListNode* tmpLNpost = NULL;
-		while(true){
-			if(tmpLN != NULL){
-				if(tmpLN->next != NULL){ tmpLNpre = tmpLN->next; }
-				else{ return tmpLN; }
-				if(tmpLN->next->next != NULL){ tmpLNpost = tmpLN->next->next; }
-				else{ tmpLNpost = NULL; }
-				if(tmpLNstart != NULL){ tmpLNpre->next = tmpLNstart; }
-				else{ tmpLNpre->next = tmpLN; }
-				if(tmpLN->next != NULL){ tmpLN->next = tmpLNpost; }
-				tmpLNstart = tmpLNpre;
-				if(tmpLNpost == NULL){ break; }
-			}
-			else{
-				break;
-			}
+		ListNode* prev = NULL;
+		ListNode* curr = head;
+		while(curr != NULL){
+		    ListNode* tmpNext = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = tmpNext;
 		}
 
-        return tmpLNstart;
+        return prev;
     }
 };
 
