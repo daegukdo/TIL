@@ -17,9 +17,6 @@ namespace kdTreeTest
 
         private static void CalKdTree()
         {
-            // ref : https://github.com/codeandcats/KdTree
-            // ref : http://accord-framework.net/docs/html/T_Accord_Collections_KDTree_1.htm
-
             // define tree
             var tree = new KdTree<float, string>(3, new FloatMath());
 
@@ -34,10 +31,10 @@ namespace kdTreeTest
             var nodes = tree.GetNearestNeighbours(new[] { 30.0f, 20.0f, 10.0f }, 2);
 
             // show point that nearest neighbours
-            Console.WriteLine("name of point : " + nodes[0].Value.ToString());
-            Console.WriteLine("x : " + nodes[0].Point[0].ToString());
-            Console.WriteLine("x : " + nodes[0].Point[1].ToString());
-            Console.WriteLine("x : " + nodes[0].Point[2].ToString());
+            Console.WriteLine("name of point : " + nodes[1].Value.ToString());
+            Console.WriteLine("x : " + nodes[1].Point[0].ToString());
+            Console.WriteLine("y : " + nodes[1].Point[1].ToString());
+            Console.WriteLine("z : " + nodes[1].Point[2].ToString());
 
             return;
         }
