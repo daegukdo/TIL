@@ -27,28 +27,64 @@ struct ListNode {
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-		ListNode* trgLn = head;
-		ListNode* preLn = NULL;
-		ListNode* pstLn = NULL;
+		if(head == NULL){
+			return head;
+		}
+
+		ListNode* pre_Ln = NULL;
+		ListNode* trg_Ln = head;
+		ListNode* postLn = NULL;
+
+		if(head->next != NULL){
+			postLn = head->next;
+		}
+
 		while(true){
-			if(trgLn->val == val){
-				if(preLn == NULL){
-					// do first
-					pstLn = trgLn->next;
-					trgLn = NULL;
-					trgLn = pstLn;
+			if(trg_Ln->val == val){
+				if(pre_Ln != NULL){
+					// no first
+					trg_Ln = NULL;
+					pre_Ln->next = postLn;
+					if(pre_Ln->next != NULL){ trg_Ln = pre_Ln->next; }
+					else{ break; }
+					if(trg_Ln->next != NULL){ postLn = trg_Ln->next; }
+					else{ break; }
 				}
 				else{
-					// no first
-					
+					// do first
+					head = postLn;
+					trg_Ln = head;
+					if(head->next != NULL){ postLn = head->next; }
+					else{ break; }
 				}
-				preLn = pstLn;
+			}
+			else{
+				pre_Ln = trg_Ln;
+				if(pre_Ln->next != NULL){ trg_Ln = pre_Ln->next; }
+				else{ break; }
+				if(trg_Ln->next != NULL){ postLn = trg_Ln->next; }
+				else{ postLn = NULL; }
 			}
 		}
+
+		return head;
     }
 };
 
 int main() {
+	// 1  2  3 4 5
+	// 2 1  3  4 5
+	// 3 2 1  4  5
+	// 4 3 2 1  5
+	ListNode* ln = new ListNode(1);
+	ln->next = new ListNode(2);
+	ln->next->next = new ListNode(3);
+	ln->next->next->next = new ListNode(4);
+	ln->next->next->next->next = new ListNode(5);
+
+	Solution sol;
+
+	ListNode* lnRst = sol.removeElements(ln, 5);
 
 	return 0;
 }
