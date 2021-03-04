@@ -2,23 +2,28 @@
 @ LeetCode
 Palindrome Linked List
 
-Given a singly linked list, determine if it is a palindrome.
+Given the head of a singly linked list, return true if it is a palindrome.
 
 Example 1:
-Input: 1->2
-Output: false
-
-Example 2:
-Input: 1->2->2->1
+Input: head = [1,2,2,1]
 Output: true
 
-Follow up:
-Could you do it in O(n) time and O(1) space?
+Example 2:
+Input: head = [1,2]
+Output: false
+ 
+Constraints:
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+ 
+Follow up: Could you do it in O(n) time and O(1) space?
 
 ref : https://leetcode.com/explore/learn/card/linked-list/219/classic-problems/1209/
 */
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,24 +39,23 @@ struct ListNode {
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-		ListNode reversedListNode(0), *iter = &reversedListNode; 
+		vector<int> vctInt;
 
-		if(head == NULL){ return true; }
-		ListNode* tmpHeadIter = head;
-		if(head->next == NULL){ return true; }
-		ListNode* tmpNextIter = head->next;
-
-		while(true){
-			if(tmpNextIter->next == NULL){ break; }
-			ListNode* tmp = tmpNextIter->next;
-			tmpNextIter->next = tmpHeadIter;
-			tmpHeadIter->next = tmp;
-			tmpHeadIter = 
+		ListNode* iter = head;
+		while(iter != NULL){
+			vctInt.push_back(iter->val);
+			iter = iter->next;
 		}
 
-		if(reversedListNode.next == NULL){ return false; }
+		vector<int> vctIntRvs = vctInt;
+		reverse(vctIntRvs.begin(), vctIntRvs.end());  
 
-        return true;
+		if(vctIntRvs == vctInt){
+			return true;
+		}
+		else{
+			return false;
+		}
     }
 };
 
