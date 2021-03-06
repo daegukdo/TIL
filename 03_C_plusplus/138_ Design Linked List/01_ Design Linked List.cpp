@@ -55,6 +55,14 @@ https://leetcode.com/explore/learn/card/linked-list/210/doubly-linked-list/1294/
 using namespace std;
 
 class MyLinkedList {
+private:
+    struct DoublyListNode {
+    int val;
+    DoublyListNode *next, *prev;
+    DoublyListNode(int x) : val(x), next(NULL), prev(NULL) {}
+    };
+    DoublyListNode* doublyListNode = NULL;
+
 public:
 	/** Initialize your data structure here. */
 	MyLinkedList() {
@@ -63,16 +71,44 @@ public:
 	/** Get the value of the index-th node in the linked list. If the index is
 	 * invalid, return -1. */
 	int get(int index) {
+	    return 0;
 	}
 
 	/** Add a node of value val before the first element of the linked list.
 	 * After the insertion, the new node will be the first node of the linked
 	 * list. */
 	void addAtHead(int val) {
+	    if(doublyListNode == NULL){
+	        doublyListNode = new DoublyListNode(val);
+	    }
+	    else{
+	        DoublyListNode* tmpDLN = new DoublyListNode(val);
+	        doublyListNode->prev = tmpDLN;
+	        tmpDLN->next = doublyListNode;
+	        doublyListNode = tmpDLN;
+	    }
+	    cout << doublyListNode->val << endl;
 	}
 
 	/** Append a node of value val to the last element of the linked list. */
 	void addAtTail(int val) {
+	    DoublyListNode* tmpDLN = doublyListNode;
+	    while(true){
+	        DoublyListNode* tmpPrevDLN = tmpDLN->prev;
+	        if(tmpDLN == NULL){
+	            tmpDLN = new DoublyListNode(val);
+	            if(tmpDLN != NULL){
+	                tmpPrevDLN->next = tmpDLN;
+	                tmpDLN->prev = tmpPrevDLN;
+	            }
+	            break;
+	        }
+	        else{
+	            tmpDLN = tmpDLN->next;
+	        }
+	    }
+	    cout << tmpDLN->val << endl;
+	    cout << tmpDLN->prev->val << endl;
 	}
 
 	/** Add a node of value val before the index-th node in the linked list. If
@@ -88,13 +124,13 @@ public:
 };
 
 int main() {
-	MyLinkedList myLinkedList = new MyLinkedList();
-	myLinkedList.addAtHead(1);
-	myLinkedList.addAtTail(3);
-	myLinkedList.addAtIndex(1, 2); // linked list becomes 1->2->3
-	myLinkedList.get(1);		   // return 2
-	myLinkedList.deleteAtIndex(1); // now the linked list is 1->3
-	myLinkedList.get(1);		   // return 3
+	MyLinkedList* myLinkedList = new MyLinkedList();
+	myLinkedList->addAtHead(1);
+	myLinkedList->addAtTail(3);
+	myLinkedList->addAtIndex(1, 2);  // linked list becomes 1->2->3
+	int r1 = myLinkedList->get(1);   // return 2
+	myLinkedList->deleteAtIndex(1);  // now the linked list is 1->3
+	int r2 = myLinkedList->get(1);	 // return 3
 
 	return 0;
 }
