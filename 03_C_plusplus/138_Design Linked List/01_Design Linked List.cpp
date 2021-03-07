@@ -61,11 +61,12 @@ private:
     DoublyListNode *next, *prev;
     DoublyListNode(int x) : val(x), next(NULL), prev(NULL) {}
     };
-    DoublyListNode* doublyListNode = NULL;
+    DoublyListNode* doublyListNode;
 
 public:
 	/** Initialize your data structure here. */
 	MyLinkedList() {
+		doublyListNode = NULL;
 	}
 
 	/** Get the value of the index-th node in the linked list. If the index is
@@ -87,28 +88,23 @@ public:
 	        tmpDLN->next = doublyListNode;
 	        doublyListNode = tmpDLN;
 	    }
-	    cout << doublyListNode->val << endl;
 	}
 
 	/** Append a node of value val to the last element of the linked list. */
 	void addAtTail(int val) {
 	    DoublyListNode* tmpDLN = doublyListNode;
 	    while(true){
-	        DoublyListNode* tmpPrevDLN = tmpDLN->prev;
-	        if(tmpDLN == NULL){
-	            tmpDLN = new DoublyListNode(val);
-	            if(tmpDLN != NULL){
-	                tmpPrevDLN->next = tmpDLN;
-	                tmpDLN->prev = tmpPrevDLN;
-	            }
-	            break;
+			if(tmpDLN->next == NULL){
+				tmpDLN->next = new DoublyListNode(val);
+				tmpDLN->next->prev = tmpDLN;
+				break;
 	        }
 	        else{
-	            tmpDLN = tmpDLN->next;
+				DoublyListNode tmpPrevDLN = *tmpDLN;
+				tmpDLN = tmpDLN->next;
+				tmpDLN->prev = &tmpPrevDLN;
 	        }
 	    }
-	    cout << tmpDLN->val << endl;
-	    cout << tmpDLN->prev->val << endl;
 	}
 
 	/** Add a node of value val before the index-th node in the linked list. If
@@ -126,6 +122,7 @@ public:
 int main() {
 	MyLinkedList* myLinkedList = new MyLinkedList();
 	myLinkedList->addAtHead(1);
+	myLinkedList->addAtTail(2);      // for test
 	myLinkedList->addAtTail(3);
 	myLinkedList->addAtIndex(1, 2);  // linked list becomes 1->2->3
 	int r1 = myLinkedList->get(1);   // return 2
