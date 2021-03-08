@@ -57,9 +57,9 @@ using namespace std;
 class MyLinkedList {
 private:
     struct DoublyListNode {
-    int val;
-    DoublyListNode *next, *prev;
-    DoublyListNode(int x) : val(x), next(NULL), prev(NULL) {}
+		int val;
+		DoublyListNode *next, *prev;
+		DoublyListNode(int x) : val(x), next(NULL), prev(NULL) {}
     };
     DoublyListNode* doublyListNode;
 
@@ -112,6 +112,36 @@ public:
 	 * the end of linked list. If index is greater than the length, the node
 	 * will not be inserted. */
 	void addAtIndex(int index, int val) {
+		int countIdx = 0;
+		DoublyListNode* tmpDLN = doublyListNode;
+		DoublyListNode* tmpPrev = NULL;
+		DoublyListNode* tmpNext = NULL;
+
+		while(true){
+			if(countIdx == index){
+				if(tmpDLN != NULL){
+					tmpPrev = tmpDLN->prev;
+					tmpNext = tmpDLN;
+				}
+				break;
+			}
+			else{
+				tmpDLN = tmpDLN->next;
+				countIdx++;
+			}
+		}
+
+		DoublyListNode* inter = new DoublyListNode(val);
+
+		if(tmpPrev != NULL){
+			tmpPrev->next = inter;
+			inter->prev = tmpPrev;
+		}
+
+		if(tmpNext != NULL){
+			tmpNext->prev = inter;
+			inter->next = tmpNext;
+		}
 	}
 
 	/** Delete the index-th node in the linked list, if the index is valid. */
@@ -122,7 +152,6 @@ public:
 int main() {
 	MyLinkedList* myLinkedList = new MyLinkedList();
 	myLinkedList->addAtHead(1);
-	myLinkedList->addAtTail(2);      // for test
 	myLinkedList->addAtTail(3);
 	myLinkedList->addAtIndex(1, 2);  // linked list becomes 1->2->3
 	int r1 = myLinkedList->get(1);   // return 2
