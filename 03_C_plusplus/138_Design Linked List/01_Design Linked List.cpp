@@ -46,8 +46,7 @@ Please do not use the built-in LinkedList library.
 At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and
 deleteAtIndex.
 
-ref :
-https://leetcode.com/explore/learn/card/linked-list/210/doubly-linked-list/1294/
+ref : https://leetcode.com/explore/learn/card/linked-list/210/doubly-linked-list/1294/
 */
 
 #include <iostream>
@@ -72,7 +71,24 @@ public:
 	/** Get the value of the index-th node in the linked list. If the index is
 	 * invalid, return -1. */
 	int get(int index) {
-	    return 0;
+	    int countIdx = 0;
+		DoublyListNode* tmpDLN = doublyListNode;
+
+		if(tmpDLN == NULL){
+			return -1;
+		}
+
+		while(true){
+			if(countIdx == index){
+				break;
+			}
+			else{
+				tmpDLN = tmpDLN->next;
+				countIdx++;
+			}
+		}
+
+		return tmpDLN->val;
 	}
 
 	/** Add a node of value val before the first element of the linked list.
@@ -117,12 +133,14 @@ public:
 		DoublyListNode* tmpPrev = NULL;
 		DoublyListNode* tmpNext = NULL;
 
+		if(tmpDLN == NULL){
+			return;
+		}
+
 		while(true){
 			if(countIdx == index){
-				if(tmpDLN != NULL){
-					tmpPrev = tmpDLN->prev;
-					tmpNext = tmpDLN;
-				}
+				tmpPrev = tmpDLN->prev;
+				tmpNext = tmpDLN;
 				break;
 			}
 			else{
@@ -146,6 +164,26 @@ public:
 
 	/** Delete the index-th node in the linked list, if the index is valid. */
 	void deleteAtIndex(int index) {
+		int countIdx = 0;
+		DoublyListNode* tmpDLN = doublyListNode;
+
+		if(tmpDLN == NULL){
+			return;
+		}
+
+		while(true){
+			if(countIdx == index){
+				DoublyListNode* tmpPrev = tmpDLN->prev;
+				DoublyListNode* tmpNext = tmpDLN->next;
+				tmpPrev->next = tmpNext;
+				tmpNext->prev = tmpPrev;
+				break;
+			}
+			else{
+				tmpDLN = tmpDLN->next;
+				countIdx++;
+			}
+		}
 	}
 };
 
