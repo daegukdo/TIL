@@ -138,15 +138,32 @@ public:
 		}
 
 		while(true){
-			if(countIdx == index){
+			if(countIdx != index){
+				if(tmpDLN->next != NULL){
+				    tmpDLN = tmpDLN->next;
+					countIdx++;
+				}
+				else{
+					if(countIdx < index - 1){
+						countIdx = -1;
+						break;
+					}
+					else{
+						tmpPrev = tmpDLN;
+						tmpNext = NULL;
+						break;
+					}
+				}
+			}
+			else{
 				tmpPrev = tmpDLN->prev;
 				tmpNext = tmpDLN;
 				break;
 			}
-			else{
-				tmpDLN = tmpDLN->next;
-				countIdx++;
-			}
+		}
+
+		if(countIdx == -1){
+			return;
 		}
 
 		DoublyListNode* inter = new DoublyListNode(val);
@@ -175,8 +192,28 @@ public:
 			if(countIdx == index){
 				DoublyListNode* tmpPrev = tmpDLN->prev;
 				DoublyListNode* tmpNext = tmpDLN->next;
-				tmpPrev->next = tmpNext;
-				tmpNext->prev = tmpPrev;
+
+				if(tmpPrev == NULL && tmpNext == NULL){
+					tmpDLN = NULL;
+				}
+				else{
+					if(tmpPrev != NULL){
+					    tmpPrev->next = tmpNext;
+					}
+					else{
+						DoublyListNode* tmp = tmpDLN->next;
+						tmpDLN = NULL;
+						tmpDLN = tmp;
+					}
+					if(tmpNext != NULL){
+					    tmpNext->prev = tmpPrev;
+					}
+					else{
+						DoublyListNode* tmp = tmpDLN->prev;
+						tmpDLN = NULL;
+						tmpDLN = tmp;
+					}
+				}
 				break;
 			}
 			else{
@@ -191,10 +228,11 @@ int main() {
 	MyLinkedList* myLinkedList = new MyLinkedList();
 	myLinkedList->addAtHead(1);
 	myLinkedList->addAtTail(3);
-	myLinkedList->addAtIndex(1, 2);  // linked list becomes 1->2->3
-	int r1 = myLinkedList->get(1);   // return 2
-	myLinkedList->deleteAtIndex(1);  // now the linked list is 1->3
-	int r2 = myLinkedList->get(1);	 // return 3
+	myLinkedList->addAtIndex(1, 2); 
+	int r1 = myLinkedList->get(1);
+	myLinkedList->deleteAtIndex(0);
+	int r2 = myLinkedList->get(0);
+
 
 	return 0;
 }
