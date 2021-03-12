@@ -134,6 +134,9 @@ public:
 		DoublyListNode* tmpNext = NULL;
 
 		if(tmpDLN == NULL){
+			if(countIdx == 0){
+				doublyListNode = new DoublyListNode(val);
+			}
 			return;
 		}
 
@@ -201,17 +204,13 @@ public:
 					    tmpPrev->next = tmpNext;
 					}
 					else{
-						DoublyListNode* tmp = tmpDLN->next;
-						tmpDLN = NULL;
-						tmpDLN = tmp;
+						doublyListNode = doublyListNode->next;
 					}
 					if(tmpNext != NULL){
 					    tmpNext->prev = tmpPrev;
 					}
 					else{
-						DoublyListNode* tmp = tmpDLN->prev;
-						tmpDLN = NULL;
-						tmpDLN = tmp;
+						tmpNext->prev = NULL;
 					}
 				}
 				break;
@@ -226,13 +225,20 @@ public:
 
 int main() {
 	MyLinkedList* myLinkedList = new MyLinkedList();
+	myLinkedList->addAtIndex(0, 10); 
+	myLinkedList->addAtIndex(0, 20); 
+	myLinkedList->addAtIndex(1, 30); 
+	int r1 = myLinkedList->get(0);
+
+	/*
+	MyLinkedList* myLinkedList = new MyLinkedList();
 	myLinkedList->addAtHead(1);
 	myLinkedList->addAtTail(3);
 	myLinkedList->addAtIndex(1, 2); 
 	int r1 = myLinkedList->get(1);
 	myLinkedList->deleteAtIndex(0);
 	int r2 = myLinkedList->get(0);
-
+	*/
 
 	return 0;
 }
