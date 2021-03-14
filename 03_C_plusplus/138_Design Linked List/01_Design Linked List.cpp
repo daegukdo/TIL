@@ -83,8 +83,13 @@ public:
 				break;
 			}
 			else{
-				tmpDLN = tmpDLN->next;
-				countIdx++;
+				if(tmpDLN->next != NULL){
+					tmpDLN = tmpDLN->next;
+					countIdx++;
+				}
+				else{
+					return -1;
+				}
 			}
 		}
 
@@ -108,19 +113,24 @@ public:
 
 	/** Append a node of value val to the last element of the linked list. */
 	void addAtTail(int val) {
-	    DoublyListNode* tmpDLN = doublyListNode;
-	    while(true){
-			if(tmpDLN->next == NULL){
-				tmpDLN->next = new DoublyListNode(val);
-				tmpDLN->next->prev = tmpDLN;
-				break;
-	        }
-	        else{
-				DoublyListNode tmpPrevDLN = *tmpDLN;
-				tmpDLN = tmpDLN->next;
-				tmpDLN->prev = &tmpPrevDLN;
-	        }
+		if(doublyListNode == NULL){
+	        doublyListNode = new DoublyListNode(val);
 	    }
+		else{
+			DoublyListNode* tmpDLN = doublyListNode;
+			DoublyListNode* tmpPrv = tmpDLN;
+			while(true){
+				if(tmpDLN->next == NULL){
+					tmpDLN->next = new DoublyListNode(val);
+					tmpDLN->next->prev = tmpPrv;
+					break;
+				}
+				else{
+					tmpPrv = tmpDLN;
+					tmpDLN = tmpDLN->next;
+				}
+			}
+		}
 	}
 
 	/** Add a node of value val before the index-th node in the linked list. If
@@ -128,107 +138,116 @@ public:
 	 * the end of linked list. If index is greater than the length, the node
 	 * will not be inserted. */
 	void addAtIndex(int index, int val) {
-		int countIdx = 0;
-		DoublyListNode* tmpDLN = doublyListNode;
-		DoublyListNode* tmpPrev = NULL;
-		DoublyListNode* tmpNext = NULL;
-
-		if(tmpDLN == NULL){
-			if(countIdx == 0){
-				doublyListNode = new DoublyListNode(val);
-			}
-			return;
-		}
-
-		while(true){
-			if(countIdx != index){
-				if(tmpDLN->next != NULL){
-				    tmpDLN = tmpDLN->next;
-					countIdx++;
-				}
-				else{
-					if(countIdx < index - 1){
-						countIdx = -1;
-						break;
-					}
-					else{
-						tmpPrev = tmpDLN;
-						tmpNext = NULL;
-						break;
-					}
-				}
+		if(doublyListNode == NULL){
+			if(index == 0){
+	            doublyListNode = new DoublyListNode(val);
 			}
 			else{
-				tmpPrev = tmpDLN->prev;
-				tmpNext = tmpDLN;
-				break;
+				return;
 			}
-		}
-
-		if(countIdx == -1){
-			return;
-		}
-
-		DoublyListNode* inter = new DoublyListNode(val);
-
-		if(tmpPrev != NULL){
-			tmpPrev->next = inter;
-			inter->prev = tmpPrev;
-		}
-
-		if(tmpNext != NULL){
-			tmpNext->prev = inter;
-			inter->next = tmpNext;
+	    }
+		else{
+			if(index == 0){
+				DoublyListNode* tmpPrv = new DoublyListNode(val);
+				DoublyListNode* tmpDLN = doublyListNode;
+				tmpDLN->prev = tmpPrv;
+				tmpPrv->next = tmpDLN;
+				doublyListNode = tmpPrv;
+			}
+			else{
+				int countIdx = 0;
+				DoublyListNode* tmpDLN = doublyListNode;
+				DoublyListNode* tmpPrv = tmpDLN;
+				while(true){
+					if(countIdx == index){
+						if(tmpDLN != NULL){
+							DoublyListNode* tmpBtw = new DoublyListNode(val);
+							tmpBtw->next = tmpDLN;
+							tmpDLN->prev = tmpBtw;
+							tmpBtw->prev = tmpPrv;
+							tmpPrv->next = tmpBtw;
+							break;
+						}
+						else{
+							DoublyListNode* tmpBtw = new DoublyListNode(val);
+							tmpBtw->prev = tmpPrv;
+							tmpPrv->next = tmpBtw;
+							break;
+						}
+					}
+					else{
+						tmpPrv = tmpDLN;
+						tmpDLN = tmpDLN->next;
+					}
+					countIdx++;
+				}
+			}
 		}
 	}
 
 	/** Delete the index-th node in the linked list, if the index is valid. */
 	void deleteAtIndex(int index) {
-		int countIdx = 0;
-		DoublyListNode* tmpDLN = doublyListNode;
-
-		if(tmpDLN == NULL){
+		if(doublyListNode == NULL){
 			return;
-		}
-
-		while(true){
-			if(countIdx == index){
-				DoublyListNode* tmpPrev = tmpDLN->prev;
-				DoublyListNode* tmpNext = tmpDLN->next;
-
-				if(tmpPrev == NULL && tmpNext == NULL){
-					tmpDLN = NULL;
+	    }
+		else{
+			if(index == 0){
+				if(doublyListNode->next != NULL){
+					DoublyListNode* tmpDLN = doublyListNode->next;
+					tmpDLN->prev = NULL;
+					doublyListNode = tmpDLN;
 				}
 				else{
-					if(tmpPrev != NULL){
-					    tmpPrev->next = tmpNext;
-					}
-					else{
-						doublyListNode = doublyListNode->next;
-					}
-					if(tmpNext != NULL){
-					    tmpNext->prev = tmpPrev;
-					}
-					else{
-						tmpNext->prev = NULL;
-					}
+					doublyListNode = NULL;
 				}
-				break;
 			}
 			else{
-				tmpDLN = tmpDLN->next;
-				countIdx++;
+				int countIdx = 0;
+				DoublyListNode* tmpDLN = doublyListNode;
+				DoublyListNode* tmpPrv = tmpDLN;
+				while(true){
+					if(countIdx == index){
+						if(tmpDLN->next != NULL){
+							tmpDLN->next->prev = tmpPrv;
+							tmpPrv->next = tmpDLN->next;
+							break;
+						}
+						else{
+							tmpDLN->prev->next = NULL;
+							break;
+						}
+					}
+					else{
+						if(tmpDLN->next != NULL){
+							tmpPrv = tmpDLN;
+							tmpDLN = tmpDLN->next;
+						}
+						else{
+							break;
+						}
+					}
+					countIdx++;
+				}
 			}
 		}
 	}
 };
 
 int main() {
+	
 	MyLinkedList* myLinkedList = new MyLinkedList();
-	myLinkedList->addAtIndex(0, 10); 
-	myLinkedList->addAtIndex(0, 20); 
-	myLinkedList->addAtIndex(1, 30); 
-	int r1 = myLinkedList->get(0);
+
+	myLinkedList->addAtHead(4);
+	int r1 = myLinkedList->get(1);
+	myLinkedList->addAtHead(1);
+	myLinkedList->addAtHead(5);
+	myLinkedList->deleteAtIndex(3);
+	myLinkedList->addAtHead(7);
+	int r2 = myLinkedList->get(3);
+	int r3 = myLinkedList->get(3);
+	int r4 = myLinkedList->get(3);
+	myLinkedList->addAtHead(1);
+	myLinkedList->deleteAtIndex(4);
 
 	/*
 	MyLinkedList* myLinkedList = new MyLinkedList();
