@@ -26,8 +26,6 @@ ref : https://leetcode.com/explore/learn/card/linked-list/213/conclusion/1227/
 */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -43,12 +41,59 @@ struct ListNode {
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-		ListNode* rst = NULL;
-        vector<int> vctInt;
+		ListNode rst = ListNode(0);
+		ListNode* rstIter = &rst;
+		ListNode* l1Iter = l1;
+		ListNode* l2Iter = l2;
 
+		while (l1Iter && l2Iter){
+			if(l1Iter->val < l2Iter->val){
+				rstIter->next = l1Iter;
+				rstIter = rstIter->next;
+				l1Iter = l1Iter->next;
+			}
+			else if(l1Iter->val > l2Iter->val){
+				rstIter->next = l2Iter;
+				rstIter = rstIter->next;
+				l2Iter = l2Iter->next;
+			}
+			else{
+				rstIter->next = l1Iter;
+				rstIter = rstIter->next;
+				l1Iter = l1Iter->next;
 
+				rstIter->next = l2Iter;
+				rstIter = rstIter->next;
+				l2Iter = l2Iter->next;
+			}
+		}
 
-		return rst;
+		if(rstIter->next == NULL){
+			if(l1Iter && !l2Iter){
+				rstIter->next = l1Iter;
+			}
+			else if(!l1Iter && l2Iter){
+				rstIter->next = l2Iter;
+			}
+		}
+		else{
+			if(l1Iter && !l2Iter){
+				while (l1Iter){
+					rstIter->next = l1Iter;
+				    rstIter = rstIter->next;
+				    l1Iter = l1Iter->next;
+				}
+			}
+			else if(!l1Iter && l2Iter){
+				while (l2Iter){
+					rstIter->next = l2Iter;
+				    rstIter = rstIter->next;
+				    l2Iter = l2Iter->next;
+				}
+			}
+		}
+
+		return rst.next;
     }
 };
 
