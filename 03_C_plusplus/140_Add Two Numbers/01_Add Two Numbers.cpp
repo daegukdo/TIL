@@ -51,8 +51,72 @@ public:
 		ListNode* l2Iter = l2;
 		
 		int tmpInt = 0;
+		bool isUp = false;
 
+		while (l1Iter && l2Iter){
+			if(isUp){
+				tmpInt = l1Iter->val + l2Iter->val + 1;
+				isUp = false;
+			}
+			else{
+			    tmpInt = l1Iter->val + l2Iter->val;
+			}
 
+			if(tmpInt < 10){
+				rstIter->next = new ListNode(tmpInt);
+				rstIter = rstIter->next;
+			}
+			else{
+				rstIter->next = new ListNode(tmpInt - 10);
+				rstIter = rstIter->next;
+				isUp = true;
+			}
+
+			l1Iter = l1Iter->next;
+			l2Iter = l2Iter->next;
+		}
+
+		if(rstIter->next == NULL){
+			if(l1Iter && !l2Iter){
+				rstIter->next = l1Iter;
+			}
+			else if(!l1Iter && l2Iter){
+				rstIter->next = l2Iter;
+			}
+		}
+		else{
+			if(l1Iter && !l2Iter){
+				while (l1Iter){
+					if(isUp){
+						rstIter->next = new ListNode(l1Iter->val + 1);
+						isUp = false;
+					}
+					else{
+					    rstIter->next = l1Iter;
+					}
+				    rstIter = rstIter->next;
+				    l1Iter = l1Iter->next;
+				}
+			}
+			else if(!l1Iter && l2Iter){
+				while (l2Iter){
+					if(isUp){
+						rstIter->next = new ListNode(l2Iter->val + 1);
+						isUp = false;
+					}
+					else{
+					    rstIter->next = l2Iter;
+					}
+				    rstIter = rstIter->next;
+				    l2Iter = l2Iter->next;
+				}
+			}
+		}
+
+		if(isUp){
+			rstIter->next = new ListNode(1);
+			isUp = false;
+		}
 
 		return rst.next;
     }
@@ -61,7 +125,7 @@ public:
 int main() {
 	ListNode* ln1 = new ListNode(1);
 	ln1->next = new ListNode(2);
-	ln1->next->next = new ListNode(4);
+	ln1->next->next = new ListNode(6);
 	
 	ListNode* ln2 = new ListNode(1);
 	ln2->next = new ListNode(3);
