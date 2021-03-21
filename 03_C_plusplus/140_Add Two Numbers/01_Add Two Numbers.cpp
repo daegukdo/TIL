@@ -76,7 +76,7 @@ public:
 			l2Iter = l2Iter->next;
 		}
 
-		if(rstIter->next == NULL){
+		if(rst.next == NULL){
 			if(l1Iter && !l2Iter){
 				rstIter->next = l1Iter;
 			}
@@ -88,8 +88,15 @@ public:
 			if(l1Iter && !l2Iter){
 				while (l1Iter){
 					if(isUp){
-						rstIter->next = new ListNode(l1Iter->val + 1);
-						isUp = false;
+						tmpInt = l1Iter->val + 1;
+						if(tmpInt < 10){
+							isUp = false;
+						}
+						else{
+							tmpInt = tmpInt - 10;
+							isUp = true;
+						}
+						rstIter->next = new ListNode(tmpInt);
 					}
 					else{
 					    rstIter->next = l1Iter;
@@ -101,8 +108,15 @@ public:
 			else if(!l1Iter && l2Iter){
 				while (l2Iter){
 					if(isUp){
-						rstIter->next = new ListNode(l2Iter->val + 1);
-						isUp = false;
+						tmpInt = l2Iter->val + 1;
+						if(tmpInt < 10){
+							isUp = false;
+						}
+						else{
+							tmpInt = tmpInt - 10;
+							isUp = true;
+						}
+						rstIter->next = new ListNode(tmpInt);
 					}
 					else{
 					    rstIter->next = l2Iter;
@@ -123,13 +137,18 @@ public:
 };
 
 int main() {
-	ListNode* ln1 = new ListNode(1);
-	ln1->next = new ListNode(2);
-	ln1->next->next = new ListNode(6);
+	ListNode* ln1 = new ListNode(9);
+	ln1->next = new ListNode(9);
+	ln1->next->next = new ListNode(9);
+	ln1->next->next->next = new ListNode(9);
 	
-	ListNode* ln2 = new ListNode(1);
-	ln2->next = new ListNode(3);
-	ln2->next->next = new ListNode(4);
+	ListNode* ln2 = new ListNode(9);
+	ln2->next = new ListNode(9);
+	ln2->next->next = new ListNode(9);
+	ln1->next->next->next = new ListNode(9);
+	ln1->next->next->next->next = new ListNode(9);
+	ln1->next->next->next->next->next = new ListNode(9);
+	ln1->next->next->next->next->next->next = new ListNode(9);
 
 	Solution sol;
 
