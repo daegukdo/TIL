@@ -80,6 +80,8 @@ public:
     Node* prev;
     Node* next;
     Node* child;
+	Node() : val(0), prev(nullptr), next(nullptr), child(nullptr) {}
+	Node(int x) : val(x), prev(nullptr), next(nullptr), child(nullptr) {}
 };
 
 class Solution {
@@ -89,23 +91,31 @@ public:
 		Node* rstIter = &rst;
 		Node* iter = head;
 
-		while (head){
+		while (iter){
 			if(!(rstIter->next == NULL) && !(rstIter->prev == NULL)){
 				rstIter->next = iter;
 			}
 			else{
-				rstIter->next = iter;
-				rstIter->next->prev = rstIter;
+				if(iter->child == NULL){
+					iter->prev = rstIter;
+					rstIter->next = iter;
+				}
+				else{
+					Node* tmp = new Node(); tmp->val = iter->val;
+					tmp->prev = rstIter;
+					rstIter->next = tmp;
+				}
 			}
 
-			if(iter->child != NULL){
+			if(iter->child == NULL){
 			    rstIter = rstIter->next;
 				iter = iter->next;
 			}
 			else{
 				rstIter = rstIter->next;
-				rstIter->next = flatten(iter->child);
-				rstIter->next->prev = rstIter;
+				Node* tmp = flatten(iter->child);
+				tmp->prev = rstIter;
+				rstIter->next = tmp;
 				while (rstIter->next != NULL){
 					rstIter = rstIter->next;
 				}
@@ -118,7 +128,10 @@ public:
 };
 
 int main() {
-	Node* n1 = new Node();
+	Node* n1 = new Node(1);
+	n1->next = new Node(2); n1->next->prev = n1;
+	n1->next->next = new Node(3); n1->next->next->prev = n1->next; n1->next->next->child = new Node(1);
+	n1->next->next->next = new Node(4); n1->next->next->next->prev = n1->next->next;
 
 	Solution sol;
 
