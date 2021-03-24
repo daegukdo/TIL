@@ -92,37 +92,34 @@ public:
 		Node* iter = head;
 
 		while (iter){
+			Node* tmp = new Node(); tmp->val = iter->val;
 			if(!(rstIter->next == NULL) && !(rstIter->prev == NULL)){
-				rstIter->next = iter;
+				rstIter->next = tmp;
 			}
 			else{
 				if(iter->child == NULL){
-					iter->prev = rstIter;
-					rstIter->next = iter;
+					tmp->prev = rstIter;
+					rstIter->next = tmp;
 				}
 				else{
-					Node* tmp = new Node(); tmp->val = iter->val;
 					tmp->prev = rstIter;
 					rstIter->next = tmp;
 				}
 			}
 
-			if(iter->child == NULL){
-			    rstIter = rstIter->next;
-				iter = iter->next;
-			}
-			else{
-				rstIter = rstIter->next;
-				Node* tmp = flatten(iter->child);
-				tmp->prev = rstIter;
-				rstIter->next = tmp;
+			rstIter = rstIter->next;
+			if(iter->child != NULL){
+				Node* tmpChild = flatten(iter->child);
+				tmpChild->prev = rstIter;
+				rstIter->next = tmpChild;
 				while (rstIter->next != NULL){
 					rstIter = rstIter->next;
 				}
-				iter = iter->next;
 			}
+			iter = iter->next;
 		}
 
+		if(rst.next != NULL){ rst.next->prev = NULL; }
 		return rst.next;
     }
 };
