@@ -36,29 +36,33 @@ struct ListNode {
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
+		if(head == NULL || k == 0){
+			return head;
+		}
+
         ListNode* iter = head;
-		int n = 0; // lenOfLn (by idx)
-		int d = k - 1; // decouplingIdx
+		int n = 0; // lenOfLn 
+		int d = k; // decouplingIdx
 
 		while (iter){
+			n++;
 			if(iter->next == NULL) { 
 				iter->next = head; break;	
 			}
 			else{
 			    iter = iter->next;
-			    n++;
 			}
 		}
 
 		while (true){
-			d = d - n;
 			if(d < n){
 				break;
 			}
+			d = d - n;
 		}
 
 		iter = head;
-		for(int i = 0; i <= d; i++){
+		for(int i = 0; i < d; i++){
 			iter = iter->next;
 		}
 		head = iter->next;
@@ -69,8 +73,9 @@ public:
 };
 
 int main() {
-	ListNode* n1 = new ListNode();
-	int k = 0;
+	ListNode* n1 = new ListNode(1);
+	n1->next = new ListNode(2);
+	int k = 1;
 
 	Solution sol;
 
