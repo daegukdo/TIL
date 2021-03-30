@@ -44,24 +44,30 @@ public:
 		int n = 0; // lenOfLn 
 		int d = k; // decouplingIdx
 
+		// cal. len. of ln and make ln to cycle
 		while (iter){
 			n++;
 			if(iter->next == NULL) { 
-				iter->next = head; break;	
+				iter->next = head; 
+				break;	
 			}
 			else{
 			    iter = iter->next;
 			}
 		}
 
+		// cal. decoupling idx
 		while (true){
 			if(d < n){
+				d = n - d;
 				break;
 			}
-			d = d - n;
+			else{
+			    d = d - n;
+			}
 		}
 
-		iter = head;
+		// decouple ln and set head of ln
 		for(int i = 0; i < d; i++){
 			iter = iter->next;
 		}
@@ -75,7 +81,8 @@ public:
 int main() {
 	ListNode* n1 = new ListNode(1);
 	n1->next = new ListNode(2);
-	int k = 1;
+	n1->next->next = new ListNode(3);
+	int k = 2;
 
 	Solution sol;
 
