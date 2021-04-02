@@ -98,7 +98,12 @@ public:
     }
 
     int Rear() {
-        return queue[queue.size() - 1];
+        if (queue.size() > 0) {
+            return queue[queue.size() - 1];
+        }
+        else {
+            return -1;
+        }
     }
 
     bool isEmpty() {
@@ -121,19 +126,20 @@ public:
 };
 
 int main() {
-    MyCircularQueue myCircularQueue = MyCircularQueue(6);
+    MyCircularQueue myCircularQueue = MyCircularQueue(3);
 
-    bool b0 = myCircularQueue.enQueue(6);
-    int i0 = myCircularQueue.Rear();
-    int i1 = myCircularQueue.Rear();
+    bool b0 = myCircularQueue.enQueue(7);
     bool b1 = myCircularQueue.deQueue();
-    bool b2 = myCircularQueue.enQueue(5);
-    int i2 = myCircularQueue.Rear();
+    bool b2 = myCircularQueue.Front();
     bool b3 = myCircularQueue.deQueue();
     bool b4 = myCircularQueue.Front();
-    bool b5 = myCircularQueue.deQueue();
-    bool b6 = myCircularQueue.deQueue();
+    int i0 = myCircularQueue.Rear();
+    bool b5 = myCircularQueue.enQueue(0);
+    bool b6 = myCircularQueue.isFull();
     bool b7 = myCircularQueue.deQueue();
+    int i1 = myCircularQueue.Rear();
+    bool b8 = myCircularQueue.enQueue(3);
+
 
     return 0;
 }
