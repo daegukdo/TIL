@@ -37,6 +37,7 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/231/practical-applicat
 */
 
 #include <iostream>
+#include <vector>
 #include <queue>
 
 using namespace std;
@@ -44,8 +45,18 @@ using namespace std;
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {
+		int numOfIsland = 0;
+
 		const char land = '1';
 		const char water = '0';
+
+		int m = grid.size();
+		int n = grid[0].size();
+		
+		queue<int> qFirst;
+		queue<int> qSecond;
+
+		// 순서대로 비교하여 같은 것이 있으면 이어진 land로 간주
 
         return 0;
     }
