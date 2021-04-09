@@ -55,17 +55,19 @@ private:
 		int m = grid.size();
 		int n = grid[0].size();
 
-		queue<pair<int, int>> q;
+        grid[mPos][nPos] = water;
 
-		for (int i = mPos; i < m; i++) {
-			for (int j = nPos; j < n; j++) {
-				if (grid[i][j] == land) {
-					q.push(make_pair(i, j));
-				}
-				else {
-					break;
-				}
-			}
+		if((_i < m - 1) && (grid[mPos + 1][nPos] == land)){
+		    land2waterBFS(grid, mPos + 1, nPos);
+		}
+		if((_i > 0) && (grid[mPos - 1][nPos] == land)){
+		    land2waterBFS(grid, mPos - 1, nPos);
+		}
+		if((_j < n - 1) && (grid[mPos][nPos + 1] == land)){
+		    land2waterBFS(grid, mPos, nPos + 1);
+		}
+		if((_i > 0) && (grid[mPos][nPos - 1] == land)){
+		    land2waterBFS(grid, mPos, nPos - 1);
 		}
 
 		return;
@@ -78,9 +80,6 @@ public:
 		int m = grid.size();
 		int n = grid[0].size();
 
-		queue<int> qFirst;
-		queue<int> qPast;
-
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == land) {
@@ -90,7 +89,7 @@ public:
 			}
 		}
 
-		return 0;
+		return numOfIsland;
 	}
 };
 
