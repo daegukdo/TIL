@@ -66,7 +66,7 @@ private:
 		if((_j < n - 1) && (grid[mPos][nPos + 1] == land)){
 		    land2waterBFS(grid, mPos, nPos + 1);
 		}
-		if((_i > 0) && (grid[mPos][nPos - 1] == land)){
+		if((_j > 0) && (grid[mPos][nPos - 1] == land)){
 		    land2waterBFS(grid, mPos, nPos - 1);
 		}
 
