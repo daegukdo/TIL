@@ -57,7 +57,9 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/231/practical-applicat
 
 #include <iostream>  
 #include <string>
-#include <queue>
+#include <vector>
+#include <algorithm>
+#include <set>
 
 using namespace std;
 
@@ -74,17 +76,82 @@ public:
         // 남은 것 중 가장 짧은 경로 반환
         // 없다면 -1
         string startDigits = "0000";
-        queue<int> q;
+        set<string> set;
 
-        if (int(startDigits[0] - '0') < int(target[0] - '0')) {
+        int digit = 0;
+        int count = 0;
 
+        while (true)
+        {
+            if (find(deadends.begin(), deadends.end(), startDigits) == deadends.end()) {
+                if (int(startDigits[digit] - '0') != int(target[digit] - '0')) {
+                    int tmp = int(startDigits[digit] - '0') + 1;
+                    if (tmp != 10) {
+                        startDigits[digit] = char(tmp + '0');
+                    }
+                    else {
+                        startDigits[digit] = '0';
+                    }
+                }
+                else {
+                    digit++;
+                    if (digit == 4) {
+                        break;
+                    }
+                }
+            }
+            else {
+                int tmp = int(startDigits[digit] - '0') + 1;
+                if (tmp != 10) {
+                    startDigits[digit] = char(tmp + '0');
+                }
+                else {
+                    startDigits[digit] = '0';
+                }
+            }
+            count++;
+            if (set.find(startDigits) == set.end()) {
+                set.insert(startDigits);
+            }
+            else {
+                if (!set.empty()) {
+                    //return -1;
+                }
+            }
         }
 
+
+
+
         return -1;
+    }
+private:
+    string _loopUpOneDigit(string s, string t, int digit) {
+        if (int(s[digit] - '0') != int(t[digit] - '0')) {
+            int tmp = int(s[digit] - '0') + 1;
+            if (tmp != 10) {
+                s[digit] = char(tmp);
+            }
+            else {
+                s[digit] = '0';
+            }
+        }
+        return s;
+    }
+
+    string _isHaveElement(vector<string>& d, string t) {
+        if (find(d.begin(), d.end(), t) != d.end()) {
+            /* v contains x */
+        }
     }
 };
 
 int main() {
+    vector<string> deadends = { "0201","0101","0102","1212","2002" };
+    string target = "0202";
+
+    Solution s;
+    int rst = s.openLock(deadends, target);
 
     return 0;
 }
