@@ -58,65 +58,55 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/231/practical-applicat
 #include <iostream>  
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <set>
 
 using namespace std;
-
-const int digit0 = 1;
-const int digit1 = 10;
-const int digit2 = 100;
-const int digit3 = 1000;
 
 class Solution {
 public:
     int openLock(vector<string>& deadends, string target) {
         // target에 가는 모든 방법 찾기 (오름차순, 내림차순)
-        // deadends를 가지면 탈락
-        // 남은 것 중 가장 짧은 경로 반환
-        // 없다면 -1
+
         string startDigits = "0000";
-        set<string> set;
+		set<string> set;
 
         int digit = 0;
+		int digitCount = 0;
         int count = 0;
 
         while (true)
         {
-            if (find(deadends.begin(), deadends.end(), startDigits) == deadends.end()) {
+			auto elm = find(deadends.begin(), deadends.end(), startDigits);
+            if (elm == deadends.end()) {
                 if (int(startDigits[digit] - '0') != int(target[digit] - '0')) {
+					set.insert(startDigits);
+
                     int tmp = int(startDigits[digit] - '0') + 1;
-                    if (tmp != 10) {
-                        startDigits[digit] = char(tmp + '0');
-                    }
-                    else {
-                        startDigits[digit] = '0';
-                    }
+                    startDigits[digit] = char(tmp + '0');
+
+					count++;
+
+					if(set.find(startDigits) != set.end()){
+						return -1;
+					}
                 }
                 else {
-                    digit++;
-                    if (digit == 4) {
+                    digit++; digit = digit / 3;
+					digitCount++;
+
+                    if (digitCount == 4) {
                         break;
                     }
                 }
             }
             else {
-                int tmp = int(startDigits[digit] - '0') + 1;
-                if (tmp != 10) {
-                    startDigits[digit] = char(tmp + '0');
-                }
-                else {
-                    startDigits[digit] = '0';
-                }
-            }
-            count++;
-            if (set.find(startDigits) == set.end()) {
-                set.insert(startDigits);
-            }
-            else {
-                if (!set.empty()) {
-                    //return -1;
-                }
+				int tmp = int(startDigits[digit] - '0') - 1;
+                startDigits[digit] = char(tmp + '0');
+
+				count--;
+
+				digit++; digit = digit / 3;
+				digitCount = 0;
             }
         }
 
@@ -125,29 +115,13 @@ public:
 
         return -1;
     }
-private:
-    string _loopUpOneDigit(string s, string t, int digit) {
-        if (int(s[digit] - '0') != int(t[digit] - '0')) {
-            int tmp = int(s[digit] - '0') + 1;
-            if (tmp != 10) {
-                s[digit] = char(tmp);
-            }
-            else {
-                s[digit] = '0';
-            }
-        }
-        return s;
-    }
-
-    string _isHaveElement(vector<string>& d, string t) {
-        if (find(d.begin(), d.end(), t) != d.end()) {
-            /* v contains x */
-        }
-    }
 };
 
 int main() {
-    vector<string> deadends = { "0201","0101","0102","1212","2002" };
+	// 4 3 2 1
+	string str[5] = { "0201","0101","0102","1212","2002" };
+    vector<string> deadends;
+	deadends.assign(str, str+5);
     string target = "0202";
 
     Solution s;
