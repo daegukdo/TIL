@@ -58,70 +58,66 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/231/practical-applicat
 #include <iostream>  
 #include <string>
 #include <vector>
-#include <set>
+#include <queue>
 
 using namespace std;
 
 class Solution {
 public:
     int openLock(vector<string>& deadends, string target) {
-        // target¿¡ °¡´Â ¸ğµç ¹æ¹ı Ã£±â (¿À¸§Â÷¼ø, ³»¸²Â÷¼ø)
+        // targetì— ê°€ëŠ” ëª¨ë“  ë°©ë²• ì°¾ê¸° (ì˜¤ë¦„ì°¨ìˆœ, ë‚´ë¦¼ì°¨ìˆœ)
+
+        int step = 0;
 
         string startDigits = "0000";
-		set<string> set;
+        
+        queue<string> q;
+        q.push(startDigits);
+        int qSize = 1;
 
-        int digit = 0;
-		int digitCount = 0;
-        int count = 0;
+        while (!q.empty()) {
+            for (int i = 0; i < qSize; i++)
+            {
+                string current = q.front();
+                q.pop();
+                
+                if (find(deadends.begin(), deadends.end(), current) == deadends.end()) {
+                    if (current == target) {
+                        return step;
+                    }
 
-        while (true)
-        {
-			auto elm = find(deadends.begin(), deadends.end(), startDigits);
-            if (elm == deadends.end()) {
-                if (int(startDigits[digit] - '0') != int(target[digit] - '0')) {
-					set.insert(startDigits);
+                    deadends.push_back(current);
 
-                    int tmp = int(startDigits[digit] - '0') + 1;
-                    startDigits[digit] = char(tmp + '0');
+                    for (int digit = 0; digit < 4; digit++) {
+                        int digit_up = int(current[digit] - '0');
+                        int digit_down = 9;
 
-					count++;
-
-					if(set.find(startDigits) != set.end()){
-						return -1;
-					}
-                }
-                else {
-                    digit++; digit = digit / 3;
-					digitCount++;
-
-                    if (digitCount == 4) {
-                        break;
+                        for (int d = digit_up; d <= digit_down; d++) {
+                            for (int j = 0; j < 4; j++) {
+                                if (j == digit) {
+                                    int tmp = d;
+                                    current[j] = char(tmp + '0');
+                                    q.push(current);
+                                }
+                            }
+                        }
                     }
                 }
             }
-            else {
-				int tmp = int(startDigits[digit] - '0') - 1;
-                startDigits[digit] = char(tmp + '0');
 
-				count--;
-
-				digit++; digit = digit / 3;
-				digitCount = 0;
-            }
+            qSize = q.size();
+            step++;
         }
-
-
-
 
         return -1;
     }
 };
 
 int main() {
-	// 4 3 2 1
-	string str[5] = { "0201","0101","0102","1212","2002" };
+    // 4 3 2 1
+    string str[5] = { "0201","0101","0102","1212","2002" };
     vector<string> deadends;
-	deadends.assign(str, str+5);
+    deadends.assign(str, str + 5);
     string target = "0202";
 
     Solution s;
