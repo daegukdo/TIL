@@ -27,8 +27,6 @@ Constraints:
 */
 
 #include <iostream>
-#include <vector>
-#include <queue>
 
 using namespace std;
 
@@ -36,25 +34,31 @@ class Solution {
 public:
     int numSquares(int n) {
         int rstStep = 1;
-        int perfectNum = 0;
+        int perfectNum = 1;
         int perfectNumStep = 1;
         
-        while(n > perfectNum){
-            perfectNum = perfectNumStep * perfectNumStep;
-            debugOutputInt(perfectNum);
+        while(n >= perfectNum){
             int tmpInt = n;
             int tmpStep = 0;
             while(tmpInt >= perfectNum){
                 tmpInt = tmpInt - perfectNum;
                 tmpStep++;
+                //debugOutputInt(tmpStep);
             }
             if(tmpInt > 0){
                 tmpStep += numSquares(tmpInt);
+                tmpInt = 0;
+                //debugOutputInt(tmpStep);
             }
-            if(rstStep < tmpStep){
-                rstStep = tmpStep;
+            if(tmpInt == 0){
+                if((rstStep != 1 & rstStep > tmpStep) || (rstStep == 1))
+                {
+                    rstStep = tmpStep;
+                }
             }
             perfectNumStep++;
+            perfectNum = perfectNumStep * perfectNumStep;
+            //debugOutputInt(-9999);
         }
         
         return rstStep;
@@ -67,7 +71,7 @@ private:
 
 int main() {
     Solution s;
-    int rst = s.numSquares(2);
+    int rst = s.numSquares(13);
 
     cout << rst << endl;
 
