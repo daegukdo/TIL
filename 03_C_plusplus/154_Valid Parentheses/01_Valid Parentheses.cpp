@@ -71,6 +71,7 @@ ref : https://stackoverflow.com/questions/43629363/how-to-check-if-a-string-cont
 
 using namespace std;
 
+const string fail = "X";
 const char b_0 = '{';
 const char d_0 = '}';
 const char b_1 = '[';
@@ -80,13 +81,13 @@ const char d_2 = ')';
 
 class Solution {
 private:
-    string _eleminateBracket0(string _s) {
-        while (_s.find(b_0) != string::npos) {
+    string _eleminateBracket(string _s, char bracket_L, char bracket_R) {
+        while (_s.find(bracket_L) != string::npos) {
             int strStartLen = _s.size();
 
             int ref = 0;
             for (int i = 0; i < strStartLen; i++) {
-                if (_s[i] == b_0) {
+                if (_s[i] == bracket_L) {
                     ref = i;
                     break;
                 }
@@ -94,34 +95,47 @@ private:
 
             int trg = 0;
             for (int i = ref; i < strStartLen; i++) {
-                if (_s[i] == d_0) {
+                if (_s[i] == bracket_R) {
                     trg = i;
                     break;
                 }
             }
 
+            _s[ref] = ' ';
+            _s[trg] = ' ';
             string subStr = _s.substr(ref + 1, trg - ref - 1);
-
-            _s = _eleminateBracket0(subStr);
-
-            if (strStartLen == _s.size()) {
-                break;
+            if (!_isOnlySpace(subStr)) {
+                return fail;
             }
         }
 
         return _s;
     }
+    bool _isOnlySpace(string _s) {
+        for (int i = 0; i < _s.size(); i++) {
+            if (_s[i] != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
 
 public:
     bool isValid(string s) {
         // nearst Ã£±â?
+        string r0 = _eleminateBracket(s, b_0, d_0);
+        if (r0 == fail) { return false; }
+        string r1 = _eleminateBracket(r0, b_1, d_1);
+        if (r1 == fail) { return false; }
+        string r2 = _eleminateBracket(r1, b_2, d_2);
+        if (r2 == fail) { return false; }
 
         return true;
     }
 };
 
 int main() {
-    string s = "()";
+    string s = "{[]}";
 
     Solution sol;
     bool rst = sol.isValid(s);
