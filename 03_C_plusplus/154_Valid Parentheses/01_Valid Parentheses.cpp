@@ -67,7 +67,6 @@ ref : https://stackoverflow.com/questions/43629363/how-to-check-if-a-string-cont
 
 #include <iostream>  
 #include <string>
-#include <stack>
 
 using namespace std;
 
@@ -82,7 +81,7 @@ const char d_2 = ')';
 class Solution {
 private:
     string _eleminateBracket(string _s, char bracket_L, char bracket_R) {
-        while (_s.find(bracket_L) != string::npos) {
+        if(_s.find(bracket_L) != string::npos) {
             int strStartLen = _s.size();
 
             int ref = 0;
@@ -94,22 +93,26 @@ private:
             }
 
             int trg = 0;
-            for (int i = ref; i < strStartLen; i++) {
+            for (int i = strStartLen - 1; i > ref; i--) {
                 if (_s[i] == bracket_R) {
                     trg = i;
                     break;
                 }
             }
+            
+            if(trg == 0){
+                return fail;
+            }
 
             _s[ref] = ' ';
             _s[trg] = ' ';
             string subStr = _s.substr(ref + 1, trg - ref - 1);
-            if (!_isOnlySpace(subStr)) {
-                return fail;
+            if (subStr.size() % 2 == 0) {
+                return _s;
             }
         }
 
-        return _s;
+        return fail;
     }
     bool _isOnlySpace(string _s) {
         for (int i = 0; i < _s.size(); i++) {
@@ -122,23 +125,54 @@ private:
 
 public:
     bool isValid(string s) {
-        // nearst Ã£±â?
-        string r0 = _eleminateBracket(s, b_0, d_0);
-        if (r0 == fail) { return false; }
-        string r1 = _eleminateBracket(r0, b_1, d_1);
-        if (r1 == fail) { return false; }
-        string r2 = _eleminateBracket(r1, b_2, d_2);
-        if (r2 == fail) { return false; }
+        string rstStr = s;
+        while(true){
+            string tmpStr = _eleminateBracket(rstStr, b_0, d_0);
+            if(tmpStr != fail){ 
+                rstStr = tmpStr;
+                cout << rstStr << endl;
+            }
+            else{
+                break;
+            }
+        }
+        while(true){
+            string tmpStr = _eleminateBracket(rstStr, b_1, d_1);
+            if(tmpStr != fail){ 
+                rstStr = tmpStr;
+                cout << rstStr << endl;
+            }
+            else{
+                break;
+            }
+        }
+        while(true){
+            string tmpStr = _eleminateBracket(rstStr, b_2, d_2);
+            if(tmpStr != fail){ 
+                rstStr = tmpStr;
+                cout << rstStr << endl;
+            }
+            else{
+                break;
+            }
+        }
+        
+        if(!_isOnlySpace(rstStr)){
+            return false;
+        }
 
         return true;
     }
 };
 
 int main() {
-    string s = "{[]}";
+    string s = "{()[[[]]]}";
 
     Solution sol;
     bool rst = sol.isValid(s);
+    
+    if(rst) { cout << "true!" << endl; }
+    else    { cout << "false" << endl; }
 
     return 0;
 }
