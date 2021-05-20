@@ -7,7 +7,7 @@ Valid operators are +, -, *, and /. Each operand may be an integer or another ex
 
 Note that division between two integers should truncate toward zero.
 
-It is guaranteed that the given RPN expression is always valid. 
+It is guaranteed that the given RPN expression is always valid.
 
 That means the expression would always evaluate to a result, and there will not be any division by zero operation.
 
@@ -38,6 +38,7 @@ tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the ran
 
 ref : https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1394/
 ref : https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
+ref : https://fist0512.tistory.com/68
 */
 
 #include <iostream>  
@@ -50,44 +51,79 @@ using namespace std;
 class Solution {
 private:
     stack<string> stackStr;
-    
-    bool isContainDigit(const string& s)
-    {
-        string::const_iterator it = s.begin();
-        while (it != s.end()){
-            if(isdigit(*it)){ return true; }
-            ++it;
-        } 
-        return false;
+
+    bool isOperator(string token) {
+        if (token == "+" || token == "-" || token == "*" || token == "/") return true;
+        else return false;
     }
+
 public:
     int evalRPN(vector<string>& tokens) {
-        int rstInt = 0;
-        
-        for(int i = 0; i < tokens.size(); i++){
-            stackStr.push(tokens[i]);
-        }
-        
-        while(stackStr.size() != 0){
-            if(isContainDigit(stackStr.top())){
-                cout << "num" << endl;
+        stack<string> input;
+
+        for (int i = 0; i < tokens.size(); i++) {
+            if (isOperator(tokens[i]) == true) {
+                if (tokens[i] == "+") {
+                    int second = atoi(input.top().c_str());
+                    input.pop();
+
+                    int first = atoi(input.top().c_str());
+                    input.pop();
+
+                    input.push(to_string(first + second));
+                }
+                else if (tokens[i] == "-") {
+                    int second = atoi(input.top().c_str());
+                    input.pop();
+
+                    int first = atoi(input.top().c_str());
+                    input.pop();
+
+                    input.push(to_string(first - second));
+                }
+                else if (tokens[i] == "*") {
+                    int second = atoi(input.top().c_str());
+                    input.pop();
+
+                    int first = atoi(input.top().c_str());
+                    input.pop();
+
+                    input.push(to_string(first * second));
+                }
+                else if (tokens[i] == "/") {
+                    int second = atoi(input.top().c_str());
+                    input.pop();
+
+                    int first = atoi(input.top().c_str());
+                    input.pop();
+
+                    input.push(to_string(first / second)); //if first is zero : need exception case
+                }
             }
-            else{
-                cout << "oprt" << endl;
+            else {
+                input.push(tokens[i]);
             }
-            stackStr.pop();
         }
-        
-        return rstInt;
+
+        return atoi(input.top().c_str());
     }
 };
 
 int main() {
-    string oprArr[13] = {"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
+    /* Explanationl; Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] => Output: 22
+    * "10","6","9","3","+","-11","*","/","*","17","+","5","+" => ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+    * "10","6","12","-11","*","/","*","17","+","5","+" => ((10 * (6 / (12 * -11))) + 17) + 5
+    * "10","6","-132","/","*","17","+","5","+" => ((10 * (6 / -132)) + 17) + 5
+    * "10","0","*","17","+","5","+" => ((10 * 0) + 17) + 5
+    * "0","17","+","5","+" => (0 + 17) + 5
+    * "17","5","+" => 17 + 5
+    * "22" => rst!
+    */
+    string oprArr[13] = { "10","6","9","3","+","-11","*","/","*","17","+","5","+" };
     vector<string> oprVct(begin(oprArr), end(oprArr));
-    
+
     Solution sol;
     int rst = sol.evalRPN(oprVct);
-    
+
     return 0;
 }
