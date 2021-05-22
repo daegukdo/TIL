@@ -21,52 +21,72 @@ The first one is to do recursion which you might already be familiar with.
 
 Here we provide a template as reference:
 
+ref : https://leetcode.com/explore/learn/card/queue-stack/232/practical-application-stack/1377/
 ref : https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1361/
+ref : https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
 */
 
 #include <iostream>  
-#include <stack>
-#include <set>
+#include <map>
+#include <vector>
 
 using namespace std;
-
-// Definition for singly-linked list.
-struct Node {
-    int val;
-    Node *next;
-    Node() : val(0), next(nullptr) {}
-    Node(int x) : val(x), next(nullptr) {}
-    Node(int x, Node *next) : val(x), next(next) {}
+ 
+// Graph class represents a directed graph
+// using adjacency list representation
+class Graph
+{
+public:
+    map<int, bool> visited;
+    map<int, vector<int>> adj;
+ 
+    // function to add an edge to graph
+    void addEdge(int v, int w);
+ 
+    // DFS traversal of the vertices
+    // reachable from v
+    void DFS(int v);
 };
-
-bool DFS(Node* cur, Node* target, set<int> visited) {
-    if(cur == target){
-        return true;
-    }
-
-    if(cur->next != NULL){
-        ;
-    }
-
-    return true if cur is target;
-
-    for (next : each neighbor of cur) {
-        if (next is not in visited) {
-            add next to visted;
-            return true if DFS(next, target, visited) == true;
-        }
-    }
-    return false;
+ 
+void Graph::addEdge(int v, int w)
+{
+    adj[v].push_back(w); // Add w to v’s list.
 }
+ 
+void Graph::DFS(int v)
+{
+    // Mark the current node as visited and
+    // print it
+    visited[v] = true;
+    cout << v << " ";
+ 
+    // Recur for all the vertices adjacent
+    // to this vertex
+    for (auto iter = adj[v].begin(); iter != adj[v].end(); ++iter)
+        if (!visited[*iter])
+            DFS(*iter);
+}
+ 
+// Driver code
+int main()
+{
+    // Create a graph given in the above diagram
+    Graph g;
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(0, 3);
 
-int main() {
-    string s = "()[]{}";
+    g.addEdge(1, 4);
 
-    Solution sol;
-    bool rst = sol.isValid(s);
+    g.addEdge(2, 4);
+    g.addEdge(2, 5);
     
-    if(rst) { cout << "true!" << endl; }
-    else    { cout << "false" << endl; }
+    g.addEdge(3, 6);
+ 
+    g.addEdge(5, 6);
 
+    cout << "Following is Depth First Traversal : " << endl;
+    g.DFS(0);
+ 
     return 0;
 }
