@@ -98,31 +98,23 @@ private:
 public:
     Node* cloneGraph(Node* node) {
         Node* outputNode = new Node(node->val);
-        int inputNodeNumOfNeighbors = node->neighbors.size();
-
-        if (nodeSet.find(node) == nodeSet.end()) {
-            nodeSet.insert(node);
+        auto iter = nodeSet.find(outputNode);
+        if (iter == nodeSet.end()) {
+            int inputNodeNumOfNeighbors = node->neighbors.size();
 
             if (inputNodeNumOfNeighbors != 0) {
                 // this node has some neighbors!
                 for (int i = 0; i < inputNodeNumOfNeighbors; i++) {
-                    Node* tmpNode = cloneGraph(node->neighbors[i]);
+                    Node* tmpNode = node->neighbors[i];
                     outputNode->neighbors.push_back(tmpNode);
                 }
+                nodeSet.insert(outputNode);
             }
 
             return outputNode;
         }
         else {
-            if (inputNodeNumOfNeighbors != 0) {
-                // this node has some neighbors!
-                for (int i = 0; i < inputNodeNumOfNeighbors; i++) {
-                    Node* tmpNode = new Node(node->neighbors[i]->val);
-                    outputNode->neighbors.push_back(tmpNode);
-                }
-            }
-
-            return outputNode;
+            return *iter;
         }
     }
 };
