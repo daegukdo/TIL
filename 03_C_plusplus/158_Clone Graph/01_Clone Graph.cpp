@@ -64,6 +64,7 @@ There are no repeated edges and no self-loops in the graph.
 The Graph is connected and all nodes can be visited starting from the given node.
 
 ref : https://leetcode.com/explore/learn/card/queue-stack/232/practical-application-stack/1392/
+ref : https://www.youtube.com/watch?v=S931KMpiKmQ&t=391s
 */
 
 #include <iostream>  
@@ -93,29 +94,31 @@ public:
 
 class Solution {
 private:
-    set<Node*> nodeSet;
+    set<int> visitedNodeValSet;
+    set<Node*> visitedNodeSet;
 
 public:
     Node* cloneGraph(Node* node) {
-        Node* outputNode = new Node(node->val);
-        auto iter = nodeSet.find(outputNode);
-        if (iter == nodeSet.end()) {
+        auto iter = visitedNodeValSet.find(node->val);
+        if (iter == visitedNodeValSet.end()) {
+            Node* outputNode = new Node(node->val);
+            visitedNodeValSet.insert(outputNode->val);
             int inputNodeNumOfNeighbors = node->neighbors.size();
-
             if (inputNodeNumOfNeighbors != 0) {
-                // this node has some neighbors!
                 for (int i = 0; i < inputNodeNumOfNeighbors; i++) {
-                    Node* tmpNode = node->neighbors[i];
+                    Node* tmpNode = new Node(node->neighbors[i]->val);
+                    visitedNodeValSet.insert(node->neighbors[i]->val);
+                    tmpNode->neighbors.push_back(outputNode);
                     outputNode->neighbors.push_back(tmpNode);
                 }
-                nodeSet.insert(outputNode);
+                visitedNodeSet.insert(outputNode);
             }
-
-            return outputNode;
         }
         else {
-            return *iter;
+            Node* outputNode = new Node(node->val);
         }
+
+        return cloneGraph(node->neighbors[0]);
     }
 };
 
