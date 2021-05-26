@@ -70,6 +70,7 @@ ref : https://www.youtube.com/watch?v=S931KMpiKmQ&t=391s
 #include <iostream>  
 #include <vector>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -94,31 +95,74 @@ public:
 
 class Solution {
 private:
-    set<int> visitedNodeValSet;
-    set<Node*> visitedNodeSet;
+    int count = 0;;
+    vector<int> visitedNodeValVct;
+    vector<Node*> visitedNodeVct;
 
 public:
     Node* cloneGraph(Node* node) {
-        auto iter = visitedNodeValSet.find(node->val);
-        if (iter == visitedNodeValSet.end()) {
+        int breakRef = visitedNodeValVct.size();
+
+        auto iter = find(visitedNodeValVct.begin(), visitedNodeValVct.end(), node->val);
+
+        if (iter == visitedNodeValVct.end()) {
             Node* outputNode = new Node(node->val);
-            visitedNodeValSet.insert(outputNode->val);
+            visitedNodeValVct.push_back(outputNode->val);
+            visitedNodeVct.push_back(outputNode);
+
             int inputNodeNumOfNeighbors = node->neighbors.size();
             if (inputNodeNumOfNeighbors != 0) {
                 for (int i = 0; i < inputNodeNumOfNeighbors; i++) {
                     Node* tmpNode = new Node(node->neighbors[i]->val);
-                    visitedNodeValSet.insert(node->neighbors[i]->val);
+                    visitedNodeValVct.push_back(node->neighbors[i]->val);
+                    visitedNodeVct.push_back(tmpNode);
                     tmpNode->neighbors.push_back(outputNode);
                     outputNode->neighbors.push_back(tmpNode);
                 }
-                visitedNodeSet.insert(outputNode);
             }
         }
         else {
-            Node* outputNode = new Node(node->val);
+            int index = iter - visitedNodeValVct.begin();
+            Node* outputNode = visitedNodeVct[index];
+
+            int inputNodeNumOfNeighbors = node->neighbors.size();
+            if (inputNodeNumOfNeighbors != 0) {
+                for (int i = 0; i < inputNodeNumOfNeighbors; i++) {
+                    auto tmpIter = find(visitedNodeValVct.begin(), visitedNodeValVct.end(), node->neighbors[i]->val);
+                    if (tmpIter == visitedNodeValVct.end()) {
+                        Node* tmpNode = new Node(node->neighbors[i]->val);
+                        visitedNodeValVct.push_back(node->neighbors[i]->val);
+                        visitedNodeVct.push_back(tmpNode);
+                        tmpNode->neighbors.push_back(outputNode);
+                        outputNode->neighbors.push_back(tmpNode);
+                    }
+                }
+            }
         }
 
-        return cloneGraph(node->neighbors[0]);
+        count++;
+
+        if (count == 1) {
+            return cloneGraph(node->neighbors[0]);
+        }
+
+        if (breakRef != visitedNodeValVct.size()){
+            int nextIdx = 0;
+            int cprInt = INT_MIN;
+            int inputNodeNumOfNeighbors = node->neighbors.size();
+            if (inputNodeNumOfNeighbors != 0) {
+                for (int i = 0; i < inputNodeNumOfNeighbors; i++) {
+                    if (cprInt < node->neighbors[i]->val) {
+                        cprInt = node->neighbors[i]->val;
+                        nextIdx = i;
+                    }
+                }
+            }
+            return cloneGraph(node->neighbors[nextIdx]);
+        }
+        else {
+            return visitedNodeVct[0];
+        }
     }
 };
 
