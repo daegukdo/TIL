@@ -32,6 +32,7 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 ref : https://leetcode.com/explore/learn/card/queue-stack/232/practical-application-stack/1383/
 ref : https://smlee729.wordpress.com/2018/03/05/algorithm-%EB%AC%B8%EC%A0%9C-binary-tree-inorder-traversal/
 ref : https://javabypatel.blogspot.com/2017/05/binary-tree-inorder-traversal-in-java.html
+ref : https://icksw.tistory.com/203
 */
 
 #include <iostream>  
@@ -104,8 +105,23 @@ private:
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> rst;
-        if (root != NULL) 
-            rst = _inorderTraversal(root);
+        if (root != NULL) {
+            if (root->left != NULL) {
+                vector<int> rstLeft = _inorderTraversal(root->left);
+                for (int i = 0; i < rstLeft.size(); i++) {
+                    rst.push_back(rstLeft[i]);
+                }
+            }
+
+            rst.push_back(root->val);
+
+            if (root->right != NULL) {
+                vector<int> rstRight = _inorderTraversal(root->right);
+                for (int i = 0; i < rstRight.size(); i++) {
+                    rst.push_back(rstRight[i]);
+                }
+            }
+        }
         return rst;
     }
 };
