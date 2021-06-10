@@ -53,56 +53,71 @@ struct TreeNode {
 class Solution {
 private:
     set<TreeNode*> visited;
-    stack<TreeNode*> stack;
 
     vector<int> _rootStackVal2Vct(std::stack<TreeNode*> rootStack) {
         vector<int> rst;
+        int idx = 0;
+
         while (rootStack.empty() != true) {
             TreeNode* cur = rootStack.top();
             rootStack.pop();
 
-        }
-    }
+            if (visited.find(cur) == visited.end()) {
+                visited.insert(cur);
+                rst.insert(rst.begin() + idx, cur->val);
+                idx = rst.size();
+            
+                if (cur->right != NULL) {
+                    vector<int> tmp = _inorderTraversal(cur->right);
+                    for (int i = 0; i < tmp.size(); i++) {
+                        rst.push_back(tmp[i]);
+                    }
+                }
+            }
 
-public:
-    vector<int> inorderTraversal(TreeNode* root) {
+        }
+
+        return rst;
+    }
+    vector<int> _inorderTraversal(TreeNode* root) {
+        stack<TreeNode*> stack;
+
         vector<int> rst;
 
         stack.push(root);
         while (stack.empty() != true) {
             TreeNode* cur = stack.top();
 
-            if (cur->left == NULL) {
-                break;
-            }
-
-            if (cur->right != NULL) {
-                if (visited.find(cur->right) == visited.end()) {
-                    visited.insert(cur->right);
-                    stack.push(cur->right);
-                }
-            }
-
             if (cur->left != NULL) {
-                if (visited.find(cur->left) == visited.end()) {
-                    visited.insert(cur->left);
-                    stack.push(cur->left);
-                }
+                stack.push(cur->left);
+            }
+
+            if (cur->left == NULL) {
+                rst = _rootStackVal2Vct(stack);
+                break;
             }
         }
 
+        return rst;
+    }
+
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> rst;
+        if (root != NULL) 
+            rst = _inorderTraversal(root);
         return rst;
     }
 };
 
 int main() {
     // ans = 4 2 6 1 5 3
-    TreeNode* root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->left->left = new TreeNode(4);
-    root->left->left->right = new TreeNode(6);
-    root->left->right = new TreeNode(5);
-    root->right = new TreeNode(3);
+    //TreeNode* root = new TreeNode(1);
+    //root->left = new TreeNode(2);
+    //root->left->left = new TreeNode(4);
+    //root->left->left->right = new TreeNode(6);
+    //root->left->right = new TreeNode(5);
+    //root->right = new TreeNode(3);
 
     // ans = 7 4 6 2 5 1 3
     //TreeNode* root = new TreeNode(1);
@@ -119,6 +134,11 @@ int main() {
     //root->right = new TreeNode(3);
     //root->right->left = new TreeNode(4);
     //root->right->right = new TreeNode(5);
+
+    // ans = 1 2 3
+    TreeNode* root = new TreeNode(3);
+    root->left = new TreeNode(1);
+    root->left->right = new TreeNode(2);
 
     Solution sol;
     vector<int> rst = sol.inorderTraversal(root);
