@@ -9,7 +9,7 @@ Note that k is guaranteed to be a positive integer.
 
 You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
 
-Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. 
+Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k.
 
 For example, there won't be input like 3a or 2[4].
 
@@ -41,22 +41,76 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1379/
 
 #include <iostream>  
 #include <string>
+#include <stack>
 
 using namespace std;
 
 class Solution {
+private:
+    char leftBrk = '[';
+    char rightBrk = ']';
+
 public:
     string decodeString(string s) {
-        // find int
-        // find []
-        // 위의 2개 조합으로 stack에 추가
-        // 단순한 char는 그냥 stack추가
-        // 역순으로 꺼내면서 결과값에 저장
-        // 더블로 []가 있는경우는 어떻게 처리? 벡터?
+        string rst = "";
+        stack<string> strStack;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (isdigit(s[i])) {
+                int beginIntIdx = i;
+                int endIntIdx = 0;
+                for (int j = beginIntIdx; j < s.length(); j++) {
+                    if (s[j] == leftBrk) {
+                        endIntIdx = j - 1;
+                        break;
+                    }
+                }
+                int beginIdx = endIntIdx + 2;
+                int endIdx = 0;
+                for (int j = beginIdx; j < s.length(); j++) {
+                    if (s[j] == rightBrk) {
+                        endIdx = j;
+                    }
+                    if ((endIdx != 0) && (isdigit(s[j]))) {
+                        break;
+                    }
+                }
+                int repeatNum = 0;
+                if (beginIntIdx == endIntIdx) {
+                    repeatNum = s[i] - '0';
+                }
+                else {
+                    repeatNum = stoi(s.substr(beginIntIdx, endIntIdx - beginIntIdx + 1));
+                }
+                string tmpStr = "";
+                for (int r = 0; r < repeatNum; r++) {
+                    tmpStr = tmpStr + decodeString(s.substr(beginIdx, endIdx - beginIdx));
+                }
+                strStack.push(tmpStr);
+                s.erase(i, endIdx - i);
+            }
+            else {
+                string tmpStr = "";
+                tmpStr = tmpStr + s[i];
+                strStack.push(tmpStr);
+            }
+        }
+
+        while (!strStack.empty()) {
+            rst = strStack.top() + rst;
+            strStack.pop();
+        }
+
+        return rst;
     }
 };
 
 int main() {
+    string s = "100[leetcode]";
+
+    Solution sol;
+
+    string rst = sol.decodeString(s);
 
     return 0;
 }
