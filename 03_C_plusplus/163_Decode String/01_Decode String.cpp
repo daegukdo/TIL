@@ -50,6 +50,25 @@ private:
     char leftBrk = '[';
     char rightBrk = ']';
 
+    int _findRightBrkIdx(string s) {
+        int rst = 0;
+        stack<int> stackIntIdxLeftBrk;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == leftBrk) {
+                stackIntIdxLeftBrk.push(i);
+            }
+            else if (s[i] == rightBrk) {
+                stackIntIdxLeftBrk.pop();
+                if (stackIntIdxLeftBrk.empty()) {
+                    return i;
+                }
+            }
+        }
+
+        return rst;
+    }
+
 public:
     string decodeString(string s) {
         string rst = "";
@@ -65,16 +84,7 @@ public:
                         break;
                     }
                 }
-                int beginIdx = endIntIdx + 2;
-                int endIdx = 0;
-                for (int j = beginIdx; j < s.length(); j++) {
-                    if (s[j] == rightBrk) {
-                        endIdx = j;
-                    }
-                    if ((endIdx != 0) && (isdigit(s[j]))) {
-                        break;
-                    }
-                }
+
                 int repeatNum = 0;
                 if (beginIntIdx == endIntIdx) {
                     repeatNum = s[i] - '0';
@@ -82,9 +92,13 @@ public:
                 else {
                     repeatNum = stoi(s.substr(beginIntIdx, endIntIdx - beginIntIdx + 1));
                 }
+
+                int beginIdx = endIntIdx + 1;
+                int endIdx = beginIdx + _findRightBrkIdx(s.substr(beginIdx, s.length() - beginIdx));
+
                 string tmpStr = "";
                 for (int r = 0; r < repeatNum; r++) {
-                    tmpStr = tmpStr + decodeString(s.substr(beginIdx, endIdx - beginIdx));
+                    tmpStr = tmpStr + decodeString(s.substr(beginIdx + 1, endIdx - beginIdx - 1));
                 }
                 strStack.push(tmpStr);
                 s.erase(i, endIdx - i);
@@ -106,7 +120,7 @@ public:
 };
 
 int main() {
-    string s = "100[leetcode]";
+    string s = "3[2[leet]code]";
 
     Solution sol;
 
