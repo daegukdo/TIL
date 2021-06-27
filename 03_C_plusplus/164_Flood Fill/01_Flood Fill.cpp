@@ -49,17 +49,84 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1393/
 using namespace std;
 
 class Solution {
+private:
+	vector<vector<int>> _floodFill(vector<vector<int>>& image, int sr, int sc, int newColor, int trgColor) {
+		int imageCmin = 0;
+		int imageRmin = 0;
+		int imageCmax = image[0].size();
+		int imageRmax = image.size();
+		
+		image[sr][sc] = newColor;
+
+		if((imageRmin <= sr - 1) && (image[sr - 1][sc] == trgColor)){
+			// up
+			_floodFill(image, sr - 1, sc, newColor, trgColor);
+		}
+		if((imageCmin <= sc - 1) && (image[sr][sc - 1] == trgColor)){
+			// left
+			_floodFill(image, sr, sc - 1, newColor, trgColor);
+		}
+		if((imageRmax > sr + 1) && (image[sr + 1][sc] == trgColor)){
+			// down
+			_floodFill(image, sr + 1, sc, newColor, trgColor);
+		}
+		if((imageCmax > sc + 1) && (image[sr][sc + 1] == trgColor)){
+			// right
+			_floodFill(image, sr, sc + 1, newColor, trgColor);
+		}
+
+		return image;
+	}
+
 public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
         // pseudocode
-        // sr, sc의 값을 찾기
-        // 상하좌우로 값을 비교
-        // 같다면 다시 sr, sc를 이 위치로 바꾸어서 recursive
-        // DFS 방식 차용
+		// sr, sc의 값을 찾기
+		// 상하좌우로 값을 비교
+		// 같다면 다시 sr, sc를 이 위치로 바꾸어서 recursive
+		// DFS 방식 차용
+
+		return _floodFill(image, sr, sc, newColor, image[sr][sc]);
     }
 };
 
 int main() {
+	// q1
+	/*vector<int> r0;
+	r0.push_back(1);
+	r0.push_back(1);
+	r0.push_back(1);
+	vector<int> r1;
+	r1.push_back(1);
+	r1.push_back(1);
+	r1.push_back(0);
+	vector<int> r2;
+	r2.push_back(1);
+	r2.push_back(0);
+	r2.push_back(1);
+
+	vector<vector<int>> img;
+	img.push_back(r0);
+	img.push_back(r1);
+	img.push_back(r2);*/
+
+	//q2
+	vector<int> r0;
+	r0.push_back(0);
+	r0.push_back(0);
+	r0.push_back(0);
+	vector<int> r1;
+	r1.push_back(0);
+	r1.push_back(1);
+	r1.push_back(1);
+
+	vector<vector<int>> img;
+	img.push_back(r0);
+	img.push_back(r1);
+
+	Solution sol;
+
+	vector<vector<int>> rst = sol.floodFill(img, 1, 1, 1);
 
     return 0;
 }
