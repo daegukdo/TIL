@@ -22,15 +22,19 @@ mat[i][j] is either 0 or 1.
 There is at least one 0 in mat.
 
 ref : https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1388/
+ref : https://butter-shower.tistory.com/176
 */
 
 #include <iostream>  
 #include <vector>
+#include <stdlib.h>
 
 using namespace std;
 
 class Solution {
 private: 
+    vector<pair<int, int>> vctRowCol;
+
     void _updateMatrix(vector<vector<int>>& mat, int row, int col) {
         if (mat[row][col] != 0) {
             mat[row][col] = _findNumOfStepZero(mat, row, col, 1);
@@ -38,30 +42,35 @@ private:
     }
 
     int _findNumOfStepZero(vector<vector<int>>& mat, int row, int col, int startStep) {
-        int stepCol = startStep + 0;
-        int stepRow = startStep + 0;
+        int result = INT_MAX;
 
-        int matColMin = 0;
-        int matRowMin = 0;
-        int matColMax = mat[0].size();
-        int matRowMax = mat.size();
+        for (auto iter = vctRowCol.begin(); iter != vctRowCol.end(); iter++) {
+            int diff = abs(iter->first - row) + abs(iter->second - col);
+            if (result > diff) {
+                result = diff;
+            }
+        }
 
-        int colSign = 1;
-        int rowSign = 1;
-
-        // is need visited?
-        // circle loop!
-
-        return _findNumOfStepZero(mat, row, col, startStep + 1);
+        return result;
     }
 
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
         for (int row = 0; row < mat.size(); row++) {
             for (int col = 0; col < mat[0].size(); col++) {
+                if (mat[row][col] == 0) {
+                    vctRowCol.push_back(make_pair(row, col));
+                }
+            }
+        }
+
+        for (int row = 0; row < mat.size(); row++) {
+            for (int col = 0; col < mat[0].size(); col++) {
                 _updateMatrix(mat, row, col);
             }
         }
+
+        return mat;
     }
 };
 
