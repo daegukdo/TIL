@@ -43,15 +43,38 @@ ref : https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1391/
 using namespace std;
 
 class Solution {
+private:
+	vector<bool> isVisitedRooms;
+
+	void _canVisitAllRooms(vector<vector<int>>& rooms, int startRoom) {
+		if(isVisitedRooms[startRoom] == true){
+			for(int i = 0; i < rooms[startRoom].size(); i++){
+				int key = rooms[startRoom][i];
+				if(isVisitedRooms[key] == false){
+					isVisitedRooms[key] = true;
+					_canVisitAllRooms(rooms, key);
+				}
+			}
+		}
+	}
+
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
-        // pseudo code
-        // 방의 개수를 가지는 visited 변수만들기
-        // 방을 처음부터 돌면서 key에 따라 visited들을 채워나가기
-        // 모든 방을 방문하면 true
-        // 그렇지 않으면 false
+		for(int i = 0; i < rooms.size(); i++){
+			isVisitedRooms.push_back(false);
+		}
 
-        return true;
+		isVisitedRooms[0] = true;
+		
+		_canVisitAllRooms(rooms, 0);
+
+		for(int i = 0; i < rooms.size(); i++){
+			if(isVisitedRooms[i] == false){
+				return false;
+			}
+		}
+
+		return true;
     }
 };
 
